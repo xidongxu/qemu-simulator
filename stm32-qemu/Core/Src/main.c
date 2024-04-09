@@ -97,7 +97,7 @@ void test0(void)
 
     printf("Stack contents (depth %d):\n", 32);
 
-    // 遍历堆栈并打印数据
+    // print function call stack.
     for (int i = 0; i < 32; i++) {
         uint32_t stack_data = *((uint32_t*)(sp_value + i * sizeof(uint32_t)));
         printf("0x%08X ", stack_data);
@@ -142,6 +142,7 @@ void test5(void)
   */
 int main(void)
 {
+
   /* USER CODE BEGIN 1 */
 
   /* USER CODE END 1 */
