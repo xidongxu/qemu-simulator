@@ -87,22 +87,34 @@ uint32_t read_SP_register(void)
   return __get_MSP();
 }
 
+void fault(void) 
+{
+	int a = 0, b = 0, c = 0;
+	
+	SCB->CCR |= SCB_CCR_DIV_0_TRP_Msk;
+	c = (a + (b / c));
+	printf("c = %d\r\n", c);
+}
+	
 void test0(void)
 {
-    printf("this is %s.\r\n", __func__);
+	printf("this is %s.\r\n", __func__);
 
-    printf("control: 0x%08X.\r\n", read_control_register());
-    printf("sp     : 0x%08X.\r\n", read_SP_register());
-    uint32_t sp_value = __get_MSP();
+	printf("control: 0x%08X.\r\n", read_control_register());
+	printf("sp     : 0x%08X.\r\n", read_SP_register());
+	uint32_t sp_value = __get_MSP();
 
-    printf("Stack contents (depth %d):\n", 32);
+	printf("Stack contents (depth %d):\n", 32);
 
-    // print function call stack.
-    for (int i = 0; i < 32; i++) {
-        uint32_t stack_data = *((uint32_t*)(sp_value + i * sizeof(uint32_t)));
-        printf("0x%08X ", stack_data);
-    }
-    printf("\r\n");
+	// print function call stack.
+	for (int i = 0; i < 32; i++) {
+			uint32_t stack_data = *((uint32_t*)(sp_value + i * sizeof(uint32_t)));
+			printf("0x%08X ", stack_data);
+	}
+	printf("\r\n");
+	
+	// trigger a fault.
+	fault();
 }
 
 void test1(void)
@@ -177,7 +189,6 @@ int main(void)
   {
     printf("%s", pData);
     HAL_Delay(1000);
-    
     /* USER CODE END WHILE */
 
     /* USER CODE BEGIN 3 */
@@ -242,11 +253,11 @@ void SystemClock_Config(void)
 void Error_Handler(void)
 {
   /* USER CODE BEGIN Error_Handler_Debug */
+	printf("this is %s.\r\n", __func__);
   /* User can add his own implementation to report the HAL error return state */
   __disable_irq();
   while (1)
   {
-    printf("hello, here is error.");
   }
   /* USER CODE END Error_Handler_Debug */
 }
@@ -262,7 +273,7 @@ void Error_Handler(void)
 void assert_failed(uint8_t *file, uint32_t line)
 {
   /* USER CODE BEGIN 6 */
-  printf("hello, here is assert.");
+  printf("this is %s.\r\n", __func__);
   /* User can add his own implementation to report the file name and line number,
      ex: printf("Wrong parameters value: file %s on line %d\r\n", file, line) */
   /* USER CODE END 6 */
