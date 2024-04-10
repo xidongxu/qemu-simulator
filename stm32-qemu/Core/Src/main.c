@@ -26,7 +26,6 @@
 #include <string.h>
 #include <stdio.h>
 #include <stdlib.h>
-#include <cmsis_armcc.h>
 /* USER CODE END Includes */
 
 /* Private typedef -----------------------------------------------------------*/
