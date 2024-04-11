@@ -59,7 +59,9 @@ C_SOURCES =  \
 ../Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_exti.c \
 ../Core/Src/system_stm32f4xx.c \
 ../Core/Src/sysmem.c \
-../Core/Src/syscalls.c  
+../Core/Src/syscalls.c  \
+../FaultTrace/Src/Fault.c \
+../FaultTrace/Src/Trace.c 
 
 # ASM sources
 ASM_SOURCES =  \
@@ -123,7 +125,8 @@ C_INCLUDES =  \
 -I../Drivers/STM32F4xx_HAL_Driver/Inc \
 -I../Drivers/STM32F4xx_HAL_Driver/Inc/Legacy \
 -I../Drivers/CMSIS/Device/ST/STM32F4xx/Include \
--I../Drivers/CMSIS/Include
+-I../Drivers/CMSIS/Include \
+-I../FaultTrace/Inc 
 
 
 # compile gcc flags

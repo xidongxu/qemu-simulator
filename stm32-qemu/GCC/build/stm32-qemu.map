@@ -700,6 +700,37 @@ Discarded input sections
  .text._execve  0x00000000       0x10 build/syscalls.o
  .bss.__env     0x00000000        0x4 build/syscalls.o
  .data.environ  0x00000000        0x4 build/syscalls.o
+ .text          0x00000000        0x0 build/Fault.o
+ .data          0x00000000        0x0 build/Fault.o
+ .bss           0x00000000        0x0 build/Fault.o
+ .rodata.ft_hardfault.str1.4
+                0x00000000      0x16f build/Fault.o
+ .text.ft_hardfault
+                0x00000000      0x124 build/Fault.o
+ .debug_info    0x00000000      0x5d8 build/Fault.o
+ .debug_abbrev  0x00000000      0x132 build/Fault.o
+ .debug_loc     0x00000000      0x22e build/Fault.o
+ .debug_aranges
+                0x00000000       0x20 build/Fault.o
+ .debug_ranges  0x00000000       0x10 build/Fault.o
+ .debug_line    0x00000000      0x274 build/Fault.o
+ .debug_str     0x00000000      0x2c5 build/Fault.o
+ .comment       0x00000000       0x4a build/Fault.o
+ .debug_frame   0x00000000       0x38 build/Fault.o
+ .ARM.attributes
+                0x00000000       0x34 build/Fault.o
+ .text          0x00000000        0x0 build/Trace.o
+ .data          0x00000000        0x0 build/Trace.o
+ .bss           0x00000000        0x0 build/Trace.o
+ .debug_info    0x00000000       0x72 build/Trace.o
+ .debug_abbrev  0x00000000       0x26 build/Trace.o
+ .debug_aranges
+                0x00000000       0x18 build/Trace.o
+ .debug_line    0x00000000       0x1d build/Trace.o
+ .debug_str     0x00000000      0x18d build/Trace.o
+ .comment       0x00000000       0x4a build/Trace.o
+ .ARM.attributes
+                0x00000000       0x34 build/Trace.o
  .text          0x00000000       0x14 build/startup_stm32f405xx.o
  .data          0x00000000        0x0 build/startup_stm32f405xx.o
  .bss           0x00000000        0x0 build/startup_stm32f405xx.o
@@ -937,6 +968,8 @@ LOAD build/stm32f4xx_hal_exti.o
 LOAD build/system_stm32f4xx.o
 LOAD build/sysmem.o
 LOAD build/syscalls.o
+LOAD build/Fault.o
+LOAD build/Trace.o
 LOAD build/startup_stm32f405xx.o
 LOAD c:/users/xidon/program/arm_gcc/gcc-arm-none-eabi-10.3-2021.10/bin/../lib/gcc/arm-none-eabi/10.3.1/../../../../arm-none-eabi/lib/thumb/v7e-m+fp/hard\libc_nano.a
 LOAD c:/users/xidon/program/arm_gcc/gcc-arm-none-eabi-10.3-2021.10/bin/../lib/gcc/arm-none-eabi/10.3.1/../../../../arm-none-eabi/lib/thumb/v7e-m+fp/hard\libm.a
@@ -2505,6 +2538,7 @@ exit                                              c:/users/xidon/program/arm_gcc
                                                   c:/users/xidon/program/arm_gcc/gcc-arm-none-eabi-10.3-2021.10/bin/../lib/gcc/arm-none-eabi/10.3.1/../../../../arm-none-eabi/lib/thumb/v7e-m+fp/hard/crt0.o
 fault                                             build/main.o
 fflush                                            c:/users/xidon/program/arm_gcc/gcc-arm-none-eabi-10.3-2021.10/bin/../lib/gcc/arm-none-eabi/10.3.1/../../../../arm-none-eabi/lib/thumb/v7e-m+fp/hard\libc_nano.a(lib_a-fflush.o)
+ft_hardfault                                      build/Fault.o
 g_pfnVectors                                      build/startup_stm32f405xx.o
 hardware_init_hook                                c:/users/xidon/program/arm_gcc/gcc-arm-none-eabi-10.3-2021.10/bin/../lib/gcc/arm-none-eabi/10.3.1/../../../../arm-none-eabi/lib/thumb/v7e-m+fp/hard/crt0.o
 huart1                                            build/usart.o
@@ -2531,9 +2565,11 @@ memset                                            c:/users/xidon/program/arm_gcc
 pFlash                                            build/stm32f4xx_hal_flash.o
                                                   build/stm32f4xx_hal_flash_ex.o
 printf                                            c:/users/xidon/program/arm_gcc/gcc-arm-none-eabi-10.3-2021.10/bin/../lib/gcc/arm-none-eabi/10.3.1/../../../../arm-none-eabi/lib/thumb/v7e-m+fp/hard\libc_nano.a(lib_a-printf.o)
+                                                  build/Fault.o
                                                   build/stm32f4xx_it.o
                                                   build/main.o
 puts                                              c:/users/xidon/program/arm_gcc/gcc-arm-none-eabi-10.3-2021.10/bin/../lib/gcc/arm-none-eabi/10.3.1/../../../../arm-none-eabi/lib/thumb/v7e-m+fp/hard\libc_nano.a(lib_a-puts.o)
+                                                  build/Fault.o
                                                   build/main.o
 read_SP_register                                  build/main.o
 read_control_register                             build/main.o

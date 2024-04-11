@@ -13,15 +13,14 @@
 #ifndef __FaultTrace_H__
 #define __FaultTrace_H__
 
+#include "stm32f4xx.h"
+#include <stdio.h>
+
 #ifdef __cplusplus
 extern "C" {
 #endif
 
-
-
-
-
-
+void ft_hardfault(unsigned long *stack_frame, unsigned int link_reg);
 
 #ifdef __cplusplus
 }

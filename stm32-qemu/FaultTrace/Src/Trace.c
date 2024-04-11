@@ -1,8 +1,8 @@
 /**
   ******************************************************************************
-  * @file    Fault.c
-  * @brief   This file provides code for the configuration
-  *          of the USART instances.
+  * @file    Trace.c
+  * @brief   This file provides code for the FaultTrace.
+  *
   ******************************************************************************
 	*
 	*
