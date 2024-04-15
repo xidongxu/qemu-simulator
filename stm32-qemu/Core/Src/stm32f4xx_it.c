@@ -86,6 +86,8 @@ void HardFault_Handler(void)
 {
   /* USER CODE BEGIN HardFault_IRQn 0 */
   printf("this is %s.\r\n", __func__);
+	extern void HardFault_Handler_Proc(); 
+	HardFault_Handler_Proc();
   /* USER CODE END HardFault_IRQn 0 */
   while (1)
   {

@@ -341,7 +341,7 @@
               <MiscControls></MiscControls>
               <Define>USE_HAL_DRIVER,STM32F405xx</Define>
               <Undefine></Undefine>
-              <IncludePath>../Core/Inc;../Drivers/STM32F4xx_HAL_Driver/Inc;../Drivers/STM32F4xx_HAL_Driver/Inc/Legacy;../Drivers/CMSIS/Device/ST/STM32F4xx/Include;../Drivers/CMSIS/Include;..\FaultTrace\Inc</IncludePath>
+              <IncludePath>../Core/Inc;../Drivers/STM32F4xx_HAL_Driver/Inc;../Drivers/STM32F4xx_HAL_Driver/Inc/Legacy;../Drivers/CMSIS/Device/ST/STM32F4xx/Include;../Drivers/CMSIS/Include;..\Utils\fault_dump\inc</IncludePath>
             </VariousControls>
           </Cads>
           <Aads>
@@ -423,17 +423,17 @@
           </Files>
         </Group>
         <Group>
-          <GroupName>Debug/FaultTrace</GroupName>
+          <GroupName>Application/Utils/Fault</GroupName>
           <Files>
             <File>
-              <FileName>Fault.c</FileName>
+              <FileName>fault_dump.c</FileName>
               <FileType>1</FileType>
-              <FilePath>..\FaultTrace\Src\Fault.c</FilePath>
+              <FilePath>..\Utils\fault_dump\src\fault_dump.c</FilePath>
             </File>
             <File>
-              <FileName>Trace.c</FileName>
-              <FileType>1</FileType>
-              <FilePath>..\FaultTrace\Src\Trace.c</FilePath>
+              <FileName>fault_rvds.s</FileName>
+              <FileType>2</FileType>
+              <FilePath>..\Utils\fault_dump\cpu\cortex-m4\fault_rvds.s</FilePath>
             </File>
           </Files>
         </Group>

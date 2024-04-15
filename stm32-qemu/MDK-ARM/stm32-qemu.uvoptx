@@ -214,7 +214,7 @@
 
   <Group>
     <GroupName>Application/MDK-ARM</GroupName>
-    <tvExp>0</tvExp>
+    <tvExp>1</tvExp>
     <tvExpOptDlg>0</tvExpOptDlg>
     <cbSel>0</cbSel>
     <RteFlg>0</RteFlg>
@@ -234,7 +234,7 @@
 
   <Group>
     <GroupName>Application/User/Core</GroupName>
-    <tvExp>0</tvExp>
+    <tvExp>1</tvExp>
     <tvExpOptDlg>0</tvExpOptDlg>
     <cbSel>0</cbSel>
     <RteFlg>0</RteFlg>
@@ -301,8 +301,8 @@
   </Group>
 
   <Group>
-    <GroupName>Debug/FaultTrace</GroupName>
-    <tvExp>0</tvExp>
+    <GroupName>Application/Utils/Fault</GroupName>
+    <tvExp>1</tvExp>
     <tvExpOptDlg>0</tvExpOptDlg>
     <cbSel>0</cbSel>
     <RteFlg>0</RteFlg>
@@ -313,20 +313,20 @@
       <tvExp>0</tvExp>
       <tvExpOptDlg>0</tvExpOptDlg>
       <bDave2>0</bDave2>
-      <PathWithFileName>..\FaultTrace\Src\Fault.c</PathWithFileName>
-      <FilenameWithoutPath>Fault.c</FilenameWithoutPath>
+      <PathWithFileName>..\Utils\fault_dump\src\fault_dump.c</PathWithFileName>
+      <FilenameWithoutPath>fault_dump.c</FilenameWithoutPath>
       <RteFlg>0</RteFlg>
       <bShared>0</bShared>
     </File>
     <File>
       <GroupNumber>3</GroupNumber>
       <FileNumber>8</FileNumber>
-      <FileType>1</FileType>
+      <FileType>2</FileType>
       <tvExp>0</tvExp>
       <tvExpOptDlg>0</tvExpOptDlg>
       <bDave2>0</bDave2>
-      <PathWithFileName>..\FaultTrace\Src\Trace.c</PathWithFileName>
-      <FilenameWithoutPath>Trace.c</FilenameWithoutPath>
+      <PathWithFileName>..\Utils\fault_dump\cpu\cortex-m4\fault_rvds.s</PathWithFileName>
+      <FilenameWithoutPath>fault_rvds.s</FilenameWithoutPath>
       <RteFlg>0</RteFlg>
       <bShared>0</bShared>
     </File>

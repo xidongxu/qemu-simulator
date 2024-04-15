@@ -10,9 +10,9 @@
   *
   ******************************************************************************
   */
-#include "FaultTrace.h"
+#include "fault_dump.h"
 
-void ft_hardfault(unsigned long *stack_frame, unsigned int link_reg) 
+void fault_dump_handler(unsigned long *stack_frame, unsigned int link_reg) 
 {
 		unsigned long stack_r0  = 0;
 		unsigned long stack_r1  = 0;
