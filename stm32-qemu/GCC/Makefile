@@ -60,12 +60,12 @@ C_SOURCES =  \
 ../Core/Src/system_stm32f4xx.c \
 ../Core/Src/sysmem.c \
 ../Core/Src/syscalls.c  \
-../FaultTrace/Src/Fault.c \
-../FaultTrace/Src/Trace.c 
+../Utils/fault_dump/src/fault_dump.c 
 
 # ASM sources
 ASM_SOURCES =  \
-startup_stm32f405xx.s
+startup_stm32f405xx.s \
+../Utils/fault_dump/cpu/cortex-m4/fault_gcc.s
 
 # ASM sources
 ASMM_SOURCES = 
@@ -126,7 +126,7 @@ C_INCLUDES =  \
 -I../Drivers/STM32F4xx_HAL_Driver/Inc/Legacy \
 -I../Drivers/CMSIS/Device/ST/STM32F4xx/Include \
 -I../Drivers/CMSIS/Include \
--I../FaultTrace/Inc 
+-I../Utils/fault_dump/inc 
 
 
 # compile gcc flags
