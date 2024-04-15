@@ -8,6 +8,8 @@
 ;*
 ;*
 ;*******************************************************************************
+
+
     AREA |.text|, CODE, READONLY, ALIGN=2
     THUMB
 	IMPORT fault_dump_handler

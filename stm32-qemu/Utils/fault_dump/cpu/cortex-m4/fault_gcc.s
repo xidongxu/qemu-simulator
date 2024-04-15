@@ -1,13 +1,9 @@
-/**
-  ******************************************************************************
+/*******************************************************************************
   * @file      fault_gcc.s
   * @author    MCD Application Team
   * @brief     STM32F405xx Devices vector table for GCC based toolchains. 
   ******************************************************************************
   * @attention
-  *
-  * Copyright (c) 2017 STMicroelectronics.
-  * All rights reserved.
   *
   *
   *
