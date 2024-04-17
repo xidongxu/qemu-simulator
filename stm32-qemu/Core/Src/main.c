@@ -78,37 +78,37 @@ PUTCHAR_PROTOTYPE
 
 void fault_div_zero_trigger(void) 
 {
-    int a = 0, b = 0, c = 0;
+  int a = 0, b = 0, c = 0;
 
-    SCB->CCR |= SCB_CCR_DIV_0_TRP_Msk;
-    c = (a + (b / c));
-    printf("c = %d\r\n", c);
+  SCB->CCR |= SCB_CCR_DIV_0_TRP_Msk;
+  c = (a + (b / c));
+  printf("c = %d\r\n", c);
 }
 
 void fault_unalign_trigger(void) 
 {
-    volatile int *addr = NULL;
-    volatile int value = 0;
-    SCB->CCR |= SCB_CCR_UNALIGN_TRP_Msk;
+  volatile int *addr = NULL;
+  volatile int value = 0;
+  SCB->CCR |= SCB_CCR_UNALIGN_TRP_Msk;
 
-    addr = (int*)0x00;
-    value = *addr;
-    printf("addr:0x%02X-value:0x%08X\r\n", (int)addr, value);
-    addr = (int*)0x04;
-    value = *addr;
-    printf("addr:0x%02X-value:0x%08X\r\n", (int)addr, value);
-    addr = (int*)0x03;
-    value = *addr;
-    printf("addr:0x%02X-value:0x%08X\r\n", (int)addr, value);
+  addr = (int*)0x00;
+  value = *addr;
+  printf("addr:0x%02X-value:0x%08X\r\n", (int)addr, value);
+  addr = (int*)0x04;
+  value = *addr;
+  printf("addr:0x%02X-value:0x%08X\r\n", (int)addr, value);
+  addr = (int*)0x03;
+  value = *addr;
+  printf("addr:0x%02X-value:0x%08X\r\n", (int)addr, value);
 }
 
 void test0(void)
 {
-    printf("this is %s.\r\n", __func__);
-    // trigger a fault.
-    //float a = 0.0, b = 1.1;
-    //printf("this is %f.\r\n", (a + b));
-    fault_unalign_trigger();
+  printf("this is %s.\r\n", __func__);
+  // trigger a fault.
+  //float a = 0.0, b = 1.1;
+  //printf("this is %f.\r\n", (a + b));
+  fault_unalign_trigger();
 }
 
 void test1(void)
