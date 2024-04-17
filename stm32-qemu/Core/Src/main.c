@@ -76,44 +76,39 @@ PUTCHAR_PROTOTYPE
   return ch;
 }
 
-uint32_t read_control_register(void)
+void fault_div_zero_trigger(void) 
 {
-  return __get_CONTROL();
+    int a = 0, b = 0, c = 0;
+
+    SCB->CCR |= SCB_CCR_DIV_0_TRP_Msk;
+    c = (a + (b / c));
+    printf("c = %d\r\n", c);
 }
 
-uint32_t read_SP_register(void)
+void fault_unalign_trigger(void) 
 {
-  return __get_MSP();
+    volatile int *addr = NULL;
+    volatile int value = 0;
+    SCB->CCR |= SCB_CCR_UNALIGN_TRP_Msk;
+
+    addr = (int*)0x00;
+    value = *addr;
+    printf("addr:0x%02X-value:0x%08X\r\n", (int)addr, value);
+    addr = (int*)0x04;
+    value = *addr;
+    printf("addr:0x%02X-value:0x%08X\r\n", (int)addr, value);
+    addr = (int*)0x03;
+    value = *addr;
+    printf("addr:0x%02X-value:0x%08X\r\n", (int)addr, value);
 }
 
-void fault(void) 
-{
-	int a = 0, b = 0, c = 0;
-	
-	SCB->CCR |= SCB_CCR_DIV_0_TRP_Msk;
-	c = (a + (b / c));
-	printf("c = %d\r\n", c);
-}
-	
 void test0(void)
 {
-	printf("this is %s.\r\n", __func__);
-
-	printf("control: 0x%08X.\r\n", read_control_register());
-	printf("sp     : 0x%08X.\r\n", read_SP_register());
-	uint32_t sp_value = __get_MSP();
-
-	printf("Stack contents (depth %d):\n", 32);
-
-	// print function call stack.
-	for (int i = 0; i < 32; i++) {
-			uint32_t stack_data = *((uint32_t*)(sp_value + i * sizeof(uint32_t)));
-			printf("0x%08X ", stack_data);
-	}
-	printf("\r\n");
-	
-	// trigger a fault.
-	fault();
+    printf("this is %s.\r\n", __func__);
+    // trigger a fault.
+    //float a = 0.0, b = 1.1;
+    //printf("this is %f.\r\n", (a + b));
+    fault_unalign_trigger();
 }
 
 void test1(void)
