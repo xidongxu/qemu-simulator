@@ -51,6 +51,7 @@ struct stack_frame {
   uint32_t callback[16];
 };
 
+void fault_dump_init(void);
 void fault_dump_handler(uint32_t *stack, uint32_t link);
 void fault_dump_register(void);
 

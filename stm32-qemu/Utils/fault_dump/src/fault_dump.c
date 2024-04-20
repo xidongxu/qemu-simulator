@@ -11,6 +11,44 @@
   */
 #include "fault_dump.h"
 
+static volatile unsigned int stack_start      = 0;
+static volatile unsigned int stack_length     = 0;
+static volatile unsigned int code_text_start  = 0;
+static volatile unsigned int code_text_length = 0;
+
+#if defined(__CC_ARM)
+extern unsigned int STACK$$Base;
+extern unsigned int STACK$$Length;
+extern unsigned int Image$$ER_IROM1$$Base;
+extern unsigned int Image$$ER_IROM1$$Length;
+#define FAULT_DUMP_STACK_START  (unsigned int)&STACK$$Base
+#define FAULT_DUMP_STACK_LENGTH (unsigned int)&STACK$$Length
+#define FAULT_DUMP_CODE_START   (unsigned int)&Image$$ER_IROM1$$Base
+#define FAULT_DUMP_CODE_LENGTH  (unsigned int)&Image$$ER_IROM1$$Length
+#elif defined(__GNUC__)
+extern unsigned int _sstack;
+extern unsigned int _estack;
+extern uint8_t _stext;
+extern uint8_t _etext;
+#define FAULT_DUMP_STACK_START  (unsigned int)&_sstack
+#define FAULT_DUMP_STACK_LENGTH (unsigned int)&_estack - (unsigned int)&_sstack
+#define FAULT_DUMP_CODE_START   (unsigned int)&_stext
+#define FAULT_DUMP_CODE_LENGTH  (unsigned int)&_etext - (unsigned int)&_stext
+#else
+#error "fault dump does not support current compiler."
+#endif
+
+void fault_dump_init(void) {
+    stack_start      = FAULT_DUMP_STACK_START;
+    stack_length     = FAULT_DUMP_STACK_LENGTH;
+    code_text_start  = FAULT_DUMP_CODE_START;
+    code_text_length = FAULT_DUMP_CODE_LENGTH;
+    printf("Stack Start  = 0x%08X.\r\n", stack_start);
+    printf("Stack Length = %d.\r\n",     stack_length);
+    printf("Code Start   = 0x%08X.\r\n", code_text_start);
+    printf("Code Length  = %d.\r\n",     code_text_length);
+}
+
 void fault_dump_handler(uint32_t *stack, uint32_t link) {
     static stack_frame_t frame = { 0 };
     frame.manual.r4  = stack[ 0];
