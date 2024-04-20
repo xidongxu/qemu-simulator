@@ -12,14 +12,15 @@
 
     AREA |.text|, CODE, READONLY, ALIGN=2
     THUMB
-	IMPORT fault_dump_handler
-HardFault_Handler_Proc	PROC
-	EXPORT  HardFault_Handler_Proc
-	TST		LR, #4
-	ITE		EQ
-	MRSEQ	R0, MSP
-	MRSNE	R0, PSP
-	MOV		R1, LR
-	BL		fault_dump_handler
-	ENDP
-	END
+    IMPORT fault_dump_handler
+HardFault_Handler    PROC
+    EXPORT  HardFault_Handler
+    TST    LR, #4
+    ITE    EQ
+    MRSEQ  R0, MSP
+    MRSNE  R0, PSP
+    STMFD  R0!, {R4 - R11}
+    MOV    R1, LR
+    BL     ault_dump_handler
+    ENDP
+    END

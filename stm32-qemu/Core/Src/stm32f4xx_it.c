@@ -82,12 +82,10 @@ void NMI_Handler(void)
 /**
   * @brief This function handles Hard fault interrupt.
   */
-void HardFault_Handler(void)
+void HardFault_Handler_Legency(void)
 {
   /* USER CODE BEGIN HardFault_IRQn 0 */
   printf("this is %s.\r\n", __func__);
-	extern void HardFault_Handler_Proc(); 
-	HardFault_Handler_Proc();
   /* USER CODE END HardFault_IRQn 0 */
   while (1)
   {
