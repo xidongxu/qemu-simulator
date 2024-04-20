@@ -21,6 +21,6 @@ HardFault_Handler    PROC
     MRSNE  R0, PSP
     STMFD  R0!, {R4 - R11}
     MOV    R1, LR
-    BL     ault_dump_handler
+    BL     fault_dump_handler
     ENDP
     END
