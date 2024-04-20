@@ -972,7 +972,7 @@ LOAD c:/users/xidon/program/arm_gcc/gcc-arm-none-eabi-10.3-2021.10/bin/../lib/gc
 END GROUP
 LOAD c:/users/xidon/program/arm_gcc/gcc-arm-none-eabi-10.3-2021.10/bin/../lib/gcc/arm-none-eabi/10.3.1/thumb/v7e-m+fp/hard/crtend.o
 LOAD c:/users/xidon/program/arm_gcc/gcc-arm-none-eabi-10.3-2021.10/bin/../lib/gcc/arm-none-eabi/10.3.1/thumb/v7e-m+fp/hard/crtn.o
-                0x20020000                _estack = (ORIGIN (RAM) + LENGTH (RAM))
+                0x20001180                _estack = (ORIGIN (RAM) + LENGTH (RAM))
                 0x00000800                _Min_Heap_Size = 0x800
                 0x00000800                _Min_Stack_Size = 0x800
 
@@ -1410,7 +1410,7 @@ LOAD c:/users/xidon/program/arm_gcc/gcc-arm-none-eabi-10.3-2021.10/bin/../lib/gc
 .iplt           0x08002a38        0x0
  .iplt          0x08002a38        0x0 c:/users/xidon/program/arm_gcc/gcc-arm-none-eabi-10.3-2021.10/bin/../lib/gcc/arm-none-eabi/10.3.1/thumb/v7e-m+fp/hard/crtbegin.o
 
-.rodata         0x08002a38      0x42c
+.rodata         0x08002a38      0x43c
                 0x08002a38                . = ALIGN (0x4)
  *(.rodata)
  *(.rodata*)
@@ -1472,64 +1472,64 @@ LOAD c:/users/xidon/program/arm_gcc/gcc-arm-none-eabi-10.3-2021.10/bin/../lib/gc
                 0x08002bbc        0x8 build/system_stm32f4xx.o
                 0x08002bbc                APBPrescTable
  .rodata.fault_dump_init.str1.4
-                0x08002bc4       0x65 build/fault_dump.o
- *fill*         0x08002c29        0x3 
+                0x08002bc4       0x76 build/fault_dump.o
+ *fill*         0x08002c3a        0x2 
  .rodata.fault_dump_handler.str1.4
-                0x08002c2c      0x19e build/fault_dump.o
+                0x08002c3c      0x19e build/fault_dump.o
                                 0x1a2 (size before relaxing)
- *fill*         0x08002dca        0x2 
+ *fill*         0x08002dda        0x2 
  .rodata._global_impure_ptr
-                0x08002dcc        0x4 c:/users/xidon/program/arm_gcc/gcc-arm-none-eabi-10.3-2021.10/bin/../lib/gcc/arm-none-eabi/10.3.1/../../../../arm-none-eabi/lib/thumb/v7e-m+fp/hard\libc_nano.a(lib_a-impure.o)
-                0x08002dcc                _global_impure_ptr
+                0x08002ddc        0x4 c:/users/xidon/program/arm_gcc/gcc-arm-none-eabi-10.3-2021.10/bin/../lib/gcc/arm-none-eabi/10.3.1/../../../../arm-none-eabi/lib/thumb/v7e-m+fp/hard\libc_nano.a(lib_a-impure.o)
+                0x08002ddc                _global_impure_ptr
  .rodata.__sf_fake_stderr
-                0x08002dd0       0x20 c:/users/xidon/program/arm_gcc/gcc-arm-none-eabi-10.3-2021.10/bin/../lib/gcc/arm-none-eabi/10.3.1/../../../../arm-none-eabi/lib/thumb/v7e-m+fp/hard\libc_nano.a(lib_a-findfp.o)
-                0x08002dd0                __sf_fake_stderr
+                0x08002de0       0x20 c:/users/xidon/program/arm_gcc/gcc-arm-none-eabi-10.3-2021.10/bin/../lib/gcc/arm-none-eabi/10.3.1/../../../../arm-none-eabi/lib/thumb/v7e-m+fp/hard\libc_nano.a(lib_a-findfp.o)
+                0x08002de0                __sf_fake_stderr
  .rodata.__sf_fake_stdin
-                0x08002df0       0x20 c:/users/xidon/program/arm_gcc/gcc-arm-none-eabi-10.3-2021.10/bin/../lib/gcc/arm-none-eabi/10.3.1/../../../../arm-none-eabi/lib/thumb/v7e-m+fp/hard\libc_nano.a(lib_a-findfp.o)
-                0x08002df0                __sf_fake_stdin
+                0x08002e00       0x20 c:/users/xidon/program/arm_gcc/gcc-arm-none-eabi-10.3-2021.10/bin/../lib/gcc/arm-none-eabi/10.3.1/../../../../arm-none-eabi/lib/thumb/v7e-m+fp/hard\libc_nano.a(lib_a-findfp.o)
+                0x08002e00                __sf_fake_stdin
  .rodata.__sf_fake_stdout
-                0x08002e10       0x20 c:/users/xidon/program/arm_gcc/gcc-arm-none-eabi-10.3-2021.10/bin/../lib/gcc/arm-none-eabi/10.3.1/../../../../arm-none-eabi/lib/thumb/v7e-m+fp/hard\libc_nano.a(lib_a-findfp.o)
-                0x08002e10                __sf_fake_stdout
+                0x08002e20       0x20 c:/users/xidon/program/arm_gcc/gcc-arm-none-eabi-10.3-2021.10/bin/../lib/gcc/arm-none-eabi/10.3.1/../../../../arm-none-eabi/lib/thumb/v7e-m+fp/hard\libc_nano.a(lib_a-findfp.o)
+                0x08002e20                __sf_fake_stdout
  .rodata._vfprintf_r.str1.1
-                0x08002e30       0x11 c:/users/xidon/program/arm_gcc/gcc-arm-none-eabi-10.3-2021.10/bin/../lib/gcc/arm-none-eabi/10.3.1/../../../../arm-none-eabi/lib/thumb/v7e-m+fp/hard\libc_nano.a(lib_a-nano-vfprintf.o)
+                0x08002e40       0x11 c:/users/xidon/program/arm_gcc/gcc-arm-none-eabi-10.3-2021.10/bin/../lib/gcc/arm-none-eabi/10.3.1/../../../../arm-none-eabi/lib/thumb/v7e-m+fp/hard\libc_nano.a(lib_a-nano-vfprintf.o)
  .rodata._printf_i.str1.1
-                0x08002e41       0x22 c:/users/xidon/program/arm_gcc/gcc-arm-none-eabi-10.3-2021.10/bin/../lib/gcc/arm-none-eabi/10.3.1/../../../../arm-none-eabi/lib/thumb/v7e-m+fp/hard\libc_nano.a(lib_a-nano-vfprintf_i.o)
-                0x08002e64                . = ALIGN (0x4)
- *fill*         0x08002e63        0x1 
+                0x08002e51       0x22 c:/users/xidon/program/arm_gcc/gcc-arm-none-eabi-10.3-2021.10/bin/../lib/gcc/arm-none-eabi/10.3.1/../../../../arm-none-eabi/lib/thumb/v7e-m+fp/hard\libc_nano.a(lib_a-nano-vfprintf_i.o)
+                0x08002e74                . = ALIGN (0x4)
+ *fill*         0x08002e73        0x1 
 
 .ARM.extab
  *(.ARM.extab* .gnu.linkonce.armextab.*)
 
-.ARM            0x08002e64        0x8
-                0x08002e64                __exidx_start = .
+.ARM            0x08002e74        0x8
+                0x08002e74                __exidx_start = .
  *(.ARM.exidx*)
- .ARM.exidx     0x08002e64        0x8 c:/users/xidon/program/arm_gcc/gcc-arm-none-eabi-10.3-2021.10/bin/../lib/gcc/arm-none-eabi/10.3.1/thumb/v7e-m+fp/hard\libgcc.a(_udivmoddi4.o)
-                0x08002e6c                __exidx_end = .
+ .ARM.exidx     0x08002e74        0x8 c:/users/xidon/program/arm_gcc/gcc-arm-none-eabi-10.3-2021.10/bin/../lib/gcc/arm-none-eabi/10.3.1/thumb/v7e-m+fp/hard\libgcc.a(_udivmoddi4.o)
+                0x08002e7c                __exidx_end = .
 
-.rel.dyn        0x08002e6c        0x0
- .rel.iplt      0x08002e6c        0x0 c:/users/xidon/program/arm_gcc/gcc-arm-none-eabi-10.3-2021.10/bin/../lib/gcc/arm-none-eabi/10.3.1/thumb/v7e-m+fp/hard/crtbegin.o
+.rel.dyn        0x08002e7c        0x0
+ .rel.iplt      0x08002e7c        0x0 c:/users/xidon/program/arm_gcc/gcc-arm-none-eabi-10.3-2021.10/bin/../lib/gcc/arm-none-eabi/10.3.1/thumb/v7e-m+fp/hard/crtbegin.o
 
-.preinit_array  0x08002e6c        0x0
-                0x08002e6c                PROVIDE (__preinit_array_start = .)
+.preinit_array  0x08002e7c        0x0
+                0x08002e7c                PROVIDE (__preinit_array_start = .)
  *(.preinit_array*)
-                0x08002e6c                PROVIDE (__preinit_array_end = .)
+                0x08002e7c                PROVIDE (__preinit_array_end = .)
 
-.init_array     0x08002e6c        0x4
-                0x08002e6c                PROVIDE (__init_array_start = .)
+.init_array     0x08002e7c        0x4
+                0x08002e7c                PROVIDE (__init_array_start = .)
  *(SORT_BY_NAME(.init_array.*))
  *(.init_array*)
- .init_array    0x08002e6c        0x4 c:/users/xidon/program/arm_gcc/gcc-arm-none-eabi-10.3-2021.10/bin/../lib/gcc/arm-none-eabi/10.3.1/thumb/v7e-m+fp/hard/crtbegin.o
-                0x08002e70                PROVIDE (__init_array_end = .)
+ .init_array    0x08002e7c        0x4 c:/users/xidon/program/arm_gcc/gcc-arm-none-eabi-10.3-2021.10/bin/../lib/gcc/arm-none-eabi/10.3.1/thumb/v7e-m+fp/hard/crtbegin.o
+                0x08002e80                PROVIDE (__init_array_end = .)
 
-.fini_array     0x08002e70        0x4
+.fini_array     0x08002e80        0x4
                 [!provide]                PROVIDE (__fini_array_start = .)
  *(SORT_BY_NAME(.fini_array.*))
  *(.fini_array*)
- .fini_array    0x08002e70        0x4 c:/users/xidon/program/arm_gcc/gcc-arm-none-eabi-10.3-2021.10/bin/../lib/gcc/arm-none-eabi/10.3.1/thumb/v7e-m+fp/hard/crtbegin.o
+ .fini_array    0x08002e80        0x4 c:/users/xidon/program/arm_gcc/gcc-arm-none-eabi-10.3-2021.10/bin/../lib/gcc/arm-none-eabi/10.3.1/thumb/v7e-m+fp/hard/crtbegin.o
                 [!provide]                PROVIDE (__fini_array_end = .)
-                0x08002e74                _sidata = LOADADDR (.data)
+                0x08002e84                _sidata = LOADADDR (.data)
 
-.data           0x20000000       0x70 load address 0x08002e74
+.data           0x20000000       0x70 load address 0x08002e84
                 0x20000000                . = ALIGN (0x4)
                 0x20000000                _sdata = .
  *(.data)
@@ -1551,12 +1551,12 @@ LOAD c:/users/xidon/program/arm_gcc/gcc-arm-none-eabi-10.3-2021.10/bin/../lib/gc
                 0x20000010       0x60 c:/users/xidon/program/arm_gcc/gcc-arm-none-eabi-10.3-2021.10/bin/../lib/gcc/arm-none-eabi/10.3.1/../../../../arm-none-eabi/lib/thumb/v7e-m+fp/hard\libc_nano.a(lib_a-impure.o)
                 0x20000070                . = ALIGN (0x4)
                 0x20000070                _edata = .
-                0x08002ee4                _siccmram = LOADADDR (.ccmram)
+                0x08002ef4                _siccmram = LOADADDR (.ccmram)
 
-.igot.plt       0x20000070        0x0 load address 0x08002ee4
+.igot.plt       0x20000070        0x0 load address 0x08002ef4
  .igot.plt      0x20000070        0x0 c:/users/xidon/program/arm_gcc/gcc-arm-none-eabi-10.3-2021.10/bin/../lib/gcc/arm-none-eabi/10.3.1/thumb/v7e-m+fp/hard/crtbegin.o
 
-.ccmram         0x10000000        0x0 load address 0x08002ee4
+.ccmram         0x10000000        0x0 load address 0x08002ef4
                 0x10000000                . = ALIGN (0x4)
                 0x10000000                _sccmram = .
  *(.ccmram)
@@ -1577,15 +1577,15 @@ LOAD c:/users/xidon/program/arm_gcc/gcc-arm-none-eabi-10.3-2021.10/bin/../lib/gc
                 0x200000d4                uwTick
  .bss.__sbrk_heap_end
                 0x200000d8        0x4 build/sysmem.o
- .bss.code_text_length
+ .bss.code_stack_length
                 0x200000dc        0x4 build/fault_dump.o
- .bss.code_text_start
+ .bss.code_stack_start
                 0x200000e0        0x4 build/fault_dump.o
- .bss.frame.0   0x200000e4       0x80 build/fault_dump.o
- .bss.stack_length
-                0x20000164        0x4 build/fault_dump.o
- .bss.stack_start
-                0x20000168        0x4 build/fault_dump.o
+ .bss.code_text_length
+                0x200000e4        0x4 build/fault_dump.o
+ .bss.code_text_start
+                0x200000e8        0x4 build/fault_dump.o
+ .bss.frame.0   0x200000ec       0x80 build/fault_dump.o
  .bss.__lock___malloc_recursive_mutex
                 0x2000016c        0x1 c:/users/xidon/program/arm_gcc/gcc-arm-none-eabi-10.3-2021.10/bin/../lib/gcc/arm-none-eabi/10.3.1/../../../../arm-none-eabi/lib/thumb/v7e-m+fp/hard\libc_nano.a(lib_a-lock.o)
                 0x2000016c                __lock___malloc_recursive_mutex
@@ -1621,6 +1621,7 @@ LOAD c:/users/xidon/program/arm_gcc/gcc-arm-none-eabi-10.3-2021.10/bin/../lib/gc
                 0x20001180                . = (. + _Min_Stack_Size)
  *fill*         0x20000980      0x800 
                 0x20001180                . = ALIGN (0x8)
+                0x20001180                _estack = .
 
 /DISCARD/
  libc.a(*)
@@ -1738,7 +1739,7 @@ LOAD c:/users/xidon/program/arm_gcc/gcc-arm-none-eabi-10.3-2021.10/bin/../lib/gc
 LOAD c:/users/xidon/program/arm_gcc/gcc-arm-none-eabi-10.3-2021.10/bin/../lib/gcc/arm-none-eabi/10.3.1/../../../../arm-none-eabi/lib/thumb/v7e-m+fp/hard\libm.a
 LOAD c:/users/xidon/program/arm_gcc/gcc-arm-none-eabi-10.3-2021.10/bin/../lib/gcc/arm-none-eabi/10.3.1/thumb/v7e-m+fp/hard\libgcc.a
 
-.debug_info     0x00000000     0xd0b1
+.debug_info     0x00000000     0xd099
  .debug_info    0x00000000     0x121f build/main.o
  .debug_info    0x0000121f      0x308 build/gpio.o
  .debug_info    0x00001527      0xd68 build/usart.o
@@ -1753,9 +1754,9 @@ LOAD c:/users/xidon/program/arm_gcc/gcc-arm-none-eabi-10.3-2021.10/bin/../lib/gc
  .debug_info    0x0000b9cb      0x5b3 build/system_stm32f4xx.o
  .debug_info    0x0000bf7e      0x185 build/sysmem.o
  .debug_info    0x0000c103      0x835 build/syscalls.o
- .debug_info    0x0000c938      0x731 build/fault_dump.o
- .debug_info    0x0000d069       0x22 build/startup_stm32f405xx.o
- .debug_info    0x0000d08b       0x26 build/fault_gcc.o
+ .debug_info    0x0000c938      0x719 build/fault_dump.o
+ .debug_info    0x0000d051       0x22 build/startup_stm32f405xx.o
+ .debug_info    0x0000d073       0x26 build/fault_gcc.o
 
 .debug_abbrev   0x00000000     0x1ed1
  .debug_abbrev  0x00000000      0x28f build/main.o
@@ -1866,7 +1867,7 @@ LOAD c:/users/xidon/program/arm_gcc/gcc-arm-none-eabi-10.3-2021.10/bin/../lib/gc
  .debug_line    0x000093e6       0x76 build/startup_stm32f405xx.o
  .debug_line    0x0000945c       0x65 build/fault_gcc.o
 
-.debug_str      0x00000000     0x28af
+.debug_str      0x00000000     0x28b9
  .debug_str     0x00000000      0x966 build/main.o
                                 0xa1a (size before relaxing)
  .debug_str     0x00000966       0x13 build/gpio.o
@@ -1895,11 +1896,11 @@ LOAD c:/users/xidon/program/arm_gcc/gcc-arm-none-eabi-10.3-2021.10/bin/../lib/gc
                                 0x21b (size before relaxing)
  .debug_str     0x0000250f      0x1fe build/syscalls.o
                                 0x3ef (size before relaxing)
- .debug_str     0x0000270d      0x150 build/fault_dump.o
-                                0x342 (size before relaxing)
- .debug_str     0x0000285d       0x24 build/startup_stm32f405xx.o
+ .debug_str     0x0000270d      0x15a build/fault_dump.o
+                                0x33a (size before relaxing)
+ .debug_str     0x00002867       0x24 build/startup_stm32f405xx.o
                                  0x5d (size before relaxing)
- .debug_str     0x00002881       0x2e build/fault_gcc.o
+ .debug_str     0x0000288b       0x2e build/fault_gcc.o
                                  0x75 (size before relaxing)
 
 .comment        0x00000000       0x49

@@ -174,7 +174,6 @@ int main(void)
   MX_GPIO_Init();
   MX_USART1_UART_Init();
   /* USER CODE BEGIN 2 */
-  char *pData = "hello qemu.\n";
   fault_dump_init();
   test5();
   /* USER CODE END 2 */
@@ -183,7 +182,7 @@ int main(void)
   /* USER CODE BEGIN WHILE */
   while (1)
   {
-    printf("%s", pData);
+    printf("%s", "hello qemu.\r\n");
     HAL_Delay(1000);
     /* USER CODE END WHILE */
 
