@@ -972,7 +972,7 @@ LOAD c:/users/xidon/program/arm_gcc/gcc-arm-none-eabi-10.3-2021.10/bin/../lib/gc
 END GROUP
 LOAD c:/users/xidon/program/arm_gcc/gcc-arm-none-eabi-10.3-2021.10/bin/../lib/gcc/arm-none-eabi/10.3.1/thumb/v7e-m+fp/hard/crtend.o
 LOAD c:/users/xidon/program/arm_gcc/gcc-arm-none-eabi-10.3-2021.10/bin/../lib/gcc/arm-none-eabi/10.3.1/thumb/v7e-m+fp/hard/crtn.o
-                0x2000116c                _estack = (ORIGIN (RAM) + LENGTH (RAM))
+                0x20001170                _estack = (ORIGIN (RAM) + LENGTH (RAM))
                 0x00000800                _Min_Heap_Size = 0x800
                 0x00000800                _Min_Stack_Size = 0x800
 
@@ -1603,17 +1603,18 @@ LOAD c:/users/xidon/program/arm_gcc/gcc-arm-none-eabi-10.3-2021.10/bin/../lib/gc
                 0x2000016c                __bss_end__ = _ebss
 
 ._user_heap_stack
-                0x2000016c     0x1000
-                0x2000016c                . = ALIGN (0x4)
+                0x2000016c     0x1004
+                0x20000170                . = ALIGN (0x8)
+ *fill*         0x2000016c        0x4 
                 [!provide]                PROVIDE (end = .)
-                0x2000016c                PROVIDE (_end = .)
-                0x2000096c                . = (. + _Min_Heap_Size)
- *fill*         0x2000016c      0x800 
-                0x2000096c                _sstack = .
-                0x2000116c                . = (. + _Min_Stack_Size)
- *fill*         0x2000096c      0x800 
-                0x2000116c                . = ALIGN (0x4)
-                0x2000116c                _estack = .
+                0x20000170                PROVIDE (_end = .)
+                0x20000970                . = (. + _Min_Heap_Size)
+ *fill*         0x20000170      0x800 
+                0x20000970                _sstack = .
+                0x20001170                . = (. + _Min_Stack_Size)
+ *fill*         0x20000970      0x800 
+                0x20001170                . = ALIGN (0x8)
+                0x20001170                _estack = .
 
 /DISCARD/
  libc.a(*)
