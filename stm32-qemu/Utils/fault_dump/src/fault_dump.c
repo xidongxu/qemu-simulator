@@ -74,8 +74,12 @@ void fault_dump_init(void) {
     printf("size->%d.  \r\n", FD_CODE_TEXT_SIZE);
 }
 
-void fault_dump_handler(uint32_t *stack, uint32_t link) {
+void fault_dump_handler(unsigned int *stack, unsigned int linker) {
     static stack_frame_t frame = { 0 };
+    unsigned int fd_frame_size = 16;
+    unsigned int fd_stack_left = 0;
+    unsigned int fd_stack_used = (unsigned int)stack;
+    // Record current register information.
     frame.manual.r4  = stack[ 0];
     frame.manual.r5  = stack[ 1];
     frame.manual.r6  = stack[ 2];
@@ -92,10 +96,7 @@ void fault_dump_handler(uint32_t *stack, uint32_t link) {
     frame.except.lr  = stack[13];
     frame.except.pc  = stack[14];
     frame.except.psr = stack[15];
-    for (int iter = 0; iter < 16; iter++) {
-        frame.callback[iter] = stack[iter + 16];
-    }
-    
+    // Print current register information.
     printf("\r\n");
     printf(" HardFault Information Dump \r\n");
     printf(" Stack Frame   \r\n");
@@ -115,10 +116,15 @@ void fault_dump_handler(uint32_t *stack, uint32_t link) {
     printf(" LR   = 0x%08X \r\n", (unsigned int)frame.except.lr);
     printf(" PC   = 0x%08X \r\n", (unsigned int)frame.except.pc);
     printf(" PSR  = 0x%08X \r\n", (unsigned int)frame.except.psr);
-    printf(" EXE_RETURN = 0x%08X \r\n", (unsigned int)link);
-    printf(" Call Stack    \r\n");
-    for (int iter = 0; iter < (sizeof(frame.callback) / sizeof(uint32_t)); iter++) {
-        printf("%08X ", (unsigned int)(frame.callback[iter]));
+    printf("\r\n");
+    printf(" EXE_RETURN: 0x%08X \r\n", linker);
+    // Calculate the size of remaining data in the stack.
+    fd_stack_left = (FD_CODE_STACK_FULL - fd_stack_used - fd_frame_size);
+    printf(" Stack Used: %d / %d\r\n", fd_stack_left, FD_CODE_STACK_SIZE);
+    // Print stack information.
+    printf(" Stack Call: \r\n");
+    for (int iter = 0; iter < (fd_stack_left / sizeof(unsigned int)); iter++) {
+        printf("%08X ", (unsigned int)(stack[iter]));
     }
     printf("\r\n");
     while(1);

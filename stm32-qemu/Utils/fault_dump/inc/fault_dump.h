@@ -22,37 +22,36 @@ extern "C" {
 
 typedef struct stack_frame_except stack_frame_except_t;
 struct stack_frame_except {
-    uint32_t r0;
-    uint32_t r1;
-    uint32_t r2;
-    uint32_t r3;
-    uint32_t r12;
-    uint32_t lr;
-    uint32_t pc;
-    uint32_t psr;
+    unsigned int r0;
+    unsigned int r1;
+    unsigned int r2;
+    unsigned int r3;
+    unsigned int r12;
+    unsigned int lr;
+    unsigned int pc;
+    unsigned int psr;
 };
 
 typedef struct stack_frame_manual stack_frame_manual_t;
 struct stack_frame_manual {
-    uint32_t r4;
-    uint32_t r5;
-    uint32_t r6;
-    uint32_t r7;
-    uint32_t r8;
-    uint32_t r9;
-    uint32_t r10;
-    uint32_t r11;
+    unsigned int r4;
+    unsigned int r5;
+    unsigned int r6;
+    unsigned int r7;
+    unsigned int r8;
+    unsigned int r9;
+    unsigned int r10;
+    unsigned int r11;
 };
 
 typedef struct stack_frame stack_frame_t;
 struct stack_frame {
-  stack_frame_manual_t manual;
-  stack_frame_except_t except;
-  uint32_t callback[16];
+    stack_frame_manual_t manual;
+    stack_frame_except_t except;
 };
 
 void fault_dump_init(void);
-void fault_dump_handler(uint32_t *stack, uint32_t link);
+void fault_dump_handler(unsigned int *stack, unsigned int linker);
 void fault_dump_register(void);
 
 #ifdef __cplusplus
