@@ -74,12 +74,38 @@ void fault_dump_init(void) {
     printf("size->%d.  \r\n", FD_CODE_TEXT_SIZE);
 }
 
+static unsigned int fault_dump_opcode(unsigned int pc) {
+    uint16_t value[2] = { 0 };
+    unsigned int opcode = 0;
+    for (int i = 0; i < (sizeof(value) / sizeof(uint16_t)); i++) {
+        value[i] = *(uint16_t*)(pc + i * sizeof(uint16_t));
+    }
+    opcode = ((unsigned int)value[1] << 0x10) |
+             ((unsigned int)value[0] << 0x00);
+    return opcode;
+}
+
+static bool opcode_is_bl_or_blx(unsigned int ins) {
+#define FD_BL_OPCODE_MASK   (0xF800)
+#define FD_BL_OPCODE_BL     (0xF000)
+#define FD_BL_OPCODE_BLX    (0xF800)
+    uint16_t opcode1 = (((ins >> 0x00) & 0xFFFF) & FD_BL_OPCODE_MASK);
+    uint16_t opcode2 = (((ins >> 0x10) & 0xFFFF) & FD_BL_OPCODE_MASK);
+    if ((opcode1 == FD_BL_OPCODE_BL) || (opcode1 == FD_BL_OPCODE_BLX)) {
+        return true;
+    }
+    if ((opcode2 == FD_BL_OPCODE_BL) || (opcode2 == FD_BL_OPCODE_BLX)) {
+        return true;
+    }
+    return false;
+}
+
 void fault_dump_handler(unsigned int *stack, unsigned int linker) {
     static stack_frame_t frame = { 0 };
     unsigned int fd_frame_size = 16;
     unsigned int fd_stack_left = 0;
     unsigned int fd_stack_used = (unsigned int)stack;
-    unsigned int pc = 0;
+    unsigned int pc = 0, op = 0;
     // Record current register information.
     frame.manual.r4  = stack[ 0];
     frame.manual.r5  = stack[ 1];
@@ -131,14 +157,24 @@ void fault_dump_handler(unsigned int *stack, unsigned int linker) {
             continue;
         }
         // The thumb instruction must be an odd number.
-        if (pc % 2 == 0) {
+        if ((pc % 2) == 0) {
             continue;
         }
         // Fix thumb command.
         pc = pc - 1;
         // Calculate the address of the instruction being executed before pushing on the stack.
         pc = pc - sizeof(unsigned int);
-        // Record this address.
+        // The thumb instruction is at least 2-byte aligned.
+        if ((pc & 0x1) != 0) {
+            continue;
+        }
+        // Read the instruction at the PC address.
+        op = fault_dump_opcode(pc);
+        // Only BL or BLX opcode need to be recorded.
+        if (!opcode_is_bl_or_blx(op)) {
+            continue;
+        }
+        // Print this address.
         printf("%08X ", pc);
     }
     printf("\r\n");
