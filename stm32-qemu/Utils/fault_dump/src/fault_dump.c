@@ -11,42 +11,45 @@
   */
 #include "fault_dump.h"
 
-static volatile unsigned int code_stack_start  = 0;
-static volatile unsigned int code_stack_length = 0;
-static volatile unsigned int code_text_start   = 0;
-static volatile unsigned int code_text_length  = 0;
-
 #if defined(__CC_ARM)
 extern unsigned int STACK$$Base;
 extern unsigned int STACK$$Length;
 extern unsigned int Image$$ER_IROM1$$Base;
 extern unsigned int Image$$ER_IROM1$$Length;
-#define FD_CODE_STACK_START  (unsigned int)&STACK$$Base
-#define FD_CODE_STACK_LENGTH (unsigned int)&STACK$$Length
-#define FD_CODE_TEXT_START   (unsigned int)&Image$$ER_IROM1$$Base
-#define FD_CODE_TEXT_LENGTH  (unsigned int)&Image$$ER_IROM1$$Length
+/* stack segment information */
+#define FD_CODE_STACK_BASE    (unsigned int)&STACK$$Base
+#define FD_CODE_STACK_SIZE    (unsigned int)&STACK$$Length
+#define FD_CODE_STACK_FULL    (FD_CODE_STACK_BASE + FD_CODE_STACK_SIZE)
+/* text segment information */
+#define FD_CODE_TEXT_BASE     (unsigned int)&Image$$ER_IROM1$$Base
+#define FD_CODE_TEXT_SIZE     (unsigned int)&Image$$ER_IROM1$$Length
+#define FD_CODE_TEXT_ENDS     (FD_CODE_TEXT_BASE + FD_CODE_TEXT_SIZE)
 #elif defined(__GNUC__)
-extern unsigned int _sstack;
-extern unsigned int _estack;
 extern unsigned int _stext;
 extern unsigned int _etext;
-#define FD_CODE_STACK_START  (unsigned int)&_sstack
-#define FD_CODE_STACK_LENGTH (unsigned int)&_estack - (unsigned int)&_sstack
-#define FD_CODE_TEXT_START   (unsigned int)&_stext
-#define FD_CODE_TEXT_LENGTH  (unsigned int)&_etext - (unsigned int)&_stext
+extern unsigned int _sstack;
+extern unsigned int _estack;
+/* stack segment information */
+#define FD_CODE_STACK_BASE    (unsigned int)&_sstack
+#define FD_CODE_STACK_FULL    (unsigned int)&_estack
+#define FD_CODE_STACK_SIZE    (FD_CODE_STACK_FULL - FD_CODE_STACK_BASE)
+/* text segment information */
+#define FD_CODE_TEXT_BASE     (unsigned int)&_stext
+#define FD_CODE_TEXT_ENDS     (unsigned int)&_etext
+#define FD_CODE_TEXT_SIZE     (FD_CODE_TEXT_ENDS - FD_CODE_TEXT_BASE)
 #else
 #error "fault dump does not support current compiler."
 #endif
 
 void fault_dump_init(void) {
-    code_stack_start  = FD_CODE_STACK_START;
-    code_stack_length = FD_CODE_STACK_LENGTH;
-    code_text_start   = FD_CODE_TEXT_START;
-    code_text_length  = FD_CODE_TEXT_LENGTH;
-    printf("Code Stack Start  = 0x%08X.\r\n", code_stack_start);
-    printf("Code Stack Length = %d.\r\n",     code_stack_length);
-    printf("Code Text  Start  = 0x%08X.\r\n", code_text_start);
-    printf("Code Text  Length = %d.\r\n",     code_text_length);
+    printf("Code Stack: \r\n");
+    printf("base->%08X.\r\n", FD_CODE_STACK_BASE);
+    printf("full->%08X.\r\n", FD_CODE_STACK_FULL);
+    printf("size->%d  .\r\n", FD_CODE_STACK_SIZE);
+    printf("Code Text:  \r\n");
+    printf("base->%08X.\r\n", FD_CODE_TEXT_BASE);
+    printf("ends->%08X.\r\n", FD_CODE_TEXT_ENDS);
+    printf("size->%d  .\r\n", FD_CODE_TEXT_SIZE);
 }
 
 void fault_dump_handler(uint32_t *stack, uint32_t link) {
