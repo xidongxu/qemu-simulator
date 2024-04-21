@@ -79,6 +79,7 @@ void fault_dump_handler(unsigned int *stack, unsigned int linker) {
     unsigned int fd_frame_size = 16;
     unsigned int fd_stack_left = 0;
     unsigned int fd_stack_used = (unsigned int)stack;
+    unsigned int pc = 0;
     // Record current register information.
     frame.manual.r4  = stack[ 0];
     frame.manual.r5  = stack[ 1];
@@ -123,8 +124,22 @@ void fault_dump_handler(unsigned int *stack, unsigned int linker) {
     printf(" Stack Used: %d / %d\r\n", fd_stack_left, FD_CODE_STACK_SIZE);
     // Print stack information.
     printf(" Stack Call: \r\n");
-    for (int iter = 0; iter < (fd_stack_left / sizeof(unsigned int)); iter++) {
-        printf("%08X ", (unsigned int)(stack[iter]));
+    for (int iter = fd_frame_size; iter < (fd_stack_left / sizeof(unsigned int)); iter++) {
+        pc = stack[iter];
+        // PC must be in the code segment.
+        if ((pc < FD_CODE_TEXT_BASE) || (pc > FD_CODE_TEXT_ENDS)) {
+            continue;
+        }
+        // The thumb instruction must be an odd number.
+        if (pc % 2 == 0) {
+            continue;
+        }
+        // Fix thumb command.
+        pc = pc - 1;
+        // Calculate the address of the instruction being executed before pushing on the stack.
+        pc = pc - sizeof(unsigned int);
+        // Record this address.
+        printf("%08X ", pc);
     }
     printf("\r\n");
     while(1);
