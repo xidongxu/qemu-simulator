@@ -67,7 +67,7 @@ void fault_dump_init(void) {
     printf("Code Stack:\r\n");
     printf("base->%08X.\r\n", FD_CODE_STACK_BASE);
     printf("full->%08X.\r\n", FD_CODE_STACK_FULL);
-    printf("size->%d . \r\n", FD_CODE_STACK_SIZE);
+    printf("size->%d.  \r\n", FD_CODE_STACK_SIZE);
     printf("Code Text: \r\n");
     printf("base->%08X.\r\n", FD_CODE_TEXT_BASE);
     printf("ends->%08X.\r\n", FD_CODE_TEXT_ENDS);
