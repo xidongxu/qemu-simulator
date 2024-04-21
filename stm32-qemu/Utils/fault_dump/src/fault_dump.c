@@ -160,7 +160,7 @@ void fault_dump_handler(unsigned int *stack, unsigned int linker) {
         if ((pc % 2) == 0) {
             continue;
         }
-        // Fix thumb command.
+        // Fix thumb instruction set.
         pc = pc - 1;
         // Calculate the address of the instruction being executed before pushing on the stack.
         pc = pc - sizeof(unsigned int);
