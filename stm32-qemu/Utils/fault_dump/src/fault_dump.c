@@ -64,14 +64,14 @@ extern unsigned int _estack;
  */
 
 void fault_dump_init(void) {
-    printf("Code Stack: \r\n");
+    printf("Code Stack:\r\n");
     printf("base->%08X.\r\n", FD_CODE_STACK_BASE);
     printf("full->%08X.\r\n", FD_CODE_STACK_FULL);
-    printf("size->%d  .\r\n", FD_CODE_STACK_SIZE);
-    printf("Code Text:  \r\n");
+    printf("size->%d . \r\n", FD_CODE_STACK_SIZE);
+    printf("Code Text: \r\n");
     printf("base->%08X.\r\n", FD_CODE_TEXT_BASE);
     printf("ends->%08X.\r\n", FD_CODE_TEXT_ENDS);
-    printf("size->%d  .\r\n", FD_CODE_TEXT_SIZE);
+    printf("size->%d.  \r\n", FD_CODE_TEXT_SIZE);
 }
 
 void fault_dump_handler(uint32_t *stack, uint32_t link) {
@@ -98,7 +98,7 @@ void fault_dump_handler(uint32_t *stack, uint32_t link) {
     
     printf("\r\n");
     printf(" HardFault Information Dump \r\n");
-    printf(" Stack Frame \r\n");
+    printf(" Stack Frame   \r\n");
     printf(" R0   = 0x%08X \r\n", (unsigned int)frame.except.r0);
     printf(" R1   = 0x%08X \r\n", (unsigned int)frame.except.r1);
     printf(" R2   = 0x%08X \r\n", (unsigned int)frame.except.r2);
@@ -116,7 +116,7 @@ void fault_dump_handler(uint32_t *stack, uint32_t link) {
     printf(" PC   = 0x%08X \r\n", (unsigned int)frame.except.pc);
     printf(" PSR  = 0x%08X \r\n", (unsigned int)frame.except.psr);
     printf(" EXE_RETURN = 0x%08X \r\n", (unsigned int)link);
-    printf(" Call Stack \r\n");
+    printf(" Call Stack    \r\n");
     for (int iter = 0; iter < (sizeof(frame.callback) / sizeof(uint32_t)); iter++) {
         printf("%08X ", (unsigned int)(frame.callback[iter]));
     }
