@@ -41,6 +41,28 @@ extern unsigned int _estack;
 #error "fault dump does not support current compiler."
 #endif
 
+/*
+ *****************************************************
+ *                                                   *
+ *                                      0x200008F0   *
+ *           ┌──────┬───────────┬─────► Stack Full   *
+ *           │      │ $$$$,$$$$ │                    *
+ *           │      │ $$$$,$$$$ │                    *
+ *           │      │ $$$$,$$$$ │       0x20000870   *
+ *           │      ├───────────┼─────► Stack Used   *
+ *           │      │           │                    *
+ *           ▼      │ Grow Dir  │                    *
+ *       Stack Size │           │                    *
+ *           ▲      │     │     │                    *
+ *           │      │     │     │                    *
+ *           │      │     ▼     │                    *
+ *           │      │           │                    *
+ *           │      │           │       0x200000F0   *
+ *           └──────┴───────────┴─────► Stack Base   *
+ *                                                   *
+ *****************************************************
+ */
+
 void fault_dump_init(void) {
     printf("Code Stack: \r\n");
     printf("base->%08X.\r\n", FD_CODE_STACK_BASE);
