@@ -62,9 +62,9 @@ vpath %.c $(sort $(dir $(SRC_C)))
 OBJS += $(addprefix $(BUILD_PATH)/,$(notdir $(SRC_ASM:.s=.o)))
 vpath %.s $(sort $(dir $(SRC_ASM)))
 
-$(BUILD_PATH)/%.o: %.c Makefile | $(BUILD_PATH)
+$(BUILD_PATH)/%.o: %.c | $(BUILD_PATH)
 	$(CC) $(CFLAGS) -o $@ -c $<
-$(BUILD_PATH)/%.o: %.s Makefile | $(BUILD_PATH)
+$(BUILD_PATH)/%.o: %.s | $(BUILD_PATH)
 	$(CC) $(CFLAGS) -c $^ -o $@
 
 # Generate two separate images (one for Non-Secure and another for Secure) with
