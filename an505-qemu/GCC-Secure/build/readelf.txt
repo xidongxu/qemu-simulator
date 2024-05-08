@@ -1,0 +1,304 @@
+ELF Header:
+  Magic:   7f 45 4c 46 01 01 01 00 00 00 00 00 00 00 00 00 
+  Class:                             ELF32
+  Data:                              2's complement, little endian
+  Version:                           1 (current)
+  OS/ABI:                            UNIX - System V
+  ABI Version:                       0
+  Type:                              EXEC (Executable file)
+  Machine:                           ARM
+  Version:                           0x1
+  Entry point address:               0x100007c1
+  Start of program headers:          52 (bytes into file)
+  Start of section headers:          98980 (bytes into file)
+  Flags:                             0x5000200, Version5 EABI, soft-float ABI
+  Size of this header:               52 (bytes)
+  Size of program headers:           32 (bytes)
+  Number of program headers:         2
+  Size of section headers:           40 (bytes)
+  Number of section headers:         36
+  Section header string table index: 35
+
+Section Headers:
+  [Nr] Name              Type            Addr     Off    Size   ES Flg Lk Inf Al
+  [ 0]                   NULL            00000000 000000 000000 00      0   0  0
+  [ 1] .text             PROGBITS        10000000 010000 001430 00  AX  0   0  4
+  [ 2] .text.__aeab[...] PROGBITS        10001430 011430 00000c 00  AX  0   0  2
+  [ 3] .text.main        PROGBITS        1000143c 01143c 000034 00  AX  0   0  4
+  [ 4] .text.SystemInit  PROGBITS        10001470 011470 000038 00  AX  0   0  4
+  [ 5] .text._out_null   PROGBITS        100014a8 0114a8 00001a 00  AX  0   0  2
+  [ 6] .text._out_char   PROGBITS        100014c2 0114c2 000026 00  AX  0   0  2
+  [ 7] .text._strnlen_s  PROGBITS        100014e8 0114e8 000038 00  AX  0   0  2
+  [ 8] .text._is_digit   PROGBITS        10001520 011520 00002c 00  AX  0   0  2
+  [ 9] .text._atoi       PROGBITS        1000154c 01154c 000048 00  AX  0   0  2
+  [10] .text._out_rev    PROGBITS        10001594 011594 0000a0 00  AX  0   0  2
+  [11] .text._ntoa_[...] PROGBITS        10001634 011634 0001b8 00  AX  0   0  2
+  [12] .text._ntoa_long  PROGBITS        100017ec 0117ec 0000cc 00  AX  0   0  2
+  [13] .text._ntoa_[...] PROGBITS        100018b8 0118b8 0000da 00  AX  0   0  2
+  [14] .text._ftoa       PROGBITS        10001998 011998 0004b0 00  AX  0   0  8
+  [15] .text._etoa       PROGBITS        10001e48 011e48 000520 00  AX  0   0  8
+  [16] .text._vsnprintf  PROGBITS        10002368 012368 0009c0 00  AX  0   0  4
+  [17] .text.printf      PROGBITS        10002d28 012d28 000038 00  AX  0   0  4
+  [18] .text.putchar     PROGBITS        10002d60 012d60 000020 00  AX  0   0  4
+  [19] .text.uart_init   PROGBITS        10002d80 012d80 000018 00  AX  0   0  4
+  [20] .rodata           PROGBITS        10002d98 012d98 000088 00   A  0   0  8
+  [21] .ARM.exidx        ARM_EXIDX       10002e20 012e20 000010 00  AL  1   0  4
+  [22] .gnu.sgstubs      NOBITS          10002e30 012e30 000010 00  WA  0   0  1
+  [23] .debug_info       PROGBITS        00000000 012e30 0014f9 00      0   0  1
+  [24] .debug_abbrev     PROGBITS        00000000 014329 000465 00      0   0  1
+  [25] .debug_loc        PROGBITS        00000000 01478e 0008fe 00      0   0  1
+  [26] .debug_aranges    PROGBITS        00000000 015090 000158 00      0   0  8
+  [27] .debug_ranges     PROGBITS        00000000 0151e8 0000f8 00      0   0  1
+  [28] .debug_line       PROGBITS        00000000 0152e0 000fd4 00      0   0  1
+  [29] .debug_str        PROGBITS        00000000 0162b4 0004f8 01  MS  0   0  1
+  [30] .comment          PROGBITS        00000000 0167ac 000049 01  MS  0   0  1
+  [31] .ARM.attributes   ARM_ATTRIBUTES  00000000 0167f5 000032 00      0   0  1
+  [32] .debug_frame      PROGBITS        00000000 016828 00070c 00      0   0  4
+  [33] .symtab           SYMTAB          00000000 016f34 000c10 10     34 113  4
+  [34] .strtab           STRTAB          00000000 017b44 00057b 00      0   0  1
+  [35] .shstrtab         STRTAB          00000000 0180bf 0001e3 00      0   0  1
+Key to Flags:
+  W (write), A (alloc), X (execute), M (merge), S (strings), I (info),
+  L (link order), O (extra OS processing required), G (group), T (TLS),
+  C (compressed), x (unknown), o (OS specific), E (exclude),
+  y (purecode), p (processor specific)
+
+There are no section groups in this file.
+
+Program Headers:
+  Type           Offset   VirtAddr   PhysAddr   FileSiz MemSiz  Flg Align
+  EXIDX          0x012e20 0x10002e20 0x10002e20 0x00010 0x00010 R   0x4
+  LOAD           0x010000 0x10000000 0x10000000 0x02e30 0x02e40 RWE 0x10000
+
+ Section to Segment mapping:
+  Segment Sections...
+   00     .ARM.exidx 
+   01     .text .text.__aeabi_unwind_cpp_pr0 .text.main .text.SystemInit .text._out_null .text._out_char .text._strnlen_s .text._is_digit .text._atoi .text._out_rev .text._ntoa_format .text._ntoa_long .text._ntoa_long_long .text._ftoa .text._etoa .text._vsnprintf .text.printf .text.putchar .text.uart_init .rodata .ARM.exidx .gnu.sgstubs 
+
+There is no dynamic section in this file.
+
+There are no relocations in this file.
+
+Unwind section '.ARM.exidx' at offset 0x12e20 contains 2 entries:
+
+0x100007c0 <Reset_Handler>: 0x80b0b0b0
+  Compact model index: 0
+  0xb0      finish
+  0xb0      finish
+  0xb0      finish
+
+0x100007d4 <__aeabi_drsub>: 0x1 [cantunwind]
+
+
+Symbol table '.symtab' contains 193 entries:
+   Num:    Value  Size Type    Bind   Vis      Ndx Name
+     0: 00000000     0 NOTYPE  LOCAL  DEFAULT  UND 
+     1: 10000000     0 SECTION LOCAL  DEFAULT    1 
+     2: 10001430     0 SECTION LOCAL  DEFAULT    2 
+     3: 1000143c     0 SECTION LOCAL  DEFAULT    3 
+     4: 10001470     0 SECTION LOCAL  DEFAULT    4 
+     5: 100014a8     0 SECTION LOCAL  DEFAULT    5 
+     6: 100014c2     0 SECTION LOCAL  DEFAULT    6 
+     7: 100014e8     0 SECTION LOCAL  DEFAULT    7 
+     8: 10001520     0 SECTION LOCAL  DEFAULT    8 
+     9: 1000154c     0 SECTION LOCAL  DEFAULT    9 
+    10: 10001594     0 SECTION LOCAL  DEFAULT   10 
+    11: 10001634     0 SECTION LOCAL  DEFAULT   11 
+    12: 100017ec     0 SECTION LOCAL  DEFAULT   12 
+    13: 100018b8     0 SECTION LOCAL  DEFAULT   13 
+    14: 10001998     0 SECTION LOCAL  DEFAULT   14 
+    15: 10001e48     0 SECTION LOCAL  DEFAULT   15 
+    16: 10002368     0 SECTION LOCAL  DEFAULT   16 
+    17: 10002d28     0 SECTION LOCAL  DEFAULT   17 
+    18: 10002d60     0 SECTION LOCAL  DEFAULT   18 
+    19: 10002d80     0 SECTION LOCAL  DEFAULT   19 
+    20: 10002d98     0 SECTION LOCAL  DEFAULT   20 
+    21: 10002e20     0 SECTION LOCAL  DEFAULT   21 
+    22: 10002e30     0 SECTION LOCAL  DEFAULT   22 
+    23: 00000000     0 SECTION LOCAL  DEFAULT   23 
+    24: 00000000     0 SECTION LOCAL  DEFAULT   24 
+    25: 00000000     0 SECTION LOCAL  DEFAULT   25 
+    26: 00000000     0 SECTION LOCAL  DEFAULT   26 
+    27: 00000000     0 SECTION LOCAL  DEFAULT   27 
+    28: 00000000     0 SECTION LOCAL  DEFAULT   28 
+    29: 00000000     0 SECTION LOCAL  DEFAULT   29 
+    30: 00000000     0 SECTION LOCAL  DEFAULT   30 
+    31: 00000000     0 SECTION LOCAL  DEFAULT   31 
+    32: 00000000     0 SECTION LOCAL  DEFAULT   32 
+    33: 00000000     0 FILE    LOCAL  DEFAULT  ABS startup_ARMCM33.o
+    34: 10000000     0 NOTYPE  LOCAL  DEFAULT    1 $d
+    35: 100007c0     0 NOTYPE  LOCAL  DEFAULT    1 $t
+    36: 10002e20     0 NOTYPE  LOCAL  DEFAULT   21 $d
+    37: 100007ce     0 NOTYPE  LOCAL  DEFAULT    1 $d
+    38: 100007d0     0 NOTYPE  LOCAL  DEFAULT    1 $d
+    39: 00000000     0 FILE    LOCAL  DEFAULT  ABS _arm_addsubdf3.o
+    40: 100007d4     0 NOTYPE  LOCAL  DEFAULT    1 $t
+    41: 00000000     0 FILE    LOCAL  DEFAULT  ABS _arm_muldivdf3.o
+    42: 10000b4c     0 NOTYPE  LOCAL  DEFAULT    1 $t
+    43: 00000000     0 FILE    LOCAL  DEFAULT  ABS _arm_cmpdf2.o
+    44: 10000f70     0 NOTYPE  LOCAL  DEFAULT    1 $t
+    45: 00000000     0 FILE    LOCAL  DEFAULT  ABS _arm_fixdfsi.o
+    46: 10001080     0 NOTYPE  LOCAL  DEFAULT    1 $t
+    47: 00000000     0 FILE    LOCAL  DEFAULT  ABS _arm_fixunsdfsi.o
+    48: 100010d0     0 NOTYPE  LOCAL  DEFAULT    1 $t
+    49: 00000000     0 FILE    LOCAL  DEFAULT  ABS _aeabi_uldivmod.o
+    50: 10001110     0 NOTYPE  LOCAL  DEFAULT    1 $t
+    51: 00000000     0 FILE    LOCAL  DEFAULT  ABS libgcc2.c
+    52: 10001140     0 NOTYPE  LOCAL  DEFAULT    1 $t
+    53: 10002e30     0 NOTYPE  LOCAL  DEFAULT   21 $d
+    54: 00000000     0 FILE    LOCAL  DEFAULT  ABS _dvmd_tls.o
+    55: 10001428     0 NOTYPE  LOCAL  DEFAULT    1 $t
+    56: 00000000     0 FILE    LOCAL  DEFAULT  ABS system_ARMCM33.c
+    57: 1000142c     0 NOTYPE  LOCAL  DEFAULT    1 $d
+    58: 10001470     0 NOTYPE  LOCAL  DEFAULT    4 $t
+    59: 10001498     0 NOTYPE  LOCAL  DEFAULT    4 $d
+    60: 00000000     0 FILE    LOCAL  DEFAULT  ABS main.c
+    61: 10001430     0 NOTYPE  LOCAL  DEFAULT    2 $t
+    62: 10002d98     0 NOTYPE  LOCAL  DEFAULT   20 $d
+    63: 1000143c     0 NOTYPE  LOCAL  DEFAULT    3 $t
+    64: 10001468     0 NOTYPE  LOCAL  DEFAULT    3 $d
+    65: 00000000     0 FILE    LOCAL  DEFAULT  ABS printf.c
+    66: 100014a8     0 NOTYPE  LOCAL  DEFAULT    5 $t
+    67: 100014a9    26 FUNC    LOCAL  DEFAULT    5 _out_null
+    68: 100014c2     0 NOTYPE  LOCAL  DEFAULT    6 $t
+    69: 100014c3    38 FUNC    LOCAL  DEFAULT    6 _out_char
+    70: 100014e8     0 NOTYPE  LOCAL  DEFAULT    7 $t
+    71: 100014e9    56 FUNC    LOCAL  DEFAULT    7 _strnlen_s
+    72: 10001520     0 NOTYPE  LOCAL  DEFAULT    8 $t
+    73: 10001521    44 FUNC    LOCAL  DEFAULT    8 _is_digit
+    74: 1000154c     0 NOTYPE  LOCAL  DEFAULT    9 $t
+    75: 1000154d    72 FUNC    LOCAL  DEFAULT    9 _atoi
+    76: 10001594     0 NOTYPE  LOCAL  DEFAULT   10 $t
+    77: 10001595   160 FUNC    LOCAL  DEFAULT   10 _out_rev
+    78: 10001634     0 NOTYPE  LOCAL  DEFAULT   11 $t
+    79: 10001635   440 FUNC    LOCAL  DEFAULT   11 _ntoa_format
+    80: 100017ec     0 NOTYPE  LOCAL  DEFAULT   12 $t
+    81: 100017ed   204 FUNC    LOCAL  DEFAULT   12 _ntoa_long
+    82: 100018b8     0 NOTYPE  LOCAL  DEFAULT   13 $t
+    83: 100018b9   218 FUNC    LOCAL  DEFAULT   13 _ntoa_long_long
+    84: 10002db8     0 NOTYPE  LOCAL  DEFAULT   20 $d
+    85: 10001998     0 NOTYPE  LOCAL  DEFAULT   14 $t
+    86: 10001999  1200 FUNC    LOCAL  DEFAULT   14 _ftoa
+    87: 10001e49  1312 FUNC    LOCAL  DEFAULT   15 _etoa
+    88: 10001bd0     0 NOTYPE  LOCAL  DEFAULT   14 $d
+    89: 10002dd0    80 OBJECT  LOCAL  DEFAULT   20 pow10.0
+    90: 10001bfc     0 NOTYPE  LOCAL  DEFAULT   14 $t
+    91: 10001e3c     0 NOTYPE  LOCAL  DEFAULT   14 $d
+    92: 10001e48     0 NOTYPE  LOCAL  DEFAULT   15 $t
+    93: 10002150     0 NOTYPE  LOCAL  DEFAULT   15 $d
+    94: 1000219c     0 NOTYPE  LOCAL  DEFAULT   15 $t
+    95: 10002358     0 NOTYPE  LOCAL  DEFAULT   15 $d
+    96: 10002368     0 NOTYPE  LOCAL  DEFAULT   16 $t
+    97: 10002369  2496 FUNC    LOCAL  DEFAULT   16 _vsnprintf
+    98: 100023cc     0 NOTYPE  LOCAL  DEFAULT   16 $d
+    99: 10002410     0 NOTYPE  LOCAL  DEFAULT   16 $t
+   100: 10002544     0 NOTYPE  LOCAL  DEFAULT   16 $d
+   101: 10002590     0 NOTYPE  LOCAL  DEFAULT   16 $t
+   102: 10002614     0 NOTYPE  LOCAL  DEFAULT   16 $d
+   103: 10002618     0 NOTYPE  LOCAL  DEFAULT   16 $t
+   104: 1000262c     0 NOTYPE  LOCAL  DEFAULT   16 $d
+   105: 1000277c     0 NOTYPE  LOCAL  DEFAULT   16 $t
+   106: 10002d28     0 NOTYPE  LOCAL  DEFAULT   17 $t
+   107: 10002d5c     0 NOTYPE  LOCAL  DEFAULT   17 $d
+   108: 00000000     0 FILE    LOCAL  DEFAULT  ABS uart.c
+   109: 10002d60     0 NOTYPE  LOCAL  DEFAULT   18 $t
+   110: 10002d7c     0 NOTYPE  LOCAL  DEFAULT   18 $d
+   111: 10002d80     0 NOTYPE  LOCAL  DEFAULT   19 $t
+   112: 10002d94     0 NOTYPE  LOCAL  DEFAULT   19 $d
+   113: 10002d61    32 FUNC    GLOBAL DEFAULT   18 putchar
+   114: 10001045    18 FUNC    GLOBAL HIDDEN     1 __aeabi_dcmple
+   115: 10000f81   122 FUNC    GLOBAL HIDDEN     1 __cmpdf2
+   116: 10000000  1984 NOTYPE  GLOBAL DEFAULT    1 __Vectors
+   117: 100007cd     2 FUNC    WEAK   DEFAULT    1 DebugMon_Handler
+   118: 10000f81   122 FUNC    GLOBAL HIDDEN     1 __eqdf2
+   119: 10000af1    90 FUNC    GLOBAL HIDDEN     1 __floatdidf
+   120: 10002d29    56 FUNC    GLOBAL DEFAULT   17 printf
+   121: 100007cb     2 FUNC    WEAK   DEFAULT    1 HardFault_Handler
+   122: 100007cd     2 FUNC    WEAK   DEFAULT    1 SysTick_Handler
+   123: 100007cd     2 FUNC    WEAK   DEFAULT    1 PendSV_Handler
+   124: 100007cd     2 FUNC    WEAK   DEFAULT    1 NMI_Handler
+   125: 10001431    12 FUNC    GLOBAL DEFAULT    2 __aeabi_unwind_c[...]
+   126: 10000f71   138 FUNC    GLOBAL HIDDEN     1 __gtdf2
+   127: 1000100d    16 FUNC    GLOBAL HIDDEN     1 __aeabi_cdcmple
+   128: 100007cd     2 FUNC    WEAK   DEFAULT    1 Interrupt3_Handler
+   129: 10000ffd    32 FUNC    GLOBAL HIDDEN     1 __aeabi_cdrcmple
+   130: 10000a79    34 FUNC    GLOBAL HIDDEN     1 __floatsidf
+   131: 10000f79   130 FUNC    GLOBAL HIDDEN     1 __ltdf2
+   132: 10001111     0 FUNC    GLOBAL HIDDEN     1 __aeabi_uldivmod
+   133: 100007cd     2 FUNC    WEAK   DEFAULT    1 Interrupt8_Handler
+   134: 1000142c     4 OBJECT  GLOBAL DEFAULT    1 SystemCoreClock
+   135: 100007cd     2 FUNC    WEAK   DEFAULT    1 Interrupt5_Handler
+   136: 100007cd     2 FUNC    WEAK   DEFAULT    1 UsageFault_Handler
+   137: 100010d1    64 FUNC    GLOBAL HIDDEN     1 __fixunsdfsi
+   138: 10000a59    30 FUNC    GLOBAL HIDDEN     1 __aeabi_ui2d
+   139: 10001141   744 FUNC    GLOBAL HIDDEN     1 __udivmoddi4
+   140: 100007d5     0 FUNC    GLOBAL HIDDEN     1 __aeabi_drsub
+   141: 10001031    18 FUNC    GLOBAL HIDDEN     1 __aeabi_dcmplt
+   142: 10000a9d    66 FUNC    GLOBAL HIDDEN     1 __extendsfdf2
+   143: 10000da1   464 FUNC    GLOBAL HIDDEN     1 __aeabi_ddiv
+   144: 100007e1   630 FUNC    GLOBAL HIDDEN     1 __adddf3
+   145: 10000b4d   596 FUNC    GLOBAL HIDDEN     1 __aeabi_dmul
+   146: 10000a59    30 FUNC    GLOBAL HIDDEN     1 __floatunsidf
+   147: 100007c1    10 FUNC    GLOBAL DEFAULT    1 Reset_Handler
+   148: 100007cd     2 FUNC    WEAK   DEFAULT    1 Interrupt7_Handler
+   149: 100007cd     2 FUNC    WEAK   DEFAULT    1 Interrupt2_Handler
+   150: 10001081    78 FUNC    GLOBAL HIDDEN     1 __fixdfsi
+   151: 100007cd     2 FUNC    WEAK   DEFAULT    1 Interrupt0_Handler
+   152: 100007e1   630 FUNC    GLOBAL HIDDEN     1 __aeabi_dadd
+   153: 10000f79   130 FUNC    GLOBAL HIDDEN     1 __ledf2
+   154: 10000ae1   106 FUNC    GLOBAL HIDDEN     1 __aeabi_ul2d
+   155: 000007c0     0 NOTYPE  GLOBAL DEFAULT  ABS __Vectors_Size
+   156: 100007cd     2 FUNC    WEAK   DEFAULT    1 Interrupt4_Handler
+   157: 1000106d    18 FUNC    GLOBAL HIDDEN     1 __aeabi_dcmpgt
+   158: 10002d81    24 FUNC    GLOBAL DEFAULT   19 uart_init
+   159: 100007cd     2 FUNC    WEAK   DEFAULT    1 SecureFault_Handler
+   160: 00100000     0 NOTYPE  GLOBAL DEFAULT  ABS __STACK_SIZE
+   161: 10001059    18 FUNC    GLOBAL HIDDEN     1 __aeabi_dcmpge
+   162: 100007dd   634 FUNC    GLOBAL HIDDEN     1 __aeabi_dsub
+   163: 100007cd     2 FUNC    WEAK   DEFAULT    1 Default_Handler
+   164: 100007cd     2 FUNC    WEAK   DEFAULT    1 Interrupt9_Handler
+   165: 10000ae1   106 FUNC    GLOBAL HIDDEN     1 __floatundidf
+   166: 100007cd     2 FUNC    WEAK   DEFAULT    1 Interrupt6_Handler
+   167: 10000a79    34 FUNC    GLOBAL HIDDEN     1 __aeabi_i2d
+   168: 10001429     2 FUNC    WEAK   HIDDEN     1 __aeabi_ldiv0
+   169: 10000da1   464 FUNC    GLOBAL HIDDEN     1 __divdf3
+   170: 10000b4d   596 FUNC    GLOBAL HIDDEN     1 __muldf3
+   171: 10002e40     0 NOTYPE  GLOBAL DEFAULT   22 _ld_veneer_limit
+   172: 100007cd     2 FUNC    WEAK   DEFAULT    1 MemManage_Handler
+   173: 1000143d    52 FUNC    GLOBAL DEFAULT    3 main
+   174: 10002e30     0 NOTYPE  GLOBAL DEFAULT   22 _ld_veneer_base
+   175: 100007cd     2 FUNC    WEAK   DEFAULT    1 SVC_Handler
+   176: 10000af1    90 FUNC    GLOBAL HIDDEN     1 __aeabi_l2d
+   177: 10001471    56 FUNC    GLOBAL DEFAULT    4 SystemInit
+   178: 10000f81   122 FUNC    GLOBAL HIDDEN     1 __nedf2
+   179: 10028000     0 NOTYPE  GLOBAL DEFAULT   22 __StackTop
+   180: 100010d1    64 FUNC    GLOBAL HIDDEN     1 __aeabi_d2uiz
+   181: 100007c0     0 NOTYPE  GLOBAL DEFAULT    1 __Vectors_End
+   182: 1000101d    18 FUNC    GLOBAL HIDDEN     1 __aeabi_dcmpeq
+   183: 100007cd     2 FUNC    WEAK   DEFAULT    1 Interrupt1_Handler
+   184: 10004e40     0 NOTYPE  GLOBAL DEFAULT   22 _end
+   185: 0ff28000     0 NOTYPE  GLOBAL DEFAULT  ABS __StackLimit
+   186: 10001081    78 FUNC    GLOBAL HIDDEN     1 __aeabi_d2iz
+   187: 10001429     2 FUNC    WEAK   HIDDEN     1 __aeabi_idiv0
+   188: 100007cd     2 FUNC    WEAK   DEFAULT    1 BusFault_Handler
+   189: 1000100d    16 FUNC    GLOBAL HIDDEN     1 __aeabi_cdcmpeq
+   190: 10000f71   138 FUNC    GLOBAL HIDDEN     1 __gedf2
+   191: 10000a9d    66 FUNC    GLOBAL HIDDEN     1 __aeabi_f2d
+   192: 100007dd   634 FUNC    GLOBAL HIDDEN     1 __subdf3
+
+No version information found in this file.
+Attribute Section: aeabi
+File Attributes
+  Tag_CPU_name: "8-M.MAIN"
+  Tag_CPU_arch: v8-M.mainline
+  Tag_CPU_arch_profile: Microcontroller
+  Tag_THUMB_ISA_use: Yes
+  Tag_ABI_PCS_wchar_t: 4
+  Tag_ABI_FP_denormal: Needed
+  Tag_ABI_FP_exceptions: Needed
+  Tag_ABI_FP_number_model: IEEE 754
+  Tag_ABI_align_needed: 8-byte
+  Tag_ABI_enum_size: small
+  Tag_ABI_optimization_goals: Aggressive Debug
+  Tag_CPU_unaligned_access: v6
+  Tag_DSP_extension: Allowed
