@@ -2,6 +2,11 @@ BUILD_NAME = an505-qemu
 BUILD_PATH = build
 CMSIS_PATH = ../Drivers/CMSIS_5
 
+# debug build
+DEBUG = 1
+# optimization
+OPT = -Og
+
 PREFIX = arm-none-eabi-
 CC  = $(PREFIX)gcc
 AS  = $(PREFIX)gcc -x assembler-with-cpp
@@ -14,53 +19,94 @@ CP  = $(PREFIX)objcopy
 HEX = $(CP) -O ihex
 BIN = $(CP) -O binary -S
 
-LINKER_SCRIPT = gcc_arm.ld 
+# cpu
+CPU = -mcpu=cortex-m33
 
-SRC_ASM = startup_ARMCM33.s
+# fpu
+FPU = -mfpu=fpv4-sp-d16
+
+# float-abi
+FLOAT-ABI = -mfloat-abi=hard
+
+# mcu
+MCU = $(CPU) -mthumb $(FPU) $(FLOAT-ABI)
+
+# AS defines
+AS_DEF = 
+
+# asm sources
+ASM_SRC = startup_ARMCM33.s
+
 # ASM sources
-SRC_ASMM = 
+ASMM_SRC = 
 
-SRC_C = \
+# AS includes
+AS_INC = 
+
+# C defines
+C_DEF =  \
+-DARMCM33_DSP_FP_TZ \
+-DC_SECURE_CODE
+
+# C sources
+C_SRC = \
 	 ./main.c \
 	 ./system_ARMCM33.c \
 	../Core/Src/printf.c \
 	../Core/Src/uart.c \
 	../Core/Src/semihosting.c 
 
-INCLUDE_FLAGS = \
+# C includes
+C_INC = \
 	-I$(CMSIS_PATH)/Device/ARM/ARMCM33/Include \
 	-I$(CMSIS_PATH)/CMSIS/Core/Include \
 	-I../Core/Inc 
 
-COMMON_CFLAGS = \
-	-mcpu=cortex-m33 \
-	-g \
-	-gdwarf-2 \
-	$(INCLUDE_FLAGS) \
-	-nostartfiles -ffreestanding \
-	-mthumb
+# as compile flags
+ASFLAGS = \
+	$(MCU) \
+	$(AS_DEF) \
+	$(AS_INC) \
+	$(OPT) \
+	-Wall \
+	-fdata-sections \
+	-ffunction-sections 
 
+# c compile flags
 CFLAGS = \
-	$(COMMON_CFLAGS) \
-	-DARMCM33_DSP_FP_TZ \
+	$(MCU) \
+	$(C_DEF) \
+	$(C_INC) \
+	$(OPT) \
+	-Wall \
+	-mthumb \
 	-specs=nano.specs -specs=nosys.specs \
-	-ffunction-sections \
-	-Wl,--gc-sections \
-	-DC_SECURE_CODE
+	-fdata-sections \
+	-ffunction-sections 
 
-SECURE_LINKER_ARGS = \
-	-Xlinker --sort-section=alignment \
-	-Xlinker --cmse-implib \
-	-Xlinker -Map=$(BUILD_PATH)/$(BUILD_NAME).map
+# link script
+LINKER_SCRIPT = gcc_arm.ld 
+LIBS = -lc -lm -lnosys 
+LIBDIR = 
 
+# linker compile flags
+LDFLAGS = \
+	$(MCU) -specs=nano.specs -T$(LINKER_SCRIPT) \
+	$(LIBDIR) \
+	$(LIBS) \
+	-Wl,-Map=$(BUILD_PATH)/$(BUILD_NAME).map,--cref -Wl,--gc-sections
+
+# default action: build all
 all: $(BUILD_PATH)/$(BUILD_NAME).elf $(BUILD_PATH)/$(BUILD_NAME).hex $(BUILD_PATH)/$(BUILD_NAME).bin
 
-OBJS = $(addprefix $(BUILD_PATH)/,$(notdir $(SRC_C:.c=.o)))
-vpath %.c $(sort $(dir $(SRC_C)))
-OBJS += $(addprefix $(BUILD_PATH)/,$(notdir $(SRC_ASM:.s=.o)))
-vpath %.s $(sort $(dir $(SRC_ASM)))
-OBJS += $(addprefix $(BUILD_PATH)/,$(notdir $(SRC_ASMM:.S=.o)))
-vpath %.S $(sort $(dir $(SRC_ASMM)))
+# list of objects
+OBJS = $(addprefix $(BUILD_PATH)/,$(notdir $(C_SRC:.c=.o)))
+vpath %.c $(sort $(dir $(C_SRC)))
+# list of ASM program objects
+OBJS += $(addprefix $(BUILD_PATH)/,$(notdir $(ASM_SRC:.s=.o)))
+vpath %.s $(sort $(dir $(ASM_SRC)))
+OBJS += $(addprefix $(BUILD_PATH)/,$(notdir $(ASMM_SRC:.S=.o)))
+vpath %.S $(sort $(dir $(ASMM_SRC)))
 
 $(BUILD_PATH)/%.o: %.c | $(BUILD_PATH)
 	$(CC) $(CFLAGS) -o $@ -c $<
@@ -71,7 +117,7 @@ $(BUILD_PATH)/%.o: %.S | $(BUILD_PATH)
 	$(AS) $(CFLAGS) -c $^ -o $@
 
 $(BUILD_PATH)/$(BUILD_NAME).elf: $(OBJS)
-	$(CC) $(CFLAGS) $(SECURE_LINKER_ARGS) $^ -T$(LINKER_SCRIPT) -o $@
+	$(CC) $(OBJS) $(LDFLAGS) -o $@
 	$(NM) $@ > $(BUILD_PATH)/nm.txt
 	$(RD) -a $@ > $(BUILD_PATH)/readelf.txt
 	$(OBJ) -D $@ > $(BUILD_PATH)/objdump.txt
@@ -85,7 +131,9 @@ $(BUILD_PATH)/%.bin: $(BUILD_PATH)/%.elf | $(BUILD_PATH)
 $(BUILD_PATH):
 	mkdir $@
 
+# clean up
 clean:
 	rm -R $(BUILD_PATH)
 
+# dependencies
 -include $(wildcard $(BUILD_PATH)/*.d)

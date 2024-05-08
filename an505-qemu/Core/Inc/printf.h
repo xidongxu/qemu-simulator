@@ -46,7 +46,7 @@ extern "C" {
  * This function is declared here only. You have to write your custom implementation somewhere
  * \param character Character to output
  */
-void putchar(char character);
+int putchar(int ch);
 
 
 /**

@@ -23,13 +23,11 @@
 #endif
 
 PUTCHAR_PROTOTYPE {
-    // uart send data register.
     UART_DR(UART0_BASE) = ch;
     return ch;
 }
 
 void uart_init(void) {
-    // uart send enable register.
     UART_CTRL(UART0_BASE) = 1;
 }
 
