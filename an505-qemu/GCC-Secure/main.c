@@ -136,8 +136,8 @@ void initMpc(void)
 int main(void)
 {
     SystemInit();
-    initUart();
-    printString("Start\n");
+    uart_init();
+    uart_send("Start\n");
  
     volatile uint32_t* spcb = 0x50080000 + 0x14;
     *spcb |= 1 | 2;
