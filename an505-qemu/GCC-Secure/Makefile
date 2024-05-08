@@ -1,6 +1,4 @@
 BINARY = an505-qemu
-BINARY_LIB_S = cmse_import.o
-MACHINE_NAME := mps2-an505
 BUILD_PATH = build
 CMSIS_PATH = ../Drivers/CMSIS_5
 
@@ -15,8 +13,6 @@ CP = $(CROSS_COMPILE)objcopy
 HEX = $(CP) -O ihex
 BIN = $(CP) -O binary -S
 
-# Must match the same value in the NS linker script where the vector table is.
-TZ_VTOR_TABLE_ADDR = 0x00200000
 LINKER_SCRIPT = gcc_arm.ld 
 
 SRC_ASM = startup_ARMCM33.s
@@ -42,8 +38,6 @@ COMMON_CFLAGS = \
 CFLAGS = \
 	$(COMMON_CFLAGS) \
 	-DARMCM33_DSP_FP_TZ \
-	-mcmse \
-	-DTZ_VTOR_TABLE_ADDR=$(TZ_VTOR_TABLE_ADDR) \
 	-specs=nano.specs -specs=nosys.specs \
 	-ffunction-sections \
 	-Wl,--gc-sections \
@@ -52,7 +46,6 @@ CFLAGS = \
 SECURE_LINKER_ARGS = \
 	-Xlinker --sort-section=alignment \
 	-Xlinker --cmse-implib \
-	-Xlinker --out-implib=$(BUILD_PATH)/$(BINARY_LIB_S) \
 	-Xlinker -Map=$(BUILD_PATH)/$(BINARY).map
 
 all: $(BUILD_PATH)/$(BINARY).elf $(BUILD_PATH)/$(BINARY).hex $(BUILD_PATH)/$(BINARY).bin
