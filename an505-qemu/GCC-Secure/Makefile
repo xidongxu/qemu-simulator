@@ -5,7 +5,7 @@ CMSIS_PATH = ../Drivers/CMSIS_5
 # debug build
 DEBUG = 1
 # optimization
-OPT = -Og
+OPT = -O0
 
 PREFIX = arm-none-eabi-
 CC  = $(PREFIX)gcc
@@ -83,6 +83,13 @@ CFLAGS = \
 	-specs=nano.specs -specs=nosys.specs \
 	-fdata-sections \
 	-ffunction-sections 
+
+ifeq ($(DEBUG), 1)
+CFLAGS += -g -gdwarf-2
+endif
+
+# Generate dependency information
+CFLAGS += -MMD -MP -MF"$(@:%.o=%.d)"
 
 # link script
 LINKER_SCRIPT = gcc_arm.ld 
