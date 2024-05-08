@@ -16,60 +16,26 @@
 #define UART_DR(base)           (*((volatile uint32_t *)(base + 0x00)))
 #define UART_CTRL(base)         (*((volatile uint32_t *)(base + 0x08)))
 
-void uart_init(void) {
-    // uart send enable register.
-    UART_CTRL(UART0_BASE) = 1;
-}
+#ifdef __GNUC__
+#define PUTCHAR_PROTOTYPE int putchar(int ch)
+#else
+#define PUTCHAR_PROTOTYPE int fputc(int ch, FILE *f)
+#endif
 
-int __io_putchar(int ch) {
+PUTCHAR_PROTOTYPE {
     // uart send data register.
     UART_DR(UART0_BASE) = ch;
     return ch;
 }
 
-void uart_send(const char* string) {
-    while (*string != '\0') {
-        __io_putchar(*string);
-        string++;
-    }
+void uart_init(void) {
+    // uart send enable register.
+    UART_CTRL(UART0_BASE) = 1;
 }
 
-void logPrint(const char* format, ...) {
-    char buffer[256] = {'\0'};
-    int bufferPos = 0;
-
-    unsigned int hex;
-
-    va_list arg;
-    va_start(arg, format);
-
-    for(const char* nextChar = format; *nextChar != '\0'; nextChar++) {
-        while ((*nextChar != '%') && (*nextChar != '\0')) {
-            sprintf(buffer + bufferPos, "%c", *nextChar);
-            bufferPos++;
-            nextChar++;
-        }
-
-        if (*nextChar == '\0') {
-            break;
-        }
-
-        nextChar++;
-
-        switch (*nextChar) 
-        {
-        case 'x':
-            hex = va_arg(arg, unsigned int);
-            int written = 0;
-            written = sprintf(buffer + bufferPos, "%x", hex);
-            bufferPos = bufferPos + written;
-            break;
-        default:
-            break;
-        }
+void uart_send(const char* string) {
+    while (*string != '\0') {
+        putchar(*string);
+        string++;
     }
-
-    buffer[bufferPos] = '\0';
-    va_end(arg);
-    uart_send(buffer);
 }

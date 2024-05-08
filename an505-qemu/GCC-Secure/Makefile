@@ -18,10 +18,11 @@ LINKER_SCRIPT = gcc_arm.ld
 SRC_ASM = startup_ARMCM33.s
 
 SRC_C = \
-	system_ARMCM33.c \
-	main.c \
-	../Core/Src/logPrint.c \
-	../Core/Src/uart.c 
+	 ./main.c \
+	 ./system_ARMCM33.c \
+	../Core/Src/printf.c \
+	../Core/Src/uart.c \
+	../Core/Src/semihosting.c 
 
 INCLUDE_FLAGS = \
 	-I$(CMSIS_PATH)/Device/ARM/ARMCM33/Include \

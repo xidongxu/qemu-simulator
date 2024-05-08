@@ -1,7 +1,8 @@
-#include "logPrint.h"
-#include "uart.h"
-#include "ARMCM33_DSP_FP_TZ.h"
 #include <stdint.h>
+
+#include "uart.h"
+#include "printf.h"
+#include "ARMCM33_DSP_FP_TZ.h"
 
 void __aeabi_unwind_cpp_pr0(void) {
 
@@ -15,7 +16,7 @@ int main(void) {
 
     while (1) {
         __NOP();
-        uart_send("hello world.\n");
+        printf("hello world - %d.\n", count++);
     }
     return 0;
 }
