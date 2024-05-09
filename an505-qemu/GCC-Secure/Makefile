@@ -5,7 +5,7 @@ CMSIS_PATH = ../Drivers/CMSIS_5
 # debug build
 DEBUG = 1
 # optimization
-OPT = -O0
+OPT = -Og
 
 PREFIX = arm-none-eabi-
 CC  = $(PREFIX)gcc
@@ -44,9 +44,8 @@ ASMM_SRC =
 AS_INC = 
 
 # C defines
-C_DEF =  \
--DARMCM33_DSP_FP_TZ \
--DC_SECURE_CODE
+C_DEF = \
+	-DARMCM33_DSP_FP 
 
 # C sources
 C_SRC = \
@@ -70,7 +69,8 @@ ASFLAGS = \
 	$(OPT) \
 	-Wall \
 	-fdata-sections \
-	-ffunction-sections 
+	-ffunction-sections \
+	-fno-exceptions 
 
 # c compile flags
 CFLAGS = \
@@ -82,7 +82,8 @@ CFLAGS = \
 	-mthumb \
 	-specs=nano.specs -specs=nosys.specs \
 	-fdata-sections \
-	-ffunction-sections 
+	-ffunction-sections \
+	-fno-exceptions 
 
 ifeq ($(DEBUG), 1)
 CFLAGS += -g -gdwarf-2

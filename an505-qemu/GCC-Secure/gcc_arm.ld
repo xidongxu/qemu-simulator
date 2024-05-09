@@ -37,6 +37,34 @@ SECTIONS
         _ld_veneer_limit = .;
     } > S_FLASH
 
+    .copy.table :
+    {
+        . = ALIGN(4);
+        __copy_table_start__ = .;
+
+        /* Add each additional data section here */
+        __copy_table_end__ = .;
+    } > S_FLASH
+
+    .zero.table :
+    {
+        . = ALIGN(4);
+        __zero_table_start__ = .;
+        /* Add each additional bss section here */
+        __zero_table_end__ = .;
+    } > S_FLASH
+
+    .bss :
+    {
+        . = ALIGN(4);
+        __bss_start__ = .;
+        *(.bss)
+        *(.bss.*)
+        *(COMMON)
+        . = ALIGN(4);
+        __bss_end__ = .;
+    } > S_RAM AT > S_RAM
+
     /* Set __StackTop for the vector table first index. */
     __StackTop = ORIGIN(S_FLASH_END) + LENGTH(S_FLASH_END);
     /*
