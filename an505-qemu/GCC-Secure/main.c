@@ -9,7 +9,11 @@ void __aeabi_unwind_cpp_pr0(void) {
 }
 
 void HardFault_Handler(void) {
-    printf("this is hardfault.\n");
+    printf("%s\n", __func__);
+}
+
+void Default_Handler(void) {
+    printf("%s\n", __func__);
 }
 
 int main(void) {
