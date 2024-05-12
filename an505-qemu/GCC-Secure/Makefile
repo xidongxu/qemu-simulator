@@ -141,7 +141,16 @@ $(BUILD_PATH):
 
 # clean up
 clean:
-	rm -R $(BUILD_PATH)
+ifeq ($(OS),Windows_NT)
+	del $(BUILD_PATH)\*.d
+	del $(BUILD_PATH)\*.o
+else
+	rm -f $(BUILD_PATH)/*.d
+	rm -f $(BUILD_PATH)/*.o
+endif
+
+debug:
+	.\an505-start.bat
 
 # dependencies
 -include $(wildcard $(BUILD_PATH)/*.d)
