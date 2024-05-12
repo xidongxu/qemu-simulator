@@ -23,7 +23,7 @@ BIN = $(CP) -O binary -S
 CPU = -mcpu=cortex-m33
 
 # fpu
-FPU = -mfpu=fpv4-sp-d16
+FPU = -mfpu=fpv5-sp-d16
 
 # float-abi
 FLOAT-ABI = -mfloat-abi=hard

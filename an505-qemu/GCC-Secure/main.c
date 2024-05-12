@@ -14,8 +14,6 @@ void HardFault_Handler(void) {
 
 int main(void) {
     int count = 0;
-    
-    SystemInit();
     uart_init();
 
     printf("Start\n");
