@@ -7153,12 +7153,12 @@ Disassembly of section .debug_info:
     25cc:	00000080 	andeq	r0, r0, r0, lsl #1
     25d0:	01090101 	tsteq	r9, r1, lsl #2
     25d4:	0000077f 	andeq	r0, r0, pc, ror r7
-    25d8:	0106bf01 	tsteq	r6, r1, lsl #30
+    25d8:	0106be01 	tsteq	r6, r1, lsl #28
 	...
     25e4:	000022e5 	andeq	r2, r0, r5, ror #5
     25e8:	00028001 	andeq	r8, r2, r1
     25ec:	70730a00 	rsbsvc	r0, r3, r0, lsl #20
-    25f0:	0ec00100 	poleqs	f0, f0, f0
+    25f0:	0ebf0100 	frdeqe	f0, f7, f0
     25f4:	000000a1 	andeq	r0, r0, r1, lsr #1
     25f8:	00002309 	andeq	r2, r0, r9, lsl #6
     25fc:	00002305 	andeq	r2, r0, r5, lsl #6
@@ -12163,7 +12163,7 @@ Disassembly of section .debug_line:
     1980:	03052031 	movweq	r2, #20529	; 0x5031
     1984:	062f1414 			; <UNDEFINED> instruction: 0x062f1414
     1988:	05010401 	streq	r0, [r1, #-1025]	; 0xfffffbff
-    198c:	78d50301 	ldmvc	r5, {r0, r8, r9}^
+    198c:	78d40301 	ldmvc	r4, {r0, r8, r9}^
     1990:	00010201 	andeq	r0, r1, r1, lsl #4
     1994:	1c050101 	stfnes	f0, [r5], {1}
     1998:	00020500 	andeq	r0, r2, r0, lsl #10
@@ -12263,7 +12263,7 @@ Disassembly of section .debug_line:
     1b10:	20050101 	andcs	r0, r5, r1, lsl #2
     1b14:	00020500 	andeq	r0, r2, r0, lsl #10
     1b18:	03000000 	movweq	r0, #0
-    1b1c:	050101be 	streq	r0, [r1, #-446]	; 0xfffffe42
+    1b1c:	050101bd 	streq	r0, [r1, #-445]	; 0xfffffe43
     1b20:	13052105 	movwne	r2, #20741	; 0x5105
     1b24:	05050106 	streq	r0, [r5, #-262]	; 0xfffffefa
     1b28:	20063d06 	andcs	r3, r6, r6, lsl #26
