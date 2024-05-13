@@ -13,9 +13,9 @@
 #ifndef __FaultTrace_H__
 #define __FaultTrace_H__
 
-#include "stm32f4xx.h"
 #include <stdio.h>
 #include <stdbool.h>
+#include "fault-cfg.h"
 
 #ifdef __cplusplus
 extern "C" {

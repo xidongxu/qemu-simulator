@@ -35,7 +35,9 @@ MCU = $(CPU) -mthumb $(FPU) $(FLOAT-ABI)
 AS_DEF = 
 
 # asm sources
-ASM_SRC = startup_ARMCM33.s
+ASM_SRC = \
+	startup_ARMCM33.s \
+	../../../libutils/fault-dump/cpu/cortex-m33/fault-gcc.s 
 
 # ASM sources
 ASMM_SRC = 
@@ -53,13 +55,16 @@ C_SRC = \
 	 ./system_ARMCM33.c \
 	../Core/Src/printf.c \
 	../Core/Src/uart.c \
-	../Core/Src/semihosting.c 
+	../Core/Src/semihosting.c \
+	../../../libutils/fault-dump/src/fault-dump.c 
 
 # C includes
 C_INC = \
 	-I$(CMSIS_PATH)/Device/ARM/ARMCM33/Include \
 	-I$(CMSIS_PATH)/CMSIS/Core/Include \
-	-I../Core/Inc 
+	-I../Core/Inc \
+	-I../../../libutils/fault-dump/inc \
+	-I../../../libutils/fault-dump/cpu/cortex-m33  
 
 # as compile flags
 ASFLAGS = \

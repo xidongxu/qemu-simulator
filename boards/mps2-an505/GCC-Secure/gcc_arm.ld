@@ -106,6 +106,9 @@ SECTIONS
 {
   .text :
   {
+    . = ALIGN(4);
+    _stext = .;
+
     KEEP(*(.vectors))
     *(.text*)
 
@@ -129,6 +132,9 @@ SECTIONS
     *(.rodata*)
 
     KEEP(*(.eh_frame*))
+
+    . = ALIGN(4);
+    _etext = .;
   } > FLASH
 
   /*
@@ -292,9 +298,11 @@ SECTIONS
   {
     . = ALIGN(8);
     __StackLimit = .;
+    _sstack = .;
     . = . + __STACK_SIZE;
     . = ALIGN(8);
     __StackTop = .;
+    _estack = .;
   } > RAM
   PROVIDE(__stack = __StackTop);
   

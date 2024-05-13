@@ -8,7 +8,7 @@ void __aeabi_unwind_cpp_pr0(void) {
 
 }
 
-void HardFault_Handler(void) {
+void HardFault_Handler_Legency(void) {
     printf("%s\n", __func__);
 }
 
