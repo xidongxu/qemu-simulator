@@ -60,12 +60,12 @@ C_SOURCES =  \
 ../Core/Src/system_stm32f4xx.c \
 ../Core/Src/sysmem.c \
 ../Core/Src/syscalls.c  \
-../Utils/fault_dump/src/fault_dump.c 
+../../../libutils/fault-dump/src/fault-dump.c 
 
 # ASM sources
 ASM_SOURCES =  \
 startup_stm32f405xx.s \
-../Utils/fault_dump/cpu/cortex-m4/fault_gcc.s
+../../../libutils/fault-dump/cpu/cortex-m4/fault-gcc.s
 
 # ASM sources
 ASMM_SOURCES = 
@@ -126,7 +126,7 @@ C_INCLUDES =  \
 -I../Drivers/STM32F4xx_HAL_Driver/Inc/Legacy \
 -I../Drivers/CMSIS/Device/ST/STM32F4xx/Include \
 -I../Drivers/CMSIS/Include \
--I../Utils/fault_dump/inc 
+-I../../../libutils/fault-dump/inc 
 
 
 # compile gcc flags
@@ -195,7 +195,15 @@ $(BUILD_DIR):
 # clean up
 #######################################
 clean:
-	-rm -fR $(BUILD_DIR)
+ifeq ($(OS),Windows_NT)
+	del $(BUILD_DIR)\*.d
+	del $(BUILD_DIR)\*.o
+	del $(BUILD_DIR)\*.lst
+else
+	rm -fR $(BUILD_DIR)/*.d
+	rm -fR $(BUILD_DIR)/*.o
+	rm -fR $(BUILD_DIR)/*.lst
+endif
   
 #######################################
 # dependencies
