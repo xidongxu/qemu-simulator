@@ -7,7 +7,7 @@ Section Cross References
     startup_stm32f405xx.o(RESET) refers to startup_stm32f405xx.o(STACK) for __initial_sp
     startup_stm32f405xx.o(RESET) refers to startup_stm32f405xx.o(.text) for Reset_Handler
     startup_stm32f405xx.o(RESET) refers to stm32f4xx_it.o(i.NMI_Handler) for NMI_Handler
-    startup_stm32f405xx.o(RESET) refers to fault_rvds.o(.text) for HardFault_Handler
+    startup_stm32f405xx.o(RESET) refers to fault-rvds.o(.text) for HardFault_Handler
     startup_stm32f405xx.o(RESET) refers to stm32f4xx_it.o(i.MemManage_Handler) for MemManage_Handler
     startup_stm32f405xx.o(RESET) refers to stm32f4xx_it.o(i.BusFault_Handler) for BusFault_Handler
     startup_stm32f405xx.o(RESET) refers to stm32f4xx_it.o(i.UsageFault_Handler) for UsageFault_Handler
@@ -33,7 +33,7 @@ Section Cross References
     main.o(i.main) refers to stm32f4xx_hal.o(i.HAL_Init) for HAL_Init
     main.o(i.main) refers to gpio.o(i.MX_GPIO_Init) for MX_GPIO_Init
     main.o(i.main) refers to usart.o(i.MX_USART1_UART_Init) for MX_USART1_UART_Init
-    main.o(i.main) refers to fault_dump.o(i.fault_dump_init) for fault_dump_init
+    main.o(i.main) refers to fault-dump.o(i.fault_dump_init) for fault_dump_init
     main.o(i.main) refers to main.o(i.test5) for test5
     main.o(i.main) refers to printf8.o(i.__0printf$8) for __2printf
     main.o(i.main) refers to stm32f4xx_hal.o(i.HAL_Delay) for HAL_Delay
@@ -77,14 +77,14 @@ Section Cross References
     stm32f4xx_it.o(i.USART1_IRQHandler) refers to usart.o(.bss) for huart1
     stm32f4xx_it.o(i.UsageFault_Handler) refers to printf8.o(i.__0printf$8) for __2printf
     stm32f4xx_it.o(i.UsageFault_Handler) refers to stm32f4xx_it.o(.constdata) for __func__
-    fault_dump.o(i.fault_dump_handler) refers to printf8.o(i.__0printf$8) for __2printf
-    fault_dump.o(i.fault_dump_handler) refers to fault_dump.o(i.fault_dump_opcode) for fault_dump_opcode
-    fault_dump.o(i.fault_dump_handler) refers to fault_dump.o(i.opcode_is_bl_or_blx) for opcode_is_bl_or_blx
-    fault_dump.o(i.fault_dump_handler) refers to fault_dump.o(.bss) for frame
-    fault_dump.o(i.fault_dump_init) refers to printf8.o(i.__0printf$8) for __2printf
-    fault_dump.o(i.fault_dump_register) refers to fault_dump.o(i.fault_dump_sp) for fault_dump_sp
-    fault_dump.o(i.fault_dump_register) refers to printf8.o(i.__0printf$8) for __2printf
-    fault_rvds.o(.text) refers to fault_dump.o(i.fault_dump_handler) for fault_dump_handler
+    fault-dump.o(i.fault_dump_handler) refers to printf8.o(i.__0printf$8) for __2printf
+    fault-dump.o(i.fault_dump_handler) refers to fault-dump.o(i.fault_dump_opcode) for fault_dump_opcode
+    fault-dump.o(i.fault_dump_handler) refers to fault-dump.o(i.opcode_is_bl_or_blx) for opcode_is_bl_or_blx
+    fault-dump.o(i.fault_dump_handler) refers to fault-dump.o(.bss) for frame
+    fault-dump.o(i.fault_dump_init) refers to printf8.o(i.__0printf$8) for __2printf
+    fault-dump.o(i.fault_dump_register) refers to fault-dump.o(i.fault_dump_sp) for fault_dump_sp
+    fault-dump.o(i.fault_dump_register) refers to printf8.o(i.__0printf$8) for __2printf
+    fault-rvds.o(.text) refers to fault-dump.o(i.fault_dump_handler) for fault_dump_handler
     stm32f4xx_hal_uart.o(i.HAL_HalfDuplex_Init) refers to main.o(i.assert_failed) for assert_failed
     stm32f4xx_hal_uart.o(i.HAL_HalfDuplex_Init) refers to usart.o(i.HAL_UART_MspInit) for HAL_UART_MspInit
     stm32f4xx_hal_uart.o(i.HAL_HalfDuplex_Init) refers to stm32f4xx_hal_uart.o(i.UART_SetConfig) for UART_SetConfig
@@ -625,11 +625,11 @@ Removing Unused input sections from the image.
     Removing stm32f4xx_hal_msp.o(.rev16_text), (4 bytes).
     Removing stm32f4xx_hal_msp.o(.revsh_text), (4 bytes).
     Removing stm32f4xx_hal_msp.o(.rrx_text), (6 bytes).
-    Removing fault_dump.o(.rev16_text), (4 bytes).
-    Removing fault_dump.o(.revsh_text), (4 bytes).
-    Removing fault_dump.o(.rrx_text), (6 bytes).
-    Removing fault_dump.o(i.fault_dump_register), (44 bytes).
-    Removing fault_dump.o(i.fault_dump_sp), (32 bytes).
+    Removing fault-dump.o(.rev16_text), (4 bytes).
+    Removing fault-dump.o(.revsh_text), (4 bytes).
+    Removing fault-dump.o(.rrx_text), (6 bytes).
+    Removing fault-dump.o(i.fault_dump_register), (44 bytes).
+    Removing fault-dump.o(i.fault_dump_sp), (32 bytes).
     Removing stm32f4xx_hal_tim.o(.rev16_text), (4 bytes).
     Removing stm32f4xx_hal_tim.o(.revsh_text), (4 bytes).
     Removing stm32f4xx_hal_tim.o(.rrx_text), (6 bytes).
@@ -954,6 +954,8 @@ Image Symbol Table
     ../fplib/microlib/fpepilogue.c           0x00000000   Number         0  depilogue.o ABSOLUTE
     ../fplib/microlib/fpfix.c                0x00000000   Number         0  dfixul.o ABSOLUTE
     ../fplib/microlib/fpmul.c                0x00000000   Number         0  dmul.o ABSOLUTE
+    ..\..\..\libutils\fault-dump\cpu\cortex-m4\fault-rvds.s 0x00000000   Number         0  fault-rvds.o ABSOLUTE
+    ..\..\..\libutils\fault-dump\src\fault-dump.c 0x00000000   Number         0  fault-dump.o ABSOLUTE
     ..\Core\Src\gpio.c                       0x00000000   Number         0  gpio.o ABSOLUTE
     ..\Core\Src\main.c                       0x00000000   Number         0  main.o ABSOLUTE
     ..\Core\Src\stm32f4xx_hal_msp.c          0x00000000   Number         0  stm32f4xx_hal_msp.o ABSOLUTE
@@ -976,9 +978,7 @@ Image Symbol Table
     ..\Drivers\STM32F4xx_HAL_Driver\Src\stm32f4xx_hal_tim.c 0x00000000   Number         0  stm32f4xx_hal_tim.o ABSOLUTE
     ..\Drivers\STM32F4xx_HAL_Driver\Src\stm32f4xx_hal_tim_ex.c 0x00000000   Number         0  stm32f4xx_hal_tim_ex.o ABSOLUTE
     ..\Drivers\STM32F4xx_HAL_Driver\Src\stm32f4xx_hal_uart.c 0x00000000   Number         0  stm32f4xx_hal_uart.o ABSOLUTE
-    ..\Utils\fault_dump\cpu\cortex-m4\fault_rvds.s 0x00000000   Number         0  fault_rvds.o ABSOLUTE
-    ..\Utils\fault_dump\src\fault_dump.c     0x00000000   Number         0  fault_dump.o ABSOLUTE
-    ..\\Utils\\fault_dump\\src\\fault_dump.c 0x00000000   Number         0  fault_dump.o ABSOLUTE
+    ..\\..\\..\\libutils\\fault-dump\\src\\fault-dump.c 0x00000000   Number         0  fault-dump.o ABSOLUTE
     cdrcmple.s                               0x00000000   Number         0  cdrcmple.o ABSOLUTE
     dc.s                                     0x00000000   Number         0  dc.o ABSOLUTE
     handlers.s                               0x00000000   Number         0  handlers.o ABSOLUTE
@@ -998,8 +998,8 @@ Image Symbol Table
     __lit__00000000                          0x0800019c   Data           4  entry2.o(.ARM.Collect$$$$00002712)
     .text                                    0x080001a0   Section       36  startup_stm32f405xx.o(.text)
     $v0                                      0x080001a0   Number         0  startup_stm32f405xx.o(.text)
-    .text                                    0x080001c4   Section       24  fault_rvds.o(.text)
-    $v0                                      0x080001c4   Number         0  fault_rvds.o(.text)
+    .text                                    0x080001c4   Section       24  fault-rvds.o(.text)
+    $v0                                      0x080001c4   Number         0  fault-rvds.o(.text)
     .text                                    0x080001dc   Section        0  uldiv.o(.text)
     .text                                    0x0800023e   Section        0  memseta.o(.text)
     .text                                    0x08000262   Section        0  llshl.o(.text)
@@ -1071,15 +1071,15 @@ Image Symbol Table
     i._printf_pre_padding                    0x08001c5c   Section        0  printf8.o(i._printf_pre_padding)
     _printf_pre_padding                      0x08001c5d   Thumb Code    46  printf8.o(i._printf_pre_padding)
     i.assert_failed                          0x08001c8c   Section        0  main.o(i.assert_failed)
-    i.fault_dump_handler                     0x08001cb0   Section        0  fault_dump.o(i.fault_dump_handler)
-    i.fault_dump_init                        0x08002010   Section        0  fault_dump.o(i.fault_dump_init)
-    i.fault_dump_opcode                      0x080020c8   Section        0  fault_dump.o(i.fault_dump_opcode)
-    fault_dump_opcode                        0x080020c9   Thumb Code    44  fault_dump.o(i.fault_dump_opcode)
+    i.fault_dump_handler                     0x08001cb0   Section        0  fault-dump.o(i.fault_dump_handler)
+    i.fault_dump_init                        0x08002010   Section        0  fault-dump.o(i.fault_dump_init)
+    i.fault_dump_opcode                      0x080020c8   Section        0  fault-dump.o(i.fault_dump_opcode)
+    fault_dump_opcode                        0x080020c9   Thumb Code    44  fault-dump.o(i.fault_dump_opcode)
     i.fault_unalign_trigger                  0x080020f4   Section        0  main.o(i.fault_unalign_trigger)
     i.fputc                                  0x0800215c   Section        0  main.o(i.fputc)
     i.main                                   0x08002178   Section        0  main.o(i.main)
-    i.opcode_is_bl_or_blx                    0x080021b4   Section        0  fault_dump.o(i.opcode_is_bl_or_blx)
-    opcode_is_bl_or_blx                      0x080021b5   Thumb Code    50  fault_dump.o(i.opcode_is_bl_or_blx)
+    i.opcode_is_bl_or_blx                    0x080021b4   Section        0  fault-dump.o(i.opcode_is_bl_or_blx)
+    opcode_is_bl_or_blx                      0x080021b5   Thumb Code    50  fault-dump.o(i.opcode_is_bl_or_blx)
     i.test0                                  0x080021e8   Section        0  main.o(i.test0)
     i.test1                                  0x0800220c   Section        0  main.o(i.test1)
     i.test2                                  0x08002230   Section        0  main.o(i.test2)
@@ -1106,8 +1106,8 @@ Image Symbol Table
     .data                                    0x2000000c   Section        4  system_stm32f4xx.o(.data)
     .data                                    0x20000010   Section        4  stdout.o(.data)
     .bss                                     0x20000014   Section       72  usart.o(.bss)
-    .bss                                     0x2000005c   Section       64  fault_dump.o(.bss)
-    frame                                    0x2000005c   Data          64  fault_dump.o(.bss)
+    .bss                                     0x2000005c   Section       64  fault-dump.o(.bss)
+    frame                                    0x2000005c   Data          64  fault-dump.o(.bss)
     STACK                                    0x200000a0   Section     2048  startup_stm32f405xx.o(STACK)
 
     Global Symbols
@@ -1257,7 +1257,7 @@ Image Symbol Table
     USART3_IRQHandler                        0x080001bb   Thumb Code     0  startup_stm32f405xx.o(.text)
     USART6_IRQHandler                        0x080001bb   Thumb Code     0  startup_stm32f405xx.o(.text)
     WWDG_IRQHandler                          0x080001bb   Thumb Code     0  startup_stm32f405xx.o(.text)
-    HardFault_Handler                        0x080001c5   Thumb Code    24  fault_rvds.o(.text)
+    HardFault_Handler                        0x080001c5   Thumb Code    24  fault-rvds.o(.text)
     __aeabi_uldivmod                         0x080001dd   Thumb Code    98  uldiv.o(.text)
     __aeabi_memset                           0x0800023f   Thumb Code    14  memseta.o(.text)
     __aeabi_memset4                          0x0800023f   Thumb Code     0  memseta.o(.text)
@@ -1316,8 +1316,8 @@ Image Symbol Table
     __scatterload_null                       0x08001823   Thumb Code     2  handlers.o(i.__scatterload_null)
     __scatterload_zeroinit                   0x08001825   Thumb Code    14  handlers.o(i.__scatterload_zeroinit)
     assert_failed                            0x08001c8d   Thumb Code    16  main.o(i.assert_failed)
-    fault_dump_handler                       0x08001cb1   Thumb Code   396  fault_dump.o(i.fault_dump_handler)
-    fault_dump_init                          0x08002011   Thumb Code    72  fault_dump.o(i.fault_dump_init)
+    fault_dump_handler                       0x08001cb1   Thumb Code   396  fault-dump.o(i.fault_dump_handler)
+    fault_dump_init                          0x08002011   Thumb Code    72  fault-dump.o(i.fault_dump_init)
     fault_unalign_trigger                    0x080020f5   Thumb Code    70  main.o(i.fault_unalign_trigger)
     fputc                                    0x0800215d   Thumb Code    22  main.o(i.fputc)
     main                                     0x08002179   Thumb Code    40  main.o(i.main)
@@ -1366,7 +1366,7 @@ Memory Map of the image
     0x0800019c   0x0800019c   0x00000000   Code   RO         2368    .ARM.Collect$$$$00000011  mc_w.l(entry11a.o)
     0x0800019c   0x0800019c   0x00000004   Code   RO         2357    .ARM.Collect$$$$00002712  mc_w.l(entry2.o)
     0x080001a0   0x080001a0   0x00000024   Code   RO            4    .text               startup_stm32f405xx.o
-    0x080001c4   0x080001c4   0x00000018   Code   RO          450    .text               fault_rvds.o
+    0x080001c4   0x080001c4   0x00000018   Code   RO          450    .text               fault-rvds.o
     0x080001dc   0x080001dc   0x00000062   Code   RO         2091    .text               mc_w.l(uldiv.o)
     0x0800023e   0x0800023e   0x00000024   Code   RO         2093    .text               mc_w.l(memseta.o)
     0x08000262   0x08000262   0x0000001e   Code   RO         2375    .text               mc_w.l(llshl.o)
@@ -1430,13 +1430,13 @@ Memory Map of the image
     0x08001c5c   0x08001c5c   0x0000002e   Code   RO         2311    i._printf_pre_padding  mc_w.l(printf8.o)
     0x08001c8a   0x08001c8a   0x00000002   PAD
     0x08001c8c   0x08001c8c   0x00000024   Code   RO           15    i.assert_failed     main.o
-    0x08001cb0   0x08001cb0   0x00000360   Code   RO          397    i.fault_dump_handler  fault_dump.o
-    0x08002010   0x08002010   0x000000b8   Code   RO          398    i.fault_dump_init   fault_dump.o
-    0x080020c8   0x080020c8   0x0000002c   Code   RO          399    i.fault_dump_opcode  fault_dump.o
+    0x08001cb0   0x08001cb0   0x00000360   Code   RO          397    i.fault_dump_handler  fault-dump.o
+    0x08002010   0x08002010   0x000000b8   Code   RO          398    i.fault_dump_init   fault-dump.o
+    0x080020c8   0x080020c8   0x0000002c   Code   RO          399    i.fault_dump_opcode  fault-dump.o
     0x080020f4   0x080020f4   0x00000068   Code   RO           17    i.fault_unalign_trigger  main.o
     0x0800215c   0x0800215c   0x0000001c   Code   RO           18    i.fputc             main.o
     0x08002178   0x08002178   0x0000003c   Code   RO           19    i.main              main.o
-    0x080021b4   0x080021b4   0x00000032   Code   RO          402    i.opcode_is_bl_or_blx  fault_dump.o
+    0x080021b4   0x080021b4   0x00000032   Code   RO          402    i.opcode_is_bl_or_blx  fault-dump.o
     0x080021e6   0x080021e6   0x00000002   PAD
     0x080021e8   0x080021e8   0x00000024   Code   RO           20    i.test0             main.o
     0x0800220c   0x0800220c   0x00000024   Code   RO           21    i.test1             main.o
@@ -1459,7 +1459,7 @@ Memory Map of the image
     0x2000000c   0x080023a0   0x00000004   Data   RW         2057    .data               system_stm32f4xx.o
     0x20000010   0x080023a4   0x00000004   Data   RW         2372    .data               mc_w.l(stdout.o)
     0x20000014        -       0x00000048   Zero   RW          251    .bss                usart.o
-    0x2000005c        -       0x00000040   Zero   RW          403    .bss                fault_dump.o
+    0x2000005c        -       0x00000040   Zero   RW          403    .bss                fault-dump.o
     0x2000009c   0x080023a8   0x00000004   PAD
     0x200000a0        -       0x00000800   Zero   RW            1    STACK               startup_stm32f405xx.o
 
@@ -1476,24 +1476,24 @@ Image component sizes
 
       Code (inc. data)   RO Data    RW Data    ZI Data      Debug   Object Name
 
-      1142        580          0          0         64       3099   fault_dump.o
-        24          0          0          0          0        456   fault_rvds.o
-       100          4          0          0          0        879   gpio.o
-       480        222         64          0          0     557647   main.o
-        36          8        392          0       2048        852   startup_stm32f405xx.o
-       212         36          0          9          0       9521   stm32f4xx_hal.o
-       572        204          0          0          0      34579   stm32f4xx_hal_cortex.o
-       212          0          0          0          0       2003   stm32f4xx_hal_dma.o
-      1032        110          0          0          0       1792   stm32f4xx_hal_gpio.o
-        72          4          0          0          0        890   stm32f4xx_hal_msp.o
-        76         26          0          0          0       1776   stm32f4xx_hal_rcc.o
-      2722        162          0          0          0      11948   stm32f4xx_hal_uart.o
-       158         86         92          0          0       5006   stm32f4xx_it.o
-        20          6         24          4          0       1175   system_stm32f4xx.o
-       208         22          0          0         72       1758   usart.o
+      1142        580          0          0         64       3203   fault-dump.o
+        24          0          0          0          0        480   fault-rvds.o
+       100          4          0          0          0        899   gpio.o
+       480        222         64          0          0     557847   main.o
+        36          8        392          0       2048        860   startup_stm32f405xx.o
+       212         36          0          9          0       9597   stm32f4xx_hal.o
+       572        204          0          0          0      34647   stm32f4xx_hal_cortex.o
+       212          0          0          0          0       2027   stm32f4xx_hal_dma.o
+      1032        110          0          0          0       1816   stm32f4xx_hal_gpio.o
+        72          4          0          0          0        910   stm32f4xx_hal_msp.o
+        76         26          0          0          0       1800   stm32f4xx_hal_rcc.o
+      2722        162          0          0          0      12080   stm32f4xx_hal_uart.o
+       158         86         92          0          0       5110   stm32f4xx_it.o
+        20          6         24          4          0       1207   system_stm32f4xx.o
+       208         22          0          0         72       1806   usart.o
 
     ----------------------------------------------------------------------
-      7072       1470        604         16       2188     633381   Object Totals
+      7072       1470        604         16       2188     634289   Object Totals
          0          0         32          0          0          0   (incl. Generated)
          6          0          0          3          4          0   (incl. Padding)
 
@@ -1539,8 +1539,8 @@ Image component sizes
 
       Code (inc. data)   RO Data    RW Data    ZI Data      Debug   
 
-      8504       1540        604         20       2188     628529   Grand Totals
-      8504       1540        604         20       2188     628529   ELF Image Totals
+      8504       1540        604         20       2188     629437   Grand Totals
+      8504       1540        604         20       2188     629437   ELF Image Totals
       8504       1540        604         20          0          0   ROM Totals
 
 ==============================================================================

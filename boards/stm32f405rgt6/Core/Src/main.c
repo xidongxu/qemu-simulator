@@ -26,7 +26,7 @@
 #include <string.h>
 #include <stdio.h>
 #include <stdlib.h>
-#include "fault_dump.h"
+#include "fault-dump.h"
 /* USER CODE END Includes */
 
 /* Private typedef -----------------------------------------------------------*/

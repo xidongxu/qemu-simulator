@@ -9,7 +9,7 @@
 	*
   ******************************************************************************
   */
-#include "fault_dump.h"
+#include "fault-dump.h"
 
 #if defined(__CC_ARM)
 extern unsigned int STACK$$Base;
