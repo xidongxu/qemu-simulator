@@ -154,6 +154,7 @@ else
 	rm -f $(BUILD_PATH)/*.o
 endif
 
+# start qemu for debug
 debug:
 	.\an505-start.bat
 
