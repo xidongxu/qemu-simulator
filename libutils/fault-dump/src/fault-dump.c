@@ -1,12 +1,13 @@
 /**
   ******************************************************************************
-  * @file    Fault_Dump.c
-  * @brief   This file provides code for the FaultTrace.
+  * @file    fault-dump.c
+  * @brief   This file provides code for the FaultDump utils.
   *
   ******************************************************************************
-	*
-	*
-	*
+  * @attention
+  *
+  *
+  *
   ******************************************************************************
   */
 #include "fault-dump.h"

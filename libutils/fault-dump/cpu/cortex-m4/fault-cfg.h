@@ -1,8 +1,8 @@
 /**
   ******************************************************************************
-  * @file    Fault_Dump.h
-  * @brief   This file contains all the function prototypes for
-  *          the FaultTrace.c file
+  * @file    fault-cfg.h
+  * @brief   This file provides code for the FaultDump utils.
+  * 
   ******************************************************************************
   * @attention
   *

@@ -47,8 +47,6 @@ void test0(void)
 {
     printf("this is %s.\r\n", __func__);
     // trigger a fault.
-    //float a = 0.0, b = 1.1;
-    //printf("this is %f.\r\n", (a + b));
     fault_unalign_trigger();
 }
 

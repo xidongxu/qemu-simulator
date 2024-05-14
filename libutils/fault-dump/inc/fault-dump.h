@@ -1,8 +1,8 @@
 /**
   ******************************************************************************
-  * @file    Fault_Dump.h
+  * @file    fault-dump.h
   * @brief   This file contains all the function prototypes for
-  *          the FaultTrace.c file
+  *          the fault-dump.c file
   ******************************************************************************
   * @attention
   *
@@ -10,8 +10,8 @@
   *
   ******************************************************************************
   */
-#ifndef __FaultTrace_H__
-#define __FaultTrace_H__
+#ifndef __FaultDump_H__
+#define __FaultDump_H__
 
 #include <stdio.h>
 #include <stdbool.h>
@@ -59,5 +59,5 @@ void fault_dump_register(void);
 }
 #endif
 
-#endif /* __FaultTrace_H__ */
+#endif /* __FaultDump_H__ */
 
