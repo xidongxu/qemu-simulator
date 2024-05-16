@@ -41,6 +41,9 @@ extern unsigned int _estack;
 #else
 #error "fault dump does not support current compiler."
 #endif
+/* stack segment information */
+volatile unsigned int fd_code_stack_base = 0;
+volatile unsigned int fd_code_stack_full = 0;
 
 /*
  *****************************************************
@@ -65,14 +68,12 @@ extern unsigned int _estack;
  */
 
 void fault_dump_init(void) {
-    printf("Code Stack:\r\n");
-    printf("base->%08X.\r\n", FD_CODE_STACK_BASE);
-    printf("full->%08X.\r\n", FD_CODE_STACK_FULL);
-    printf("size->%d.  \r\n", FD_CODE_STACK_SIZE);
-    printf("Code Text: \r\n");
-    printf("base->%08X.\r\n", FD_CODE_TEXT_BASE);
-    printf("ends->%08X.\r\n", FD_CODE_TEXT_ENDS);
-    printf("size->%d.  \r\n", FD_CODE_TEXT_SIZE);
+    fd_code_stack_base = FD_CODE_STACK_BASE;
+    fd_code_stack_full = FD_CODE_STACK_FULL;
+    printf("Code Stack:[%08X -> %08X], size:%d\r\n", 
+    FD_CODE_STACK_FULL, FD_CODE_STACK_BASE, FD_CODE_STACK_SIZE);
+    printf("Code Text :[%08X -> %08X], size:%d\r\n", 
+    FD_CODE_TEXT_BASE,  FD_CODE_TEXT_ENDS,  FD_CODE_TEXT_SIZE );
 }
 
 static unsigned int fault_dump_opcode(unsigned int pc) {
