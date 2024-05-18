@@ -1,15 +1,15 @@
 /**
- ******************************************************************************
- * @file    fault-dump.c
- * @brief   This file provides code for the FaultDump utils.
- *
- ******************************************************************************
- * @attention
- *
- *
- *
- ******************************************************************************
- */
+  ******************************************************************************
+  * @file    fault-dump.c
+  * @brief   This file provides code for the FaultDump utils.
+  *
+  ******************************************************************************
+  * @attention
+  *
+  *
+  *
+  ******************************************************************************
+  */
 #include "fault-dump.h"
 
 #if defined(__CC_ARM)
@@ -71,7 +71,7 @@ void fault_dump_init(void) {
     fd_code_stack_base = FD_CODE_STACK_BASE;
     fd_code_stack_full = FD_CODE_STACK_FULL;
     printf("Code Stack:[%08X -> %08X], size:%d\r\n",
-           FD_CODE_STACK_FULL, FD_CODE_STACK_BASE, FD_CODE_STACK_SIZE);
+    FD_CODE_STACK_FULL, FD_CODE_STACK_BASE, FD_CODE_STACK_SIZE);
     printf("Code Text :[%08X -> %08X], size:%d\r\n",
     FD_CODE_TEXT_BASE,  FD_CODE_TEXT_ENDS,  FD_CODE_TEXT_SIZE );
 }
