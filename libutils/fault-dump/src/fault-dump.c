@@ -1,15 +1,15 @@
 /**
-  ******************************************************************************
-  * @file    fault-dump.c
-  * @brief   This file provides code for the FaultDump utils.
-  *
-  ******************************************************************************
-  * @attention
-  *
-  *
-  *
-  ******************************************************************************
-  */
+ ******************************************************************************
+ * @file    fault-dump.c
+ * @brief   This file provides code for the FaultDump utils.
+ *
+ ******************************************************************************
+ * @attention
+ *
+ *
+ *
+ ******************************************************************************
+ */
 #include "fault-dump.h"
 
 #if defined(__CC_ARM)
@@ -70,9 +70,9 @@ volatile unsigned int fd_code_stack_full = 0;
 void fault_dump_init(void) {
     fd_code_stack_base = FD_CODE_STACK_BASE;
     fd_code_stack_full = FD_CODE_STACK_FULL;
-    printf("Code Stack:[%08X -> %08X], size:%d\r\n", 
-    FD_CODE_STACK_FULL, FD_CODE_STACK_BASE, FD_CODE_STACK_SIZE);
-    printf("Code Text :[%08X -> %08X], size:%d\r\n", 
+    printf("Code Stack:[%08X -> %08X], size:%d\r\n",
+           FD_CODE_STACK_FULL, FD_CODE_STACK_BASE, FD_CODE_STACK_SIZE);
+    printf("Code Text :[%08X -> %08X], size:%d\r\n",
     FD_CODE_TEXT_BASE,  FD_CODE_TEXT_ENDS,  FD_CODE_TEXT_SIZE );
 }
 
@@ -103,11 +103,10 @@ static bool opcode_is_bl_or_blx(unsigned int ins) {
 }
 
 void fault_dump_handler(unsigned int *stack, unsigned int linker) {
-    static stack_frame_t frame = { 0 };
+    static stack_frame_t frame = {0};
+    static unsigned int buffer[FD_CALLSTACK_DEPTH_MAX] = {0};
     unsigned int fd_frame_size = 16;
-    unsigned int fd_stack_left = 0;
-    unsigned int fd_stack_used = (unsigned int)stack;
-    unsigned int pc = 0, op = 0;
+    int count = 0, iter = 0;
     // Record current register information.
     frame.manual.r4  = stack[ 0];
     frame.manual.r5  = stack[ 1];
@@ -147,13 +146,31 @@ void fault_dump_handler(unsigned int *stack, unsigned int linker) {
     printf(" PSR  = 0x%08X \r\n", (unsigned int)frame.except.psr);
     printf("\r\n");
     printf(" EXE_RETURN: 0x%08X \r\n", linker);
-    // Calculate the size of remaining data in the stack.
-    fd_stack_left = (FD_CODE_STACK_FULL - fd_stack_used - fd_frame_size);
-    printf(" Stack Used: %d / %d\r\n", fd_stack_left, FD_CODE_STACK_SIZE);
+    // Get callstack information.
+    count = fault_dump_callstack(buffer, FD_CALLSTACK_DEPTH_MAX, 
+                                (unsigned int *)stack[fd_frame_size], 
+                                (unsigned int *)FD_CODE_STACK_BASE, 
+                                (unsigned int *)FD_CODE_STACK_FULL);
     // Print stack information.
     printf(" Stack Call: \r\n");
-    for (int iter = fd_frame_size; iter < (fd_stack_left / sizeof(unsigned int)); iter++) {
-        pc = stack[iter];
+    printf("%08X ", (unsigned int)frame.except.pc);
+    for (iter = 0; iter < count; iter++)
+    {
+        printf("%08X ", buffer[iter]);
+    }
+    printf("\r\n");
+    while (1);
+}
+
+int fault_dump_callstack(unsigned int *buffer, size_t size, unsigned int *stack_point, unsigned int *stack_start, unsigned int *stack_ends) {
+    int count = 0;
+    unsigned int pc = 0, op = 0, *sp = NULL;
+    if ((buffer == NULL) || (size <= 0) || (stack_point < stack_start) || (stack_point > stack_ends)) {
+        return -1;
+    }
+    for (sp = stack_point; sp < stack_ends; sp++) {
+        // Read stack[x] value to pc.
+        pc = *(unsigned int *)sp;
         // PC must be in the code segment.
         if ((pc < FD_CODE_TEXT_BASE) || (pc > FD_CODE_TEXT_ENDS)) {
             continue;
@@ -176,20 +193,12 @@ void fault_dump_handler(unsigned int *stack, unsigned int linker) {
         if (!opcode_is_bl_or_blx(op)) {
             continue;
         }
-        // Print this address.
-        printf("%08X ", pc);
+        // storage this address.
+        buffer[count] = pc;
+        count = count + 1;
+        if (count >= size) {
+            break;
+        }
     }
-    printf("\r\n");
-    while(1);
-}
-
-static uint32_t fault_dump_sp(void) {
-    uint32_t control_reg;
-    control_reg = __get_CONTROL();
-    return (control_reg & CONTROL_SPSEL_Msk) ? __get_PSP() : __get_MSP();
-}
-
-void fault_dump_register(void) {
-    uint32_t sp = fault_dump_sp();
-    printf("current sp: 0x%08X.\r\n", (unsigned int)sp);
+    return count;
 }

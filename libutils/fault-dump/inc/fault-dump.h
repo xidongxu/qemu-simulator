@@ -21,6 +21,8 @@
 extern "C" {
 #endif
 
+#define FD_CALLSTACK_DEPTH_MAX      (64)
+
 typedef struct stack_frame_except stack_frame_except_t;
 struct stack_frame_except {
     unsigned int r0;
@@ -53,7 +55,7 @@ struct stack_frame {
 
 void fault_dump_init(void);
 void fault_dump_handler(unsigned int *stack, unsigned int linker);
-void fault_dump_register(void);
+int  fault_dump_callstack(unsigned int *buffer, size_t size, unsigned int *stack_point, unsigned int *stack_start, unsigned int *stack_ends);
 
 #ifdef __cplusplus
 }
