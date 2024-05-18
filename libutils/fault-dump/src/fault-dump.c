@@ -41,19 +41,18 @@ extern unsigned int _estack;
 #else
 #error "fault dump does not support current compiler."
 #endif
-/* stack segment information */
-volatile unsigned int fd_code_stack_base = 0;
-volatile unsigned int fd_code_stack_full = 0;
 
+/* stach growth direction */
+#if FD_STACK_GROWTH_DOWNWARD
 /*
  *****************************************************
  *                                                   *
- *                                      0x200008F0   *
+ *                   Stack Start        0x200008F0   *
  *           ┌──────┬───────────┬─────► Stack Full   *
  *           │      │ $$$$,$$$$ │                    *
  *           │      │ $$$$,$$$$ │                    *
- *           │      │ $$$$,$$$$ │       0x20000870   *
- *           │      ├───────────┼─────► Stack Used   *
+ *           │      │ $$$$,$$$$ │       0x200007F0   *
+ *           │      ├───────────┼─────► Stack Point  *
  *           │      │           │                    *
  *           ▼      │ Grow Dir  │                    *
  *       Stack Size │           │                    *
@@ -66,14 +65,52 @@ volatile unsigned int fd_code_stack_full = 0;
  *                                                   *
  *****************************************************
  */
+#define FD_STACK_START                      FD_CODE_STACK_FULL
+#define FD_STACK_CHECKIT(point, start)      if ((point) > (start))
+#define FD_STACK_FOREACH(point, start)      for (sp = (point); sp <= (start); sp++)
+#define FD_STACK_READVAL(point)             (*(unsigned int*)(point++))
+#else
+/*
+ *****************************************************
+ *                                                   *
+ *                                      0x200008F0   *
+ *           ┌──────┬───────────┬─────► Stack Full   *
+ *           │      │           │                    *
+ *           │      │           │                    *
+ *           │      │     ▲     │                    *
+ *           │      │     │     │                    *
+ *           │      │     │     │                    *
+ *           ▼      │           │                    *
+ *       Stack Size │ Grow Dir  │                    *
+ *           ▲      │           │       0x200001F0   *
+ *           │      ├───────────┼─────► Stack Point  *
+ *           │      │ $$$$,$$$$ │                    *
+ *           │      │ $$$$,$$$$ │                    *
+ *           │      │ $$$$,$$$$ │       0x200000F0   *
+ *           └──────┴───────────┴─────► Stack Base   *
+ *                   Stack Start                     *
+ *                                                   *
+ *****************************************************
+ */
+#define FD_STACK_START                      FD_CODE_STACK_BASE
+#define FD_STACK_CHECKIT(point, start)      if ((point) < (start))
+#define FD_STACK_FOREACH(point, start)      for (sp = (point); sp >= (start); sp--)
+#define FD_STACK_READVAL(point)             (*(unsigned int*)(point--))
+#endif
+
+/* stack segment information */
+volatile unsigned int fd_code_stack_base = 0;
+volatile unsigned int fd_code_stack_full = 0;
 
 void fault_dump_init(void) {
     fd_code_stack_base = FD_CODE_STACK_BASE;
     fd_code_stack_full = FD_CODE_STACK_FULL;
-    printf("Code Stack:[%08X -> %08X], size:%d\r\n",
-    FD_CODE_STACK_FULL, FD_CODE_STACK_BASE, FD_CODE_STACK_SIZE);
-    printf("Code Text :[%08X -> %08X], size:%d\r\n",
+    printf("Code Stack:[%08X - %08X], size:%d\r\n",
+    FD_CODE_STACK_BASE, FD_CODE_STACK_FULL, FD_CODE_STACK_SIZE);
+    printf("Code Text :[%08X - %08X], size:%d\r\n",
     FD_CODE_TEXT_BASE,  FD_CODE_TEXT_ENDS,  FD_CODE_TEXT_SIZE );
+    printf("Code Stack Growth Downward:%d\r\n", 
+    FD_STACK_GROWTH_DOWNWARD);
 }
 
 static unsigned int fault_dump_opcode(unsigned int pc) {
@@ -103,27 +140,27 @@ static bool opcode_is_bl_or_blx(unsigned int ins) {
 }
 
 void fault_dump_handler(unsigned int *stack, unsigned int linker) {
+    int count = 0, index = 0;
+    unsigned int *point = stack;
     static stack_frame_t frame = {0};
-    static unsigned int buffer[FD_CALLSTACK_DEPTH_MAX] = {0};
-    unsigned int fd_frame_size = 16;
-    int count = 0, iter = 0;
+    static unsigned int buffer[FD_STACK_DUMP_DEPTH_MAX] = {0};
     // Record current register information.
-    frame.manual.r4  = stack[ 0];
-    frame.manual.r5  = stack[ 1];
-    frame.manual.r6  = stack[ 2];
-    frame.manual.r7  = stack[ 3];
-    frame.manual.r8  = stack[ 4];
-    frame.manual.r9  = stack[ 5];
-    frame.manual.r10 = stack[ 6];
-    frame.manual.r11 = stack[ 7];
-    frame.except.r0  = stack[ 8];
-    frame.except.r1  = stack[ 9];
-    frame.except.r2  = stack[10];
-    frame.except.r3  = stack[11];
-    frame.except.r12 = stack[12];
-    frame.except.lr  = stack[13];
-    frame.except.pc  = stack[14];
-    frame.except.psr = stack[15];
+    frame.manual.r4  = FD_STACK_READVAL(point);
+    frame.manual.r5  = FD_STACK_READVAL(point);
+    frame.manual.r6  = FD_STACK_READVAL(point);
+    frame.manual.r7  = FD_STACK_READVAL(point);
+    frame.manual.r8  = FD_STACK_READVAL(point);
+    frame.manual.r9  = FD_STACK_READVAL(point);
+    frame.manual.r10 = FD_STACK_READVAL(point);
+    frame.manual.r11 = FD_STACK_READVAL(point);
+    frame.except.r0  = FD_STACK_READVAL(point);
+    frame.except.r1  = FD_STACK_READVAL(point);
+    frame.except.r2  = FD_STACK_READVAL(point);
+    frame.except.r3  = FD_STACK_READVAL(point);
+    frame.except.r12 = FD_STACK_READVAL(point);
+    frame.except.lr  = FD_STACK_READVAL(point);
+    frame.except.pc  = FD_STACK_READVAL(point);
+    frame.except.psr = FD_STACK_READVAL(point);
     // Print current register information.
     printf("\r\n");
     printf(" HardFault Information Dump \r\n");
@@ -147,28 +184,30 @@ void fault_dump_handler(unsigned int *stack, unsigned int linker) {
     printf("\r\n");
     printf(" EXE_RETURN: 0x%08X \r\n", linker);
     // Get callstack information.
-    count = fault_dump_callstack(buffer, FD_CALLSTACK_DEPTH_MAX, 
-                                (unsigned int *)&stack[fd_frame_size], 
-                                (unsigned int *)FD_CODE_STACK_BASE, 
-                                (unsigned int *)FD_CODE_STACK_FULL);
+    index = (sizeof(stack_frame_t) / sizeof(unsigned int));
+    count = fault_dump_callstack(buffer, FD_STACK_DUMP_DEPTH_MAX, 
+                                (unsigned int *)&stack[index], 
+                                (unsigned int *)FD_STACK_START);
     // Print stack information.
-    printf(" Stack Call: \r\n");
+    printf(" Stack Call: ");
     printf("%08X ", (unsigned int)frame.except.pc);
-    for (iter = 0; iter < count; iter++)
-    {
-        printf("%08X ", buffer[iter]);
+    for (index = 0; index < count; index++) {
+        printf("%08X ", buffer[index]);
     }
     printf("\r\n");
     while (1);
 }
 
-int fault_dump_callstack(unsigned int *buffer, size_t size, unsigned int *stack_point, unsigned int *stack_start, unsigned int *stack_ends) {
+int fault_dump_callstack(unsigned int *buffer, size_t size, unsigned int *stack_point, unsigned int *stack_start) {
     int count = 0;
     unsigned int pc = 0, op = 0, *sp = NULL;
-    if ((buffer == NULL) || (size <= 0) || (stack_point < stack_start) || (stack_point > stack_ends)) {
+    if ((buffer == NULL) || (size <= 0)) {
         return -1;
     }
-    for (sp = stack_point; sp < stack_ends; sp++) {
+    FD_STACK_CHECKIT(stack_point, stack_start) {
+        return -2;
+    }
+    FD_STACK_FOREACH(stack_point, stack_start) {
         // Read stack[x] value to pc.
         pc = *(unsigned int *)sp;
         // PC must be in the code segment.

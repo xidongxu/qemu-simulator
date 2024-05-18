@@ -21,7 +21,12 @@
 extern "C" {
 #endif
 
-#define FD_CALLSTACK_DEPTH_MAX      (64)
+#ifndef FD_STACK_GROWTH_DOWNWARD
+#define FD_STACK_GROWTH_DOWNWARD        (1)
+#endif
+#ifndef FD_STACK_DUMP_DEPTH_MAX
+#define FD_STACK_DUMP_DEPTH_MAX         (64)
+#endif
 
 typedef struct stack_frame_except stack_frame_except_t;
 struct stack_frame_except {
@@ -55,7 +60,7 @@ struct stack_frame {
 
 void fault_dump_init(void);
 void fault_dump_handler(unsigned int *stack, unsigned int linker);
-int  fault_dump_callstack(unsigned int *buffer, size_t size, unsigned int *stack_point, unsigned int *stack_start, unsigned int *stack_ends);
+int  fault_dump_callstack(unsigned int *buffer, size_t size, unsigned int *stack_point, unsigned int *stack_start);
 
 #ifdef __cplusplus
 }
