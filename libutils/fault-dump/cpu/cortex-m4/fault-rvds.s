@@ -1,7 +1,7 @@
 ;*******************************************************************************
-;* File Name          : fault_mdk.s
-;* Author             : xdx
-;* Description        : STM32F405xx devices vector table for MDK-ARM toolchain. 
+;* @file      fault_gcc.s
+;* @author    xidongxu
+;* @brief     Arm Cortex-M4 Devices for MDK based toolchains. 
 ;*******************************************************************************
 ;* @attention
 ;*
