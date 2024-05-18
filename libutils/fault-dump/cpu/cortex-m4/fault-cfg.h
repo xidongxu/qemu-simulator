@@ -1,8 +1,8 @@
 /**
   ******************************************************************************
   * @file    fault-cfg.h
-  * @brief   This file provides code for the FaultDump utils.
-  * 
+  * @author  xidongxu
+  * @brief   This file contains all the function prototypes for the fault-dump.c
   ******************************************************************************
   * @attention
   *

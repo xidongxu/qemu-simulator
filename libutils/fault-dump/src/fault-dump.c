@@ -1,8 +1,8 @@
 /**
   ******************************************************************************
   * @file    fault-dump.c
-  * @brief   This file provides code for the FaultDump utils.
-  *
+  * @author  xidongxu
+  * @brief   This file contains all the function prototypes for the fault-dump.c
   ******************************************************************************
   * @attention
   *
@@ -148,7 +148,7 @@ void fault_dump_handler(unsigned int *stack, unsigned int linker) {
     printf(" EXE_RETURN: 0x%08X \r\n", linker);
     // Get callstack information.
     count = fault_dump_callstack(buffer, FD_CALLSTACK_DEPTH_MAX, 
-                                (unsigned int *)stack[fd_frame_size], 
+                                (unsigned int *)&stack[fd_frame_size], 
                                 (unsigned int *)FD_CODE_STACK_BASE, 
                                 (unsigned int *)FD_CODE_STACK_FULL);
     // Print stack information.

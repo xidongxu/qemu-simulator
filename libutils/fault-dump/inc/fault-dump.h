@@ -1,8 +1,8 @@
 /**
   ******************************************************************************
   * @file    fault-dump.h
-  * @brief   This file contains all the function prototypes for
-  *          the fault-dump.c file
+  * @author  xidongxu
+  * @brief   This file contains all the function prototypes for the fault-dump.c
   ******************************************************************************
   * @attention
   *
