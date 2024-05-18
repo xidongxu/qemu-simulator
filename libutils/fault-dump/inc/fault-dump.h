@@ -28,6 +28,11 @@ extern "C" {
 #define FD_STACK_DUMP_DEPTH_MAX         (64)
 #endif
 
+#define FD_EOK                          (0)
+#define FD_ERROR                        (1)
+#define FD_EEMPTY                       (2)
+#define FD_EINVAL                       (3)
+
 typedef struct stack_frame_except stack_frame_except_t;
 struct stack_frame_except {
     unsigned int r0;

@@ -17,8 +17,7 @@ void Default_Handler(void) {
     printf("%s\n", __func__);
 }
 
-void fault_div_zero_trigger(void) 
-{
+void fault_div_zero_trigger(void) {
     int a = 0, b = 0, c = 0;
 
     SCB->CCR |= SCB_CCR_DIV_0_TRP_Msk;
@@ -26,8 +25,7 @@ void fault_div_zero_trigger(void)
     printf("c = %d\r\n", c);
 }
 
-void fault_unalign_trigger(void) 
-{
+void fault_unalign_trigger(void) {
     volatile int *addr = NULL;
     volatile int value = 0;
     SCB->CCR |= SCB_CCR_UNALIGN_TRP_Msk;
@@ -43,39 +41,33 @@ void fault_unalign_trigger(void)
     printf("addr:0x%02X-value:0x%08X\r\n", (int)addr, value);
 }
 
-void test0(void)
-{
+void test0(void) {
     printf("this is %s.\r\n", __func__);
     // trigger a fault.
     fault_unalign_trigger();
 }
 
-void test1(void)
-{
+void test1(void) {
     printf("this is %s.\r\n", __func__);
     test0();
 }
 
-void test2(void)
-{
+void test2(void) {
     printf("this is %s.\r\n", __func__);
     test1();
 }
 
-void test3(void)
-{
+void test3(void) {
     printf("this is %s.\r\n", __func__);
     test2();
 }
 
-void test4(void)
-{
+void test4(void) {
     printf("this is %s.\r\n", __func__);
     test3();
 }
 
-void test5(void)
-{
+void test5(void) {
     printf("this is %s.\r\n", __func__);
     test4();
 }

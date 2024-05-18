@@ -66,9 +66,9 @@ extern unsigned int _estack;
  *****************************************************
  */
 #define FD_STACK_START                      FD_CODE_STACK_FULL
-#define FD_STACK_CHECKIT(point, start)      if ((point) > (start))
-#define FD_STACK_FOREACH(point, start)      for (sp = (point); sp <= (start); sp++)
-#define FD_STACK_READVAL(point)             (*(unsigned int*)(point++))
+#define FD_STACK_CHECKIT(point, start)      if (((point) == NULL) || ((point) > (start)))
+#define FD_STACK_FOREACH(point, start)      for ((sp) = (point); (((sp) != NULL) && ((sp) <= (start))); (sp)++)
+#define FD_STACK_READVAL(point)             (*(unsigned int*)((point)++))
 #else
 /*
  *****************************************************
@@ -93,9 +93,9 @@ extern unsigned int _estack;
  *****************************************************
  */
 #define FD_STACK_START                      FD_CODE_STACK_BASE
-#define FD_STACK_CHECKIT(point, start)      if ((point) < (start))
-#define FD_STACK_FOREACH(point, start)      for (sp = (point); sp >= (start); sp--)
-#define FD_STACK_READVAL(point)             (*(unsigned int*)(point--))
+#define FD_STACK_CHECKIT(point, start)      if (((point) == NULL) || ((point) < (start)))
+#define FD_STACK_FOREACH(point, start)      for ((sp) = (point); (((sp) != NULL) && ((sp) >= (start))); (sp)--)
+#define FD_STACK_READVAL(point)             (*(unsigned int*)((point)--))
 #endif
 
 /* stack segment information */
@@ -114,7 +114,7 @@ void fault_dump_init(void) {
 }
 
 static unsigned int fault_dump_opcode(unsigned int pc) {
-    uint16_t value[2] = { 0 };
+    uint16_t value[2] = {0};
     unsigned int opcode = 0;
     for (int i = 0; i < (sizeof(value) / sizeof(uint16_t)); i++) {
         value[i] = *(uint16_t*)(pc + i * sizeof(uint16_t));
@@ -202,10 +202,10 @@ int fault_dump_callstack(unsigned int *buffer, size_t size, unsigned int *stack_
     int count = 0;
     unsigned int pc = 0, op = 0, *sp = NULL;
     if ((buffer == NULL) || (size <= 0)) {
-        return -1;
+        return -FD_EEMPTY;
     }
     FD_STACK_CHECKIT(stack_point, stack_start) {
-        return -2;
+        return -FD_EINVAL;
     }
     FD_STACK_FOREACH(stack_point, stack_start) {
         // Read stack[x] value to pc.
