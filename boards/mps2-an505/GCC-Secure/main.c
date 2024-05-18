@@ -41,8 +41,25 @@ void fault_unalign_trigger(void) {
     printf("addr:0x%02X-value:0x%08X\r\n", (int)addr, value);
 }
 
+void dump_callstack(void) {
+    unsigned int buffer[FD_STACK_DUMP_DEPTH_MAX] = {0};
+    unsigned int point = fault_dump_bm_stack_point();
+    unsigned int start = fault_dump_bm_stack_start();
+    int count = fault_dump_callstack(buffer, FD_STACK_DUMP_DEPTH_MAX, (unsigned int*)point, (unsigned int*)start);
+    if (count < 0) {
+        printf("CallStack dump error: %d\r\n", count);
+    } else {
+        printf("CallStack:[ ");
+        for (int i = 0; i < count; i++) {
+            printf("%08X ", buffer[i]);
+        }
+        printf("] \r\n");
+    }
+}
+
 void test0(void) {
     printf("this is %s.\r\n", __func__);
+    dump_callstack();
     // trigger a fault.
     fault_unalign_trigger();
 }

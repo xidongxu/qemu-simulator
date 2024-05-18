@@ -66,6 +66,9 @@ struct stack_frame {
 void fault_dump_init(void);
 void fault_dump_handler(unsigned int *stack, unsigned int linker);
 int  fault_dump_callstack(unsigned int *buffer, size_t size, unsigned int *stack_point, unsigned int *stack_start);
+/* bare metal code stack information. */
+unsigned int fault_dump_bm_stack_point(void);
+unsigned int fault_dump_bm_stack_start(void);
 
 #ifdef __cplusplus
 }

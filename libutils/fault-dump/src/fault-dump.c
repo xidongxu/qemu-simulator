@@ -241,3 +241,11 @@ int fault_dump_callstack(unsigned int *buffer, size_t size, unsigned int *stack_
     }
     return count;
 }
+
+unsigned int fault_dump_bm_stack_point(void) {
+    return __get_MSP();
+}
+
+unsigned int fault_dump_bm_stack_start(void) {
+    return FD_STACK_START;
+}
