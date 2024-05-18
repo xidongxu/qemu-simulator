@@ -73,6 +73,7 @@ ASFLAGS = \
 	$(AS_INC) \
 	$(OPT) \
 	-Wall \
+	-specs=nosys.specs \
 	-fdata-sections \
 	-ffunction-sections \
 	-fno-exceptions 
@@ -85,7 +86,7 @@ CFLAGS = \
 	$(OPT) \
 	-Wall \
 	-mthumb \
-	-specs=nano.specs -specs=nosys.specs \
+	-specs=nosys.specs \
 	-fdata-sections \
 	-ffunction-sections \
 	-fno-exceptions 
@@ -99,12 +100,12 @@ CFLAGS += -MMD -MP -MF"$(@:%.o=%.d)"
 
 # link script
 LINKER_SCRIPT = gcc_arm.ld 
-LIBS = -lc -lm -lnosys 
+LIBS = 
 LIBDIR = 
 
 # linker compile flags
 LDFLAGS = \
-	$(MCU) -specs=nano.specs -T$(LINKER_SCRIPT) \
+	$(MCU) --specs=nosys.specs -T$(LINKER_SCRIPT) \
 	$(LIBDIR) \
 	$(LIBS) \
 	-Wl,-Map=$(BUILD_PATH)/$(BUILD_NAME).map,--cref -Wl,--gc-sections
@@ -133,7 +134,7 @@ $(BUILD_PATH)/$(BUILD_NAME).elf: $(OBJS)
 	$(CC) $(OBJS) $(LDFLAGS) -o $@
 	$(NM) $@ > $(BUILD_PATH)/nm.txt
 	$(RD) -a $@ > $(BUILD_PATH)/readelf.txt
-	$(OBJ) -D $@ > $(BUILD_PATH)/objdump.txt
+	$(OBJ) -D -S $@ > $(BUILD_PATH)/objdump.txt
 
 $(BUILD_PATH)/%.hex: $(BUILD_PATH)/%.elf | $(BUILD_PATH)
 	$(HEX) $< $@

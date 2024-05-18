@@ -5,10 +5,6 @@
 #include "ARMCM33_DSP_FP.h"
 #include "fault-dump.h"
 
-void __aeabi_unwind_cpp_pr0(void) {
-
-}
-
 void HardFault_Handler_Legency(void) {
     printf("%s\n", __func__);
 }
@@ -93,13 +89,13 @@ int main(void) {
     int count = 0;
     uart_init();
 
-    printf("Start\n");
+    printf("Start\r\n");
     fault_dump_init();
     test5();
 
     while (1) {
         __NOP();
-        printf("hello world - %d.\n", count++);
+        printf("hello world - %d.\r\n", count++);
     }
     return 0;
 }

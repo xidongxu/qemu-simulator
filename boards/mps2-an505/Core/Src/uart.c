@@ -45,6 +45,16 @@ GETCHAR_PROTOTYPE {
     return UART_DATA(UART0);
 }
 
+int puts(const char* string) {
+    int index = 0;
+    while (string[index] != '\0') {
+        putchar(string[index]);
+        index++;
+    }
+    putchar('\n');
+    return index;
+}
+
 void uart_init(void) {
     UART_IBRD(UART0) = 40;
     UART_FBRD(UART0) = 11;
@@ -55,10 +65,7 @@ void uart_init(void) {
 }
 
 void uart_send(const char* string) {
-    while (*string != '\0') {
-        putchar(*string);
-        string++;
-    }
+    puts(string);
 }
 
 size_t uart_recv(uint8_t* buffer, size_t size) {
