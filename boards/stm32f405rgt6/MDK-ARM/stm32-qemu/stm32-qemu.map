@@ -1085,37 +1085,37 @@ Image Symbol Table
     dump_exc_return                          0x08001cdd   Thumb Code    20  fault-dump.o(i.dump_exc_return)
     i.fault_dump_callstack                   0x08001d08   Section        0  fault-dump.o(i.fault_dump_callstack)
     i.fault_dump_exc_return                  0x08001d9c   Section        0  fault-hal.o(i.fault_dump_exc_return)
-    i.fault_dump_handler                     0x08001ec8   Section        0  fault-dump.o(i.fault_dump_handler)
-    i.fault_dump_init                        0x080021bc   Section        0  fault-dump.o(i.fault_dump_init)
-    i.fault_dump_opcode                      0x08002278   Section        0  fault-dump.o(i.fault_dump_opcode)
-    fault_dump_opcode                        0x08002279   Thumb Code    44  fault-dump.o(i.fault_dump_opcode)
-    i.fault_unalign_trigger                  0x080022a4   Section        0  main.o(i.fault_unalign_trigger)
-    i.fputc                                  0x0800230c   Section        0  main.o(i.fputc)
-    i.main                                   0x08002328   Section        0  main.o(i.main)
-    i.opcode_is_bl_or_blx                    0x08002364   Section        0  fault-dump.o(i.opcode_is_bl_or_blx)
-    opcode_is_bl_or_blx                      0x08002365   Thumb Code    50  fault-dump.o(i.opcode_is_bl_or_blx)
-    i.test0                                  0x08002398   Section        0  main.o(i.test0)
-    i.test1                                  0x080023bc   Section        0  main.o(i.test1)
-    i.test2                                  0x080023e0   Section        0  main.o(i.test2)
-    i.test3                                  0x08002404   Section        0  main.o(i.test3)
-    i.test4                                  0x08002428   Section        0  main.o(i.test4)
-    i.test5                                  0x0800244c   Section        0  main.o(i.test5)
-    .constdata                               0x08002470   Section       64  main.o(.constdata)
-    __func__                                 0x08002470   Data           6  main.o(.constdata)
-    __func__                                 0x08002476   Data           6  main.o(.constdata)
-    __func__                                 0x0800247c   Data           6  main.o(.constdata)
-    __func__                                 0x08002482   Data           6  main.o(.constdata)
-    __func__                                 0x08002488   Data           6  main.o(.constdata)
-    __func__                                 0x0800248e   Data           6  main.o(.constdata)
-    __func__                                 0x08002494   Data          14  main.o(.constdata)
-    __func__                                 0x080024a2   Data          14  main.o(.constdata)
-    .constdata                               0x080024b0   Section       92  stm32f4xx_it.o(.constdata)
-    __func__                                 0x080024b0   Data          12  stm32f4xx_it.o(.constdata)
-    __func__                                 0x080024bc   Data          26  stm32f4xx_it.o(.constdata)
-    __func__                                 0x080024d6   Data          18  stm32f4xx_it.o(.constdata)
-    __func__                                 0x080024e8   Data          17  stm32f4xx_it.o(.constdata)
-    __func__                                 0x080024f9   Data          19  stm32f4xx_it.o(.constdata)
-    .constdata                               0x0800250c   Section       24  system_stm32f4xx.o(.constdata)
+    i.fault_dump_handler                     0x08001efc   Section        0  fault-dump.o(i.fault_dump_handler)
+    i.fault_dump_init                        0x080021f0   Section        0  fault-dump.o(i.fault_dump_init)
+    i.fault_dump_opcode                      0x080022ac   Section        0  fault-dump.o(i.fault_dump_opcode)
+    fault_dump_opcode                        0x080022ad   Thumb Code    44  fault-dump.o(i.fault_dump_opcode)
+    i.fault_unalign_trigger                  0x080022d8   Section        0  main.o(i.fault_unalign_trigger)
+    i.fputc                                  0x08002340   Section        0  main.o(i.fputc)
+    i.main                                   0x0800235c   Section        0  main.o(i.main)
+    i.opcode_is_bl_or_blx                    0x08002398   Section        0  fault-dump.o(i.opcode_is_bl_or_blx)
+    opcode_is_bl_or_blx                      0x08002399   Thumb Code    50  fault-dump.o(i.opcode_is_bl_or_blx)
+    i.test0                                  0x080023cc   Section        0  main.o(i.test0)
+    i.test1                                  0x080023f0   Section        0  main.o(i.test1)
+    i.test2                                  0x08002414   Section        0  main.o(i.test2)
+    i.test3                                  0x08002438   Section        0  main.o(i.test3)
+    i.test4                                  0x0800245c   Section        0  main.o(i.test4)
+    i.test5                                  0x08002480   Section        0  main.o(i.test5)
+    .constdata                               0x080024a4   Section       64  main.o(.constdata)
+    __func__                                 0x080024a4   Data           6  main.o(.constdata)
+    __func__                                 0x080024aa   Data           6  main.o(.constdata)
+    __func__                                 0x080024b0   Data           6  main.o(.constdata)
+    __func__                                 0x080024b6   Data           6  main.o(.constdata)
+    __func__                                 0x080024bc   Data           6  main.o(.constdata)
+    __func__                                 0x080024c2   Data           6  main.o(.constdata)
+    __func__                                 0x080024c8   Data          14  main.o(.constdata)
+    __func__                                 0x080024d6   Data          14  main.o(.constdata)
+    .constdata                               0x080024e4   Section       92  stm32f4xx_it.o(.constdata)
+    __func__                                 0x080024e4   Data          12  stm32f4xx_it.o(.constdata)
+    __func__                                 0x080024f0   Data          26  stm32f4xx_it.o(.constdata)
+    __func__                                 0x0800250a   Data          18  stm32f4xx_it.o(.constdata)
+    __func__                                 0x0800251c   Data          17  stm32f4xx_it.o(.constdata)
+    __func__                                 0x0800252d   Data          19  stm32f4xx_it.o(.constdata)
+    .constdata                               0x08002540   Section       24  system_stm32f4xx.o(.constdata)
     .data                                    0x20000000   Section        8  fault-dump.o(.data)
     .data                                    0x20000008   Section        9  stm32f4xx_hal.o(.data)
     .data                                    0x20000014   Section        4  system_stm32f4xx.o(.data)
@@ -1181,7 +1181,7 @@ Image Symbol Table
     _microlib_exit                            - Undefined Weak Reference
     __Vectors_Size                           0x00000188   Number         0  startup_stm32f405xx.o ABSOLUTE
     STACK$$Length                            0x00000800   Number         0  anon$$obj.o ABSOLUTE
-    Image$$ER_IROM1$$Length                  0x00002544   Number         0  anon$$obj.o ABSOLUTE
+    Image$$ER_IROM1$$Length                  0x00002578   Number         0  anon$$obj.o ABSOLUTE
     Image$$ER_IROM1$$Base                    0x08000000   Number         0  anon$$obj.o ABSOLUTE
     __Vectors                                0x08000000   Data           4  startup_stm32f405xx.o(RESET)
     __Vectors_End                            0x08000188   Data           0  startup_stm32f405xx.o(RESET)
@@ -1334,21 +1334,21 @@ Image Symbol Table
     assert_failed                            0x08001cb9   Thumb Code    16  main.o(i.assert_failed)
     fault_dump_callstack                     0x08001d09   Thumb Code   140  fault-dump.o(i.fault_dump_callstack)
     fault_dump_exc_return                    0x08001d9d   Thumb Code    96  fault-hal.o(i.fault_dump_exc_return)
-    fault_dump_handler                       0x08001ec9   Thumb Code   340  fault-dump.o(i.fault_dump_handler)
-    fault_dump_init                          0x080021bd   Thumb Code    58  fault-dump.o(i.fault_dump_init)
-    fault_unalign_trigger                    0x080022a5   Thumb Code    70  main.o(i.fault_unalign_trigger)
-    fputc                                    0x0800230d   Thumb Code    22  main.o(i.fputc)
-    main                                     0x08002329   Thumb Code    40  main.o(i.main)
-    test0                                    0x08002399   Thumb Code    16  main.o(i.test0)
-    test1                                    0x080023bd   Thumb Code    16  main.o(i.test1)
-    test2                                    0x080023e1   Thumb Code    16  main.o(i.test2)
-    test3                                    0x08002405   Thumb Code    16  main.o(i.test3)
-    test4                                    0x08002429   Thumb Code    16  main.o(i.test4)
-    test5                                    0x0800244d   Thumb Code    16  main.o(i.test5)
-    AHBPrescTable                            0x0800250c   Data          16  system_stm32f4xx.o(.constdata)
-    APBPrescTable                            0x0800251c   Data           8  system_stm32f4xx.o(.constdata)
-    Region$$Table$$Base                      0x08002524   Number         0  anon$$obj.o(Region$$Table)
-    Region$$Table$$Limit                     0x08002544   Number         0  anon$$obj.o(Region$$Table)
+    fault_dump_handler                       0x08001efd   Thumb Code   340  fault-dump.o(i.fault_dump_handler)
+    fault_dump_init                          0x080021f1   Thumb Code    58  fault-dump.o(i.fault_dump_init)
+    fault_unalign_trigger                    0x080022d9   Thumb Code    70  main.o(i.fault_unalign_trigger)
+    fputc                                    0x08002341   Thumb Code    22  main.o(i.fputc)
+    main                                     0x0800235d   Thumb Code    40  main.o(i.main)
+    test0                                    0x080023cd   Thumb Code    16  main.o(i.test0)
+    test1                                    0x080023f1   Thumb Code    16  main.o(i.test1)
+    test2                                    0x08002415   Thumb Code    16  main.o(i.test2)
+    test3                                    0x08002439   Thumb Code    16  main.o(i.test3)
+    test4                                    0x0800245d   Thumb Code    16  main.o(i.test4)
+    test5                                    0x08002481   Thumb Code    16  main.o(i.test5)
+    AHBPrescTable                            0x08002540   Data          16  system_stm32f4xx.o(.constdata)
+    APBPrescTable                            0x08002550   Data           8  system_stm32f4xx.o(.constdata)
+    Region$$Table$$Base                      0x08002558   Number         0  anon$$obj.o(Region$$Table)
+    Region$$Table$$Limit                     0x08002578   Number         0  anon$$obj.o(Region$$Table)
     fd_main_stack_base                       0x20000000   Data           4  fault-dump.o(.data)
     fd_main_stack_full                       0x20000004   Data           4  fault-dump.o(.data)
     uwTick                                   0x20000008   Data           4  stm32f4xx_hal.o(.data)
@@ -1368,9 +1368,9 @@ Memory Map of the image
 
   Image Entry point : 0x08000189
 
-  Load Region LR_IROM1 (Base: 0x08000000, Size: 0x00002560, Max: 0x00100000, ABSOLUTE)
+  Load Region LR_IROM1 (Base: 0x08000000, Size: 0x00002594, Max: 0x00100000, ABSOLUTE)
 
-    Execution Region ER_IROM1 (Exec base: 0x08000000, Load base: 0x08000000, Size: 0x00002544, Max: 0x00100000, ABSOLUTE)
+    Execution Region ER_IROM1 (Exec base: 0x08000000, Load base: 0x08000000, Size: 0x00002578, Max: 0x00100000, ABSOLUTE)
 
     Exec Addr    Load Addr    Size         Type   Attr      Idx    E Section Name        Object
 
@@ -1452,43 +1452,43 @@ Memory Map of the image
     0x08001cb8   0x08001cb8   0x00000024   Code   RO           15    i.assert_failed     main.o
     0x08001cdc   0x08001cdc   0x0000002c   Code   RO          400    i.dump_exc_return   fault-dump.o
     0x08001d08   0x08001d08   0x00000094   Code   RO          403    i.fault_dump_callstack  fault-dump.o
-    0x08001d9c   0x08001d9c   0x0000012c   Code   RO          482    i.fault_dump_exc_return  fault-hal.o
-    0x08001ec8   0x08001ec8   0x000002f4   Code   RO          404    i.fault_dump_handler  fault-dump.o
-    0x080021bc   0x080021bc   0x000000bc   Code   RO          405    i.fault_dump_init   fault-dump.o
-    0x08002278   0x08002278   0x0000002c   Code   RO          406    i.fault_dump_opcode  fault-dump.o
-    0x080022a4   0x080022a4   0x00000068   Code   RO           17    i.fault_unalign_trigger  main.o
-    0x0800230c   0x0800230c   0x0000001c   Code   RO           18    i.fputc             main.o
-    0x08002328   0x08002328   0x0000003c   Code   RO           19    i.main              main.o
-    0x08002364   0x08002364   0x00000032   Code   RO          407    i.opcode_is_bl_or_blx  fault-dump.o
-    0x08002396   0x08002396   0x00000002   PAD
-    0x08002398   0x08002398   0x00000024   Code   RO           20    i.test0             main.o
-    0x080023bc   0x080023bc   0x00000024   Code   RO           21    i.test1             main.o
-    0x080023e0   0x080023e0   0x00000024   Code   RO           22    i.test2             main.o
-    0x08002404   0x08002404   0x00000024   Code   RO           23    i.test3             main.o
-    0x08002428   0x08002428   0x00000024   Code   RO           24    i.test4             main.o
-    0x0800244c   0x0800244c   0x00000024   Code   RO           25    i.test5             main.o
-    0x08002470   0x08002470   0x00000040   Data   RO           26    .constdata          main.o
-    0x080024b0   0x080024b0   0x0000005c   Data   RO          303    .constdata          stm32f4xx_it.o
-    0x0800250c   0x0800250c   0x00000018   Data   RO         2105    .constdata          system_stm32f4xx.o
-    0x08002524   0x08002524   0x00000020   Data   RO         2445    Region$$Table       anon$$obj.o
+    0x08001d9c   0x08001d9c   0x00000160   Code   RO          482    i.fault_dump_exc_return  fault-hal.o
+    0x08001efc   0x08001efc   0x000002f4   Code   RO          404    i.fault_dump_handler  fault-dump.o
+    0x080021f0   0x080021f0   0x000000bc   Code   RO          405    i.fault_dump_init   fault-dump.o
+    0x080022ac   0x080022ac   0x0000002c   Code   RO          406    i.fault_dump_opcode  fault-dump.o
+    0x080022d8   0x080022d8   0x00000068   Code   RO           17    i.fault_unalign_trigger  main.o
+    0x08002340   0x08002340   0x0000001c   Code   RO           18    i.fputc             main.o
+    0x0800235c   0x0800235c   0x0000003c   Code   RO           19    i.main              main.o
+    0x08002398   0x08002398   0x00000032   Code   RO          407    i.opcode_is_bl_or_blx  fault-dump.o
+    0x080023ca   0x080023ca   0x00000002   PAD
+    0x080023cc   0x080023cc   0x00000024   Code   RO           20    i.test0             main.o
+    0x080023f0   0x080023f0   0x00000024   Code   RO           21    i.test1             main.o
+    0x08002414   0x08002414   0x00000024   Code   RO           22    i.test2             main.o
+    0x08002438   0x08002438   0x00000024   Code   RO           23    i.test3             main.o
+    0x0800245c   0x0800245c   0x00000024   Code   RO           24    i.test4             main.o
+    0x08002480   0x08002480   0x00000024   Code   RO           25    i.test5             main.o
+    0x080024a4   0x080024a4   0x00000040   Data   RO           26    .constdata          main.o
+    0x080024e4   0x080024e4   0x0000005c   Data   RO          303    .constdata          stm32f4xx_it.o
+    0x08002540   0x08002540   0x00000018   Data   RO         2105    .constdata          system_stm32f4xx.o
+    0x08002558   0x08002558   0x00000020   Data   RO         2445    Region$$Table       anon$$obj.o
 
 
-    Execution Region RW_IRAM1 (Exec base: 0x20000000, Load base: 0x08002544, Size: 0x000009a8, Max: 0x0001c000, ABSOLUTE)
+    Execution Region RW_IRAM1 (Exec base: 0x20000000, Load base: 0x08002578, Size: 0x000009a8, Max: 0x0001c000, ABSOLUTE)
 
     Exec Addr    Load Addr    Size         Type   Attr      Idx    E Section Name        Object
 
-    0x20000000   0x08002544   0x00000008   Data   RW          409    .data               fault-dump.o
-    0x20000008   0x0800254c   0x00000009   Data   RW         1872    .data               stm32f4xx_hal.o
-    0x20000011   0x08002555   0x00000003   PAD
-    0x20000014   0x08002558   0x00000004   Data   RW         2106    .data               system_stm32f4xx.o
-    0x20000018   0x0800255c   0x00000004   Data   RW         2421    .data               mc_w.l(stdout.o)
+    0x20000000   0x08002578   0x00000008   Data   RW          409    .data               fault-dump.o
+    0x20000008   0x08002580   0x00000009   Data   RW         1872    .data               stm32f4xx_hal.o
+    0x20000011   0x08002589   0x00000003   PAD
+    0x20000014   0x0800258c   0x00000004   Data   RW         2106    .data               system_stm32f4xx.o
+    0x20000018   0x08002590   0x00000004   Data   RW         2421    .data               mc_w.l(stdout.o)
     0x2000001c        -       0x00000048   Zero   RW          254    .bss                usart.o
     0x20000064        -       0x00000140   Zero   RW          408    .bss                fault-dump.o
-    0x200001a4   0x08002560   0x00000004   PAD
+    0x200001a4   0x08002594   0x00000004   PAD
     0x200001a8        -       0x00000800   Zero   RW            1    STACK               startup_stm32f405xx.o
 
 
-    Execution Region RW_IRAM2 (Exec base: 0x2001c000, Load base: 0x08002560, Size: 0x00000000, Max: 0x00004000, ABSOLUTE)
+    Execution Region RW_IRAM2 (Exec base: 0x2001c000, Load base: 0x08002594, Size: 0x00000000, Max: 0x00004000, ABSOLUTE)
 
     **** No section assigned to this execution region ****
 
@@ -1501,7 +1501,7 @@ Image component sizes
       Code (inc. data)   RO Data    RW Data    ZI Data      Debug   Object Name
 
       1230        578          0          8        320       6350   fault-dump.o
-       300        204          0          0          0        720   fault-hal.o
+       352        256          0          0          0        720   fault-hal.o
         68         10          0          0          0        492   fault-rvds.o
        100          4          0          0          0        899   gpio.o
        480        222         64          0          0     557951   main.o
@@ -1518,7 +1518,7 @@ Image component sizes
        208         22          0          0         72       1806   usart.o
 
     ----------------------------------------------------------------------
-      7504       1682        604         24       2444     638272   Object Totals
+      7556       1734        604         24       2444     638272   Object Totals
          0          0         32          0          0          0   (incl. Generated)
          6          0          0          3          4          0   (incl. Padding)
 
@@ -1564,15 +1564,15 @@ Image component sizes
 
       Code (inc. data)   RO Data    RW Data    ZI Data      Debug   
 
-      8936       1752        604         28       2444     633120   Grand Totals
-      8936       1752        604         28       2444     633120   ELF Image Totals
-      8936       1752        604         28          0          0   ROM Totals
+      8988       1804        604         28       2444     633120   Grand Totals
+      8988       1804        604         28       2444     633120   ELF Image Totals
+      8988       1804        604         28          0          0   ROM Totals
 
 ==============================================================================
 
-    Total RO  Size (Code + RO Data)                 9540 (   9.32kB)
+    Total RO  Size (Code + RO Data)                 9592 (   9.37kB)
     Total RW  Size (RW Data + ZI Data)              2472 (   2.41kB)
-    Total ROM Size (Code + RO Data + RW Data)       9568 (   9.34kB)
+    Total ROM Size (Code + RO Data + RW Data)       9620 (   9.39kB)
 
 ==============================================================================
 
