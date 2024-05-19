@@ -139,6 +139,14 @@ static bool opcode_is_bl_or_blx(unsigned int ins) {
     return false;
 }
 
+static void dump_exc_return(unsigned int exc_return) {
+    printf(" EXE_RETURN: 0x%08X \r\n", exc_return);
+#if FD_DUMP_EXC_RETURN_VALUE
+    extern void fault_dump_exc_return(unsigned int exc_return);
+    fault_dump_exc_return(exc_return);
+#endif
+}
+
 void fault_dump_handler(unsigned int *stack, unsigned int linker) {
     int count = 0, index = 0;
     unsigned int *point = stack;
@@ -182,7 +190,7 @@ void fault_dump_handler(unsigned int *stack, unsigned int linker) {
     printf(" PC   = 0x%08X \r\n", (unsigned int)frame.except.pc);
     printf(" PSR  = 0x%08X \r\n", (unsigned int)frame.except.psr);
     printf("\r\n");
-    printf(" EXE_RETURN: 0x%08X \r\n", linker);
+    dump_exc_return(linker);
     // Get callstack information.
     index = (sizeof(stack_frame_t) / sizeof(unsigned int));
     count = fault_dump_callstack(buffer, FD_STACK_DUMP_DEPTH_MAX, 

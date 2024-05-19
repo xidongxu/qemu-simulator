@@ -60,7 +60,8 @@ C_SOURCES =  \
 ../Core/Src/system_stm32f4xx.c \
 ../Core/Src/sysmem.c \
 ../Core/Src/syscalls.c  \
-../../../libutils/fault-dump/src/fault-dump.c 
+../../../libutils/fault-dump/src/fault-dump.c \
+../../../libutils/fault-dump/cpu/cortex-m4/fault-hal.c 
 
 # ASM sources
 ASM_SOURCES =  \

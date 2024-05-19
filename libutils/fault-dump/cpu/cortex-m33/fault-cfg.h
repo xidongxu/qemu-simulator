@@ -37,6 +37,7 @@ extern "C" {
 
 #define FD_STACK_GROWTH_DOWNWARD        (1)
 #define FD_STACK_DUMP_DEPTH_MAX         (64)
+#define FD_DUMP_EXC_RETURN_VALUE        (1)
 
 #ifdef __cplusplus
 }

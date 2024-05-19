@@ -56,7 +56,8 @@ C_SRC = \
 	../Core/Src/printf.c \
 	../Core/Src/uart.c \
 	../Core/Src/semihosting.c \
-	../../../libutils/fault-dump/src/fault-dump.c 
+	../../../libutils/fault-dump/src/fault-dump.c \
+	../../../libutils/fault-dump/cpu/cortex-m33/fault-hal.c 
 
 # C includes
 C_INC = \

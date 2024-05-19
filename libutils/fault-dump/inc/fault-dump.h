@@ -27,6 +27,10 @@ extern "C" {
 #ifndef FD_STACK_DUMP_DEPTH_MAX
 #define FD_STACK_DUMP_DEPTH_MAX         (64)
 #endif
+#ifndef FD_DUMP_EXC_RETURN_VALUE
+#define FD_DUMP_EXC_RETURN_VALUE        (0)
+#endif
+#define FD_CHECK_BIT(var, pos)          ((var) & (1 << (pos)))
 
 #define FD_EOK                          (0)
 #define FD_ERROR                        (1)
