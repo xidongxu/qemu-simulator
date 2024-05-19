@@ -82,11 +82,17 @@ CC = $(GCC_PATH)/$(PREFIX)gcc
 AS = $(GCC_PATH)/$(PREFIX)gcc -x assembler-with-cpp
 CP = $(GCC_PATH)/$(PREFIX)objcopy
 SZ = $(GCC_PATH)/$(PREFIX)size
+OB = $(GCC_PATH)/$(PREFIX)objdump
+NM = $(GCC_PATH)/$(PREFIX)nm
+RD = $(GCC_PATH)/$(PREFIX)readelf
 else
 CC = $(PREFIX)gcc
 AS = $(PREFIX)gcc -x assembler-with-cpp
 CP = $(PREFIX)objcopy
 SZ = $(PREFIX)size
+OB = $(PREFIX)objdump
+NM = $(PREFIX)nm
+RD = $(PREFIX)readelf
 endif
 HEX = $(CP) -O ihex
 BIN = $(CP) -O binary -S
@@ -181,6 +187,9 @@ $(BUILD_DIR)/%.o: %.S Makefile | $(BUILD_DIR)
 
 $(BUILD_DIR)/$(TARGET).elf: $(OBJECTS) Makefile
 	$(CC) $(OBJECTS) $(LDFLAGS) -o $@
+	$(NM) $@ > $(BUILD_DIR)/nm.txt
+	$(RD) -a $@ > $(BUILD_DIR)/readelf.txt
+	$(OB) -D -S $@ > $(BUILD_DIR)/objdump.txt
 	$(SZ) $@
 
 $(BUILD_DIR)/%.hex: $(BUILD_DIR)/%.elf | $(BUILD_DIR)
