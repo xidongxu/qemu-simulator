@@ -99,12 +99,12 @@ extern unsigned int _estack;
 #endif
 
 /* stack segment information */
-volatile unsigned int fd_code_stack_base = 0;
-volatile unsigned int fd_code_stack_full = 0;
+volatile unsigned int fd_main_stack_base = 0;
+volatile unsigned int fd_main_stack_full = 0;
 
 void fault_dump_init(void) {
-    fd_code_stack_base = FD_CODE_STACK_BASE;
-    fd_code_stack_full = FD_CODE_STACK_FULL;
+    fd_main_stack_base = FD_CODE_STACK_BASE;
+    fd_main_stack_full = FD_CODE_STACK_FULL;
     printf("Code Stack:[%08X - %08X], size:%d\r\n",
     FD_CODE_STACK_BASE, FD_CODE_STACK_FULL, FD_CODE_STACK_SIZE);
     printf("Code Text :[%08X - %08X], size:%d\r\n",
