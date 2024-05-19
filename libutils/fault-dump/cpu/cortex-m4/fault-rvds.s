@@ -17,6 +17,7 @@
     IMPORT fault_dump_handler
 HardFault_Handler    PROC
     EXPORT  HardFault_Handler
+    CPSID   i                           ; disable interrupts
     LDR     R3, =fd_main_stack_base     ; r3 = &fd_main_stack_base
     LDR     R1, [R3]                    ; r1 = fd_main_stack_base
     LDR     R3, =fd_main_stack_full     ; r3 = &fd_main_stack_full
@@ -41,6 +42,8 @@ stack_checked
 
 stack_invalid
     MOV     R1, LR                      ; now, r0 = sp, r1 = lr
+    DSB                                 ; wait for memory access to complete 
+    CPSIE   i                           ; enable interrupts 
     BL     fault_dump_handler           ; jump to fault_dump_handler
     ENDP
     END

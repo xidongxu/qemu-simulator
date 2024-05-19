@@ -23,6 +23,7 @@
 .global HardFault_Handler
 .type HardFault_Handler, % function
 HardFault_Handler:
+    cpsid   i                           /* disable interrupts */
     ldr     r3, =fd_main_stack_base     /* r3 = &fd_main_stack_base */
     ldr     r1, [r3]                    /* r1 = fd_main_stack_base  */
     ldr     r3, =fd_main_stack_full     /* r3 = &fd_main_stack_full */
@@ -48,5 +49,7 @@ stack_checked:
 stack_invalid:
     mov     r1, lr                      /* now, r0 = sp, r1 = lr */
     ldr     r2, =fault_dump_handler     /* now, r2 = fault_dump_handler */
-    bx      r2                          /* jump to fault_dump_handler */                        
+    dsb                                 /* wait for memory access to complete */
+    cpsie   i                           /* enable interrupts */
+    bx      r2                          /* jump to fault_dump_handler */
 .end
