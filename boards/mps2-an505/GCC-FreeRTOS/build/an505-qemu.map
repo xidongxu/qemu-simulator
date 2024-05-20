@@ -141,7 +141,7 @@ Discarded input sections
                 0x00000000       0x30 build/semihosting.o
  .debug_ranges  0x00000000       0x20 build/semihosting.o
  .debug_line    0x00000000       0x95 build/semihosting.o
- .debug_str     0x00000000      0x146 build/semihosting.o
+ .debug_str     0x00000000      0x14f build/semihosting.o
  .comment       0x00000000       0x4a build/semihosting.o
  .debug_frame   0x00000000       0x50 build/semihosting.o
  .ARM.attributes
@@ -1007,23 +1007,23 @@ LOAD linker stubs
  .debug_line    0x000021da       0x78 build/startup_ARMCM33.o
  .debug_line    0x00002252       0x83 build/fault-gcc.o
 
-.debug_str      0x00000000      0x8ba
- .debug_str     0x00000000      0x3bf build/main.o
-                                0x43e (size before relaxing)
- .debug_str     0x000003bf       0x5e build/system_ARMCM33.o
-                                0x332 (size before relaxing)
- .debug_str     0x0000041d      0x273 build/printf.o
-                                0x46d (size before relaxing)
- .debug_str     0x00000690       0x3c build/uart.o
-                                0x21f (size before relaxing)
- .debug_str     0x000006cc      0x15e build/fault-dump.o
-                                0x407 (size before relaxing)
- .debug_str     0x0000082a       0x38 build/fault-hal.o
-                                0x207 (size before relaxing)
- .debug_str     0x00000862       0x20 build/startup_ARMCM33.o
-                                 0x60 (size before relaxing)
- .debug_str     0x00000882       0x38 build/fault-gcc.o
-                                 0x86 (size before relaxing)
+.debug_str      0x00000000      0x8c3
+ .debug_str     0x00000000      0x3c8 build/main.o
+                                0x447 (size before relaxing)
+ .debug_str     0x000003c8       0x5e build/system_ARMCM33.o
+                                0x33b (size before relaxing)
+ .debug_str     0x00000426      0x273 build/printf.o
+                                0x476 (size before relaxing)
+ .debug_str     0x00000699       0x3c build/uart.o
+                                0x228 (size before relaxing)
+ .debug_str     0x000006d5      0x15e build/fault-dump.o
+                                0x410 (size before relaxing)
+ .debug_str     0x00000833       0x38 build/fault-hal.o
+                                0x210 (size before relaxing)
+ .debug_str     0x0000086b       0x20 build/startup_ARMCM33.o
+                                 0x69 (size before relaxing)
+ .debug_str     0x0000088b       0x38 build/fault-gcc.o
+                                 0x8f (size before relaxing)
 
 .debug_frame    0x00000000     0x101c
  .debug_frame   0x00000000      0x140 build/main.o

@@ -158,7 +158,7 @@ endif
 
 # start qemu for debug
 debug:
-	.\an505-start.bat
+	.\rtos-start.bat
 
 # dependencies
 -include $(wildcard $(BUILD_PATH)/*.d)
