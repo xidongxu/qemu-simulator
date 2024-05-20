@@ -1,6 +1,6 @@
 @echo off
 echo Starting QEMU...
-start "" "stm32-qemu.bat"
+start "" "rtos-qemu.bat"
 echo Starting GDB...
-start "" "stm32-gdb.bat"
+start "" "rtos-gdb.bat"
 echo All scripts started.
