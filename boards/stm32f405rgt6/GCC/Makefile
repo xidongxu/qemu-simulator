@@ -220,7 +220,7 @@ endif
 # start qemu for debug
 #######################################
 debug:
-	.\stm32-start.bat 
+	.\bare-start.bat 
 
 #######################################
 # dependencies
