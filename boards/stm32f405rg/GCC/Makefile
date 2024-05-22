@@ -36,6 +36,8 @@ BUILD_DIR = build
 ######################################
 # C sources
 C_SOURCES =  \
+./application/sysmem.c \
+./application/syscalls.c \
 ../Core/Src/main.c \
 ../Core/Src/gpio.c \
 ../Core/Src/usart.c \
@@ -58,14 +60,12 @@ C_SOURCES =  \
 ../Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal.c \
 ../Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_exti.c \
 ../Core/Src/system_stm32f4xx.c \
-../Core/Src/sysmem.c \
-../Core/Src/syscalls.c  \
 ../../../libutils/fault-dump/src/fault-dump.c \
 ../../../libutils/fault-dump/cpu/cortex-m4/fault-hal.c 
 
 # ASM sources
 ASM_SOURCES =  \
-startup_stm32f405xx.s \
+./startup/startup_stm32f405xx.s \
 ../../../libutils/fault-dump/cpu/cortex-m4/fault-gcc.s
 
 # ASM sources
@@ -155,7 +155,7 @@ CFLAGS += -MMD -MP -MF"$(@:%.o=%.d)"
 # LDFLAGS
 #######################################
 # link script
-LDSCRIPT = STM32F405RGTx_FLASH.ld
+LDSCRIPT = ./startup/STM32F405RGTx_FLASH.ld
 
 # libraries
 LIBS = -lc -lm -lnosys 
