@@ -36,9 +36,9 @@ BUILD_DIR = build
 ######################################
 # C sources
 C_SOURCES =  \
+./application/main.c \
 ./application/sysmem.c \
 ./application/syscalls.c \
-../Core/Src/main.c \
 ../Core/Src/gpio.c \
 ../Core/Src/usart.c \
 ../Core/Src/stm32f4xx_it.c \
