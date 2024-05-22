@@ -56,7 +56,7 @@
           <CreateHexFile>1</CreateHexFile>
           <DebugInformation>1</DebugInformation>
           <BrowseInformation>1</BrowseInformation>
-          <ListingPath></ListingPath>
+          <ListingPath>.\stm32-qemu\</ListingPath>
           <HexFormatSelection>1</HexFormatSelection>
           <Merge32K>0</Merge32K>
           <CreateBatchFile>0</CreateBatchFile>
@@ -173,8 +173,8 @@
             <AdsLsun>1</AdsLsun>
             <AdsLven>1</AdsLven>
             <AdsLsxf>1</AdsLsxf>
-            <RvctClst>0</RvctClst>
-            <GenPPlst>0</GenPPlst>
+            <RvctClst>1</RvctClst>
+            <GenPPlst>1</GenPPlst>
             <AdsCpuType>"Cortex-M4"</AdsCpuType>
             <RvctDeviceName></RvctDeviceName>
             <mOS>0</mOS>
@@ -388,7 +388,7 @@
             <File>
               <FileName>startup_stm32f405xx.s</FileName>
               <FileType>2</FileType>
-              <FilePath>startup_stm32f405xx.s</FilePath>
+              <FilePath>.\startup\startup_stm32f405xx.s</FilePath>
             </File>
           </Files>
         </Group>
@@ -398,7 +398,7 @@
             <File>
               <FileName>main.c</FileName>
               <FileType>1</FileType>
-              <FilePath>../Core/Src/main.c</FilePath>
+              <FilePath>.\application\main.c</FilePath>
             </File>
             <File>
               <FileName>gpio.c</FileName>
