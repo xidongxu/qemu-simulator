@@ -62,7 +62,7 @@
 10000000 ? _eccmram
 20000078 D _edata
 20008a68 B _end
-20018a68 B _estack
+20009a68 B _estack
 08004604 T _etext
 0800398c T _fflush_r
 080045f8 T _fini
@@ -78,8 +78,8 @@
 08000704 T _lseek
 0800458c T _lseek_r
 08003d98 T _malloc_r
-00008000 A _Min_Heap_Size
-00008000 A _Min_Stack_Size
+00000800 A _Min_Heap_Size
+00000800 A _Min_Stack_Size
 08004134 T _printf_common
 08004210 T _printf_i
 08003614 T _puts_r
@@ -92,7 +92,7 @@
 20000000 D _sdata
 08004bcc A _siccmram
 08004b54 A _sidata
-20010a68 B _sstack
+20009268 B _sstack
 08000190 T _stext
 08003ed4 T _vfiprintf_r
 08003ed4 T _vfprintf_r
@@ -101,9 +101,9 @@
 08003560 W ADC_IRQHandler
 08004788 R APBPrescTable
 20000094 b AppTask.0
-080008a8 T assert_failed
+080007a8 T assert_failed
 200080e8 b buffer.0
-08000830 T BusFault_Handler
+08000730 T BusFault_Handler
 08003560 W CAN1_RX0_IRQHandler
 08003560 W CAN1_RX1_IRQHandler
 08003560 W CAN1_SCE_IRQHandler
@@ -114,7 +114,7 @@
 08003560 W CAN2_TX_IRQHandler
 20000078 b completed.1
 08003522 t CopyDataInit
-08000860 T DebugMon_Handler
+08000760 T DebugMon_Handler
 08003560 T Default_Handler
 08003560 W DMA1_Stream0_IRQHandler
 08003560 W DMA1_Stream1_IRQHandler
@@ -134,7 +134,7 @@
 08003560 W DMA2_Stream7_IRQHandler
 080017a0 t dump_exc_return
 20008a64 B errno
-08000890 T Error_Handler
+08000790 T Error_Handler
 08002a0c T eTaskConfirmSleepModeStatus
 080005c4 t exampleInit
 08000608 t exampleTask
@@ -178,7 +178,7 @@
 08000dca W HAL_UART_ErrorCallback
 08000bb4 T HAL_UART_Init
 08000ec4 T HAL_UART_IRQHandler
-08000788 T HAL_UART_MspInit
+08000840 T HAL_UART_MspInit
 08000dc8 W HAL_UART_RxCpltCallback
 08000ce0 T HAL_UART_Transmit
 08000dac W HAL_UART_TxCpltCallback
@@ -200,11 +200,11 @@
 08000640 T main
 08000220 T memchr
 080035b8 T memcpy
-0800081c T MemManage_Handler
+0800071c T MemManage_Handler
 080035d4 T memset
-08000708 T MX_GPIO_Init
-08000754 T MX_USART1_UART_Init
-08000808 T NMI_Handler
+080007c0 T MX_GPIO_Init
+0800080c T MX_USART1_UART_Init
+08000708 T NMI_Handler
 2000007c b object.0
 08001768 t opcode_is_bl_or_blx
 08003560 W OTG_FS_IRQHandler
@@ -213,7 +213,7 @@
 08003560 W OTG_HS_EP1_OUT_IRQHandler
 08003560 W OTG_HS_IRQHandler
 08003560 W OTG_HS_WKUP_IRQHandler
-08000862 T PendSV_Handler
+08000762 T PendSV_Handler
 080035e4 T printf
 08002290 t prvAddCurrentTaskToDelayedList
 080020fc t prvAddNewTaskToReadyList
@@ -272,10 +272,10 @@
 080001ec t stack_checked
 080001fe t stack_invalid
 08003a04 t std
-08000858 T SVC_Handler
+08000758 T SVC_Handler
 20000008 D SystemCoreClock
 08001728 T SystemInit
-0800086a T SysTick_Handler
+0800076a T SysTick_Handler
 08003560 W TAMP_STAMP_IRQHandler
 08003560 W TIM1_BRK_TIM9_IRQHandler
 08003560 W TIM1_CC_IRQHandler
@@ -304,8 +304,8 @@
 20008884 b ucStaticTimerQueueStorage.1
 20008a30 b ulStoppedTimerCompensation
 20008a34 b ulTimerCountsForOneTick
-08000844 T UsageFault_Handler
-08000880 T USART1_IRQHandler
+08000744 T UsageFault_Handler
+08000780 T USART1_IRQHandler
 08003560 W USART2_IRQHandler
 08003560 W USART3_IRQHandler
 08003560 W USART6_IRQHandler
