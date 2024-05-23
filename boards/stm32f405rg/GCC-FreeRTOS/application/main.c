@@ -32,7 +32,10 @@
 
 /* Private typedef -----------------------------------------------------------*/
 /* USER CODE BEGIN PTD */
-
+#include <FreeRTOS.h>
+#include <task.h>
+#include <queue.h>
+#include <timers.h>
 /* USER CODE END PTD */
 
 /* Private define ------------------------------------------------------------*/
@@ -47,7 +50,7 @@
 /* Private variables ---------------------------------------------------------*/
 
 /* USER CODE BEGIN PV */
-
+uint8_t ucHeap[ configTOTAL_HEAP_SIZE ];
 /* USER CODE END PV */
 
 /* Private function prototypes -----------------------------------------------*/
@@ -142,6 +145,27 @@ void test5(void)
   printf("this is %s.\r\n", __func__);
   test4();
 }
+
+static void exampleTask(void *parameters)
+{
+    while(1) 
+    {
+        vTaskDelay(1000);
+        printf("hello this is FreeRTOS.\r\n");
+    }
+}
+
+static void exampleInit(void)
+{
+    static TaskHandle_t AppTask = NULL;
+    BaseType_t xReturn = pdPASS;
+    xReturn = xTaskCreate(exampleTask, "example", 2048, NULL, 1U, &AppTask);
+    if (xReturn == pdPASS) {
+        vTaskStartScheduler();
+    } else {
+        printf("example task create failed(%d).\r\n", xReturn);
+    }
+}
 /* USER CODE END 0 */
 
 /**
@@ -176,7 +200,8 @@ int main(void)
   MX_USART1_UART_Init();
   /* USER CODE BEGIN 2 */
   fault_dump_init();
-  test5();
+  exampleInit();
+  //test5();
   /* USER CODE END 2 */
 
   /* Infinite loop */
