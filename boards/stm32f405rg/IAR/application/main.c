@@ -78,7 +78,7 @@ int main(void)
   /* USER CODE END Init */
 
   /* Configure the system clock */
-  SystemClock_Config();
+  // SystemClock_Config();
 
   /* USER CODE BEGIN SysInit */
 
@@ -98,6 +98,8 @@ int main(void)
     /* USER CODE END WHILE */
 
     /* USER CODE BEGIN 3 */
+    printf("%s", "hello qemu.\r\n");
+    HAL_Delay(1000);
   }
   /* USER CODE END 3 */
 }

@@ -22,7 +22,7 @@ TARGET = stm32-qemu
 # debug build?
 DEBUG = 1
 # optimization
-OPT = -On
+OPT =
 
 
 #######################################
@@ -117,12 +117,14 @@ C_INCLUDES =  \
 
 
 # compile gcc flags
-ASFLAGS = $(MCU) $(AS_DEFS) $(AS_INCLUDES) $(OPT) --semihosting --entry __iar_program_start --vfe --text_out locale
+ASFLAGS = $(MCU) $(AS_DEFS) $(AS_INCLUDES) $(OPT) -s+ -w+ -r -S
 
-CFLAGS += $(MCU) $(C_DEFS) $(C_INCLUDES) $(OPT) --semihosting --entry __iar_program_start --vfe --text_out locale
+CFLAGS += $(MCU) $(C_DEFS) $(C_INCLUDES) $(OPT) -Dewarm --diag_suppress Pa050 --no_cse --no_unroll --no_inline --no_code_motion --no_tbaa --no_clustering --no_scheduling --endian=little -e --silent
 
 ifeq ($(DEBUG), 1)
-CFLAGS += --debug
+CFLAGS += -On --debug
+else
+CFLAGS += -Oh
 endif
 
 
@@ -139,10 +141,10 @@ LDSCRIPT = ./startup/stm32f405xx_flash.icf
 # libraries
 LIBS =
 LIBDIR =
-LDFLAGS = $(MCU) --connfig $(LDSCRIPT) --entry __iar_program_start
+LDFLAGS = $(MCU) --config $(LDSCRIPT) --semihosting --entry __iar_program_start --vfe --text_out locale --no_out_extension --redirect _Printf=_PrintfFullNoMb --redirect _Scanf=_ScanfFullNoMb --map $(BUILD_DIR)/$(TARGET).map
 
 # default action: build all
-all: $(BUILD_DIR)/$(TARGET).out $(BUILD_DIR)/$(TARGET).bin
+all: $(BUILD_DIR)/$(TARGET).out $(BUILD_DIR)/$(TARGET).hex $(BUILD_DIR)/$(TARGET).bin
 
 
 #######################################
@@ -158,18 +160,21 @@ OBJECTS += $(addprefix $(BUILD_DIR)/,$(notdir $(ASMM_SOURCES:.S=.o)))
 vpath %.S $(sort $(dir $(ASMM_SOURCES)))
 
 $(BUILD_DIR)/%.o: %.c Makefile | $(BUILD_DIR) 
-	$(CC) -c $(CFLAGS) -Wa,-a,-ad,-alms=$(BUILD_DIR)/$(notdir $(<:.c=.lst)) $< -o $@
+	$(CC) -c $(CFLAGS) $< -o $@
 
 $(BUILD_DIR)/%.o: %.s Makefile | $(BUILD_DIR)
-	$(AS) -c $(CFLAGS) $< -o $@
+	$(AS) -c $(ASFLAGS) $< -o $@
 $(BUILD_DIR)/%.o: %.S Makefile | $(BUILD_DIR)
-	$(AS) -c $(CFLAGS) $< -o $@
+	$(AS) -c $(ASFLAGS) $< -o $@
 
 $(BUILD_DIR)/$(TARGET).out: $(OBJECTS) Makefile
-	$(CC) $(OBJECTS) $(LDFLAGS) -o $@
+	$(LK) $(OBJECTS) $(LDFLAGS) -o $@
+
+$(BUILD_DIR)/%.hex: $(BUILD_DIR)/%.out | $(BUILD_DIR)
+	$(FF) --ihex $< $@ 
 
 $(BUILD_DIR)/%.bin: $(BUILD_DIR)/%.out | $(BUILD_DIR)
-	$(FF) --bin $@ $<
+	$(FF) --bin $< $@ 
 
 $(BUILD_DIR):
 	mkdir $@
@@ -179,13 +184,9 @@ $(BUILD_DIR):
 #######################################
 clean:
 ifeq ($(OS),Windows_NT)
-	del $(BUILD_DIR)\*.d
 	del $(BUILD_DIR)\*.o
-	del $(BUILD_DIR)\*.lst
 else
-	rm -fR $(BUILD_DIR)/*.d
 	rm -fR $(BUILD_DIR)/*.o
-	rm -fR $(BUILD_DIR)/*.lst
 endif
 
 #######################################
