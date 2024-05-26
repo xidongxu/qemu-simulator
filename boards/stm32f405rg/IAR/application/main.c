@@ -19,7 +19,7 @@
 /* Includes ------------------------------------------------------------------*/
 #include "usart.h"
 #include "gpio.h"
-
+#include <stdio.h>
 /* Private includes ----------------------------------------------------------*/
 /* USER CODE BEGIN Includes */
 #include "stm32f4xx_it.h"
@@ -54,7 +54,15 @@ void SystemClock_Config(void);
 
 /* Private user code ---------------------------------------------------------*/
 /* USER CODE BEGIN 0 */
-
+#include <LowLevelIOInterface.h>
+size_t __write(int handle, const unsigned char * buffer, size_t size)
+{
+  if(HAL_UART_Transmit(&huart1, (uint8_t *)buffer, size, 100000) == HAL_OK) {
+    return size;
+  } else {
+    return _LLIO_ERROR;
+  }
+}
 /* USER CODE END 0 */
 
 /**
@@ -98,7 +106,7 @@ int main(void)
     /* USER CODE END WHILE */
 
     /* USER CODE BEGIN 3 */
-    printf("%s", "hello qemu.\r\n");
+    printf("hello qemu.\r\n");
     HAL_Delay(1000);
   }
   /* USER CODE END 3 */

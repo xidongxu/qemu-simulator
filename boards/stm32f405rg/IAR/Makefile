@@ -71,7 +71,6 @@ ASMM_SOURCES =
 # binaries
 #######################################
 PREFIX = C:/Users/xidon/program/ARM_IAR/arm/bin
-LIBFIX = C:/Users/xidon/program/ARM_Keil/Keil_v5/ARM/ARMCC506/lib
 # The gcc compiler bin path can be either defined in make command via GCC_PATH variable (> make GCC_PATH=xxx)
 # either it can be added to the PATH environment variable.
 CC = $(PREFIX)/iccarm
@@ -141,7 +140,7 @@ LDSCRIPT = ./startup/stm32f405xx_flash.icf
 # libraries
 LIBS =
 LIBDIR =
-LDFLAGS = $(MCU) --config $(LDSCRIPT) --semihosting --entry __iar_program_start --vfe --text_out locale --no_out_extension --redirect _Printf=_PrintfFullNoMb --redirect _Scanf=_ScanfFullNoMb --map $(BUILD_DIR)/$(TARGET).map
+LDFLAGS = $(MCU) --config $(LDSCRIPT) --semihosting --entry __iar_program_start --vfe --text_out locale --no_out_extension --map $(BUILD_DIR)/$(TARGET).map
 
 # default action: build all
 all: $(BUILD_DIR)/$(TARGET).out $(BUILD_DIR)/$(TARGET).hex $(BUILD_DIR)/$(TARGET).bin
@@ -183,7 +182,7 @@ $(BUILD_DIR):
 # clean up
 #######################################
 clean:
-ifeq ($(OS),Windows_NT)
+ifeq ($(OS), Windows_NT)
 	del $(BUILD_DIR)\*.o
 else
 	rm -fR $(BUILD_DIR)/*.o

@@ -22,7 +22,7 @@ TARGET = stm32-qemu
 # debug build?
 DEBUG = 1
 # optimization
-OPT = -Og
+OPT =
 
 
 #######################################
@@ -37,8 +37,6 @@ BUILD_DIR = build
 # C sources
 C_SOURCES =  \
 ./application/main.c \
-./application/sysmem.c \
-./application/syscalls.c \
 ./application/stm32f4xx_it.c \
 ../Core/Src/gpio.c \
 ../Core/Src/usart.c \
@@ -59,24 +57,11 @@ C_SOURCES =  \
 ../Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_cortex.c \
 ../Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal.c \
 ../Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_exti.c \
-../Core/Src/system_stm32f4xx.c \
-../../../libutils/fault-dump/src/fault-dump.c \
-../../../libutils/fault-dump/cpu/cortex-m4/fault-hal.c 
-
-C_SOURCES += \
-../../../librtos/FreeRTOS/list.c \
-../../../librtos/FreeRTOS/queue.c \
-../../../librtos/FreeRTOS/tasks.c \
-../../../librtos/FreeRTOS/timers.c \
-../../../librtos/FreeRTOS/croutine.c \
-../../../librtos/FreeRTOS/event_groups.c \
-../../../librtos/FreeRTOS/portable/GCC/ARM_CM4F/port.c \
-../../../librtos/FreeRTOS/portable/MemMang/heap_4.c 
+../Core/Src/system_stm32f4xx.c 
 
 # ASM sources
 ASM_SOURCES =  \
-./startup/startup_stm32f405xx.s \
-../../../libutils/fault-dump/cpu/cortex-m4/fault-gcc.s
+./startup/startup_stm32f405xx.s 
 
 # ASM sources
 ASMM_SOURCES = 
@@ -85,43 +70,28 @@ ASMM_SOURCES =
 #######################################
 # binaries
 #######################################
-PREFIX = arm-none-eabi-
+PREFIX = C:/Users/xidon/program/ARM_IAR/arm/bin
 # The gcc compiler bin path can be either defined in make command via GCC_PATH variable (> make GCC_PATH=xxx)
 # either it can be added to the PATH environment variable.
-ifdef GCC_PATH
-CC = $(GCC_PATH)/$(PREFIX)gcc
-AS = $(GCC_PATH)/$(PREFIX)gcc -x assembler-with-cpp
-CP = $(GCC_PATH)/$(PREFIX)objcopy
-SZ = $(GCC_PATH)/$(PREFIX)size
-OB = $(GCC_PATH)/$(PREFIX)objdump
-NM = $(GCC_PATH)/$(PREFIX)nm
-RD = $(GCC_PATH)/$(PREFIX)readelf
-else
-CC = $(PREFIX)gcc
-AS = $(PREFIX)gcc -x assembler-with-cpp
-CP = $(PREFIX)objcopy
-SZ = $(PREFIX)size
-OB = $(PREFIX)objdump
-NM = $(PREFIX)nm
-RD = $(PREFIX)readelf
-endif
-HEX = $(CP) -O ihex
-BIN = $(CP) -O binary -S
- 
+CC = $(PREFIX)/iccarm
+AS = $(PREFIX)/iasmarm
+LK = $(PREFIX)/ilinkarm
+FF = $(PREFIX)/ielftool
+
 #######################################
 # CFLAGS
 #######################################
 # cpu
-CPU = -mcpu=cortex-m4
+CPU = --cpu=Cortex-M4
 
 # fpu
-FPU = -mfpu=fpv4-sp-d16
+FPU = --fpu=VFPv4_sp
 
 # float-abi
-FLOAT-ABI = -mfloat-abi=hard
+FLOAT-ABI =
 
 # mcu
-MCU = $(CPU) -mthumb $(FPU) $(FLOAT-ABI)
+MCU = $(CPU) $(FPU) $(FLOAT-ABI)
 
 # macros for gcc
 # AS defines
@@ -142,43 +112,38 @@ C_INCLUDES =  \
 -I../Drivers/STM32F4xx_HAL_Driver/Inc \
 -I../Drivers/STM32F4xx_HAL_Driver/Inc/Legacy \
 -I../Drivers/CMSIS/Device/ST/STM32F4xx/Include \
--I../Drivers/CMSIS/Include \
--I../../../libutils/fault-dump/inc \
--I../../../libutils/fault-dump/cpu/cortex-m4 
+-I../Drivers/CMSIS/Include 
 
-C_INCLUDES += \
--I./application \
--I../../../librtos/FreeRTOS \
--I../../../librtos/FreeRTOS/include \
--I../../../librtos/FreeRTOS/portable/GCC/ARM_CM4F 
 
 # compile gcc flags
-ASFLAGS = $(MCU) $(AS_DEFS) $(AS_INCLUDES) $(OPT) -Wall -fdata-sections -ffunction-sections
+ASFLAGS = $(MCU) $(AS_DEFS) $(AS_INCLUDES) $(OPT) -s+ -w+ -r -S
 
-CFLAGS += $(MCU) $(C_DEFS) $(C_INCLUDES) $(OPT) -Wall -fdata-sections -ffunction-sections
+CFLAGS += $(MCU) $(C_DEFS) $(C_INCLUDES) $(OPT) -Dewarm --diag_suppress Pa050 --no_cse --no_unroll --no_inline --no_code_motion --no_tbaa --no_clustering --no_scheduling --endian=little -e --silent
 
 ifeq ($(DEBUG), 1)
-CFLAGS += -g -gdwarf-2
+CFLAGS += -On --debug
+else
+CFLAGS += -Oh
 endif
 
 
 # Generate dependency information
-CFLAGS += -MMD -MP -MF"$(@:%.o=%.d)"
+CFLAGS +=
 
 
 #######################################
 # LDFLAGS
 #######################################
 # link script
-LDSCRIPT = ./startup/STM32F405RGTx_FLASH.ld
+LDSCRIPT = ./startup/stm32f405xx_flash.icf
 
 # libraries
-LIBS = -lc -lm -lnosys 
-LIBDIR = 
-LDFLAGS = $(MCU) -specs=nano.specs -T$(LDSCRIPT) $(LIBDIR) $(LIBS) -Wl,-Map=$(BUILD_DIR)/$(TARGET).map,--cref -Wl,--gc-sections
+LIBS =
+LIBDIR =
+LDFLAGS = $(MCU) --config $(LDSCRIPT) --semihosting --entry __iar_program_start --vfe --text_out locale --no_out_extension --map $(BUILD_DIR)/$(TARGET).map
 
 # default action: build all
-all: $(BUILD_DIR)/$(TARGET).elf $(BUILD_DIR)/$(TARGET).hex $(BUILD_DIR)/$(TARGET).bin
+all: $(BUILD_DIR)/$(TARGET).out $(BUILD_DIR)/$(TARGET).hex $(BUILD_DIR)/$(TARGET).bin
 
 
 #######################################
@@ -194,25 +159,21 @@ OBJECTS += $(addprefix $(BUILD_DIR)/,$(notdir $(ASMM_SOURCES:.S=.o)))
 vpath %.S $(sort $(dir $(ASMM_SOURCES)))
 
 $(BUILD_DIR)/%.o: %.c Makefile | $(BUILD_DIR) 
-	$(CC) -c $(CFLAGS) -Wa,-a,-ad,-alms=$(BUILD_DIR)/$(notdir $(<:.c=.lst)) $< -o $@
+	$(CC) -c $(CFLAGS) $< -o $@
 
 $(BUILD_DIR)/%.o: %.s Makefile | $(BUILD_DIR)
-	$(AS) -c $(CFLAGS) $< -o $@
+	$(AS) -c $(ASFLAGS) $< -o $@
 $(BUILD_DIR)/%.o: %.S Makefile | $(BUILD_DIR)
-	$(AS) -c $(CFLAGS) $< -o $@
+	$(AS) -c $(ASFLAGS) $< -o $@
 
-$(BUILD_DIR)/$(TARGET).elf: $(OBJECTS) Makefile
-	$(CC) $(OBJECTS) $(LDFLAGS) -o $@
-	$(NM) $@ > $(BUILD_DIR)/nm.txt
-	$(RD) -a $@ > $(BUILD_DIR)/readelf.txt
-	$(OB) -D -S $@ > $(BUILD_DIR)/objdump.txt
-	$(SZ) $@
+$(BUILD_DIR)/$(TARGET).out: $(OBJECTS) Makefile
+	$(LK) $(OBJECTS) $(LDFLAGS) -o $@
 
-$(BUILD_DIR)/%.hex: $(BUILD_DIR)/%.elf | $(BUILD_DIR)
-	$(HEX) $< $@
+$(BUILD_DIR)/%.hex: $(BUILD_DIR)/%.out | $(BUILD_DIR)
+	$(FF) --ihex $< $@ 
 
-$(BUILD_DIR)/%.bin: $(BUILD_DIR)/%.elf | $(BUILD_DIR)
-	$(BIN) $< $@
+$(BUILD_DIR)/%.bin: $(BUILD_DIR)/%.out | $(BUILD_DIR)
+	$(FF) --bin $< $@ 
 
 $(BUILD_DIR):
 	mkdir $@
@@ -221,21 +182,17 @@ $(BUILD_DIR):
 # clean up
 #######################################
 clean:
-ifeq ($(OS),Windows_NT)
-	del $(BUILD_DIR)\*.d
+ifeq ($(OS), Windows_NT)
 	del $(BUILD_DIR)\*.o
-	del $(BUILD_DIR)\*.lst
 else
-	rm -fR $(BUILD_DIR)/*.d
 	rm -fR $(BUILD_DIR)/*.o
-	rm -fR $(BUILD_DIR)/*.lst
 endif
 
 #######################################
 # start qemu for debug
 #######################################
 debug:
-	.\rtos-start.bat 
+	.\bare-start.bat 
 
 #######################################
 # dependencies

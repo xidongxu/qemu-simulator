@@ -22,13 +22,11 @@
 #include "stm32f4xx_it.h"
 /* Private includes ----------------------------------------------------------*/
 /* USER CODE BEGIN Includes */
-#include <stdio.h>
 /* USER CODE END Includes */
 
 /* Private typedef -----------------------------------------------------------*/
 /* USER CODE BEGIN TD */
-#include <FreeRTOS.h>
-#include "task.h"
+
 /* USER CODE END TD */
 
 /* Private define ------------------------------------------------------------*/
@@ -59,9 +57,7 @@
 /* External variables --------------------------------------------------------*/
 extern UART_HandleTypeDef huart1;
 /* USER CODE BEGIN EV */
-extern BaseType_t xPortSysTickHandler(void);
-extern void xPortPendSVHandler(void);
-extern void vPortSVCHandler(void);
+
 /* USER CODE END EV */
 
 /******************************************************************************/
@@ -73,10 +69,10 @@ extern void vPortSVCHandler(void);
 void NMI_Handler(void)
 {
   /* USER CODE BEGIN NonMaskableInt_IRQn 0 */
-  printf("this is %s.\r\n", __func__);
+
   /* USER CODE END NonMaskableInt_IRQn 0 */
   /* USER CODE BEGIN NonMaskableInt_IRQn 1 */
-  while (1)
+   while (1)
   {
   }
   /* USER CODE END NonMaskableInt_IRQn 1 */
@@ -85,10 +81,10 @@ void NMI_Handler(void)
 /**
   * @brief This function handles Hard fault interrupt.
   */
-void HardFault_Handler_Legency(void)
+void HardFault_Handler(void)
 {
   /* USER CODE BEGIN HardFault_IRQn 0 */
-  printf("this is %s.\r\n", __func__);
+
   /* USER CODE END HardFault_IRQn 0 */
   while (1)
   {
@@ -103,7 +99,7 @@ void HardFault_Handler_Legency(void)
 void MemManage_Handler(void)
 {
   /* USER CODE BEGIN MemoryManagement_IRQn 0 */
-  printf("this is %s.\r\n", __func__);
+
   /* USER CODE END MemoryManagement_IRQn 0 */
   while (1)
   {
@@ -118,7 +114,7 @@ void MemManage_Handler(void)
 void BusFault_Handler(void)
 {
   /* USER CODE BEGIN BusFault_IRQn 0 */
-  printf("this is %s.\r\n", __func__);
+
   /* USER CODE END BusFault_IRQn 0 */
   while (1)
   {
@@ -133,7 +129,7 @@ void BusFault_Handler(void)
 void UsageFault_Handler(void)
 {
   /* USER CODE BEGIN UsageFault_IRQn 0 */
-  printf("this is %s.\r\n", __func__);
+
   /* USER CODE END UsageFault_IRQn 0 */
   while (1)
   {
@@ -148,7 +144,7 @@ void UsageFault_Handler(void)
 void SVC_Handler(void)
 {
   /* USER CODE BEGIN SVCall_IRQn 0 */
-  vPortSVCHandler();
+
   /* USER CODE END SVCall_IRQn 0 */
   /* USER CODE BEGIN SVCall_IRQn 1 */
 
@@ -174,7 +170,7 @@ void DebugMon_Handler(void)
 void PendSV_Handler(void)
 {
   /* USER CODE BEGIN PendSV_IRQn 0 */
-  xPortPendSVHandler();
+
   /* USER CODE END PendSV_IRQn 0 */
   /* USER CODE BEGIN PendSV_IRQn 1 */
 
@@ -187,10 +183,7 @@ void PendSV_Handler(void)
 void SysTick_Handler(void)
 {
   /* USER CODE BEGIN SysTick_IRQn 0 */
-  if (xTaskGetSchedulerState() != taskSCHEDULER_NOT_STARTED)
-  {
-    xPortSysTickHandler();
-  }
+
   /* USER CODE END SysTick_IRQn 0 */
   HAL_IncTick();
   /* USER CODE BEGIN SysTick_IRQn 1 */
@@ -220,31 +213,5 @@ void USART1_IRQHandler(void)
 }
 
 /* USER CODE BEGIN 1 */
-/**
-  * @brief  This function is executed in case of error occurrence.
-  * @retval None
-  */
-void Error_Handler(void)
-{
-  printf("this is %s.\r\n", __func__);
-  __disable_irq();
-  while (1) {}
-}
-
-#ifdef  USE_FULL_ASSERT
-/**
-  * @brief  Reports the name of the source file and the source line number
-  *         where the assert_param error has occurred.
-  * @param  file: pointer to the source file name
-  * @param  line: assert_param error line source number
-  * @retval None
-  */
-void assert_failed(uint8_t *file, uint32_t line)
-{
-  printf("this is %s.\r\n", __func__);
-  __disable_irq();
-  while (1) {}
-}
-#endif /* USE_FULL_ASSERT */
 
 /* USER CODE END 1 */
