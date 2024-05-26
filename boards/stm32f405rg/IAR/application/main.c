@@ -22,12 +22,7 @@
 
 /* Private includes ----------------------------------------------------------*/
 /* USER CODE BEGIN Includes */
-#include "stm32f4xx_hal.h"
 #include "stm32f4xx_it.h"
-#include <string.h>
-#include <stdio.h>
-#include <stdlib.h>
-#include "fault-dump.h"
 /* USER CODE END Includes */
 
 /* Private typedef -----------------------------------------------------------*/
@@ -37,6 +32,7 @@
 
 /* Private define ------------------------------------------------------------*/
 /* USER CODE BEGIN PD */
+
 /* USER CODE END PD */
 
 /* Private macro -------------------------------------------------------------*/
@@ -58,90 +54,7 @@ void SystemClock_Config(void);
 
 /* Private user code ---------------------------------------------------------*/
 /* USER CODE BEGIN 0 */
-#ifdef __GNUC__
-/* With GCC/RAISONANCE, small printf (option LD Linker->Libraries->Small printf
- set to 'Yes') calls __io_putchar() */
-#define PUTCHAR_PROTOTYPE int __io_putchar(int ch)
-#else
-#define PUTCHAR_PROTOTYPE int fputc(int ch, FILE *f)
-#endif /* __GNUC__ */
-/**
-  * @brief  Retargets the C library printf function to the USART.
-  * @param  None
-  * @retval None
-  */
-PUTCHAR_PROTOTYPE
-{
-  /* Place your implementation of fputc here */
-  /* e.g. write a character to the EVAL_COM1 and Loop until the end of transmission */
-  HAL_UART_Transmit(&huart1, (uint8_t *)&ch, 1, 0xFFFF);
-  return ch;
-}
 
-void fault_div_zero_trigger(void) 
-{
-  int a = 0, b = 0, c = 0;
-
-  SCB->CCR |= SCB_CCR_DIV_0_TRP_Msk;
-  c = (a + (b / c));
-  printf("c = %d\r\n", c);
-}
-
-void fault_unalign_trigger(void) 
-{
-  volatile int *addr = NULL;
-  volatile int value = 0;
-  SCB->CCR |= SCB_CCR_UNALIGN_TRP_Msk;
-
-  addr = (int*)0x00;
-  value = *addr;
-  printf("addr:0x%02X-value:0x%08X\r\n", (int)addr, value);
-  addr = (int*)0x04;
-  value = *addr;
-  printf("addr:0x%02X-value:0x%08X\r\n", (int)addr, value);
-  addr = (int*)0x03;
-  value = *addr;
-  printf("addr:0x%02X-value:0x%08X\r\n", (int)addr, value);
-}
-
-void test0(void)
-{
-  printf("this is %s.\r\n", __func__);
-  // trigger a fault.
-  //float a = 0.0, b = 1.1;
-  //printf("this is %f.\r\n", (a + b));
-  fault_unalign_trigger();
-}
-
-void test1(void)
-{
-  printf("this is %s.\r\n", __func__);
-  test0();
-}
-
-void test2(void)
-{
-  printf("this is %s.\r\n", __func__);
-  test1();
-}
-
-void test3(void)
-{
-  printf("this is %s.\r\n", __func__);
-  test2();
-}
-
-void test4(void)
-{
-  printf("this is %s.\r\n", __func__);
-  test3();
-}
-
-void test5(void)
-{
-  printf("this is %s.\r\n", __func__);
-  test4();
-}
 /* USER CODE END 0 */
 
 /**
@@ -165,7 +78,7 @@ int main(void)
   /* USER CODE END Init */
 
   /* Configure the system clock */
-  // SystemClock_Config();
+  SystemClock_Config();
 
   /* USER CODE BEGIN SysInit */
 
@@ -175,16 +88,13 @@ int main(void)
   MX_GPIO_Init();
   MX_USART1_UART_Init();
   /* USER CODE BEGIN 2 */
-  fault_dump_init();
-  test5();
+
   /* USER CODE END 2 */
 
   /* Infinite loop */
   /* USER CODE BEGIN WHILE */
   while (1)
   {
-    printf("%s", "hello qemu.\r\n");
-    HAL_Delay(1000);
     /* USER CODE END WHILE */
 
     /* USER CODE BEGIN 3 */
@@ -241,3 +151,35 @@ void SystemClock_Config(void)
 /* USER CODE BEGIN 4 */
 
 /* USER CODE END 4 */
+
+/**
+  * @brief  This function is executed in case of error occurrence.
+  * @retval None
+  */
+void Error_Handler(void)
+{
+  /* USER CODE BEGIN Error_Handler_Debug */
+  /* User can add his own implementation to report the HAL error return state */
+  __disable_irq();
+  while (1)
+  {
+  }
+  /* USER CODE END Error_Handler_Debug */
+}
+
+#ifdef  USE_FULL_ASSERT
+/**
+  * @brief  Reports the name of the source file and the source line number
+  *         where the assert_param error has occurred.
+  * @param  file: pointer to the source file name
+  * @param  line: assert_param error line source number
+  * @retval None
+  */
+void assert_failed(uint8_t *file, uint32_t line)
+{
+  /* USER CODE BEGIN 6 */
+  /* User can add his own implementation to report the file name and line number,
+     ex: printf("Wrong parameters value: file %s on line %d\r\n", file, line) */
+  /* USER CODE END 6 */
+}
+#endif /* USE_FULL_ASSERT */

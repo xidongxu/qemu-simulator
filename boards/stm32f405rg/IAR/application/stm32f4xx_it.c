@@ -18,11 +18,10 @@
 /* USER CODE END Header */
 
 /* Includes ------------------------------------------------------------------*/
-#include "stm32f4xx_hal.h"
+#include "main.h"
 #include "stm32f4xx_it.h"
 /* Private includes ----------------------------------------------------------*/
 /* USER CODE BEGIN Includes */
-#include <stdio.h>
 /* USER CODE END Includes */
 
 /* Private typedef -----------------------------------------------------------*/
@@ -70,10 +69,10 @@ extern UART_HandleTypeDef huart1;
 void NMI_Handler(void)
 {
   /* USER CODE BEGIN NonMaskableInt_IRQn 0 */
-  printf("this is %s.\r\n", __func__);
+
   /* USER CODE END NonMaskableInt_IRQn 0 */
   /* USER CODE BEGIN NonMaskableInt_IRQn 1 */
-  while (1)
+   while (1)
   {
   }
   /* USER CODE END NonMaskableInt_IRQn 1 */
@@ -82,10 +81,10 @@ void NMI_Handler(void)
 /**
   * @brief This function handles Hard fault interrupt.
   */
-void HardFault_Handler_Legency(void)
+void HardFault_Handler(void)
 {
   /* USER CODE BEGIN HardFault_IRQn 0 */
-  printf("this is %s.\r\n", __func__);
+
   /* USER CODE END HardFault_IRQn 0 */
   while (1)
   {
@@ -100,7 +99,7 @@ void HardFault_Handler_Legency(void)
 void MemManage_Handler(void)
 {
   /* USER CODE BEGIN MemoryManagement_IRQn 0 */
-  printf("this is %s.\r\n", __func__);
+
   /* USER CODE END MemoryManagement_IRQn 0 */
   while (1)
   {
@@ -115,7 +114,7 @@ void MemManage_Handler(void)
 void BusFault_Handler(void)
 {
   /* USER CODE BEGIN BusFault_IRQn 0 */
-  printf("this is %s.\r\n", __func__);
+
   /* USER CODE END BusFault_IRQn 0 */
   while (1)
   {
@@ -130,7 +129,7 @@ void BusFault_Handler(void)
 void UsageFault_Handler(void)
 {
   /* USER CODE BEGIN UsageFault_IRQn 0 */
-  printf("this is %s.\r\n", __func__);
+
   /* USER CODE END UsageFault_IRQn 0 */
   while (1)
   {
@@ -224,21 +223,5 @@ void Error_Handler(void)
   __disable_irq();
   while (1) {}
 }
-
-#ifdef  USE_FULL_ASSERT
-/**
-  * @brief  Reports the name of the source file and the source line number
-  *         where the assert_param error has occurred.
-  * @param  file: pointer to the source file name
-  * @param  line: assert_param error line source number
-  * @retval None
-  */
-void assert_failed(uint8_t *file, uint32_t line)
-{
-  printf("this is %s.\r\n", __func__);
-  __disable_irq();
-  while (1) {}
-}
-#endif /* USE_FULL_ASSERT */
 
 /* USER CODE END 1 */
