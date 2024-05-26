@@ -1,6 +1,6 @@
 ###############################################################################
 #
-# IAR ELF Linker V9.50.2.385/W64 for ARM                  26/May/2024  18:10:31
+# IAR ELF Linker V9.50.2.385/W64 for ARM                  26/May/2024  18:13:36
 # Copyright 2007-2024 IAR Systems AB.
 #
 #    Output file  =  build/stm32-qemu.out
@@ -241,7 +241,7 @@ command line/config:
     -------------------------------------------------
     Total:
 
-C:\Users\xidon\code\github\qemu-simulator\boards\stm32f405rg\IAR\build: [1]
+C:\Users\xidon\code\github\qemu-simulator\boards\stm32f405rg\IAR-FreeRTOS\build: [1]
     gpio.o                       80
     main.o                       86       16
     startup_stm32f405xx.o       716
@@ -505,7 +505,7 @@ uwTickFreq              0x2000'0008    0x1  Data  Gb  stm32f4xx_hal.o [1]
 uwTickPrio              0x2000'0000    0x4  Data  Gb  stm32f4xx_hal.o [1]
 
 
-[1] = C:\Users\xidon\code\github\qemu-simulator\boards\stm32f405rg\IAR\build
+[1] = C:\Users\xidon\code\github\qemu-simulator\boards\stm32f405rg\IAR-FreeRTOS\build
 [2] = dl7M_tln.a
 [3] = m7M_tls.a
 [4] = rt7M_tl.a

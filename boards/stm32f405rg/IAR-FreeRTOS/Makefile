@@ -192,7 +192,7 @@ endif
 # start qemu for debug
 #######################################
 debug:
-	.\bare-start.bat 
+	.\rtos-start.bat 
 
 #######################################
 # dependencies
