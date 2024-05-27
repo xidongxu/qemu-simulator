@@ -100,7 +100,6 @@
 08004504 T _write_r
 08003560 W ADC_IRQHandler
 08004788 R APBPrescTable
-20000094 b AppTask.0
 080007a8 T assert_failed
 200080e8 b buffer.0
 08000730 T BusFault_Handler
@@ -136,8 +135,6 @@
 20008a64 B errno
 08000790 T Error_Handler
 08002a0c T eTaskConfirmSleepModeStatus
-080005c4 t exampleInit
-08000608 t exampleTask
 08003560 W EXTI0_IRQHandler
 08003560 W EXTI1_IRQHandler
 08003560 W EXTI15_10_IRQHandler
@@ -198,6 +195,9 @@
 08003528 t LoopCopyDataInit
 0800353a t LoopFillZerobss
 08000640 T main
+20000094 b main_task.0
+08000608 t main_task_entry
+080005c4 t main_task_init
 08000220 T memchr
 080035b8 T memcpy
 0800071c T MemManage_Handler

@@ -10,7 +10,7 @@ ELF Header:
   Version:                           0x1
   Entry point address:               0x8003511
   Start of program headers:          52 (bytes into file)
-  Start of section headers:          428480 (bytes into file)
+  Start of section headers:          428504 (bytes into file)
   Flags:                             0x5000400, Version5 EABI, hard-float ABI
   Size of this header:               52 (bytes)
   Size of program headers:           32 (bytes)
@@ -33,18 +33,18 @@ Section Headers:
   [ 9] .bss              NOBITS          20000078 020078 0089f0 00  WA  0   0  8
   [10] ._user_heap_stack NOBITS          20008a68 020078 001000 00  WA  0   0  1
   [11] .ARM.attributes   ARM_ATTRIBUTES  00000000 020078 000030 00      0   0  1
-  [12] .debug_info       PROGBITS        00000000 0200a8 015d3f 00      0   0  1
-  [13] .debug_abbrev     PROGBITS        00000000 035de7 003070 00      0   0  1
-  [14] .debug_loc        PROGBITS        00000000 038e57 010739 00      0   0  1
-  [15] .debug_aranges    PROGBITS        00000000 049590 000e50 00      0   0  8
-  [16] .debug_ranges     PROGBITS        00000000 04a3e0 001108 00      0   0  8
-  [17] .debug_line       PROGBITS        00000000 04b4e8 01009b 00      0   0  1
-  [18] .debug_str        PROGBITS        00000000 05b583 004f4c 01  MS  0   0  1
-  [19] .comment          PROGBITS        00000000 0604cf 000049 01  MS  0   0  1
-  [20] .debug_frame      PROGBITS        00000000 060518 002f18 00      0   0  4
-  [21] .symtab           SYMTAB          00000000 063430 003840 10     22 633  4
-  [22] .strtab           STRTAB          00000000 066c70 001c5a 00      0   0  1
-  [23] .shstrtab         STRTAB          00000000 0688ca 0000f6 00      0   0  1
+  [12] .debug_info       PROGBITS        00000000 0200a8 015d41 00      0   0  1
+  [13] .debug_abbrev     PROGBITS        00000000 035de9 003070 00      0   0  1
+  [14] .debug_loc        PROGBITS        00000000 038e59 010739 00      0   0  1
+  [15] .debug_aranges    PROGBITS        00000000 049598 000e50 00      0   0  8
+  [16] .debug_ranges     PROGBITS        00000000 04a3e8 001108 00      0   0  8
+  [17] .debug_line       PROGBITS        00000000 04b4f0 010093 00      0   0  1
+  [18] .debug_str        PROGBITS        00000000 05b583 004f55 01  MS  0   0  1
+  [19] .comment          PROGBITS        00000000 0604d8 000049 01  MS  0   0  1
+  [20] .debug_frame      PROGBITS        00000000 060524 002f18 00      0   0  4
+  [21] .symtab           SYMTAB          00000000 06343c 003840 10     22 633  4
+  [22] .strtab           STRTAB          00000000 066c7c 001c63 00      0   0  1
+  [23] .shstrtab         STRTAB          00000000 0688df 0000f6 00      0   0  1
 Key to Flags:
   W (write), A (alloc), X (execute), M (merge), S (strings), I (info),
   L (link order), O (extra OS processing required), G (group), T (TLS),
@@ -139,9 +139,9 @@ Symbol table '.symtab' contains 900 entries:
     60: 00000000     0 FILE    LOCAL  DEFAULT  ABS main.c
     61: 08004604     0 NOTYPE  LOCAL  DEFAULT    3 $d
     62: 080005c4     0 NOTYPE  LOCAL  DEFAULT    2 $t
-    63: 080005c5    68 FUNC    LOCAL  DEFAULT    2 exampleInit
+    63: 080005c5    68 FUNC    LOCAL  DEFAULT    2 main_task_init
     64: 080005f8     0 NOTYPE  LOCAL  DEFAULT    2 $d
-    65: 08000609    24 FUNC    LOCAL  DEFAULT    2 exampleTask
+    65: 08000609    24 FUNC    LOCAL  DEFAULT    2 main_task_entry
     66: 08004630     0 NOTYPE  LOCAL  DEFAULT    3 $d
     67: 08000608     0 NOTYPE  LOCAL  DEFAULT    2 $t
     68: 0800061c     0 NOTYPE  LOCAL  DEFAULT    2 $d
@@ -151,7 +151,7 @@ Symbol table '.symtab' contains 900 entries:
     72: 08000640     0 NOTYPE  LOCAL  DEFAULT    2 $t
     73: 08000668     0 NOTYPE  LOCAL  DEFAULT    2 $d
     74: 20000094     0 NOTYPE  LOCAL  DEFAULT    9 $d
-    75: 20000094     4 OBJECT  LOCAL  DEFAULT    9 AppTask.0
+    75: 20000094     4 OBJECT  LOCAL  DEFAULT    9 main_task.0
     76: 20000098     0 NOTYPE  LOCAL  DEFAULT    9 $d
     77: 00000000     0 FILE    LOCAL  DEFAULT  ABS sysmem.c
     78: 0800066c     0 NOTYPE  LOCAL  DEFAULT    2 $t
