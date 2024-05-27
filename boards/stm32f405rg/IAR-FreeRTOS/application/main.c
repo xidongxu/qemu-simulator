@@ -23,6 +23,7 @@
 /* Private includes ----------------------------------------------------------*/
 /* USER CODE BEGIN Includes */
 #include "stm32f4xx_it.h"
+#include "fault-dump.h"
 /* USER CODE END Includes */
 
 /* Private typedef -----------------------------------------------------------*/
@@ -63,6 +64,71 @@ size_t __write(int handle, const unsigned char * buffer, size_t size)
     return _LLIO_ERROR;
   }
 }
+
+void fault_div_zero_trigger(void) 
+{
+  int a = 0, b = 0, c = 0;
+
+  SCB->CCR |= SCB_CCR_DIV_0_TRP_Msk;
+  c = (a + (b / c));
+  printf("c = %d\r\n", c);
+}
+
+void fault_unalign_trigger(void) 
+{
+  volatile int *addr = NULL;
+  volatile int value = 0;
+  SCB->CCR |= SCB_CCR_UNALIGN_TRP_Msk;
+
+  addr = (int*)0x00;
+  value = *addr;
+  printf("addr:0x%02X-value:0x%08X\r\n", (int)addr, value);
+  addr = (int*)0x04;
+  value = *addr;
+  printf("addr:0x%02X-value:0x%08X\r\n", (int)addr, value);
+  addr = (int*)0x03;
+  value = *addr;
+  printf("addr:0x%02X-value:0x%08X\r\n", (int)addr, value);
+}
+
+void test0(void)
+{
+  printf("this is %s.\r\n", __func__);
+  // trigger a fault.
+  //float a = 0.0, b = 1.1;
+  //printf("this is %f.\r\n", (a + b));
+  fault_unalign_trigger();
+}
+
+void test1(void)
+{
+  printf("this is %s.\r\n", __func__);
+  test0();
+}
+
+void test2(void)
+{
+  printf("this is %s.\r\n", __func__);
+  test1();
+}
+
+void test3(void)
+{
+  printf("this is %s.\r\n", __func__);
+  test2();
+}
+
+void test4(void)
+{
+  printf("this is %s.\r\n", __func__);
+  test3();
+}
+
+void test5(void)
+{
+  printf("this is %s.\r\n", __func__);
+  test4();
+}
 /* USER CODE END 0 */
 
 /**
@@ -96,7 +162,8 @@ int main(void)
   MX_GPIO_Init();
   MX_USART1_UART_Init();
   /* USER CODE BEGIN 2 */
-
+  fault_dump_init();
+  test5();
   /* USER CODE END 2 */
 
   /* Infinite loop */

@@ -81,7 +81,7 @@ void NMI_Handler(void)
 /**
   * @brief This function handles Hard fault interrupt.
   */
-void HardFault_Handler(void)
+void HardFault_Handler_Legency(void)
 {
   /* USER CODE BEGIN HardFault_IRQn 0 */
 
