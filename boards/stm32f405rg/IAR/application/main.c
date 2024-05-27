@@ -21,14 +21,28 @@
 
 void SystemClock_Config(void);
 
+#ifdef __GNUC__
+int __io_putchar(int ch) {
+    HAL_UART_Transmit(&huart1, (uint8_t *)&ch, 1, 0xFFFF);
+    return ch;
+}
+#elif __CC_ARM
+int fputc(int ch, FILE *f) {
+    HAL_UART_Transmit(&huart1, (uint8_t *)&ch, 1, 0xFFFF);
+    return ch;
+}
+#elif __ICCARM__
 #include <LowLevelIOInterface.h>
 size_t __write(int handle, const unsigned char * buffer, size_t size) {
-    if(HAL_UART_Transmit(&huart1, (uint8_t *)buffer, size, 100000) == HAL_OK) {
+    if(HAL_UART_Transmit(&huart1, (uint8_t *)buffer, size, 0xFFFF) == HAL_OK) {
         return size;
     } else {
         return _LLIO_ERROR;
     }
 }
+#else
+#error "io port does not support current compiler."
+#endif
 
 void fault_div_zero_trigger(void) {
     int a = 0, b = 0, c = 0;
@@ -89,6 +103,7 @@ void test5(void) {
 
 int main(void) {
     HAL_Init();
+    // SystemClock_Config();
     MX_GPIO_Init();
     MX_USART1_UART_Init();
 
