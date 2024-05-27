@@ -61,6 +61,16 @@ C_SOURCES =  \
 ../../../libutils/fault-dump/src/fault-dump.c \
 ../../../libutils/fault-dump/cpu/cortex-m4/fault-hal.c 
 
+C_SOURCES += \
+../../../librtos/FreeRTOS/list.c \
+../../../librtos/FreeRTOS/queue.c \
+../../../librtos/FreeRTOS/tasks.c \
+../../../librtos/FreeRTOS/timers.c \
+../../../librtos/FreeRTOS/croutine.c \
+../../../librtos/FreeRTOS/event_groups.c \
+../../../librtos/FreeRTOS/portable/RVDS/ARM_CM4F/port.c \
+../../../librtos/FreeRTOS/portable/MemMang/heap_4.c 
+
 # ASM sources
 ASM_SOURCES =  \
 ./startup/startup_stm32f405xx.s \
@@ -123,6 +133,11 @@ C_INCLUDES =  \
 -I../../../libutils/fault-dump/inc \
 -I../../../libutils/fault-dump/cpu/cortex-m4 
 
+C_INCLUDES += \
+-I./application \
+-I../../../librtos/FreeRTOS \
+-I../../../librtos/FreeRTOS/include \
+-I../../../librtos/FreeRTOS/portable/RVDS/ARM_CM4F 
 
 # compile gcc flags
 ASFLAGS = $(MCU) $(AS_DEFS) $(AS_INCLUDES) $(OPT)
