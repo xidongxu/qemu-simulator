@@ -57,11 +57,14 @@ C_SOURCES =  \
 ../Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_cortex.c \
 ../Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal.c \
 ../Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_exti.c \
-../Core/Src/system_stm32f4xx.c 
+../Core/Src/system_stm32f4xx.c \
+../../../libutils/fault-dump/src/fault-dump.c \
+../../../libutils/fault-dump/cpu/cortex-m4/fault-hal.c 
 
 # ASM sources
 ASM_SOURCES =  \
-./startup/startup_stm32f405xx.s 
+./startup/startup_stm32f405xx.s \
+../../../libutils/fault-dump/cpu/cortex-m4/fault-iar.s
 
 # ASM sources
 ASMM_SOURCES = 
@@ -112,7 +115,9 @@ C_INCLUDES =  \
 -I../Drivers/STM32F4xx_HAL_Driver/Inc \
 -I../Drivers/STM32F4xx_HAL_Driver/Inc/Legacy \
 -I../Drivers/CMSIS/Device/ST/STM32F4xx/Include \
--I../Drivers/CMSIS/Include 
+-I../Drivers/CMSIS/Include \
+-I../../../libutils/fault-dump/inc \
+-I../../../libutils/fault-dump/cpu/cortex-m4 
 
 
 # compile gcc flags

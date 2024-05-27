@@ -38,6 +38,17 @@ extern unsigned int _estack;
 #define FD_CODE_TEXT_BASE     (unsigned int)&_stext
 #define FD_CODE_TEXT_ENDS     (unsigned int)&_etext
 #define FD_CODE_TEXT_SIZE     (FD_CODE_TEXT_ENDS - FD_CODE_TEXT_BASE)
+#elif defined(__ICCARM__)
+#pragma section=".text"
+#pragma section="CSTACK"
+/* stack segment information */
+#define FD_CODE_STACK_BASE    (unsigned int)(__section_begin("CSTACK"))
+#define FD_CODE_STACK_FULL    (unsigned int)(__section_end("CSTACK"))
+#define FD_CODE_STACK_SIZE    (FD_CODE_STACK_FULL - FD_CODE_STACK_BASE)
+/* text segment information */
+#define FD_CODE_TEXT_BASE     (unsigned int)(__section_begin(".text"))
+#define FD_CODE_TEXT_ENDS     (unsigned int)(__section_end(".text"))
+#define FD_CODE_TEXT_SIZE     (FD_CODE_TEXT_ENDS - FD_CODE_TEXT_BASE)
 #else
 #error "fault dump does not support current compiler."
 #endif
