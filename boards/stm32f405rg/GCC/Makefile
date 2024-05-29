@@ -206,7 +206,7 @@ $(BUILD_DIR):
 # clean up
 #######################################
 clean:
-ifeq ($(OS),Windows_NT)
+ifeq ($(OS), Windows_NT)
 	del $(BUILD_DIR)\*.d
 	del $(BUILD_DIR)\*.o
 	del $(BUILD_DIR)\*.lst
@@ -220,7 +220,11 @@ endif
 # start qemu for debug
 #######################################
 debug:
-	.\bare-start.bat 
+ifeq ($(OS), Windows_NT)
+	.\bare-start.bat
+else
+	./bare-start.sh
+endif
 
 #######################################
 # dependencies
