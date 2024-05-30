@@ -5,16 +5,16 @@ set file=""
 set exec=""
 
 if %tool% == gcc (
-    set file="./build/stm32-qemu.elf"
-    set exec="file ./build/stm32-qemu.elf"
+    set file="./build/gcc/stm32-qemu.elf"
+    set exec="file ./build/gcc/stm32-qemu.elf"
 ) 
 if %tool% == iar (
-    set file="./build/stm32-qemu.out"
-    set exec="file ./build/stm32-qemu.out"
+    set file="./build/iar/stm32-qemu.out"
+    set exec="file ./build/iar/stm32-qemu.out"
 ) 
 if %tool% == mdk (
-    set file="./build/stm32-qemu.axf"
-    set exec="file ./build/stm32-qemu.axf"
+    set file="./build/mdk/stm32-qemu.axf"
+    set exec="file ./build/mdk/stm32-qemu.axf"
 ) 
 if not exist %file% (
     echo Executable file not found for tool: %1

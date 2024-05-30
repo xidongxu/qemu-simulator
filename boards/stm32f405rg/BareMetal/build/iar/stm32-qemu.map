@@ -1,26 +1,28 @@
 ###############################################################################
 #
-# IAR ELF Linker V9.50.2.385/W64 for ARM                  31/May/2024  00:30:45
+# IAR ELF Linker V9.50.2.385/W64 for ARM                  31/May/2024  00:55:22
 # Copyright 2007-2024 IAR Systems AB.
 #
-#    Output file  =  build/stm32-qemu.out
-#    Map file     =  build/stm32-qemu.map
+#    Output file  =  .\build\iar/stm32-qemu.out
+#    Map file     =  .\build\iar/stm32-qemu.map
 #    Command line =
-#        build/main.o build/stm32f4xx_it.o build/gpio.o build/usart.o
-#        build/stm32f4xx_hal_msp.o build/stm32f4xx_hal_tim.o
-#        build/stm32f4xx_hal_tim_ex.o build/stm32f4xx_hal_uart.o
-#        build/stm32f4xx_hal_rcc.o build/stm32f4xx_hal_rcc_ex.o
-#        build/stm32f4xx_hal_flash.o build/stm32f4xx_hal_flash_ex.o
-#        build/stm32f4xx_hal_flash_ramfunc.o build/stm32f4xx_hal_gpio.o
-#        build/stm32f4xx_hal_dma_ex.o build/stm32f4xx_hal_dma.o
-#        build/stm32f4xx_hal_pwr.o build/stm32f4xx_hal_pwr_ex.o
-#        build/stm32f4xx_hal_cortex.o build/stm32f4xx_hal.o
-#        build/stm32f4xx_hal_exti.o build/system_stm32f4xx.o build/fault-dump.o
-#        build/fault-hal.o build/startup_stm32f405xx.o build/fault-iar.o
-#        --cpu=Cortex-M4 --fpu=VFPv4_sp --config
+#        .\build\iar/main.o .\build\iar/stm32f4xx_it.o .\build\iar/gpio.o
+#        .\build\iar/usart.o .\build\iar/stm32f4xx_hal_msp.o
+#        .\build\iar/stm32f4xx_hal_tim.o .\build\iar/stm32f4xx_hal_tim_ex.o
+#        .\build\iar/stm32f4xx_hal_uart.o .\build\iar/stm32f4xx_hal_rcc.o
+#        .\build\iar/stm32f4xx_hal_rcc_ex.o .\build\iar/stm32f4xx_hal_flash.o
+#        .\build\iar/stm32f4xx_hal_flash_ex.o
+#        .\build\iar/stm32f4xx_hal_flash_ramfunc.o
+#        .\build\iar/stm32f4xx_hal_gpio.o .\build\iar/stm32f4xx_hal_dma_ex.o
+#        .\build\iar/stm32f4xx_hal_dma.o .\build\iar/stm32f4xx_hal_pwr.o
+#        .\build\iar/stm32f4xx_hal_pwr_ex.o .\build\iar/stm32f4xx_hal_cortex.o
+#        .\build\iar/stm32f4xx_hal.o .\build\iar/stm32f4xx_hal_exti.o
+#        .\build\iar/system_stm32f4xx.o .\build\iar/fault-dump.o
+#        .\build\iar/fault-hal.o .\build\iar/startup_stm32f405xx.o
+#        .\build\iar/fault-iar.o --cpu=Cortex-M4 --fpu=VFPv4_sp --config
 #        ./startup/iar/stm32f405xx_flash.icf --semihosting --entry
 #        __iar_program_start --vfe --text_out locale --no_out_extension --map
-#        build/stm32-qemu.map -o build/stm32-qemu.out
+#        .\build\iar/stm32-qemu.map -o .\build\iar/stm32-qemu.out
 #
 ###############################################################################
 
@@ -304,7 +306,7 @@ command line/config:
     -------------------------------------------------
     Total:
 
-C:\Users\xidon\code\github\qemu-simulator\boards\stm32f405rg\BareMetal\build: [1]
+C:\Users\xidon\code\github\qemu-simulator\boards\stm32f405rg\BareMetal\build\iar: [1]
     fault-dump.o                804      524      328
     fault-hal.o                 132      252
     fault-iar.o                  72
@@ -623,7 +625,7 @@ uwTickFreq              0x2000'0008    0x1  Data  Gb  stm32f4xx_hal.o [1]
 uwTickPrio              0x2000'0000    0x4  Data  Gb  stm32f4xx_hal.o [1]
 
 
-[1] = C:\Users\xidon\code\github\qemu-simulator\boards\stm32f405rg\BareMetal\build
+[1] = C:\Users\xidon\code\github\qemu-simulator\boards\stm32f405rg\BareMetal\build\iar
 [2] = dl7M_tln.a
 [3] = m7M_tls.a
 [4] = rt7M_tl.a

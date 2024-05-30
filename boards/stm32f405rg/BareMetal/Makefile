@@ -35,8 +35,30 @@ endif
 #######################################
 # paths
 #######################################
-# Build path
-BUILD_DIR = build
+# Build default path
+BUILD_DIR = .\build\gcc
+ifeq ($(OS), Windows_NT)
+ifeq ($(tool), gcc)
+BUILD_DIR = .\build\gcc
+endif
+ifeq ($(tool), iar)
+BUILD_DIR = .\build\iar
+endif
+ifeq ($(tool), mdk)
+BUILD_DIR = .\build\mdk
+endif
+else
+ifeq ($(tool), gcc)
+BUILD_DIR = ./build/gcc
+endif
+ifeq ($(tool), iar)
+BUILD_DIR = ./build/iar
+endif
+ifeq ($(tool), mdk)
+BUILD_DIR = ./build/mdk
+endif
+endif
+
 
 ######################################
 # source
