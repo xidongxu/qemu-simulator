@@ -22,8 +22,15 @@ TARGET = stm32-qemu
 # debug build?
 DEBUG = 1
 # optimization
+ifeq ($(tool), gcc)
 OPT = -Og
-
+endif
+ifeq ($(tool), iar)
+OPT = 
+endif
+ifeq ($(tool), mdk)
+OPT = -g --apcs=interwork
+endif
 
 #######################################
 # paths
@@ -37,8 +44,6 @@ BUILD_DIR = build
 # C sources
 C_SOURCES =  \
 ./application/main.c \
-./application/sysmem.c \
-./application/syscalls.c \
 ./application/stm32f4xx_it.c \
 ../Core/Src/gpio.c \
 ../Core/Src/usart.c \
@@ -63,70 +68,137 @@ C_SOURCES =  \
 ../../../libutils/fault-dump/src/fault-dump.c \
 ../../../libutils/fault-dump/cpu/cortex-m4/fault-hal.c 
 
+
+ifeq ($(tool), gcc)
+C_SOURCES += \
+./application/sysmem.c \
+./application/syscalls.c 
+endif
+
+
 # ASM sources
+ifeq ($(tool), gcc)
 ASM_SOURCES =  \
-./startup/startup_stm32f405xx.s \
+./startup/gcc/startup_stm32f405xx.s \
 ../../../libutils/fault-dump/cpu/cortex-m4/fault-gcc.s
+endif
+ifeq ($(tool), iar)
+ASM_SOURCES =  \
+./startup/iar/startup_stm32f405xx.s \
+../../../libutils/fault-dump/cpu/cortex-m4/fault-iar.s
+endif
+ifeq ($(tool), mdk)
+ASM_SOURCES =  \
+./startup/mdk/startup_stm32f405xx.s \
+../../../libutils/fault-dump/cpu/cortex-m4/fault-mdk.s
+endif
+
 
 # ASM sources
 ASMM_SOURCES = 
 
 
 #######################################
-# binaries
+# The compiler can be input in make command via tool variable (> make tool=xxx)
 #######################################
-PREFIX = arm-none-eabi-
-# The gcc compiler bin path can be either defined in make command via GCC_PATH variable (> make GCC_PATH=xxx)
-# either it can be added to the PATH environment variable.
-ifdef GCC_PATH
-CC = $(GCC_PATH)/$(PREFIX)gcc
-AS = $(GCC_PATH)/$(PREFIX)gcc -x assembler-with-cpp
-CP = $(GCC_PATH)/$(PREFIX)objcopy
-SZ = $(GCC_PATH)/$(PREFIX)size
-OB = $(GCC_PATH)/$(PREFIX)objdump
-NM = $(GCC_PATH)/$(PREFIX)nm
-RD = $(GCC_PATH)/$(PREFIX)readelf
-else
-CC = $(PREFIX)gcc
-AS = $(PREFIX)gcc -x assembler-with-cpp
-CP = $(PREFIX)objcopy
-SZ = $(PREFIX)size
-OB = $(PREFIX)objdump
-NM = $(PREFIX)nm
-RD = $(PREFIX)readelf
-endif
+ifeq ($(tool), gcc)
+PREFIX = C:/Users/xidon/program/ARM_Gcc/gcc-arm-none-eabi-10.3-2021.10/bin
+LIBFIX = 
+CC = $(PREFIX)/arm-none-eabi-gcc
+AS = $(PREFIX)/arm-none-eabi-gcc -x assembler-with-cpp
+CP = $(PREFIX)/arm-none-eabi-objcopy
+SZ = $(PREFIX)/arm-none-eabi-size
+OB = $(PREFIX)/arm-none-eabi-objdump
+NM = $(PREFIX)/arm-none-eabi-nm
+RD = $(PREFIX)/arm-none-eabi-readelf
 HEX = $(CP) -O ihex
 BIN = $(CP) -O binary -S
+endif
+ifeq ($(tool), iar)
+PREFIX = C:/Users/xidon/program/ARM_IAR/arm/bin
+LIBFIX = 
+CC = $(PREFIX)/iccarm
+AS = $(PREFIX)/iasmarm
+LK = $(PREFIX)/ilinkarm
+FF = $(PREFIX)/ielftool
+endif
+ifeq ($(tool), mdk)
+PREFIX = C:/Users/xidon/program/ARM_Keil/Keil_v5/ARM/ARMCC506/bin
+LIBFIX = C:/Users/xidon/program/ARM_Keil/Keil_v5/ARM/ARMCC506/lib
+CC = $(PREFIX)/armcc
+AS = $(PREFIX)/armasm
+LK = $(PREFIX)/armlink
+FF = $(PREFIX)/fromelf
+endif
+
  
 #######################################
 # CFLAGS
 #######################################
-# cpu
+ifeq ($(tool), gcc)
 CPU = -mcpu=cortex-m4
-
-# fpu
 FPU = -mfpu=fpv4-sp-d16
-
-# float-abi
 FLOAT-ABI = -mfloat-abi=hard
-
-# mcu
 MCU = $(CPU) -mthumb $(FPU) $(FLOAT-ABI)
+endif
+ifeq ($(tool), iar)
+CPU = --cpu=Cortex-M4
+FPU = --fpu=VFPv4_sp
+FLOAT-ABI =
+MCU = $(CPU) $(FPU) $(FLOAT-ABI)
+endif
+ifeq ($(tool), mdk)
+CPU = --cpu Cortex-M4.fp
+FPU = 
+FLOAT-ABI = 
+MCU = $(CPU) --thumb $(FPU) $(FLOAT-ABI)
+endif
 
-# macros for gcc
-# AS defines
+
+#######################################
+# ASFLAGS
+#######################################
+ifeq ($(tool), gcc)
 AS_DEFS = 
+endif
+ifeq ($(tool), iar)
+AS_DEFS = 
+endif
+ifeq ($(tool), mdk)
+AS_DEFS =  \
+--pd "__MICROLIB SETA 1"
+endif
 
+
+#######################################
 # C defines
+#######################################
 C_DEFS =  \
 -DUSE_HAL_DRIVER \
--DSTM32F405xx
+-DSTM32F405xx 
 
 
+ifeq ($(tool), gcc)
+C_DEFS += 
+endif
+ifeq ($(tool), iar)
+C_DEFS += 
+endif
+ifeq ($(tool), mdk)
+C_DEFS += \
+-D__MICROLIB
+endif
+
+
+#######################################
 # AS includes
+#######################################
 AS_INCLUDES = 
 
+
+#######################################
 # C includes
+#######################################
 C_INCLUDES =  \
 -I../Core/Inc \
 -I../Drivers/STM32F4xx_HAL_Driver/Inc \
@@ -137,33 +209,94 @@ C_INCLUDES =  \
 -I../../../libutils/fault-dump/cpu/cortex-m4 
 
 
+#######################################
 # compile gcc flags
+#######################################
+ifeq ($(tool), gcc)
 ASFLAGS = $(MCU) $(AS_DEFS) $(AS_INCLUDES) $(OPT) -Wall -fdata-sections -ffunction-sections
-
 CFLAGS += $(MCU) $(C_DEFS) $(C_INCLUDES) $(OPT) -Wall -fdata-sections -ffunction-sections
-
 ifeq ($(DEBUG), 1)
 CFLAGS += -g -gdwarf-2
 endif
+endif
+ifeq ($(tool), iar)
+ASFLAGS = $(MCU) $(AS_DEFS) $(AS_INCLUDES) $(OPT) -s+ -w+ -r -S
+CFLAGS += $(MCU) $(C_DEFS) $(C_INCLUDES) $(OPT) -Dewarm --diag_suppress Pa050 --no_cse --no_unroll --no_inline --no_code_motion --no_tbaa --no_clustering --no_scheduling --endian=little -e --silent
+ifeq ($(DEBUG), 1)
+CFLAGS += -On --debug
+else
+CFLAGS += -Oh
+endif
+endif
+ifeq ($(tool), mdk)
+ASFLAGS = $(MCU) $(AS_DEFS) $(AS_INCLUDES) $(OPT)
+CFLAGS += $(MCU) $(C_DEFS) $(C_INCLUDES) $(OPT) --c99
+ifeq ($(DEBUG), 1)
+CFLAGS += -g -O0
+endif
+endif
 
 
+#######################################
 # Generate dependency information
+#######################################
+ifeq ($(tool), gcc)
 CFLAGS += -MMD -MP -MF"$(@:%.o=%.d)"
+endif
+ifeq ($(tool), iar)
+CFLAGS += 
+endif
+ifeq ($(tool), mdk)
+CFLAGS += 
+endif
+
+
+#######################################
+# link script
+#######################################
+ifeq ($(tool), gcc)
+LDSCRIPT = ./startup/gcc/STM32F405RGTx_FLASH.ld
+endif
+ifeq ($(tool), iar)
+LDSCRIPT = ./startup/iar/stm32f405xx_flash.icf
+endif
+ifeq ($(tool), mdk)
+LDSCRIPT = ./startup/mdk/stm32-qemu.sct
+endif
 
 
 #######################################
 # LDFLAGS
 #######################################
-# link script
-LDSCRIPT = ./startup/STM32F405RGTx_FLASH.ld
-
-# libraries
+ifeq ($(tool), gcc)
 LIBS = -lc -lm -lnosys 
 LIBDIR = 
 LDFLAGS = $(MCU) -specs=nano.specs -T$(LDSCRIPT) $(LIBDIR) $(LIBS) -Wl,-Map=$(BUILD_DIR)/$(TARGET).map,--cref -Wl,--gc-sections
+endif
+ifeq ($(tool), iar)
+LIBS =
+LIBDIR =
+LDFLAGS = $(MCU) --config $(LDSCRIPT) --semihosting --entry __iar_program_start --vfe --text_out locale --no_out_extension --map $(BUILD_DIR)/$(TARGET).map
+endif
+ifeq ($(tool), mdk)
+LIBS = --library_type=microlib
+LIBDIR = --libpath=$(LIBFIX)
+LDFLAGS = --scatter $(LDSCRIPT) $(LIBS) $(LIBDIR) --map --symbols --info common --info debug --info sizes --info totals --info unused --info veneers --list $(BUILD_DIR)/$(TARGET).map --strict
+endif
 
+
+#######################################
 # default action: build all
+#######################################
+ifeq ($(tool), gcc)
 all: $(BUILD_DIR)/$(TARGET).elf $(BUILD_DIR)/$(TARGET).hex $(BUILD_DIR)/$(TARGET).bin
+endif
+ifeq ($(tool), iar)
+all: $(BUILD_DIR)/$(TARGET).out $(BUILD_DIR)/$(TARGET).hex $(BUILD_DIR)/$(TARGET).bin
+endif
+ifeq ($(tool), mdk)
+all: $(BUILD_DIR)/$(TARGET).axf $(BUILD_DIR)/$(TARGET).hex $(BUILD_DIR)/$(TARGET).bin
+endif
 
 
 #######################################
@@ -178,26 +311,54 @@ vpath %.s $(sort $(dir $(ASM_SOURCES)))
 OBJECTS += $(addprefix $(BUILD_DIR)/,$(notdir $(ASMM_SOURCES:.S=.o)))
 vpath %.S $(sort $(dir $(ASMM_SOURCES)))
 
+
+ifeq ($(tool), gcc)
 $(BUILD_DIR)/%.o: %.c Makefile | $(BUILD_DIR) 
 	$(CC) -c $(CFLAGS) -Wa,-a,-ad,-alms=$(BUILD_DIR)/$(notdir $(<:.c=.lst)) $< -o $@
-
 $(BUILD_DIR)/%.o: %.s Makefile | $(BUILD_DIR)
 	$(AS) -c $(CFLAGS) $< -o $@
 $(BUILD_DIR)/%.o: %.S Makefile | $(BUILD_DIR)
 	$(AS) -c $(CFLAGS) $< -o $@
-
 $(BUILD_DIR)/$(TARGET).elf: $(OBJECTS) Makefile
 	$(CC) $(OBJECTS) $(LDFLAGS) -o $@
 	$(NM) $@ > $(BUILD_DIR)/nm.txt
 	$(RD) -a $@ > $(BUILD_DIR)/readelf.txt
 	$(OB) -D -S $@ > $(BUILD_DIR)/objdump.txt
 	$(SZ) $@
-
 $(BUILD_DIR)/%.hex: $(BUILD_DIR)/%.elf | $(BUILD_DIR)
 	$(HEX) $< $@
-
 $(BUILD_DIR)/%.bin: $(BUILD_DIR)/%.elf | $(BUILD_DIR)
 	$(BIN) $< $@
+endif
+ifeq ($(tool), iar)
+$(BUILD_DIR)/%.o: %.c Makefile | $(BUILD_DIR) 
+	$(CC) -c $(CFLAGS) $< -o $@
+$(BUILD_DIR)/%.o: %.s Makefile | $(BUILD_DIR)
+	$(AS) -c $(ASFLAGS) $< -o $@
+$(BUILD_DIR)/%.o: %.S Makefile | $(BUILD_DIR)
+	$(AS) -c $(ASFLAGS) $< -o $@
+$(BUILD_DIR)/$(TARGET).out: $(OBJECTS) Makefile
+	$(LK) $(OBJECTS) $(LDFLAGS) -o $@
+$(BUILD_DIR)/%.hex: $(BUILD_DIR)/%.out | $(BUILD_DIR)
+	$(FF) --ihex $< $@ 
+$(BUILD_DIR)/%.bin: $(BUILD_DIR)/%.out | $(BUILD_DIR)
+	$(FF) --bin $< $@ 
+endif
+ifeq ($(tool), mdk)
+$(BUILD_DIR)/%.o: %.c Makefile | $(BUILD_DIR) 
+	$(CC) -c $(CFLAGS) $< -o $@
+$(BUILD_DIR)/%.o: %.s Makefile | $(BUILD_DIR)
+	$(AS) -c $(ASFLAGS) $< -o $@
+$(BUILD_DIR)/%.o: %.S Makefile | $(BUILD_DIR)
+	$(AS) -c $(ASFLAGS) $< -o $@
+$(BUILD_DIR)/$(TARGET).axf: $(OBJECTS) Makefile
+	$(LK) $(OBJECTS) $(LDFLAGS) -o $@
+$(BUILD_DIR)/%.hex: $(BUILD_DIR)/%.axf | $(BUILD_DIR)
+	$(FF) --i32 --output $@ $<
+$(BUILD_DIR)/%.bin: $(BUILD_DIR)/%.axf | $(BUILD_DIR)
+	$(FF) --bin --output $@ $<
+endif
+
 
 $(BUILD_DIR):
 	mkdir $@
@@ -207,28 +368,31 @@ $(BUILD_DIR):
 #######################################
 clean:
 ifeq ($(OS), Windows_NT)
-	del $(BUILD_DIR)\*.d
 	del $(BUILD_DIR)\*.o
+	del $(BUILD_DIR)\*.d
 	del $(BUILD_DIR)\*.lst
 else
-	rm -fR $(BUILD_DIR)/*.d
 	rm -fR $(BUILD_DIR)/*.o
+	rm -fR $(BUILD_DIR)/*.d
 	rm -fR $(BUILD_DIR)/*.lst
 endif
+
 
 #######################################
 # start qemu for debug
 #######################################
 debug:
 ifeq ($(OS), Windows_NT)
-	.\bare-start.bat
+	.\bare-start.bat $(tool)
 else
 	./bare-start.sh
 endif
+
 
 #######################################
 # dependencies
 #######################################
 -include $(wildcard $(BUILD_DIR)/*.d)
+
 
 # *** EOF ***
