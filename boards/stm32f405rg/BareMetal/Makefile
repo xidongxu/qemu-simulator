@@ -10,15 +10,32 @@
 #   2015-07-22 - first version
 # ------------------------------------------------
 ######################################
-# cross tool chain default is gcc
+# Input Parameter Selection Toolchain
 ######################################
-ifndef tool
+opts := gcc iar mdk
+
+arg1 := $(word 1, $(MAKECMDGOALS))
+arg2 := $(word 2, $(MAKECMDGOALS))
+tool := $(filter $(opts), $(arg1) $(arg2))
+
+
+######################################
+# Use GCC Without Input Parameter
+######################################
+ifeq ($(tool), )
 	tool:=gcc
 endif
 
 
 ######################################
-# target
+# The second args not need as a target
+######################################
+$(arg2):
+	@:
+
+
+######################################
+# target name
 ######################################
 TARGET = stm32-qemu
 
@@ -317,14 +334,14 @@ endif
 #######################################
 # default action: build all
 #######################################
-ifeq ($(tool), gcc)
-all: $(BUILD_DIR)/$(TARGET).elf $(BUILD_DIR)/$(TARGET).hex $(BUILD_DIR)/$(TARGET).bin
+ifeq ($(arg1), gcc)
+gcc: $(BUILD_DIR)/$(TARGET).elf $(BUILD_DIR)/$(TARGET).hex $(BUILD_DIR)/$(TARGET).bin
 endif
-ifeq ($(tool), iar)
-all: $(BUILD_DIR)/$(TARGET).out $(BUILD_DIR)/$(TARGET).hex $(BUILD_DIR)/$(TARGET).bin
+ifeq ($(arg1), iar)
+iar: $(BUILD_DIR)/$(TARGET).out $(BUILD_DIR)/$(TARGET).hex $(BUILD_DIR)/$(TARGET).bin
 endif
-ifeq ($(tool), mdk)
-all: $(BUILD_DIR)/$(TARGET).axf $(BUILD_DIR)/$(TARGET).hex $(BUILD_DIR)/$(TARGET).bin
+ifeq ($(arg1), mdk)
+mdk: $(BUILD_DIR)/$(TARGET).axf $(BUILD_DIR)/$(TARGET).hex $(BUILD_DIR)/$(TARGET).bin
 endif
 
 
