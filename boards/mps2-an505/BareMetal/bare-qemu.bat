@@ -18,7 +18,7 @@ if not exist "%file%" (
 )
 
 echo executable file is exist, start qemu:
-qemu-system-arm.exe -M netduinoplus2 -nographic -kernel %file% -S -s
+qemu-system-arm.exe -machine mps2-an505 -cpu cortex-m33 -m 16M -nographic -kernel %file% -S -s
 
 :finish
 pause

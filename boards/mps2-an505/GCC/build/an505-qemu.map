@@ -944,15 +944,15 @@ LOAD linker stubs
  .comment       0x00000049       0x4a build/fault-dump.o
  .comment       0x00000049       0x4a build/fault-hal.o
 
-.debug_info     0x00000000     0x38cb
+.debug_info     0x00000000     0x38cd
  .debug_info    0x00000000      0xa4f build/main.o
  .debug_info    0x00000a4f      0x4e9 build/system_ARMCM33.o
  .debug_info    0x00000f38     0x1bc5 build/printf.o
  .debug_info    0x00002afd      0x241 build/uart.o
- .debug_info    0x00002d3e      0x8b0 build/fault-dump.o
- .debug_info    0x000035ee      0x291 build/fault-hal.o
- .debug_info    0x0000387f       0x26 build/startup_ARMCM33.o
- .debug_info    0x000038a5       0x26 build/fault-gcc.o
+ .debug_info    0x00002d3e      0x8b2 build/fault-dump.o
+ .debug_info    0x000035f0      0x291 build/fault-hal.o
+ .debug_info    0x00003881       0x26 build/startup_ARMCM33.o
+ .debug_info    0x000038a7       0x26 build/fault-gcc.o
 
 .debug_abbrev   0x00000000      0xb08
  .debug_abbrev  0x00000000      0x193 build/main.o
