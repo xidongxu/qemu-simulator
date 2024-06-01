@@ -121,13 +121,21 @@ C_SOURCES += \
 ../../../librtos/FreeRTOS/timers.c \
 ../../../librtos/FreeRTOS/croutine.c \
 ../../../librtos/FreeRTOS/event_groups.c \
-../../../librtos/FreeRTOS/portable/RVDS/ARM_CM4F/port.c \
 ../../../librtos/FreeRTOS/portable/MemMang/heap_4.c 
-# GCC Platform C sources
+# Platform C sources
 ifeq ($(tool), gcc)
 C_SOURCES += \
+../../../librtos/FreeRTOS/portable/GCC/ARM_CM4F/port.c \
 ./application/sysmem.c \
 ./application/syscalls.c 
+endif
+ifeq ($(tool), iar)
+C_SOURCES += \
+../../../librtos/FreeRTOS/portable/IAR/ARM_CM4F/port.c 
+endif
+ifeq ($(tool), mdk)
+C_SOURCES += \
+../../../librtos/FreeRTOS/portable/RVDS/ARM_CM4F/port.c 
 endif
 
 
@@ -140,6 +148,7 @@ endif
 ifeq ($(tool), iar)
 ASM_SOURCES =  \
 ./startup/iar/startup_stm32f405xx.s \
+../../../librtos/FreeRTOS/portable/IAR/ARM_CM4F/portasm.s \
 ../../../libutils/fault-dump/cpu/cortex-m4/fault-iar.s
 endif
 ifeq ($(tool), mdk)
@@ -248,7 +257,8 @@ endif
 #######################################
 # AS includes
 #######################################
-AS_INCLUDES = 
+AS_INCLUDES = \
+-I./application 
 
 
 #######################################
@@ -275,7 +285,7 @@ ifeq ($(tool), iar)
 C_INCLUDES += \
 -I../../../librtos/FreeRTOS/portable/IAR/ARM_CM4F 
 endif
-ifeq ($(tool), gcc)
+ifeq ($(tool), mdk)
 C_INCLUDES += \
 -I../../../librtos/FreeRTOS/portable/RVDS/ARM_CM4F 
 endif
@@ -455,9 +465,9 @@ endif
 #######################################
 debug:
 ifeq ($(OS), Windows_NT)
-	.\bare-start.bat $(tool)
+	.\rtos-start.bat $(tool)
 else
-	./bare-start.sh
+	./rtos-start.sh
 endif
 
 

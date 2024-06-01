@@ -1,0 +1,995 @@
+ELF Header:
+  Magic:   7f 45 4c 46 01 01 01 00 00 00 00 00 00 00 00 00 
+  Class:                             ELF32
+  Data:                              2's complement, little endian
+  Version:                           1 (current)
+  OS/ABI:                            UNIX - System V
+  ABI Version:                       0
+  Type:                              EXEC (Executable file)
+  Machine:                           ARM
+  Version:                           0x1
+  Entry point address:               0x800335d
+  Start of program headers:          52 (bytes into file)
+  Start of section headers:          428100 (bytes into file)
+  Flags:                             0x5000400, Version5 EABI, hard-float ABI
+  Size of this header:               52 (bytes)
+  Size of program headers:           32 (bytes)
+  Number of program headers:         3
+  Size of section headers:           40 (bytes)
+  Number of section headers:         24
+  Section header string table index: 23
+
+Section Headers:
+  [Nr] Name              Type            Addr     Off    Size   ES Flg Lk Inf Al
+  [ 0]                   NULL            00000000 000000 000000 00      0   0  0
+  [ 1] .isr_vector       PROGBITS        08000000 010000 000188 00   A  0   0  1
+  [ 2] .text             PROGBITS        08000190 010190 0042c0 00  AX  0   0 16
+  [ 3] .rodata           PROGBITS        08004450 014450 000540 00   A  0   0  4
+  [ 4] .ARM              ARM_EXIDX       08004990 014990 000008 00  AL  2   0  4
+  [ 5] .init_array       INIT_ARRAY      08004998 014998 000004 04  WA  0   0  4
+  [ 6] .fini_array       FINI_ARRAY      0800499c 01499c 000004 04  WA  0   0  4
+  [ 7] .data             PROGBITS        20000000 020000 000078 00  WA  0   0  4
+  [ 8] .ccmram           PROGBITS        10000000 020078 000000 00   W  0   0  1
+  [ 9] .bss              NOBITS          20000078 020078 008924 00  WA  0   0  4
+  [10] ._user_heap_stack NOBITS          2000899c 020078 001004 00  WA  0   0  1
+  [11] .ARM.attributes   ARM_ATTRIBUTES  00000000 020078 000030 00      0   0  1
+  [12] .debug_info       PROGBITS        00000000 0200a8 015cdc 00      0   0  1
+  [13] .debug_abbrev     PROGBITS        00000000 035d84 003070 00      0   0  1
+  [14] .debug_loc        PROGBITS        00000000 038df4 010677 00      0   0  1
+  [15] .debug_aranges    PROGBITS        00000000 049470 000e50 00      0   0  8
+  [16] .debug_ranges     PROGBITS        00000000 04a2c0 001110 00      0   0  8
+  [17] .debug_line       PROGBITS        00000000 04b3d0 0100a4 00      0   0  1
+  [18] .debug_str        PROGBITS        00000000 05b474 004f55 01  MS  0   0  1
+  [19] .comment          PROGBITS        00000000 0603c9 000049 01  MS  0   0  1
+  [20] .debug_frame      PROGBITS        00000000 060414 002ea4 00      0   0  4
+  [21] .symtab           SYMTAB          00000000 0632b8 003830 10     22 632  4
+  [22] .strtab           STRTAB          00000000 066ae8 001c63 00      0   0  1
+  [23] .shstrtab         STRTAB          00000000 06874b 0000f6 00      0   0  1
+Key to Flags:
+  W (write), A (alloc), X (execute), M (merge), S (strings), I (info),
+  L (link order), O (extra OS processing required), G (group), T (TLS),
+  C (compressed), x (unknown), o (OS specific), E (exclude),
+  y (purecode), p (processor specific)
+
+There are no section groups in this file.
+
+Program Headers:
+  Type           Offset   VirtAddr   PhysAddr   FileSiz MemSiz  Flg Align
+  LOAD           0x010000 0x08000000 0x08000000 0x049a0 0x049a0 RWE 0x10000
+  LOAD           0x020000 0x20000000 0x080049a0 0x00078 0x00078 RW  0x10000
+  LOAD           0x000078 0x20000078 0x20000078 0x00000 0x09928 RW  0x10000
+
+ Section to Segment mapping:
+  Segment Sections...
+   00     .isr_vector .text .rodata .ARM .init_array .fini_array 
+   01     .data 
+   02     .bss ._user_heap_stack 
+
+There is no dynamic section in this file.
+
+There are no relocations in this file.
+
+Unwind section '.ARM' at offset 0x14990 contains 1 entry:
+
+0x80002f0 <__udivmoddi4>: 0x1 [cantunwind]
+
+
+Symbol table '.symtab' contains 899 entries:
+   Num:    Value  Size Type    Bind   Vis      Ndx Name
+     0: 00000000     0 NOTYPE  LOCAL  DEFAULT  UND 
+     1: 08000000     0 SECTION LOCAL  DEFAULT    1 
+     2: 08000190     0 SECTION LOCAL  DEFAULT    2 
+     3: 08004450     0 SECTION LOCAL  DEFAULT    3 
+     4: 08004990     0 SECTION LOCAL  DEFAULT    4 
+     5: 08004998     0 SECTION LOCAL  DEFAULT    5 
+     6: 0800499c     0 SECTION LOCAL  DEFAULT    6 
+     7: 20000000     0 SECTION LOCAL  DEFAULT    7 
+     8: 10000000     0 SECTION LOCAL  DEFAULT    8 
+     9: 20000078     0 SECTION LOCAL  DEFAULT    9 
+    10: 2000899c     0 SECTION LOCAL  DEFAULT   10 
+    11: 00000000     0 SECTION LOCAL  DEFAULT   11 
+    12: 00000000     0 SECTION LOCAL  DEFAULT   12 
+    13: 00000000     0 SECTION LOCAL  DEFAULT   13 
+    14: 00000000     0 SECTION LOCAL  DEFAULT   14 
+    15: 00000000     0 SECTION LOCAL  DEFAULT   15 
+    16: 00000000     0 SECTION LOCAL  DEFAULT   16 
+    17: 00000000     0 SECTION LOCAL  DEFAULT   17 
+    18: 00000000     0 SECTION LOCAL  DEFAULT   18 
+    19: 00000000     0 SECTION LOCAL  DEFAULT   19 
+    20: 00000000     0 SECTION LOCAL  DEFAULT   20 
+    21: 00000000     0 FILE    LOCAL  DEFAULT  ABS startup_stm32f405xx.o
+    22: 0800335c     0 NOTYPE  LOCAL  DEFAULT    2 $t
+    23: 08003374     0 NOTYPE  LOCAL  DEFAULT    2 LoopCopyDataInit
+    24: 0800336e     0 NOTYPE  LOCAL  DEFAULT    2 CopyDataInit
+    25: 08003386     0 NOTYPE  LOCAL  DEFAULT    2 LoopFillZerobss
+    26: 08003382     0 NOTYPE  LOCAL  DEFAULT    2 FillZerobss
+    27: 080033ac     0 NOTYPE  LOCAL  DEFAULT    2 Infinite_Loop
+    28: 080033ac     0 NOTYPE  LOCAL  DEFAULT    2 $t
+    29: 08003394     0 NOTYPE  LOCAL  DEFAULT    2 $d
+    30: 00000000     0 FILE    LOCAL  DEFAULT  ABS crtstuff.c
+    31: 08004438     0 OBJECT  LOCAL  DEFAULT    2 __EH_FRAME_BEGIN__
+    32: 08000190     0 NOTYPE  LOCAL  DEFAULT    2 $t
+    33: 08000191     0 FUNC    LOCAL  DEFAULT    2 __do_global_dtors_aux
+    34: 080001a8     0 NOTYPE  LOCAL  DEFAULT    2 $d
+    35: 20000078     1 NOTYPE  LOCAL  DEFAULT    9 completed.1
+    36: 0800499c     0 NOTYPE  LOCAL  DEFAULT    6 $d
+    37: 0800499c     0 OBJECT  LOCAL  DEFAULT    6 __do_global_dtor[...]
+    38: 080001b4     0 NOTYPE  LOCAL  DEFAULT    2 $t
+    39: 080001b5     0 FUNC    LOCAL  DEFAULT    2 frame_dummy
+    40: 080001c4     0 NOTYPE  LOCAL  DEFAULT    2 $d
+    41: 2000007c    24 NOTYPE  LOCAL  DEFAULT    9 object.0
+    42: 08004998     0 NOTYPE  LOCAL  DEFAULT    5 $d
+    43: 08004998     0 OBJECT  LOCAL  DEFAULT    5 __frame_dummy_in[...]
+    44: 20000078     0 NOTYPE  LOCAL  DEFAULT    9 $d
+    45: 00000000     0 FILE    LOCAL  DEFAULT  ABS fault-gcc.o
+    46: 080001d0     0 NOTYPE  LOCAL  DEFAULT    2 $t
+    47: 080001ec     0 NOTYPE  LOCAL  DEFAULT    2 stack_checked
+    48: 080001fe     0 NOTYPE  LOCAL  DEFAULT    2 stack_invalid
+    49: 0800020a     0 NOTYPE  LOCAL  DEFAULT    2 $d
+    50: 0800020c     0 NOTYPE  LOCAL  DEFAULT    2 $d
+    51: 00000000     0 FILE    LOCAL  DEFAULT  ABS lib_a-memchr.o
+    52: 08000220     0 NOTYPE  LOCAL  DEFAULT    2 $t
+    53: 00000000     0 FILE    LOCAL  DEFAULT  ABS _aeabi_uldivmod.o
+    54: 080002c0     0 NOTYPE  LOCAL  DEFAULT    2 $t
+    55: 00000000     0 FILE    LOCAL  DEFAULT  ABS libgcc2.c
+    56: 080002f0     0 NOTYPE  LOCAL  DEFAULT    2 $t
+    57: 08004990     0 NOTYPE  LOCAL  DEFAULT    4 $d
+    58: 00000000     0 FILE    LOCAL  DEFAULT  ABS _dvmd_tls.o
+    59: 080005c0     0 NOTYPE  LOCAL  DEFAULT    2 $t
+    60: 00000000     0 FILE    LOCAL  DEFAULT  ABS main.c
+    61: 08004450     0 NOTYPE  LOCAL  DEFAULT    3 $d
+    62: 080005c4     0 NOTYPE  LOCAL  DEFAULT    2 $t
+    63: 080005c5    68 FUNC    LOCAL  DEFAULT    2 main_task_init
+    64: 080005f8     0 NOTYPE  LOCAL  DEFAULT    2 $d
+    65: 08000609    24 FUNC    LOCAL  DEFAULT    2 main_task_entry
+    66: 0800447c     0 NOTYPE  LOCAL  DEFAULT    3 $d
+    67: 08000608     0 NOTYPE  LOCAL  DEFAULT    2 $t
+    68: 0800061c     0 NOTYPE  LOCAL  DEFAULT    2 $d
+    69: 08000620     0 NOTYPE  LOCAL  DEFAULT    2 $t
+    70: 0800063c     0 NOTYPE  LOCAL  DEFAULT    2 $d
+    71: 08004498     0 NOTYPE  LOCAL  DEFAULT    3 $d
+    72: 08000640     0 NOTYPE  LOCAL  DEFAULT    2 $t
+    73: 08000668     0 NOTYPE  LOCAL  DEFAULT    2 $d
+    74: 20000094     0 NOTYPE  LOCAL  DEFAULT    9 $d
+    75: 20000094     4 OBJECT  LOCAL  DEFAULT    9 main_task.0
+    76: 20000098     0 NOTYPE  LOCAL  DEFAULT    9 $d
+    77: 00000000     0 FILE    LOCAL  DEFAULT  ABS stm32f4xx_it.c
+    78: 080044a8     0 NOTYPE  LOCAL  DEFAULT    3 $d
+    79: 0800066c     0 NOTYPE  LOCAL  DEFAULT    2 $t
+    80: 08000678     0 NOTYPE  LOCAL  DEFAULT    2 $d
+    81: 08000680     0 NOTYPE  LOCAL  DEFAULT    2 $t
+    82: 0800068c     0 NOTYPE  LOCAL  DEFAULT    2 $d
+    83: 08000694     0 NOTYPE  LOCAL  DEFAULT    2 $t
+    84: 080006a0     0 NOTYPE  LOCAL  DEFAULT    2 $d
+    85: 080006a8     0 NOTYPE  LOCAL  DEFAULT    2 $t
+    86: 080006b4     0 NOTYPE  LOCAL  DEFAULT    2 $d
+    87: 080006bc     0 NOTYPE  LOCAL  DEFAULT    2 $t
+    88: 080006c4     0 NOTYPE  LOCAL  DEFAULT    2 $t
+    89: 080006c6     0 NOTYPE  LOCAL  DEFAULT    2 $t
+    90: 080006ce     0 NOTYPE  LOCAL  DEFAULT    2 $t
+    91: 080006e4     0 NOTYPE  LOCAL  DEFAULT    2 $t
+    92: 080006f0     0 NOTYPE  LOCAL  DEFAULT    2 $d
+    93: 080006f4     0 NOTYPE  LOCAL  DEFAULT    2 $t
+    94: 08000704     0 NOTYPE  LOCAL  DEFAULT    2 $d
+    95: 0800070c     0 NOTYPE  LOCAL  DEFAULT    2 $t
+    96: 0800071c     0 NOTYPE  LOCAL  DEFAULT    2 $d
+    97: 080044b8     0 NOTYPE  LOCAL  DEFAULT    3 $d
+    98: 080044b8    14 OBJECT  LOCAL  DEFAULT    3 __func__.0
+    99: 080044c8     0 NOTYPE  LOCAL  DEFAULT    3 $d
+   100: 080044c8    14 OBJECT  LOCAL  DEFAULT    3 __func__.1
+   101: 080044d8     0 NOTYPE  LOCAL  DEFAULT    3 $d
+   102: 080044d8    19 OBJECT  LOCAL  DEFAULT    3 __func__.2
+   103: 080044ec     0 NOTYPE  LOCAL  DEFAULT    3 $d
+   104: 080044ec    17 OBJECT  LOCAL  DEFAULT    3 __func__.3
+   105: 08004500     0 NOTYPE  LOCAL  DEFAULT    3 $d
+   106: 08004500    18 OBJECT  LOCAL  DEFAULT    3 __func__.4
+   107: 08004514     0 NOTYPE  LOCAL  DEFAULT    3 $d
+   108: 08004514    12 OBJECT  LOCAL  DEFAULT    3 __func__.6
+   109: 00000000     0 FILE    LOCAL  DEFAULT  ABS gpio.c
+   110: 08000724     0 NOTYPE  LOCAL  DEFAULT    2 $t
+   111: 0800076c     0 NOTYPE  LOCAL  DEFAULT    2 $d
+   112: 00000000     0 FILE    LOCAL  DEFAULT  ABS usart.c
+   113: 08000770     0 NOTYPE  LOCAL  DEFAULT    2 $t
+   114: 0800079c     0 NOTYPE  LOCAL  DEFAULT    2 $d
+   115: 080007a4     0 NOTYPE  LOCAL  DEFAULT    2 $t
+   116: 08000820     0 NOTYPE  LOCAL  DEFAULT    2 $d
+   117: 20008098     0 NOTYPE  LOCAL  DEFAULT    9 $d
+   118: 00000000     0 FILE    LOCAL  DEFAULT  ABS stm32f4xx_hal_msp.c
+   119: 08000824     0 NOTYPE  LOCAL  DEFAULT    2 $t
+   120: 08000858     0 NOTYPE  LOCAL  DEFAULT    2 $d
+   121: 00000000     0 FILE    LOCAL  DEFAULT  ABS stm32f4xx_hal_uart.c
+   122: 0800085c     0 NOTYPE  LOCAL  DEFAULT    2 $t
+   123: 0800085d    92 FUNC    LOCAL  DEFAULT    2 UART_EndRxTransfer
+   124: 080008b8     0 NOTYPE  LOCAL  DEFAULT    2 $t
+   125: 080008b9    96 FUNC    LOCAL  DEFAULT    2 UART_Transmit_IT
+   126: 08004520     0 NOTYPE  LOCAL  DEFAULT    3 $d
+   127: 08000918     0 NOTYPE  LOCAL  DEFAULT    2 $t
+   128: 08000919   372 FUNC    LOCAL  DEFAULT    2 UART_SetConfig
+   129: 08000a7c     0 NOTYPE  LOCAL  DEFAULT    2 $d
+   130: 08000a8c     0 NOTYPE  LOCAL  DEFAULT    2 $t
+   131: 08000a8d   138 FUNC    LOCAL  DEFAULT    2 UART_WaitOnFlagU[...]
+   132: 08000b18     0 NOTYPE  LOCAL  DEFAULT    2 $t
+   133: 08000c3c     0 NOTYPE  LOCAL  DEFAULT    2 $d
+   134: 08000c44     0 NOTYPE  LOCAL  DEFAULT    2 $t
+   135: 08000d10     0 NOTYPE  LOCAL  DEFAULT    2 $t
+   136: 08000d12     0 NOTYPE  LOCAL  DEFAULT    2 $t
+   137: 08000d13    26 FUNC    LOCAL  DEFAULT    2 UART_EndTransmit_IT
+   138: 08000d2c     0 NOTYPE  LOCAL  DEFAULT    2 $t
+   139: 08000d2e     0 NOTYPE  LOCAL  DEFAULT    2 $t
+   140: 08000d30     0 NOTYPE  LOCAL  DEFAULT    2 $t
+   141: 08000d31    16 FUNC    LOCAL  DEFAULT    2 UART_DMAAbortOnError
+   142: 08000d40     0 NOTYPE  LOCAL  DEFAULT    2 $t
+   143: 08000d42     0 NOTYPE  LOCAL  DEFAULT    2 $t
+   144: 08000d43   230 FUNC    LOCAL  DEFAULT    2 UART_Receive_IT
+   145: 08000e28     0 NOTYPE  LOCAL  DEFAULT    2 $t
+   146: 080010ac     0 NOTYPE  LOCAL  DEFAULT    2 $d
+   147: 00000000     0 FILE    LOCAL  DEFAULT  ABS stm32f4xx_hal_rcc.c
+   148: 080010b0     0 NOTYPE  LOCAL  DEFAULT    2 $t
+   149: 080010b8     0 NOTYPE  LOCAL  DEFAULT    2 $d
+   150: 080010bc     0 NOTYPE  LOCAL  DEFAULT    2 $t
+   151: 080010d4     0 NOTYPE  LOCAL  DEFAULT    2 $d
+   152: 080010dc     0 NOTYPE  LOCAL  DEFAULT    2 $t
+   153: 080010f4     0 NOTYPE  LOCAL  DEFAULT    2 $d
+   154: 00000000     0 FILE    LOCAL  DEFAULT  ABS stm32f4xx_hal_gpio.c
+   155: 0800455c     0 NOTYPE  LOCAL  DEFAULT    3 $d
+   156: 080010fc     0 NOTYPE  LOCAL  DEFAULT    2 $t
+   157: 08001258     0 NOTYPE  LOCAL  DEFAULT    2 $d
+   158: 08001260     0 NOTYPE  LOCAL  DEFAULT    2 $t
+   159: 080013d4     0 NOTYPE  LOCAL  DEFAULT    2 $d
+   160: 00000000     0 FILE    LOCAL  DEFAULT  ABS stm32f4xx_hal_dma.c
+   161: 080013e4     0 NOTYPE  LOCAL  DEFAULT    2 $t
+   162: 08001478     0 NOTYPE  LOCAL  DEFAULT    2 $t
+   163: 00000000     0 FILE    LOCAL  DEFAULT  ABS stm32f4xx_hal_co[...]
+   164: 08004598     0 NOTYPE  LOCAL  DEFAULT    3 $d
+   165: 080014a0     0 NOTYPE  LOCAL  DEFAULT    2 $t
+   166: 080014d4     0 NOTYPE  LOCAL  DEFAULT    2 $d
+   167: 080014dc     0 NOTYPE  LOCAL  DEFAULT    2 $t
+   168: 0800155c     0 NOTYPE  LOCAL  DEFAULT    2 $d
+   169: 08001568     0 NOTYPE  LOCAL  DEFAULT    2 $t
+   170: 08001590     0 NOTYPE  LOCAL  DEFAULT    2 $d
+   171: 08001598     0 NOTYPE  LOCAL  DEFAULT    2 $t
+   172: 080015bc     0 NOTYPE  LOCAL  DEFAULT    2 $d
+   173: 00000000     0 FILE    LOCAL  DEFAULT  ABS stm32f4xx_hal.c
+   174: 080015c0     0 NOTYPE  LOCAL  DEFAULT    2 $t
+   175: 08001600     0 NOTYPE  LOCAL  DEFAULT    2 $d
+   176: 0800160c     0 NOTYPE  LOCAL  DEFAULT    2 $t
+   177: 0800163c     0 NOTYPE  LOCAL  DEFAULT    2 $d
+   178: 08001640     0 NOTYPE  LOCAL  DEFAULT    2 $t
+   179: 08001650     0 NOTYPE  LOCAL  DEFAULT    2 $d
+   180: 08001658     0 NOTYPE  LOCAL  DEFAULT    2 $t
+   181: 08001660     0 NOTYPE  LOCAL  DEFAULT    2 $d
+   182: 08001664     0 NOTYPE  LOCAL  DEFAULT    2 $t
+   183: 08001688     0 NOTYPE  LOCAL  DEFAULT    2 $d
+   184: 200080e0     0 NOTYPE  LOCAL  DEFAULT    9 $d
+   185: 20000004     0 NOTYPE  LOCAL  DEFAULT    7 $d
+   186: 00000000     0 FILE    LOCAL  DEFAULT  ABS system_stm32f4xx.c
+   187: 0800168c     0 NOTYPE  LOCAL  DEFAULT    2 $t
+   188: 0800169c     0 NOTYPE  LOCAL  DEFAULT    2 $d
+   189: 20000008     0 NOTYPE  LOCAL  DEFAULT    7 $d
+   190: 080045d4     0 NOTYPE  LOCAL  DEFAULT    3 $d
+   191: 00000000     0 FILE    LOCAL  DEFAULT  ABS fault-dump.c
+   192: 080016a0     0 NOTYPE  LOCAL  DEFAULT    2 $t
+   193: 080016a1    44 FUNC    LOCAL  DEFAULT    2 fault_dump_opcode
+   194: 080016cc     0 NOTYPE  LOCAL  DEFAULT    2 $t
+   195: 080016cd    54 FUNC    LOCAL  DEFAULT    2 opcode_is_bl_or_blx
+   196: 080045dc     0 NOTYPE  LOCAL  DEFAULT    3 $d
+   197: 08001704     0 NOTYPE  LOCAL  DEFAULT    2 $t
+   198: 08001705    24 FUNC    LOCAL  DEFAULT    2 dump_exc_return
+   199: 08001718     0 NOTYPE  LOCAL  DEFAULT    2 $d
+   200: 080045f4     0 NOTYPE  LOCAL  DEFAULT    3 $d
+   201: 0800171c     0 NOTYPE  LOCAL  DEFAULT    2 $t
+   202: 08001748     0 NOTYPE  LOCAL  DEFAULT    2 $d
+   203: 0800176c     0 NOTYPE  LOCAL  DEFAULT    2 $t
+   204: 080017e0     0 NOTYPE  LOCAL  DEFAULT    2 $d
+   205: 08004678     0 NOTYPE  LOCAL  DEFAULT    3 $d
+   206: 080017e8     0 NOTYPE  LOCAL  DEFAULT    2 $t
+   207: 0800190c     0 NOTYPE  LOCAL  DEFAULT    2 $d
+   208: 200080e4     0 NOTYPE  LOCAL  DEFAULT    9 $d
+   209: 200080e4   256 OBJECT  LOCAL  DEFAULT    9 buffer.0
+   210: 200081e4     0 NOTYPE  LOCAL  DEFAULT    9 $d
+   211: 200081e8     0 NOTYPE  LOCAL  DEFAULT    9 $d
+   212: 200081ec     0 NOTYPE  LOCAL  DEFAULT    9 $d
+   213: 200081ec    64 OBJECT  LOCAL  DEFAULT    9 frame.1
+   214: 00000000     0 FILE    LOCAL  DEFAULT  ABS fault-hal.c
+   215: 080047e8     0 NOTYPE  LOCAL  DEFAULT    3 $d
+   216: 0800196c     0 NOTYPE  LOCAL  DEFAULT    2 $t
+   217: 080019cc     0 NOTYPE  LOCAL  DEFAULT    2 $d
+   218: 00000000     0 FILE    LOCAL  DEFAULT  ABS list.c
+   219: 080019f4     0 NOTYPE  LOCAL  DEFAULT    2 $t
+   220: 08001a0e     0 NOTYPE  LOCAL  DEFAULT    2 $t
+   221: 08001a14     0 NOTYPE  LOCAL  DEFAULT    2 $t
+   222: 08001a46     0 NOTYPE  LOCAL  DEFAULT    2 $t
+   223: 00000000     0 FILE    LOCAL  DEFAULT  ABS queue.c
+   224: 08001a6a     0 NOTYPE  LOCAL  DEFAULT    2 $t
+   225: 08001a6b    26 FUNC    LOCAL  DEFAULT    2 prvIsQueueEmpty
+   226: 08001a84     0 NOTYPE  LOCAL  DEFAULT    2 $t
+   227: 08001a85   118 FUNC    LOCAL  DEFAULT    2 prvCopyDataToQueue
+   228: 08001afa     0 NOTYPE  LOCAL  DEFAULT    2 $t
+   229: 08001afb    36 FUNC    LOCAL  DEFAULT    2 prvCopyDataFromQueue
+   230: 08001b1e     0 NOTYPE  LOCAL  DEFAULT    2 $t
+   231: 08001b1f    88 FUNC    LOCAL  DEFAULT    2 prvNotifyQueueSe[...]
+   232: 08001b76     0 NOTYPE  LOCAL  DEFAULT    2 $t
+   233: 08001b77   130 FUNC    LOCAL  DEFAULT    2 prvUnlockQueue
+   234: 08001bf8     0 NOTYPE  LOCAL  DEFAULT    2 $t
+   235: 08001c8e     0 NOTYPE  LOCAL  DEFAULT    2 $t
+   236: 08001c8f    32 FUNC    LOCAL  DEFAULT    2 prvInitialiseNewQueue
+   237: 08001cae     0 NOTYPE  LOCAL  DEFAULT    2 $t
+   238: 08001cec     0 NOTYPE  LOCAL  DEFAULT    2 $t
+   239: 08001dfc     0 NOTYPE  LOCAL  DEFAULT    2 $t
+   240: 00000000     0 FILE    LOCAL  DEFAULT  ABS tasks.c
+   241: 08001e50     0 NOTYPE  LOCAL  DEFAULT    2 $t
+   242: 08001e51    64 FUNC    LOCAL  DEFAULT    2 prvGetExpectedId[...]
+   243: 08001e7c     0 NOTYPE  LOCAL  DEFAULT    2 $d
+   244: 08001e90     0 NOTYPE  LOCAL  DEFAULT    2 $t
+   245: 08001e91    40 FUNC    LOCAL  DEFAULT    2 prvResetNextTask[...]
+   246: 08001eb0     0 NOTYPE  LOCAL  DEFAULT    2 $d
+   247: 08001eb8     0 NOTYPE  LOCAL  DEFAULT    2 $t
+   248: 08001eb9   148 FUNC    LOCAL  DEFAULT    2 prvInitialiseNewTask
+   249: 08001f4c     0 NOTYPE  LOCAL  DEFAULT    2 $t
+   250: 08001f4d    82 FUNC    LOCAL  DEFAULT    2 prvCreateStaticTask
+   251: 08001fa0     0 NOTYPE  LOCAL  DEFAULT    2 $t
+   252: 08001fa1   104 FUNC    LOCAL  DEFAULT    2 prvInitialiseTas[...]
+   253: 08001fe8     0 NOTYPE  LOCAL  DEFAULT    2 $d
+   254: 08002008     0 NOTYPE  LOCAL  DEFAULT    2 $t
+   255: 08002009   204 FUNC    LOCAL  DEFAULT    2 prvAddNewTaskToR[...]
+   256: 080020bc     0 NOTYPE  LOCAL  DEFAULT    2 $d
+   257: 080020d4     0 NOTYPE  LOCAL  DEFAULT    2 $t
+   258: 080020d5    98 FUNC    LOCAL  DEFAULT    2 prvCreateTask
+   259: 08002136     0 NOTYPE  LOCAL  DEFAULT    2 $t
+   260: 08002137    36 FUNC    LOCAL  DEFAULT    2 prvDeleteTCB
+   261: 0800215c     0 NOTYPE  LOCAL  DEFAULT    2 $t
+   262: 0800215d    76 FUNC    LOCAL  DEFAULT    2 prvCheckTasksWai[...]
+   263: 0800219c     0 NOTYPE  LOCAL  DEFAULT    2 $d
+   264: 080021a8     0 NOTYPE  LOCAL  DEFAULT    2 $t
+   265: 080021a9   168 FUNC    LOCAL  DEFAULT    2 prvAddCurrentTas[...]
+   266: 08002238     0 NOTYPE  LOCAL  DEFAULT    2 $d
+   267: 08002250     0 NOTYPE  LOCAL  DEFAULT    2 $t
+   268: 08002278     0 NOTYPE  LOCAL  DEFAULT    2 $t
+   269: 0800229c     0 NOTYPE  LOCAL  DEFAULT    2 $t
+   270: 080022a8     0 NOTYPE  LOCAL  DEFAULT    2 $d
+   271: 080022ac     0 NOTYPE  LOCAL  DEFAULT    2 $t
+   272: 080022b4     0 NOTYPE  LOCAL  DEFAULT    2 $d
+   273: 080022b8     0 NOTYPE  LOCAL  DEFAULT    2 $t
+   274: 080022c0     0 NOTYPE  LOCAL  DEFAULT    2 $d
+   275: 080022c4     0 NOTYPE  LOCAL  DEFAULT    2 $t
+   276: 080022f4     0 NOTYPE  LOCAL  DEFAULT    2 $d
+   277: 08002300     0 NOTYPE  LOCAL  DEFAULT    2 $t
+   278: 08002434     0 NOTYPE  LOCAL  DEFAULT    2 $d
+   279: 08002460     0 NOTYPE  LOCAL  DEFAULT    2 $t
+   280: 08002580     0 NOTYPE  LOCAL  DEFAULT    2 $d
+   281: 080025a0     0 NOTYPE  LOCAL  DEFAULT    2 $t
+   282: 080025d4     0 NOTYPE  LOCAL  DEFAULT    2 $t
+   283: 080025d5    72 FUNC    LOCAL  DEFAULT    2 prvIdleTask
+   284: 08002618     0 NOTYPE  LOCAL  DEFAULT    2 $d
+   285: 0800261c     0 NOTYPE  LOCAL  DEFAULT    2 $t
+   286: 0800268c     0 NOTYPE  LOCAL  DEFAULT    2 $d
+   287: 080026a0     0 NOTYPE  LOCAL  DEFAULT    2 $t
+   288: 080026b8     0 NOTYPE  LOCAL  DEFAULT    2 $d
+   289: 080026bc     0 NOTYPE  LOCAL  DEFAULT    2 $t
+   290: 080026f4     0 NOTYPE  LOCAL  DEFAULT    2 $d
+   291: 080026f8     0 NOTYPE  LOCAL  DEFAULT    2 $t
+   292: 080027c4     0 NOTYPE  LOCAL  DEFAULT    2 $d
+   293: 080027dc     0 NOTYPE  LOCAL  DEFAULT    2 $t
+   294: 080027ec     0 NOTYPE  LOCAL  DEFAULT    2 $d
+   295: 080027f4     0 NOTYPE  LOCAL  DEFAULT    2 $t
+   296: 08002864     0 NOTYPE  LOCAL  DEFAULT    2 $d
+   297: 08002870     0 NOTYPE  LOCAL  DEFAULT    2 $t
+   298: 08002878     0 NOTYPE  LOCAL  DEFAULT    2 $d
+   299: 0800287c     0 NOTYPE  LOCAL  DEFAULT    2 $t
+   300: 080028b0     0 NOTYPE  LOCAL  DEFAULT    2 $d
+   301: 080028c4     0 NOTYPE  LOCAL  DEFAULT    2 $t
+   302: 080028dc     0 NOTYPE  LOCAL  DEFAULT    2 $d
+   303: 080028e4     0 NOTYPE  LOCAL  DEFAULT    2 $t
+   304: 0800295c     0 NOTYPE  LOCAL  DEFAULT    2 $d
+   305: 08002964     0 NOTYPE  LOCAL  DEFAULT    2 $t
+   306: 08002974     0 NOTYPE  LOCAL  DEFAULT    2 $d
+   307: 080048e8     0 NOTYPE  LOCAL  DEFAULT    3 $d
+   308: 0800297c     0 NOTYPE  LOCAL  DEFAULT    2 $t
+   309: 0800297d   108 FUNC    LOCAL  DEFAULT    2 prvCreateIdleTasks
+   310: 080029dc     0 NOTYPE  LOCAL  DEFAULT    2 $d
+   311: 080029e8     0 NOTYPE  LOCAL  DEFAULT    2 $t
+   312: 08002a2c     0 NOTYPE  LOCAL  DEFAULT    2 $d
+   313: 08002a3c     0 NOTYPE  LOCAL  DEFAULT    2 $t
+   314: 08002a4c     0 NOTYPE  LOCAL  DEFAULT    2 $d
+   315: 2000822c     0 NOTYPE  LOCAL  DEFAULT    9 $d
+   316: 20008230     0 NOTYPE  LOCAL  DEFAULT    9 $d
+   317: 20008230     4 OBJECT  LOCAL  DEFAULT    9 pxDelayedTaskList
+   318: 20008234     0 NOTYPE  LOCAL  DEFAULT    9 $d
+   319: 20008234     4 OBJECT  LOCAL  DEFAULT    9 pxOverflowDelaye[...]
+   320: 20008238     0 NOTYPE  LOCAL  DEFAULT    9 $d
+   321: 20008238   140 OBJECT  LOCAL  DEFAULT    9 pxReadyTasksLists
+   322: 200082c4     0 NOTYPE  LOCAL  DEFAULT    9 $d
+   323: 200082c4     4 OBJECT  LOCAL  DEFAULT    9 uxCurrentNumberO[...]
+   324: 200082c8     0 NOTYPE  LOCAL  DEFAULT    9 $d
+   325: 200082c8     4 OBJECT  LOCAL  DEFAULT    9 uxDeletedTasksWa[...]
+   326: 200082cc     0 NOTYPE  LOCAL  DEFAULT    9 $d
+   327: 200082cc   512 OBJECT  LOCAL  DEFAULT    9 uxIdleTaskStack.2
+   328: 200084cc     0 NOTYPE  LOCAL  DEFAULT    9 $d
+   329: 200084cc     4 OBJECT  LOCAL  DEFAULT    9 uxSchedulerSuspended
+   330: 200084d0     0 NOTYPE  LOCAL  DEFAULT    9 $d
+   331: 200084d0     4 OBJECT  LOCAL  DEFAULT    9 uxTaskNumber
+   332: 200084d4     0 NOTYPE  LOCAL  DEFAULT    9 $d
+   333: 200084d4   512 OBJECT  LOCAL  DEFAULT    9 uxTimerTaskStack.0
+   334: 200086d4     0 NOTYPE  LOCAL  DEFAULT    9 $d
+   335: 200086d4     4 OBJECT  LOCAL  DEFAULT    9 uxTopReadyPriority
+   336: 200086d8     0 NOTYPE  LOCAL  DEFAULT    9 $d
+   337: 200086d8    28 OBJECT  LOCAL  DEFAULT    9 xDelayedTaskList1
+   338: 200086f4     0 NOTYPE  LOCAL  DEFAULT    9 $d
+   339: 200086f4    28 OBJECT  LOCAL  DEFAULT    9 xDelayedTaskList2
+   340: 20008710     0 NOTYPE  LOCAL  DEFAULT    9 $d
+   341: 20008710     4 OBJECT  LOCAL  DEFAULT    9 xIdleTaskHandles
+   342: 20008714     0 NOTYPE  LOCAL  DEFAULT    9 $d
+   343: 20008714    76 OBJECT  LOCAL  DEFAULT    9 xIdleTaskTCB.3
+   344: 20008760     0 NOTYPE  LOCAL  DEFAULT    9 $d
+   345: 20008760     4 OBJECT  LOCAL  DEFAULT    9 xNextTaskUnblockTime
+   346: 20008764     0 NOTYPE  LOCAL  DEFAULT    9 $d
+   347: 20008764     4 OBJECT  LOCAL  DEFAULT    9 xNumOfOverflows
+   348: 20008768     0 NOTYPE  LOCAL  DEFAULT    9 $d
+   349: 20008768     4 OBJECT  LOCAL  DEFAULT    9 xPendedTicks
+   350: 2000876c     0 NOTYPE  LOCAL  DEFAULT    9 $d
+   351: 2000876c    28 OBJECT  LOCAL  DEFAULT    9 xPendingReadyList
+   352: 20008788     0 NOTYPE  LOCAL  DEFAULT    9 $d
+   353: 20008788     4 OBJECT  LOCAL  DEFAULT    9 xSchedulerRunning
+   354: 2000878c     0 NOTYPE  LOCAL  DEFAULT    9 $d
+   355: 2000878c    28 OBJECT  LOCAL  DEFAULT    9 xSuspendedTaskList
+   356: 200087a8     0 NOTYPE  LOCAL  DEFAULT    9 $d
+   357: 200087a8    28 OBJECT  LOCAL  DEFAULT    9 xTasksWaitingTer[...]
+   358: 200087c4     0 NOTYPE  LOCAL  DEFAULT    9 $d
+   359: 200087c4     4 OBJECT  LOCAL  DEFAULT    9 xTickCount
+   360: 200087c8     0 NOTYPE  LOCAL  DEFAULT    9 $d
+   361: 200087c8    76 OBJECT  LOCAL  DEFAULT    9 xTimerTaskTCB.1
+   362: 20008814     0 NOTYPE  LOCAL  DEFAULT    9 $d
+   363: 20008814     4 OBJECT  LOCAL  DEFAULT    9 xYieldPendings
+   364: 2000000c     0 NOTYPE  LOCAL  DEFAULT    7 $d
+   365: 2000000c     4 OBJECT  LOCAL  DEFAULT    7 uxTopUsedPriority
+   366: 00000000     0 FILE    LOCAL  DEFAULT  ABS timers.c
+   367: 08002a54     0 NOTYPE  LOCAL  DEFAULT    2 $t
+   368: 08002a55    32 FUNC    LOCAL  DEFAULT    2 prvGetNextExpireTime
+   369: 08002a70     0 NOTYPE  LOCAL  DEFAULT    2 $d
+   370: 08002a74     0 NOTYPE  LOCAL  DEFAULT    2 $t
+   371: 08002a75    72 FUNC    LOCAL  DEFAULT    2 prvInsertTimerIn[...]
+   372: 08002ab4     0 NOTYPE  LOCAL  DEFAULT    2 $d
+   373: 08002abc     0 NOTYPE  LOCAL  DEFAULT    2 $t
+   374: 08002abd    40 FUNC    LOCAL  DEFAULT    2 prvReloadTimer
+   375: 08002ae4     0 NOTYPE  LOCAL  DEFAULT    2 $t
+   376: 08002ae5    64 FUNC    LOCAL  DEFAULT    2 prvProcessExpire[...]
+   377: 08002b20     0 NOTYPE  LOCAL  DEFAULT    2 $d
+   378: 08002b24     0 NOTYPE  LOCAL  DEFAULT    2 $t
+   379: 08002b25    48 FUNC    LOCAL  DEFAULT    2 prvSwitchTimerLists
+   380: 08002b4c     0 NOTYPE  LOCAL  DEFAULT    2 $d
+   381: 08002b54     0 NOTYPE  LOCAL  DEFAULT    2 $t
+   382: 08002b55    44 FUNC    LOCAL  DEFAULT    2 prvSampleTimeNow
+   383: 08002b7c     0 NOTYPE  LOCAL  DEFAULT    2 $d
+   384: 08002b80     0 NOTYPE  LOCAL  DEFAULT    2 $t
+   385: 08002b81   116 FUNC    LOCAL  DEFAULT    2 prvProcessTimerO[...]
+   386: 08002bec     0 NOTYPE  LOCAL  DEFAULT    2 $d
+   387: 08002bf4     0 NOTYPE  LOCAL  DEFAULT    2 $t
+   388: 08002bf5   248 FUNC    LOCAL  DEFAULT    2 prvProcessReceiv[...]
+   389: 08002c4a     0 NOTYPE  LOCAL  DEFAULT    2 $d
+   390: 08002ce8     0 NOTYPE  LOCAL  DEFAULT    2 $d
+   391: 08002cec     0 NOTYPE  LOCAL  DEFAULT    2 $t
+   392: 08002ced    22 FUNC    LOCAL  DEFAULT    2 prvTimerTask
+   393: 08002d04     0 NOTYPE  LOCAL  DEFAULT    2 $t
+   394: 08002d05    96 FUNC    LOCAL  DEFAULT    2 prvCheckForValid[...]
+   395: 08002d48     0 NOTYPE  LOCAL  DEFAULT    2 $d
+   396: 080048f0     0 NOTYPE  LOCAL  DEFAULT    3 $d
+   397: 08002d64     0 NOTYPE  LOCAL  DEFAULT    2 $t
+   398: 08002db0     0 NOTYPE  LOCAL  DEFAULT    2 $d
+   399: 20008818     0 NOTYPE  LOCAL  DEFAULT    9 $d
+   400: 20008818     4 OBJECT  LOCAL  DEFAULT    9 pxCurrentTimerList
+   401: 2000881c     0 NOTYPE  LOCAL  DEFAULT    9 $d
+   402: 2000881c     4 OBJECT  LOCAL  DEFAULT    9 pxOverflowTimerList
+   403: 20008820     0 NOTYPE  LOCAL  DEFAULT    9 $d
+   404: 20008820   160 OBJECT  LOCAL  DEFAULT    9 ucStaticTimerQue[...]
+   405: 200088c0     0 NOTYPE  LOCAL  DEFAULT    9 $d
+   406: 200088c0    28 OBJECT  LOCAL  DEFAULT    9 xActiveTimerList1
+   407: 200088dc     0 NOTYPE  LOCAL  DEFAULT    9 $d
+   408: 200088dc    28 OBJECT  LOCAL  DEFAULT    9 xActiveTimerList2
+   409: 200088f8     0 NOTYPE  LOCAL  DEFAULT    9 $d
+   410: 200088f8     4 OBJECT  LOCAL  DEFAULT    9 xLastTime.2
+   411: 200088fc     0 NOTYPE  LOCAL  DEFAULT    9 $d
+   412: 200088fc    92 OBJECT  LOCAL  DEFAULT    9 xStaticTimerQueue.0
+   413: 20008958     0 NOTYPE  LOCAL  DEFAULT    9 $d
+   414: 20008958     4 OBJECT  LOCAL  DEFAULT    9 xTimerQueue
+   415: 2000895c     0 NOTYPE  LOCAL  DEFAULT    9 $d
+   416: 2000895c     4 OBJECT  LOCAL  DEFAULT    9 xTimerTaskHandle
+   417: 08002c53     0 NOTYPE  LOCAL  DEFAULT    2 $d
+   418: 08002c54     0 NOTYPE  LOCAL  DEFAULT    2 $t
+   419: 00000000     0 FILE    LOCAL  DEFAULT  ABS heap_4.c
+   420: 08002dc0     0 NOTYPE  LOCAL  DEFAULT    2 $t
+   421: 08002dc1    88 FUNC    LOCAL  DEFAULT    2 prvHeapInit
+   422: 08002e04     0 NOTYPE  LOCAL  DEFAULT    2 $d
+   423: 08002e18     0 NOTYPE  LOCAL  DEFAULT    2 $t
+   424: 08002e19   100 FUNC    LOCAL  DEFAULT    2 prvInsertBlockIn[...]
+   425: 08002e74     0 NOTYPE  LOCAL  DEFAULT    2 $d
+   426: 08002e7c     0 NOTYPE  LOCAL  DEFAULT    2 $t
+   427: 08002f3c     0 NOTYPE  LOCAL  DEFAULT    2 $d
+   428: 08002f50     0 NOTYPE  LOCAL  DEFAULT    2 $t
+   429: 08002f98     0 NOTYPE  LOCAL  DEFAULT    2 $d
+   430: 20008960     0 NOTYPE  LOCAL  DEFAULT    9 $d
+   431: 20008960     4 OBJECT  LOCAL  DEFAULT    9 pxEnd
+   432: 20008964     0 NOTYPE  LOCAL  DEFAULT    9 $d
+   433: 20008964     4 OBJECT  LOCAL  DEFAULT    9 xFreeBytesRemaining
+   434: 20008968     0 NOTYPE  LOCAL  DEFAULT    9 $d
+   435: 20008968     4 OBJECT  LOCAL  DEFAULT    9 xMinimumEverFree[...]
+   436: 2000896c     0 NOTYPE  LOCAL  DEFAULT    9 $d
+   437: 2000896c     4 OBJECT  LOCAL  DEFAULT    9 xNumberOfSuccess[...]
+   438: 20008970     0 NOTYPE  LOCAL  DEFAULT    9 $d
+   439: 20008970     4 OBJECT  LOCAL  DEFAULT    9 xNumberOfSuccess[...]
+   440: 20008974     0 NOTYPE  LOCAL  DEFAULT    9 $d
+   441: 20008974     8 OBJECT  LOCAL  DEFAULT    9 xStart
+   442: 00000000     0 FILE    LOCAL  DEFAULT  ABS port.c
+   443: 08002fa0     0 NOTYPE  LOCAL  DEFAULT    2 $t
+   444: 08002fa1    32 FUNC    LOCAL  DEFAULT    2 prvTaskExitError
+   445: 08002fc0     0 NOTYPE  LOCAL  DEFAULT    2 $t
+   446: 08002fc1    40 FUNC    LOCAL  DEFAULT    2 prvPortStartFirstTask
+   447: 08002fe2     0 NOTYPE  LOCAL  DEFAULT    2 $d
+   448: 08002fe4     0 NOTYPE  LOCAL  DEFAULT    2 $d
+   449: 08002fe8     0 NOTYPE  LOCAL  DEFAULT    2 $t
+   450: 08002fe9    20 FUNC    LOCAL  DEFAULT    2 vPortEnableVFP
+   451: 08002ff6     0 NOTYPE  LOCAL  DEFAULT    2 $d
+   452: 08002ff8     0 NOTYPE  LOCAL  DEFAULT    2 $d
+   453: 08002ffc     0 NOTYPE  LOCAL  DEFAULT    2 $t
+   454: 08003024     0 NOTYPE  LOCAL  DEFAULT    2 $d
+   455: 08003030     0 NOTYPE  LOCAL  DEFAULT    2 $t
+   456: 08003050     0 NOTYPE  LOCAL  DEFAULT    2 pxCurrentTCBConst2
+   457: 08003050     0 NOTYPE  LOCAL  DEFAULT    2 $d
+   458: 08003054     0 NOTYPE  LOCAL  DEFAULT    2 $t
+   459: 08003070     0 NOTYPE  LOCAL  DEFAULT    2 $d
+   460: 08003074     0 NOTYPE  LOCAL  DEFAULT    2 $t
+   461: 08003084     0 NOTYPE  LOCAL  DEFAULT    2 $d
+   462: 08003090     0 NOTYPE  LOCAL  DEFAULT    2 $t
+   463: 080030f0     0 NOTYPE  LOCAL  DEFAULT    2 pxCurrentTCBConst
+   464: 080030f0     0 NOTYPE  LOCAL  DEFAULT    2 $d
+   465: 080030f4     0 NOTYPE  LOCAL  DEFAULT    2 $t
+   466: 08003120     0 NOTYPE  LOCAL  DEFAULT    2 $t
+   467: 08003228     0 NOTYPE  LOCAL  DEFAULT    2 $d
+   468: 08003234     0 NOTYPE  LOCAL  DEFAULT    2 $t
+   469: 0800325c     0 NOTYPE  LOCAL  DEFAULT    2 $d
+   470: 08003270     0 NOTYPE  LOCAL  DEFAULT    2 $t
+   471: 080032bc     0 NOTYPE  LOCAL  DEFAULT    2 $d
+   472: 2000897c     0 NOTYPE  LOCAL  DEFAULT    9 $d
+   473: 2000897c     4 OBJECT  LOCAL  DEFAULT    9 ulStoppedTimerCo[...]
+   474: 20008980     0 NOTYPE  LOCAL  DEFAULT    9 $d
+   475: 20008980     4 OBJECT  LOCAL  DEFAULT    9 ulTimerCountsFor[...]
+   476: 20008984     0 NOTYPE  LOCAL  DEFAULT    9 $d
+   477: 20008984     4 OBJECT  LOCAL  DEFAULT    9 xMaximumPossible[...]
+   478: 20000010     0 NOTYPE  LOCAL  DEFAULT    7 $d
+   479: 20000010     4 OBJECT  LOCAL  DEFAULT    7 uxCriticalNesting
+   480: 00000000     0 FILE    LOCAL  DEFAULT  ABS sysmem.c
+   481: 080032c0     0 NOTYPE  LOCAL  DEFAULT    2 $t
+   482: 080032f8     0 NOTYPE  LOCAL  DEFAULT    2 $d
+   483: 20008988     0 NOTYPE  LOCAL  DEFAULT    9 $d
+   484: 20008988     4 OBJECT  LOCAL  DEFAULT    9 __sbrk_heap_end
+   485: 00000000     0 FILE    LOCAL  DEFAULT  ABS syscalls.c
+   486: 08003308     0 NOTYPE  LOCAL  DEFAULT    2 $t
+   487: 08003328     0 NOTYPE  LOCAL  DEFAULT    2 $t
+   488: 08003344     0 NOTYPE  LOCAL  DEFAULT    2 $t
+   489: 0800334a     0 NOTYPE  LOCAL  DEFAULT    2 $t
+   490: 08003354     0 NOTYPE  LOCAL  DEFAULT    2 $t
+   491: 08003358     0 NOTYPE  LOCAL  DEFAULT    2 $t
+   492: 00000000     0 FILE    LOCAL  DEFAULT  ABS errno.c
+   493: 080033b0     0 NOTYPE  LOCAL  DEFAULT    2 $t
+   494: 080033b8     0 NOTYPE  LOCAL  DEFAULT    2 $d
+   495: 00000000     0 FILE    LOCAL  DEFAULT  ABS init.c
+   496: 080033bc     0 NOTYPE  LOCAL  DEFAULT    2 $t
+   497: 080033f4     0 NOTYPE  LOCAL  DEFAULT    2 $d
+   498: 00000000     0 FILE    LOCAL  DEFAULT  ABS memcpy-stub.c
+   499: 08003404     0 NOTYPE  LOCAL  DEFAULT    2 $t
+   500: 00000000     0 FILE    LOCAL  DEFAULT  ABS memset.c
+   501: 08003420     0 NOTYPE  LOCAL  DEFAULT    2 $t
+   502: 00000000     0 FILE    LOCAL  DEFAULT  ABS printf.c
+   503: 08003430     0 NOTYPE  LOCAL  DEFAULT    2 $t
+   504: 0800345c     0 NOTYPE  LOCAL  DEFAULT    2 $d
+   505: 00000000     0 FILE    LOCAL  DEFAULT  ABS puts.c
+   506: 08003460     0 NOTYPE  LOCAL  DEFAULT    2 $t
+   507: 08003530     0 NOTYPE  LOCAL  DEFAULT    2 $d
+   508: 0800353c     0 NOTYPE  LOCAL  DEFAULT    2 $t
+   509: 08003548     0 NOTYPE  LOCAL  DEFAULT    2 $d
+   510: 00000000     0 FILE    LOCAL  DEFAULT  ABS wbuf.c
+   511: 0800354c     0 NOTYPE  LOCAL  DEFAULT    2 $t
+   512: 080035e4     0 NOTYPE  LOCAL  DEFAULT    2 $d
+   513: 00000000     0 FILE    LOCAL  DEFAULT  ABS wsetup.c
+   514: 080035f0     0 NOTYPE  LOCAL  DEFAULT    2 $t
+   515: 080036bc     0 NOTYPE  LOCAL  DEFAULT    2 $d
+   516: 00000000     0 FILE    LOCAL  DEFAULT  ABS fflush.c
+   517: 080036cc     0 NOTYPE  LOCAL  DEFAULT    2 $t
+   518: 080037d4     0 NOTYPE  LOCAL  DEFAULT    2 $d
+   519: 080037d8     0 NOTYPE  LOCAL  DEFAULT    2 $t
+   520: 08003844     0 NOTYPE  LOCAL  DEFAULT    2 $d
+   521: 00000000     0 FILE    LOCAL  DEFAULT  ABS findfp.c
+   522: 08003850     0 NOTYPE  LOCAL  DEFAULT    2 $t
+   523: 08003851    72 FUNC    LOCAL  DEFAULT    2 std
+   524: 08003888     0 NOTYPE  LOCAL  DEFAULT    2 $d
+   525: 08003898     0 NOTYPE  LOCAL  DEFAULT    2 $t
+   526: 080038a0     0 NOTYPE  LOCAL  DEFAULT    2 $d
+   527: 080038a4     0 NOTYPE  LOCAL  DEFAULT    2 $t
+   528: 080038d0     0 NOTYPE  LOCAL  DEFAULT    2 $t
+   529: 080038d8     0 NOTYPE  LOCAL  DEFAULT    2 $d
+   530: 080038dc     0 NOTYPE  LOCAL  DEFAULT    2 $t
+   531: 080038e4     0 NOTYPE  LOCAL  DEFAULT    2 $d
+   532: 080038e8     0 NOTYPE  LOCAL  DEFAULT    2 $t
+   533: 080038f0     0 NOTYPE  LOCAL  DEFAULT    2 $d
+   534: 080038f4     0 NOTYPE  LOCAL  DEFAULT    2 $t
+   535: 080038fc     0 NOTYPE  LOCAL  DEFAULT    2 $d
+   536: 08003900     0 NOTYPE  LOCAL  DEFAULT    2 $t
+   537: 08003968     0 NOTYPE  LOCAL  DEFAULT    2 $d
+   538: 08003970     0 NOTYPE  LOCAL  DEFAULT    2 $t
+   539: 080039f4     0 NOTYPE  LOCAL  DEFAULT    2 $d
+   540: 080048fc     0 NOTYPE  LOCAL  DEFAULT    3 $d
+   541: 0800491c     0 NOTYPE  LOCAL  DEFAULT    3 $d
+   542: 0800493c     0 NOTYPE  LOCAL  DEFAULT    3 $d
+   543: 00000000     0 FILE    LOCAL  DEFAULT  ABS fwalk.c
+   544: 080039fc     0 NOTYPE  LOCAL  DEFAULT    2 $t
+   545: 00000000     0 FILE    LOCAL  DEFAULT  ABS lock.c
+   546: 08003a3a     0 NOTYPE  LOCAL  DEFAULT    2 $t
+   547: 08003a3c     0 NOTYPE  LOCAL  DEFAULT    2 $t
+   548: 08003a3e     0 NOTYPE  LOCAL  DEFAULT    2 $t
+   549: 2000898c     0 NOTYPE  LOCAL  DEFAULT    9 $d
+   550: 2000898d     0 NOTYPE  LOCAL  DEFAULT    9 $d
+   551: 2000898e     0 NOTYPE  LOCAL  DEFAULT    9 $d
+   552: 00000000     0 FILE    LOCAL  DEFAULT  ABS makebuf.c
+   553: 08003a40     0 NOTYPE  LOCAL  DEFAULT    2 $t
+   554: 08003a8c     0 NOTYPE  LOCAL  DEFAULT    2 $t
+   555: 08003b08     0 NOTYPE  LOCAL  DEFAULT    2 $d
+   556: 00000000     0 FILE    LOCAL  DEFAULT  ABS nano-mallocr.c
+   557: 08003b0c     0 NOTYPE  LOCAL  DEFAULT    2 $t
+   558: 08003ba0     0 NOTYPE  LOCAL  DEFAULT    2 $d
+   559: 00000000     0 FILE    LOCAL  DEFAULT  ABS nano-mallocr.c
+   560: 08003ba4     0 NOTYPE  LOCAL  DEFAULT    2 $t
+   561: 08003ba5    64 FUNC    LOCAL  DEFAULT    2 sbrk_aligned
+   562: 08003be0     0 NOTYPE  LOCAL  DEFAULT    2 $d
+   563: 08003be4     0 NOTYPE  LOCAL  DEFAULT    2 $t
+   564: 08003cc8     0 NOTYPE  LOCAL  DEFAULT    2 $d
+   565: 20008990     0 NOTYPE  LOCAL  DEFAULT    9 $d
+   566: 20008994     0 NOTYPE  LOCAL  DEFAULT    9 $d
+   567: 00000000     0 FILE    LOCAL  DEFAULT  ABS nano-vfprintf.c
+   568: 08003ccc     0 NOTYPE  LOCAL  DEFAULT    2 $t
+   569: 08003ccd    46 FUNC    LOCAL  DEFAULT    2 __sfputc_r
+   570: 08003cfa     0 NOTYPE  LOCAL  DEFAULT    2 $t
+   571: 08003d20     0 NOTYPE  LOCAL  DEFAULT    2 $t
+   572: 08003f60     0 NOTYPE  LOCAL  DEFAULT    2 $d
+   573: 00000000     0 FILE    LOCAL  DEFAULT  ABS nano-vfprintf_i.c
+   574: 08003f80     0 NOTYPE  LOCAL  DEFAULT    2 $t
+   575: 0800405c     0 NOTYPE  LOCAL  DEFAULT    2 $t
+   576: 0800409c     0 NOTYPE  LOCAL  DEFAULT    2 $d
+   577: 080040f4     0 NOTYPE  LOCAL  DEFAULT    2 $t
+   578: 080042a0     0 NOTYPE  LOCAL  DEFAULT    2 $d
+   579: 00000000     0 FILE    LOCAL  DEFAULT  ABS sbrkr.c
+   580: 080042a8     0 NOTYPE  LOCAL  DEFAULT    2 $t
+   581: 080042c4     0 NOTYPE  LOCAL  DEFAULT    2 $d
+   582: 00000000     0 FILE    LOCAL  DEFAULT  ABS stdio.c
+   583: 080042c8     0 NOTYPE  LOCAL  DEFAULT    2 $t
+   584: 080042ea     0 NOTYPE  LOCAL  DEFAULT    2 $t
+   585: 08004322     0 NOTYPE  LOCAL  DEFAULT    2 $t
+   586: 08004346     0 NOTYPE  LOCAL  DEFAULT    2 $t
+   587: 00000000     0 FILE    LOCAL  DEFAULT  ABS writer.c
+   588: 08004350     0 NOTYPE  LOCAL  DEFAULT    2 $t
+   589: 08004370     0 NOTYPE  LOCAL  DEFAULT    2 $d
+   590: 00000000     0 FILE    LOCAL  DEFAULT  ABS closer.c
+   591: 08004374     0 NOTYPE  LOCAL  DEFAULT    2 $t
+   592: 08004390     0 NOTYPE  LOCAL  DEFAULT    2 $d
+   593: 00000000     0 FILE    LOCAL  DEFAULT  ABS fstatr.c
+   594: 08004394     0 NOTYPE  LOCAL  DEFAULT    2 $t
+   595: 080043b4     0 NOTYPE  LOCAL  DEFAULT    2 $d
+   596: 00000000     0 FILE    LOCAL  DEFAULT  ABS isattyr.c
+   597: 080043b8     0 NOTYPE  LOCAL  DEFAULT    2 $t
+   598: 080043d4     0 NOTYPE  LOCAL  DEFAULT    2 $d
+   599: 00000000     0 FILE    LOCAL  DEFAULT  ABS lseekr.c
+   600: 080043d8     0 NOTYPE  LOCAL  DEFAULT    2 $t
+   601: 080043f8     0 NOTYPE  LOCAL  DEFAULT    2 $d
+   602: 00000000     0 FILE    LOCAL  DEFAULT  ABS mlock.c
+   603: 080043fc     0 NOTYPE  LOCAL  DEFAULT    2 $t
+   604: 08004404     0 NOTYPE  LOCAL  DEFAULT    2 $d
+   605: 08004408     0 NOTYPE  LOCAL  DEFAULT    2 $t
+   606: 08004410     0 NOTYPE  LOCAL  DEFAULT    2 $d
+   607: 00000000     0 FILE    LOCAL  DEFAULT  ABS readr.c
+   608: 08004414     0 NOTYPE  LOCAL  DEFAULT    2 $t
+   609: 08004434     0 NOTYPE  LOCAL  DEFAULT    2 $d
+   610: 00000000     0 FILE    LOCAL  DEFAULT  ABS crti.o
+   611: 08004438     0 NOTYPE  LOCAL  DEFAULT    2 $t
+   612: 08004444     0 NOTYPE  LOCAL  DEFAULT    2 $t
+   613: 00000000     0 FILE    LOCAL  DEFAULT  ABS crtn.o
+   614: 0800443c     0 NOTYPE  LOCAL  DEFAULT    2 $t
+   615: 08004448     0 NOTYPE  LOCAL  DEFAULT    2 $t
+   616: 00000000     0 FILE    LOCAL  DEFAULT  ABS impure.c
+   617: 20000014     0 NOTYPE  LOCAL  DEFAULT    7 $d
+   618: 20000018    96 OBJECT  LOCAL  DEFAULT    7 impure_data
+   619: 20000018     0 NOTYPE  LOCAL  DEFAULT    7 $d
+   620: 080048f8     0 NOTYPE  LOCAL  DEFAULT    3 $d
+   621: 00000000     0 FILE    LOCAL  DEFAULT  ABS reent.c
+   622: 20008998     0 NOTYPE  LOCAL  DEFAULT    9 $d
+   623: 00000000     0 FILE    LOCAL  DEFAULT  ABS 
+   624: 0800499c     0 NOTYPE  LOCAL  DEFAULT    5 __init_array_end
+   625: 08004998     0 NOTYPE  LOCAL  DEFAULT    5 __preinit_array_end
+   626: 08004998     0 NOTYPE  LOCAL  DEFAULT    5 __init_array_start
+   627: 08004998     0 NOTYPE  LOCAL  DEFAULT    5 __preinit_array_start
+   628: 20000000     0 NOTYPE  LOCAL  DEFAULT    7 $d
+   629: 08000000     0 NOTYPE  LOCAL  DEFAULT    1 $d
+   630: 0800495c     0 NOTYPE  LOCAL  DEFAULT    3 $d
+   631: 0800496d     0 NOTYPE  LOCAL  DEFAULT    3 $d
+   632: 080033ad     2 FUNC    WEAK   DEFAULT    2 RTC_Alarm_IRQHandler
+   633: 080033ad     2 FUNC    WEAK   DEFAULT    2 HASH_RNG_IRQHandler
+   634: 080033ad     2 FUNC    WEAK   DEFAULT    2 EXTI2_IRQHandler
+   635: 080045d4     8 OBJECT  GLOBAL DEFAULT    3 APBPrescTable
+   636: 080033ad     2 FUNC    WEAK   DEFAULT    2 TIM8_CC_IRQHandler
+   637: 080043b9    32 FUNC    GLOBAL DEFAULT    2 _isatty_r
+   638: 08003461   220 FUNC    GLOBAL DEFAULT    2 _puts_r
+   639: 080043d9    36 FUNC    GLOBAL DEFAULT    2 _lseek_r
+   640: 080006c5     2 FUNC    GLOBAL DEFAULT    2 DebugMon_Handler
+   641: 08000d11     2 FUNC    WEAK   DEFAULT    2 HAL_UART_TxCpltC[...]
+   642: 08000725    76 FUNC    GLOBAL DEFAULT    2 MX_GPIO_Init
+   643: 08003075    20 FUNC    GLOBAL DEFAULT    2 vPortExitCritical
+   644: 08003431    48 FUNC    GLOBAL DEFAULT    2 printf
+   645: 080010bd    32 FUNC    GLOBAL DEFAULT    2 HAL_RCC_GetPCLK1Freq
+   646: 080017e9   388 FUNC    GLOBAL DEFAULT    2 fault_dump_handler
+   647: 080033ad     2 FUNC    WEAK   DEFAULT    2 TIM1_CC_IRQHandler
+   648: 080014dd   140 FUNC    GLOBAL DEFAULT    2 HAL_NVIC_SetPriority
+   649: 080010dd    32 FUNC    GLOBAL DEFAULT    2 HAL_RCC_GetPCLK2Freq
+   650: 08004323    36 FUNC    GLOBAL DEFAULT    2 __sseek
+   651: 08003901   112 FUNC    GLOBAL DEFAULT    2 __sinit
+   652: 080033ad     2 FUNC    WEAK   DEFAULT    2 DMA2_Stream5_IRQ[...]
+   653: 0800354d   164 FUNC    GLOBAL DEFAULT    2 __swbuf_r
+   654: 080001d1     2 FUNC    GLOBAL DEFAULT    2 HardFault_Handler
+   655: 08001dfd    82 FUNC    GLOBAL DEFAULT    2 vQueueWaitForMes[...]
+   656: 080038a5    44 FUNC    GLOBAL DEFAULT    2 __sfmoreglue
+   657: 0800287d    72 FUNC    GLOBAL DEFAULT    2 eTaskConfirmSlee[...]
+   658: 080033ad     2 FUNC    WEAK   DEFAULT    2 DMA1_Stream5_IRQ[...]
+   659: 08004409    12 FUNC    GLOBAL DEFAULT    2 __malloc_unlock
+   660: 00000800     0 NOTYPE  GLOBAL DEFAULT  ABS _Min_Stack_Size
+   661: 080006cf    22 FUNC    GLOBAL DEFAULT    2 SysTick_Handler
+   662: 080033ad     2 FUNC    WEAK   DEFAULT    2 PVD_IRQHandler
+   663: 080033ad     2 FUNC    WEAK   DEFAULT    2 SDIO_IRQHandler
+   664: 080033ad     2 FUNC    WEAK   DEFAULT    2 TAMP_STAMP_IRQHandler
+   665: 080049a0     0 NOTYPE  GLOBAL DEFAULT  ABS _sidata
+   666: 080010b1    12 FUNC    GLOBAL DEFAULT    2 HAL_RCC_GetHCLKFreq
+   667: 080006c7     8 FUNC    GLOBAL DEFAULT    2 PendSV_Handler
+   668: 0800066d    20 FUNC    GLOBAL DEFAULT    2 NMI_Handler
+   669: 08001569    48 FUNC    GLOBAL DEFAULT    2 HAL_NVIC_EnableIRQ
+   670: 08004998     0 NOTYPE  GLOBAL DEFAULT    4 __exidx_end
+   671: 080033ad     2 FUNC    WEAK   DEFAULT    2 CAN2_RX1_IRQHandler
+   672: 080033ad     2 FUNC    WEAK   DEFAULT    2 EXTI3_IRQHandler
+   673: 080033b1    12 FUNC    GLOBAL DEFAULT    2 __errno
+   674: 2000822c     4 OBJECT  GLOBAL DEFAULT    9 pxCurrentTCB
+   675: 080033ad     2 FUNC    WEAK   DEFAULT    2 TIM8_TRG_COM_TIM[...]
+   676: 0800070d    24 FUNC    GLOBAL DEFAULT    2 assert_failed
+   677: 08000825    56 FUNC    GLOBAL DEFAULT    2 HAL_MspInit
+   678: 200081e4     4 OBJECT  GLOBAL DEFAULT    9 fd_main_stack_base
+   679: 080033ad     2 FUNC    WEAK   DEFAULT    2 TIM1_UP_TIM10_IR[...]
+   680: 08004395    36 FUNC    GLOBAL DEFAULT    2 _fstat_r
+   681: 20008998     4 OBJECT  GLOBAL DEFAULT    9 errno
+   682: 08004450     0 NOTYPE  GLOBAL DEFAULT    2 _etext
+   683: 0800171d    80 FUNC    GLOBAL DEFAULT    2 fault_dump_init
+   684: 20000078     0 NOTYPE  GLOBAL DEFAULT    9 _sbss
+   685: 080033ad     2 FUNC    WEAK   DEFAULT    2 TIM8_UP_TIM13_IR[...]
+   686: 080033ad     2 FUNC    WEAK   DEFAULT    2 I2C3_ER_IRQHandler
+   687: 08000e29   648 FUNC    GLOBAL DEFAULT    2 HAL_UART_IRQHandler
+   688: 080027dd    24 FUNC    GLOBAL DEFAULT    2 vTaskInternalSet[...]
+   689: 080010fd   744 FUNC    GLOBAL DEFAULT    2 HAL_GPIO_Init
+   690: 08003271    80 FUNC    GLOBAL DEFAULT    2 xPortStartScheduler
+   691: 08003405    28 FUNC    GLOBAL DEFAULT    2 memcpy
+   692: 080026a1    28 FUNC    GLOBAL DEFAULT    2 vTaskPlaceOnEventList
+   693: 08003899    12 FUNC    GLOBAL DEFAULT    2 _cleanup_r
+   694: 08003235    60 FUNC    WEAK   DEFAULT    2 vPortSetupTimerI[...]
+   695: 200081e8     4 OBJECT  GLOBAL DEFAULT    9 fd_main_stack_full
+   696: 080030f5    44 FUNC    GLOBAL DEFAULT    2 xPortSysTickHandler
+   697: 080033ad     2 FUNC    WEAK   DEFAULT    2 EXTI0_IRQHandler
+   698: 080033ad     2 FUNC    WEAK   DEFAULT    2 I2C2_EV_IRQHandler
+   699: 080002c1     0 FUNC    GLOBAL HIDDEN     2 __aeabi_uldivmod
+   700: 0800353d    16 FUNC    GLOBAL DEFAULT    2 puts
+   701: 080033ad     2 FUNC    WEAK   DEFAULT    2 DMA1_Stream2_IRQ[...]
+   702: 080033ad     2 FUNC    WEAK   DEFAULT    2 CAN1_RX0_IRQHandler
+   703: 08002f51    80 FUNC    GLOBAL DEFAULT    2 vPortFree
+   704: 080033ad     2 FUNC    WEAK   DEFAULT    2 FPU_IRQHandler
+   705: 08001665    40 FUNC    WEAK   DEFAULT    2 HAL_Delay
+   706: 20000008     4 OBJECT  GLOBAL DEFAULT    7 SystemCoreClock
+   707: 080033ad     2 FUNC    WEAK   DEFAULT    2 OTG_HS_WKUP_IRQH[...]
+   708: 20000000     1 OBJECT  GLOBAL DEFAULT    7 uwTickFreq
+   709: 0800334b    10 FUNC    GLOBAL DEFAULT    2 _fstat
+   710: 080006a9    20 FUNC    GLOBAL DEFAULT    2 UsageFault_Handler
+   711: 08003091   100 FUNC    GLOBAL DEFAULT    2 xPortPendSVHandler
+   712: 080033ad     2 FUNC    WEAK   DEFAULT    2 CAN2_SCE_IRQHandler
+   713: 080033ad     2 FUNC    WEAK   DEFAULT    2 DMA2_Stream2_IRQ[...]
+   714: 20000078     0 NOTYPE  GLOBAL DEFAULT    9 __bss_start__
+   715: 20000000     0 NOTYPE  GLOBAL DEFAULT    7 _sdata
+   716: 080033ad     2 FUNC    WEAK   DEFAULT    2 SPI1_IRQHandler
+   717: 080002f1   720 FUNC    GLOBAL HIDDEN     2 __udivmoddi4
+   718: 080042a9    32 FUNC    GLOBAL DEFAULT    2 _sbrk_r
+   719: 08000d2d     2 FUNC    WEAK   DEFAULT    2 HAL_UART_RxCpltC[...]
+   720: 080033ad     2 FUNC    WEAK   DEFAULT    2 TIM6_DAC_IRQHandler
+   721: 08004415    36 FUNC    GLOBAL DEFAULT    2 _read_r
+   722: 08001a0f     6 FUNC    GLOBAL DEFAULT    2 vListInitialiseItem
+   723: 080033ad     2 FUNC    WEAK   DEFAULT    2 TIM1_BRK_TIM9_IR[...]
+   724: 20000098 32768 OBJECT  GLOBAL DEFAULT    9 ucHeap
+   725: 0800176d   124 FUNC    GLOBAL DEFAULT    2 fault_dump_callstack
+   726: 200080e0     4 OBJECT  GLOBAL DEFAULT    9 uwTick
+   727: 080033ad     2 FUNC    WEAK   DEFAULT    2 CAN2_RX0_IRQHandler
+   728: 08001ced   272 FUNC    GLOBAL DEFAULT    2 xQueueReceive
+   729: 08001599    40 FUNC    GLOBAL DEFAULT    2 HAL_SYSTICK_Config
+   730: 08002a3d    24 FUNC    GLOBAL DEFAULT    2 vApplicationGetT[...]
+   731: 08004990     0 NOTYPE  GLOBAL DEFAULT    4 __exidx_start
+   732: 080033ad     2 FUNC    WEAK   DEFAULT    2 DMA2_Stream3_IRQ[...]
+   733: 08003355     4 FUNC    GLOBAL DEFAULT    2 _isatty
+   734: 2000898e     1 OBJECT  GLOBAL DEFAULT    9 __lock___sinit_r[...]
+   735: 080048f8     4 OBJECT  GLOBAL DEFAULT    3 _global_impure_ptr
+   736: 080033bd    72 FUNC    GLOBAL DEFAULT    2 __libc_init_array
+   737: 080032c1    72 FUNC    GLOBAL DEFAULT    2 _sbrk
+   738: 08002e7d   212 FUNC    GLOBAL DEFAULT    2 pvPortMalloc
+   739: 080033ad     2 FUNC    WEAK   DEFAULT    2 USART6_IRQHandler
+   740: 08004439     0 FUNC    GLOBAL DEFAULT    2 _init
+   741: 080019f5    26 FUNC    GLOBAL DEFAULT    2 vListInitialise
+   742: 080033ad     2 FUNC    WEAK   DEFAULT    2 USART3_IRQHandler
+   743: 080022ad    12 FUNC    GLOBAL DEFAULT    2 xTaskGetTickCount
+   744: 2000899c     0 NOTYPE  GLOBAL DEFAULT    9 _ebss
+   745: 0800335d    56 FUNC    WEAK   DEFAULT    2 Reset_Handler
+   746: 080033ad     2 FUNC    WEAK   DEFAULT    2 CAN1_RX1_IRQHandler
+   747: 080028e5   128 FUNC    GLOBAL DEFAULT    2 xTaskPriorityDis[...]
+   748: 08000d2f     2 FUNC    WEAK   DEFAULT    2 HAL_UART_ErrorCa[...]
+   749: 080033ad     2 FUNC    WEAK   DEFAULT    2 UART5_IRQHandler
+   750: 2000898c     1 OBJECT  GLOBAL DEFAULT    9 __lock___malloc_[...]
+   751: 080033ad     2 FUNC    WEAK   DEFAULT    2 DMA2_Stream0_IRQ[...]
+   752: 20000004     4 OBJECT  GLOBAL DEFAULT    7 uwTickPrio
+   753: 0800160d    52 FUNC    GLOBAL DEFAULT    2 HAL_Init
+   754: 080026f9   228 FUNC    GLOBAL DEFAULT    2 xTaskRemoveFromE[...]
+   755: 080033ad     2 FUNC    WEAK   DEFAULT    2 TIM4_IRQHandler
+   756: 0800196d   136 FUNC    GLOBAL DEFAULT    2 fault_dump_exc_return
+   757: 080048fc    32 OBJECT  GLOBAL DEFAULT    3 __sf_fake_stderr
+   758: 080033ad     2 FUNC    WEAK   DEFAULT    2 I2C1_EV_IRQHandler
+   759: 08003a3f     2 FUNC    GLOBAL DEFAULT    2 __retarget_lock_[...]
+   760: 080033ad     2 FUNC    WEAK   DEFAULT    2 DMA1_Stream6_IRQ[...]
+   761: 080033ad     2 FUNC    WEAK   DEFAULT    2 DMA1_Stream1_IRQ[...]
+   762: 08003cfb    36 FUNC    GLOBAL DEFAULT    2 __sfputs_r
+   763: 080033ad     2 FUNC    WEAK   DEFAULT    2 UART4_IRQHandler
+   764: 080038d1    12 FUNC    GLOBAL DEFAULT    2 __sfp_lock_acquire
+   765: 08000221     0 FUNC    GLOBAL DEFAULT    2 memchr
+   766: 080027f5   124 FUNC    GLOBAL DEFAULT    2 xTaskCheckForTimeOut
+   767: 2000899c     0 NOTYPE  GLOBAL DEFAULT    9 __bss_end__
+   768: 08003b0d   152 FUNC    GLOBAL DEFAULT    2 _free_r
+   769: 080033ad     2 FUNC    WEAK   DEFAULT    2 TIM3_IRQHandler
+   770: 080033ad     2 FUNC    WEAK   DEFAULT    2 RCC_IRQHandler
+   771: 080033ad     2 FUNC    WEAK   DEFAULT    2 TIM8_BRK_TIM12_I[...]
+   772: 08000621    32 FUNC    GLOBAL DEFAULT    2 __io_putchar
+   773: 00000800     0 NOTYPE  GLOBAL DEFAULT  ABS _Min_Heap_Size
+   774: 20008098    72 OBJECT  GLOBAL DEFAULT    9 huart1
+   775: 080033ac     2 NOTYPE  GLOBAL DEFAULT    2 Default_Handler
+   776: 0800229d    16 FUNC    GLOBAL DEFAULT    2 vTaskSuspendAll
+   777: 08003359     4 FUNC    GLOBAL DEFAULT    2 _lseek
+   778: 080013e5   148 FUNC    GLOBAL DEFAULT    2 HAL_DMA_Abort
+   779: 08001a47    36 FUNC    GLOBAL DEFAULT    2 uxListRemove
+   780: 080033ad     2 FUNC    WEAK   DEFAULT    2 EXTI15_10_IRQHandler
+   781: 080033ad     2 FUNC    WEAK   DEFAULT    2 ADC_IRQHandler
+   782: 08002251    40 FUNC    GLOBAL DEFAULT    2 xTaskCreateStatic
+   783: 080014a1    60 FUNC    GLOBAL DEFAULT    2 HAL_NVIC_SetPrio[...]
+   784: 0800261d   132 FUNC    GLOBAL DEFAULT    2 vTaskSwitchContext
+   785: 080033ad     2 FUNC    WEAK   DEFAULT    2 DMA1_Stream7_IRQ[...]
+   786: 08001caf    62 FUNC    GLOBAL DEFAULT    2 xQueueGenericCre[...]
+   787: 080026bd    60 FUNC    GLOBAL DEFAULT    2 vTaskPlaceOnEven[...]
+   788: 080033ad     2 FUNC    WEAK   DEFAULT    2 TIM7_IRQHandler
+   789: 08004375    32 FUNC    GLOBAL DEFAULT    2 _close_r
+   790: 080033ad     2 FUNC    WEAK   DEFAULT    2 CAN2_TX_IRQHandler
+   791: 080022c5    60 FUNC    GLOBAL DEFAULT    2 vTaskStepTick
+   792: 080033ad     2 FUNC    WEAK   DEFAULT    2 TIM5_IRQHandler
+   793: 08002965    24 FUNC    GLOBAL DEFAULT    2 vApplicationGetI[...]
+   794: 080033ad     2 FUNC    WEAK   DEFAULT    2 DMA2_Stream7_IRQ[...]
+   795: 080033ad     2 FUNC    WEAK   DEFAULT    2 I2C3_EV_IRQHandler
+   796: 080035f1   220 FUNC    GLOBAL DEFAULT    2 __swsetup_r
+   797: 080005c1     2 FUNC    WEAK   HIDDEN     2 __aeabi_ldiv0
+   798: 080033ad     2 FUNC    WEAK   DEFAULT    2 EXTI9_5_IRQHandler
+   799: 08003971   140 FUNC    GLOBAL DEFAULT    2 __sfp
+   800: 08000c45   204 FUNC    GLOBAL DEFAULT    2 HAL_UART_Transmit
+   801: 080033ad     2 FUNC    WEAK   DEFAULT    2 RTC_WKUP_IRQHandler
+   802: 080022b9    12 FUNC    GLOBAL DEFAULT    2 uxTaskGetNumberO[...]
+   803: 080038f5    12 FUNC    GLOBAL DEFAULT    2 __sinit_lock_release
+   804: 080042c9    34 FUNC    GLOBAL DEFAULT    2 __sread
+   805: 08001659    12 FUNC    WEAK   DEFAULT    2 HAL_GetTick
+   806: 080043fd    12 FUNC    GLOBAL DEFAULT    2 __malloc_lock
+   807: 080037d9   120 FUNC    GLOBAL DEFAULT    2 _fflush_r
+   808: 080033ad     2 FUNC    WEAK   DEFAULT    2 SPI2_IRQHandler
+   809: 0800491c    32 OBJECT  GLOBAL DEFAULT    3 __sf_fake_stdin
+   810: 08003a3d     2 FUNC    GLOBAL DEFAULT    2 __retarget_lock_[...]
+   811: 080033ad     2 FUNC    WEAK   DEFAULT    2 OTG_HS_EP1_IN_IR[...]
+   812: 08003421    16 FUNC    GLOBAL DEFAULT    2 memset
+   813: 08000681    20 FUNC    GLOBAL DEFAULT    2 MemManage_Handler
+   814: 08000641    44 FUNC    GLOBAL DEFAULT    2 main
+   815: 080033ad     2 FUNC    WEAK   DEFAULT    2 DMA1_Stream0_IRQ[...]
+   816: 08003a3b     2 FUNC    GLOBAL DEFAULT    2 __retarget_lock_[...]
+   817: 08004a18     0 NOTYPE  GLOBAL DEFAULT  ABS _siccmram
+   818: 08001a15    50 FUNC    GLOBAL DEFAULT    2 vListInsert
+   819: 080033ad     2 FUNC    WEAK   DEFAULT    2 CAN1_TX_IRQHandler
+   820: 080006bd     8 FUNC    GLOBAL DEFAULT    2 SVC_Handler
+   821: 08004347     8 FUNC    GLOBAL DEFAULT    2 __sclose
+   822: 08002d65    92 FUNC    GLOBAL DEFAULT    2 xTimerCreateTimerTask
+   823: 08003031    36 FUNC    GLOBAL DEFAULT    2 vPortSVCHandler
+   824: 08003be5   232 FUNC    GLOBAL DEFAULT    2 _malloc_r
+   825: 080033ad     2 FUNC    WEAK   DEFAULT    2 EXTI4_IRQHandler
+   826: 0800168d    20 FUNC    GLOBAL DEFAULT    2 SystemInit
+   827: 08004445     0 FUNC    GLOBAL DEFAULT    2 _fini
+   828: 08003431    48 FUNC    GLOBAL DEFAULT    2 iprintf
+   829: 200091a0     0 NOTYPE  GLOBAL DEFAULT   10 _sstack
+   830: 08002461   320 FUNC    GLOBAL DEFAULT    2 xTaskResumeAll
+   831: 080007a5   128 FUNC    GLOBAL DEFAULT    2 HAL_UART_MspInit
+   832: 080029e9    84 FUNC    GLOBAL DEFAULT    2 vTaskStartScheduler
+   833: 08004351    36 FUNC    GLOBAL DEFAULT    2 _write_r
+   834: 10000000     0 NOTYPE  GLOBAL DEFAULT    8 _eccmram
+   835: 08003121   276 FUNC    WEAK   DEFAULT    2 vPortSuppressTic[...]
+   836: 080015c1    76 FUNC    WEAK   DEFAULT    2 HAL_InitTick
+   837: 080033ad     2 FUNC    WEAK   DEFAULT    2 FSMC_IRQHandler
+   838: 08003f81   218 FUNC    GLOBAL DEFAULT    2 _printf_common
+   839: 20000014     4 OBJECT  GLOBAL DEFAULT    7 _impure_ptr
+   840: 080036cd   268 FUNC    GLOBAL DEFAULT    2 __sflush_r
+   841: 08001641    24 FUNC    WEAK   DEFAULT    2 HAL_IncTick
+   842: 080033ad     2 FUNC    WEAK   DEFAULT    2 OTG_HS_EP1_OUT_I[...]
+   843: 080033ad     2 FUNC    WEAK   DEFAULT    2 WWDG_IRQHandler
+   844: 08002871    12 FUNC    GLOBAL DEFAULT    2 vTaskMissedYield
+   845: 080033ad     2 FUNC    WEAK   DEFAULT    2 TIM2_IRQHandler
+   846: 08000771    52 FUNC    GLOBAL DEFAULT    2 MX_USART1_UART_Init
+   847: 080033ad     2 FUNC    WEAK   DEFAULT    2 OTG_FS_WKUP_IRQH[...]
+   848: 08002301   352 FUNC    GLOBAL DEFAULT    2 xTaskIncrementTick
+   849: 080033ad     2 FUNC    WEAK   DEFAULT    2 TIM1_TRG_COM_TIM[...]
+   850: 080033ad     2 FUNC    WEAK   DEFAULT    2 OTG_HS_IRQHandler
+   851: 08003a41    74 FUNC    GLOBAL DEFAULT    2 __swhatbuf_r
+   852: 200099a0     0 NOTYPE  GLOBAL DEFAULT   10 _estack
+   853: 080033ad     2 FUNC    WEAK   DEFAULT    2 EXTI1_IRQHandler
+   854: 08001bf9   150 FUNC    GLOBAL DEFAULT    2 xQueueGenericReset
+   855: 08003329    28 FUNC    WEAK   DEFAULT    2 _write
+   856: 20000078     0 NOTYPE  GLOBAL DEFAULT    7 _edata
+   857: 200089a0     0 NOTYPE  GLOBAL DEFAULT   10 _end
+   858: 10000000     0 NOTYPE  GLOBAL DEFAULT    8 _sccmram
+   859: 08002279    34 FUNC    GLOBAL DEFAULT    2 xTaskCreate
+   860: 080033ad     2 FUNC    WEAK   DEFAULT    2 USART2_IRQHandler
+   861: 080042eb    56 FUNC    GLOBAL DEFAULT    2 __swrite
+   862: 08003d21   608 FUNC    GLOBAL DEFAULT    2 _vfiprintf_r
+   863: 08000000   392 OBJECT  GLOBAL DEFAULT    1 g_pfnVectors
+   864: 080039fd    62 FUNC    GLOBAL DEFAULT    2 _fwalk_reent
+   865: 080033ad     2 FUNC    WEAK   DEFAULT    2 I2C2_ER_IRQHandler
+   866: 080025a1    50 FUNC    GLOBAL DEFAULT    2 vTaskDelay
+   867: 080038dd    12 FUNC    GLOBAL DEFAULT    2 __sfp_lock_release
+   868: 0800493c    32 OBJECT  GLOBAL DEFAULT    3 __sf_fake_stdout
+   869: 080033ad     2 FUNC    WEAK   DEFAULT    2 DMA2_Stream1_IRQ[...]
+   870: 080028c5    32 FUNC    GLOBAL DEFAULT    2 xTaskGetSchedule[...]
+   871: 08003309    32 FUNC    WEAK   DEFAULT    2 _read
+   872: 080005c1     2 FUNC    WEAK   HIDDEN     2 __aeabi_idiv0
+   873: 080033ad     2 FUNC    WEAK   DEFAULT    2 CAN1_SCE_IRQHandler
+   874: 080033ad     2 FUNC    WEAK   DEFAULT    2 FLASH_IRQHandler
+   875: 080033ad     2 FUNC    WEAK   DEFAULT    2 DMA2_Stream4_IRQ[...]
+   876: 08000695    20 FUNC    GLOBAL DEFAULT    2 BusFault_Handler
+   877: 080006e5    16 FUNC    GLOBAL DEFAULT    2 USART1_IRQHandler
+   878: 08003a8d   128 FUNC    GLOBAL DEFAULT    2 __smakebuf_r
+   879: 08000190     0 NOTYPE  GLOBAL DEFAULT    2 _stext
+   880: 080033ad     2 FUNC    WEAK   DEFAULT    2 OTG_FS_IRQHandler
+   881: 08002ffd    44 FUNC    GLOBAL DEFAULT    2 pxPortInitialiseStack
+   882: 0800405d   588 FUNC    GLOBAL DEFAULT    2 _printf_i
+   883: 080033ad     2 FUNC    WEAK   DEFAULT    2 SPI3_IRQHandler
+   884: 080033ad     2 FUNC    WEAK   DEFAULT    2 DMA1_Stream4_IRQ[...]
+   885: 20008994     4 OBJECT  GLOBAL DEFAULT    9 __malloc_sbrk_start
+   886: 08000d41     2 FUNC    WEAK   DEFAULT    2 HAL_UARTEx_RxEve[...]
+   887: 08000b19   300 FUNC    GLOBAL DEFAULT    2 HAL_UART_Init
+   888: 080033ad     2 FUNC    WEAK   DEFAULT    2 I2C1_ER_IRQHandler
+   889: 08003055    32 FUNC    GLOBAL DEFAULT    2 vPortEnterCritical
+   890: 20008990     4 OBJECT  GLOBAL DEFAULT    9 __malloc_free_list
+   891: 08003d21   608 FUNC    GLOBAL DEFAULT    2 _vfprintf_r
+   892: 080033ad     2 FUNC    WEAK   DEFAULT    2 DMA2_Stream6_IRQ[...]
+   893: 08001479    38 FUNC    GLOBAL DEFAULT    2 HAL_DMA_Abort_IT
+   894: 080033ad     2 FUNC    WEAK   DEFAULT    2 DMA1_Stream3_IRQ[...]
+   895: 2000898d     1 OBJECT  GLOBAL DEFAULT    9 __lock___sfp_rec[...]
+   896: 08003345     6 FUNC    GLOBAL DEFAULT    2 _close
+   897: 080038e9    12 FUNC    GLOBAL DEFAULT    2 __sinit_lock_acquire
+   898: 080006f5    24 FUNC    GLOBAL DEFAULT    2 Error_Handler
+
+No version information found in this file.
+Attribute Section: aeabi
+File Attributes
+  Tag_CPU_name: "7E-M"
+  Tag_CPU_arch: v7E-M
+  Tag_CPU_arch_profile: Microcontroller
+  Tag_THUMB_ISA_use: Thumb-2
+  Tag_FP_arch: VFPv4-D16
+  Tag_ABI_PCS_wchar_t: 4
+  Tag_ABI_FP_denormal: Needed
+  Tag_ABI_FP_exceptions: Needed
+  Tag_ABI_FP_number_model: IEEE 754
+  Tag_ABI_align_needed: 8-byte
+  Tag_ABI_enum_size: small
+  Tag_ABI_HardFP_use: SP only
+  Tag_ABI_VFP_args: VFP registers
+  Tag_CPU_unaligned_access: v6
