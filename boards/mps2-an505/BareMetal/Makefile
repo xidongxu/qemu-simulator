@@ -88,7 +88,7 @@ endif
 # source
 ######################################
 # C sources
-C_SOURCES =  \
+C_SOURCES = \
 ./application/main.c \
 ./startup/gcc/system_ARMCM33.c \
 ../Core/Src/printf.c \
@@ -107,17 +107,17 @@ endif
 
 # ASM sources
 ifeq ($(tool), gcc)
-ASM_SOURCES =  \
+ASM_SOURCES = \
 ./startup/gcc/startup_ARMCM33.s \
 ../../../libutils/fault-dump/cpu/cortex-m33/fault-gcc.s
 endif
 ifeq ($(tool), iar)
-ASM_SOURCES =  \
+ASM_SOURCES = \
 ./startup/iar/startup_ARMCM33.s \
 ../../../libutils/fault-dump/cpu/cortex-m33/fault-iar.s
 endif
 ifeq ($(tool), mdk)
-ASM_SOURCES =  \
+ASM_SOURCES = \
 ./startup/mdk/startup_ARMCM33.s \
 ../../../libutils/fault-dump/cpu/cortex-m33/fault-mdk.s
 endif
@@ -131,36 +131,51 @@ ASMM_SOURCES =
 # The compiler can be input in make command via tool variable (> make tool=xxx)
 #######################################
 ifeq ($(tool), gcc)
-PREFIX = C:/Users/xidon/program/ARM_Gcc/gcc-arm-none-eabi-10.3-2021.10/bin
+ifeq ($(OS), Windows_NT)
+PREFIX = C:/Users/xidon/program/ARM_Gcc/gcc-arm-none-eabi-10.3-2021.10/bin/
 LIBFIX = 
-CC = $(PREFIX)/arm-none-eabi-gcc
-AS = $(PREFIX)/arm-none-eabi-gcc -x assembler-with-cpp
-CP = $(PREFIX)/arm-none-eabi-objcopy
-SZ = $(PREFIX)/arm-none-eabi-size
-OB = $(PREFIX)/arm-none-eabi-objdump
-NM = $(PREFIX)/arm-none-eabi-nm
-RD = $(PREFIX)/arm-none-eabi-readelf
+else
+PREFIX = 
+LIBFIX = 
+endif
+CC = $(PREFIX)arm-none-eabi-gcc
+AS = $(PREFIX)arm-none-eabi-gcc -x assembler-with-cpp
+CP = $(PREFIX)arm-none-eabi-objcopy
+SZ = $(PREFIX)arm-none-eabi-size
+OB = $(PREFIX)arm-none-eabi-objdump
+NM = $(PREFIX)arm-none-eabi-nm
+RD = $(PREFIX)arm-none-eabi-readelf
 HEX = $(CP) -O ihex
 BIN = $(CP) -O binary -S
 endif
 ifeq ($(tool), iar)
-PREFIX = C:/Users/xidon/program/ARM_IAR/arm/bin
+ifeq ($(OS), Windows_NT)
+PREFIX = C:/Users/xidon/program/ARM_IAR/arm/bin/
 LIBFIX = 
-CC = $(PREFIX)/iccarm
-AS = $(PREFIX)/iasmarm
-LK = $(PREFIX)/ilinkarm
-FF = $(PREFIX)/ielftool
+else
+PREFIX = 
+LIBFIX = 
+endif
+CC = $(PREFIX)iccarm
+AS = $(PREFIX)iasmarm
+LK = $(PREFIX)ilinkarm
+FF = $(PREFIX)ielftool
 endif
 ifeq ($(tool), mdk)
-PREFIX = C:/Users/xidon/program/ARM_Keil/Keil_v5/ARM/ARMCC506/bin
-LIBFIX = C:/Users/xidon/program/ARM_Keil/Keil_v5/ARM/ARMCC506/lib
-CC = $(PREFIX)/armcc
-AS = $(PREFIX)/armasm
-LK = $(PREFIX)/armlink
-FF = $(PREFIX)/fromelf
+ifeq ($(OS), Windows_NT)
+PREFIX = C:/Users/xidon/program/ARM_Keil/Keil_v5/ARM/ARMCC506/bin/
+LIBFIX = C:/Users/xidon/program/ARM_Keil/Keil_v5/ARM/ARMCC506/lib/
+else
+PREFIX = 
+LIBFIX = 
+endif
+CC = $(PREFIX)armcc
+AS = $(PREFIX)armasm
+LK = $(PREFIX)armlink
+FF = $(PREFIX)fromelf
 endif
 
- 
+
 #######################################
 # CFLAGS
 #######################################
@@ -194,7 +209,7 @@ ifeq ($(tool), iar)
 AS_DEFS = 
 endif
 ifeq ($(tool), mdk)
-AS_DEFS =  \
+AS_DEFS = \
 --pd "__MICROLIB SETA 1"
 endif
 
@@ -202,7 +217,7 @@ endif
 #######################################
 # C defines
 #######################################
-C_DEFS =  \
+C_DEFS = \
 -DARMCM33_DSP_FP 
 
 
@@ -227,7 +242,7 @@ AS_INCLUDES =
 #######################################
 # C includes
 #######################################
-C_INCLUDES =  \
+C_INCLUDES = \
 -I../Core/Inc \
 -I../Drivers/CMSIS_5/Device/ARM/ARMCM33/Include \
 -I../Drivers/CMSIS_5/CMSIS/Core/Include \
@@ -240,14 +255,14 @@ C_INCLUDES =  \
 #######################################
 ifeq ($(tool), gcc)
 ASFLAGS = $(MCU) $(AS_DEFS) $(AS_INCLUDES) $(OPT) -Wall -specs=nosys.specs -fdata-sections -ffunction-sections -fno-exceptions 
-CFLAGS += $(MCU) $(C_DEFS) $(C_INCLUDES) $(OPT) -Wall -mthumb -specs=nosys.specs -fdata-sections -ffunction-sections -fno-exceptions 
+CFLAGS = $(MCU) $(C_DEFS) $(C_INCLUDES) $(OPT) -Wall -mthumb -specs=nosys.specs -fdata-sections -ffunction-sections -fno-exceptions 
 ifeq ($(DEBUG), 1)
 CFLAGS += -g -gdwarf-2
 endif
 endif
 ifeq ($(tool), iar)
 ASFLAGS = $(MCU) $(AS_DEFS) $(AS_INCLUDES) $(OPT) -s+ -w+ -r -S
-CFLAGS += $(MCU) $(C_DEFS) $(C_INCLUDES) $(OPT) -Dewarm --diag_suppress Pa050 --no_cse --no_unroll --no_inline --no_code_motion --no_tbaa --no_clustering --no_scheduling --endian=little -e --silent
+CFLAGS = $(MCU) $(C_DEFS) $(C_INCLUDES) $(OPT) -Dewarm --diag_suppress Pa050 --no_cse --no_unroll --no_inline --no_code_motion --no_tbaa --no_clustering --no_scheduling --endian=little -e --silent
 ifeq ($(DEBUG), 1)
 CFLAGS += -On --debug
 else
@@ -256,7 +271,7 @@ endif
 endif
 ifeq ($(tool), mdk)
 ASFLAGS = $(MCU) $(AS_DEFS) $(AS_INCLUDES) $(OPT)
-CFLAGS += $(MCU) $(C_DEFS) $(C_INCLUDES) $(OPT) --c99
+CFLAGS = $(MCU) $(C_DEFS) $(C_INCLUDES) $(OPT) --c99
 ifeq ($(DEBUG), 1)
 CFLAGS += -g -O0
 endif
