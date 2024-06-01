@@ -37,7 +37,7 @@ $(arg2):
 ######################################
 # target name
 ######################################
-TARGET = stm32-qemu
+TARGET = an505-qemu
 
 
 ######################################
@@ -90,29 +90,12 @@ endif
 # C sources
 C_SOURCES =  \
 ./application/main.c \
-./application/stm32f4xx_it.c \
-../Core/Src/gpio.c \
-../Core/Src/usart.c \
-../Core/Src/stm32f4xx_hal_msp.c \
-../Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_tim.c \
-../Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_tim_ex.c \
-../Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_uart.c \
-../Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_rcc.c \
-../Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_rcc_ex.c \
-../Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_flash.c \
-../Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_flash_ex.c \
-../Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_flash_ramfunc.c \
-../Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_gpio.c \
-../Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_dma_ex.c \
-../Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_dma.c \
-../Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_pwr.c \
-../Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_pwr_ex.c \
-../Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_cortex.c \
-../Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal.c \
-../Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_exti.c \
-../Core/Src/system_stm32f4xx.c \
+./startup/system_ARMCM33.c \
+../Core/Src/printf.c \
+../Core/Src/uart.c \
+../Core/Src/semihosting.c \
 ../../../libutils/fault-dump/src/fault-dump.c \
-../../../libutils/fault-dump/cpu/cortex-m4/fault-hal.c 
+../../../libutils/fault-dump/cpu/cortex-m33/fault-hal.c 
 
 
 ifeq ($(tool), gcc)
@@ -125,18 +108,18 @@ endif
 # ASM sources
 ifeq ($(tool), gcc)
 ASM_SOURCES =  \
-./startup/gcc/startup_stm32f405xx.s \
-../../../libutils/fault-dump/cpu/cortex-m4/fault-gcc.s
+./startup/gcc/startup_ARMCM33.s \
+../../../libutils/fault-dump/cpu/cortex-m33/fault-gcc.s
 endif
 ifeq ($(tool), iar)
 ASM_SOURCES =  \
-./startup/iar/startup_stm32f405xx.s \
-../../../libutils/fault-dump/cpu/cortex-m4/fault-iar.s
+./startup/iar/startup_ARMCM33.s \
+../../../libutils/fault-dump/cpu/cortex-m33/fault-iar.s
 endif
 ifeq ($(tool), mdk)
 ASM_SOURCES =  \
-./startup/mdk/startup_stm32f405xx.s \
-../../../libutils/fault-dump/cpu/cortex-m4/fault-mdk.s
+./startup/mdk/startup_ARMCM33.s \
+../../../libutils/fault-dump/cpu/cortex-m33/fault-mdk.s
 endif
 
 
@@ -148,7 +131,7 @@ ASMM_SOURCES =
 # The compiler can be input in make command via tool variable (> make tool=xxx)
 #######################################
 ifeq ($(tool), gcc)
-PREFIX = C:/Users/xidon/program/ARM_Gcc/gcc-arm-none-eabi-10.3-2021.10/bin
+PREFIX = 
 LIBFIX = 
 CC = $(PREFIX)/arm-none-eabi-gcc
 AS = $(PREFIX)/arm-none-eabi-gcc -x assembler-with-cpp
@@ -182,19 +165,19 @@ endif
 # CFLAGS
 #######################################
 ifeq ($(tool), gcc)
-CPU = -mcpu=cortex-m4
-FPU = -mfpu=fpv4-sp-d16
+CPU = -mcpu=cortex-m33
+FPU = -mfpu=fpv5-sp-d16
 FLOAT-ABI = -mfloat-abi=hard
 MCU = $(CPU) -mthumb $(FPU) $(FLOAT-ABI)
 endif
 ifeq ($(tool), iar)
-CPU = --cpu=Cortex-M4
-FPU = --fpu=VFPv4_sp
+CPU = --cpu=Cortex-M33
+FPU = --fpu=VFPv5_sp
 FLOAT-ABI =
 MCU = $(CPU) $(FPU) $(FLOAT-ABI)
 endif
 ifeq ($(tool), mdk)
-CPU = --cpu Cortex-M4.fp
+CPU = --cpu Cortex-M33.fp
 FPU = 
 FLOAT-ABI = 
 MCU = $(CPU) --thumb $(FPU) $(FLOAT-ABI)
@@ -220,8 +203,7 @@ endif
 # C defines
 #######################################
 C_DEFS =  \
--DUSE_HAL_DRIVER \
--DSTM32F405xx 
+-DARMCM33_DSP_FP 
 
 
 ifeq ($(tool), gcc)
@@ -247,20 +229,18 @@ AS_INCLUDES =
 #######################################
 C_INCLUDES =  \
 -I../Core/Inc \
--I../Drivers/STM32F4xx_HAL_Driver/Inc \
--I../Drivers/STM32F4xx_HAL_Driver/Inc/Legacy \
--I../Drivers/CMSIS/Device/ST/STM32F4xx/Include \
--I../Drivers/CMSIS/Include \
+-I../Drivers/CMSIS_5/Device/ARM/ARMCM33/Include \
+-I../Drivers/CMSIS_5/CMSIS/Core/Include \
 -I../../../libutils/fault-dump/inc \
--I../../../libutils/fault-dump/cpu/cortex-m4 
+-I../../../libutils/fault-dump/cpu/cortex-m33 
 
 
 #######################################
 # compile gcc flags
 #######################################
 ifeq ($(tool), gcc)
-ASFLAGS = $(MCU) $(AS_DEFS) $(AS_INCLUDES) $(OPT) -Wall -fdata-sections -ffunction-sections
-CFLAGS += $(MCU) $(C_DEFS) $(C_INCLUDES) $(OPT) -Wall -fdata-sections -ffunction-sections
+ASFLAGS = $(MCU) $(AS_DEFS) $(AS_INCLUDES) $(OPT) -Wall -specs=nosys.specs -fdata-sections -ffunction-sections -fno-exceptions 
+CFLAGS += $(MCU) $(C_DEFS) $(C_INCLUDES) $(OPT) -Wall -mthumb -specs=nosys.specs -fdata-sections -ffunction-sections -fno-exceptions 
 ifeq ($(DEBUG), 1)
 CFLAGS += -g -gdwarf-2
 endif
@@ -301,13 +281,13 @@ endif
 # link script
 #######################################
 ifeq ($(tool), gcc)
-LDSCRIPT = ./startup/gcc/STM32F405RGTx_FLASH.ld
+LDSCRIPT = ./startup/gcc/gcc_arm.ld
 endif
 ifeq ($(tool), iar)
-LDSCRIPT = ./startup/iar/stm32f405xx_flash.icf
+LDSCRIPT = ./startup/iar/gcc_arm.icf
 endif
 ifeq ($(tool), mdk)
-LDSCRIPT = ./startup/mdk/stm32-qemu.sct
+LDSCRIPT = ./startup/mdk/gcc_arm.sct
 endif
 
 
@@ -317,7 +297,7 @@ endif
 ifeq ($(tool), gcc)
 LIBS = -lc -lm -lnosys 
 LIBDIR = 
-LDFLAGS = $(MCU) -specs=nano.specs -T$(LDSCRIPT) $(LIBDIR) $(LIBS) -Wl,-Map=$(BUILD_DIR)/$(TARGET).map,--cref -Wl,--gc-sections
+LDFLAGS = $(MCU) --specs=nosys.specs -T$(LDSCRIPT) $(LIBDIR) $(LIBS) -Wl,-Map=$(BUILD_DIR)/$(TARGET).map,--cref -Wl,--gc-sections
 endif
 ifeq ($(tool), iar)
 LIBS =
