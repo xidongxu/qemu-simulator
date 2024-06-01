@@ -90,7 +90,7 @@ endif
 # C sources
 C_SOURCES =  \
 ./application/main.c \
-./startup/system_ARMCM33.c \
+./startup/gcc/system_ARMCM33.c \
 ../Core/Src/printf.c \
 ../Core/Src/uart.c \
 ../Core/Src/semihosting.c \
@@ -131,7 +131,7 @@ ASMM_SOURCES =
 # The compiler can be input in make command via tool variable (> make tool=xxx)
 #######################################
 ifeq ($(tool), gcc)
-PREFIX = 
+PREFIX = C:/Users/xidon/program/ARM_Gcc/gcc-arm-none-eabi-10.3-2021.10/bin
 LIBFIX = 
 CC = $(PREFIX)/arm-none-eabi-gcc
 AS = $(PREFIX)/arm-none-eabi-gcc -x assembler-with-cpp
@@ -185,7 +185,7 @@ endif
 
 
 #######################################
-# ASFLAGS
+# AS defines
 #######################################
 ifeq ($(tool), gcc)
 AS_DEFS = 
