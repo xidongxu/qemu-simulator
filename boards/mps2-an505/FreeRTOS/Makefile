@@ -424,9 +424,9 @@ endif
 #######################################
 debug:
 ifeq ($(OS), Windows_NT)
-	.\bare-start.bat $(tool)
+	.\rtos-start.bat $(tool)
 else
-	./bare-start.sh
+	./rtos-start.sh
 endif
 
 
