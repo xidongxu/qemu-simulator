@@ -1,6 +1,0 @@
-@echo off
-echo Starting QEMU...
-start "" "bare-qemu.bat"
-echo Starting GDB...
-start "" "bare-gdb.bat"
-echo All scripts started.
