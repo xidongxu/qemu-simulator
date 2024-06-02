@@ -10,7 +10,7 @@ ELF Header:
   Version:                           0x1
   Entry point address:               0x10001f69
   Start of program headers:          52 (bytes into file)
-  Start of section headers:          197136 (bytes into file)
+  Start of section headers:          196680 (bytes into file)
   Flags:                             0x5000400, Version5 EABI, hard-float ABI
   Size of this header:               52 (bytes)
   Size of program headers:           32 (bytes)
@@ -38,12 +38,12 @@ Section Headers:
   [14] .debug_loc        PROGBITS        00000000 026898 002cb8 00      0   0  1
   [15] .debug_aranges    PROGBITS        00000000 029550 000248 00      0   0  8
   [16] .debug_ranges     PROGBITS        00000000 029798 000278 00      0   0  1
-  [17] .debug_line       PROGBITS        00000000 029a10 0022ff 00      0   0  1
-  [18] .debug_str        PROGBITS        00000000 02bd0f 0008ea 01  MS  0   0  1
-  [19] .debug_frame      PROGBITS        00000000 02c5fc 000fdc 00      0   0  4
-  [20] .symtab           SYMTAB          00000000 02d5d8 001c30 10     21 273  4
-  [21] .strtab           STRTAB          00000000 02f208 000f22 00      0   0  1
-  [22] .shstrtab         STRTAB          00000000 03012a 0000e6 00      0   0  1
+  [17] .debug_line       PROGBITS        00000000 029a10 002145 00      0   0  1
+  [18] .debug_str        PROGBITS        00000000 02bb55 0008de 01  MS  0   0  1
+  [19] .debug_frame      PROGBITS        00000000 02c434 000fdc 00      0   0  4
+  [20] .symtab           SYMTAB          00000000 02d410 001c30 10     21 273  4
+  [21] .strtab           STRTAB          00000000 02f040 000f22 00      0   0  1
+  [22] .shstrtab         STRTAB          00000000 02ff62 0000e6 00      0   0  1
 Key to Flags:
   W (write), A (alloc), X (execute), M (merge), S (strings), I (info),
   L (link order), O (extra OS processing required), G (group), T (TLS),
@@ -142,7 +142,7 @@ Unwind section '.ARM.exidx' at offset 0x14468 contains 24 entries:
   0x3f      vsp = vsp + 256
   0xad      pop {r4, r5, r6, r7, r8, r9, r14}
 
-0x10003850 <__restore_core_regs>: 0x1 [cantunwind]
+0x10003850 <restore_core_regs>: 0x1 [cantunwind]
 
 0x10003a38 <_Unwind_GetGR.constprop.0>: 0x8003a8b0
   Compact model index: 0

@@ -166,33 +166,48 @@ ASMM_SOURCES =
 # The compiler can be input in make command via tool variable (> make tool=xxx)
 #######################################
 ifeq ($(tool), gcc)
-PREFIX = C:/Users/xidon/program/ARM_Gcc/gcc-arm-none-eabi-10.3-2021.10/bin
+ifeq ($(OS), Windows_NT)
+PREFIX = C:/Users/xidon/program/ARM_Gcc/gcc-arm-none-eabi-10.3-2021.10/bin/
 LIBFIX = 
-CC = $(PREFIX)/arm-none-eabi-gcc
-AS = $(PREFIX)/arm-none-eabi-gcc -x assembler-with-cpp
-CP = $(PREFIX)/arm-none-eabi-objcopy
-SZ = $(PREFIX)/arm-none-eabi-size
-OB = $(PREFIX)/arm-none-eabi-objdump
-NM = $(PREFIX)/arm-none-eabi-nm
-RD = $(PREFIX)/arm-none-eabi-readelf
+else
+PREFIX = 
+LIBFIX = 
+endif
+CC = $(PREFIX)arm-none-eabi-gcc
+AS = $(PREFIX)arm-none-eabi-gcc -x assembler-with-cpp
+CP = $(PREFIX)arm-none-eabi-objcopy
+SZ = $(PREFIX)arm-none-eabi-size
+OB = $(PREFIX)arm-none-eabi-objdump
+NM = $(PREFIX)arm-none-eabi-nm
+RD = $(PREFIX)arm-none-eabi-readelf
 HEX = $(CP) -O ihex
 BIN = $(CP) -O binary -S
 endif
 ifeq ($(tool), iar)
-PREFIX = C:/Users/xidon/program/ARM_IAR/arm/bin
+ifeq ($(OS), Windows_NT)
+PREFIX = C:/Users/xidon/program/ARM_IAR/arm/bin/
 LIBFIX = 
-CC = $(PREFIX)/iccarm
-AS = $(PREFIX)/iasmarm
-LK = $(PREFIX)/ilinkarm
-FF = $(PREFIX)/ielftool
+else
+PREFIX = 
+LIBFIX = 
+endif
+CC = $(PREFIX)iccarm
+AS = $(PREFIX)iasmarm
+LK = $(PREFIX)ilinkarm
+FF = $(PREFIX)ielftool
 endif
 ifeq ($(tool), mdk)
-PREFIX = C:/Users/xidon/program/ARM_Keil/Keil_v5/ARM/ARMCC506/bin
-LIBFIX = C:/Users/xidon/program/ARM_Keil/Keil_v5/ARM/ARMCC506/lib
-CC = $(PREFIX)/armcc
-AS = $(PREFIX)/armasm
-LK = $(PREFIX)/armlink
-FF = $(PREFIX)/fromelf
+ifeq ($(OS), Windows_NT)
+PREFIX = C:/Users/xidon/program/ARM_Keil/Keil_v5/ARM/ARMCC506/bin/
+LIBFIX = C:/Users/xidon/program/ARM_Keil/Keil_v5/ARM/ARMCC506/lib/
+else
+PREFIX = 
+LIBFIX = 
+endif
+CC = $(PREFIX)armcc
+AS = $(PREFIX)armasm
+LK = $(PREFIX)armlink
+FF = $(PREFIX)fromelf
 endif
 
  

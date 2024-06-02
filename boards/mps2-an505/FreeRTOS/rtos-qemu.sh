@@ -1,1 +1,1 @@
-qemu-system-arm -M netduinoplus2 -nographic -kernel ./build/stm32-qemu.bin -S -s
+qemu-system-arm -machine mps2-an505 -cpu cortex-m33 -m 16M -nographic -kernel ./build/gcc/an505-qemu.elf -S -s
