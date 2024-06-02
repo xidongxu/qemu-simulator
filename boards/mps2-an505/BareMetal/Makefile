@@ -163,8 +163,8 @@ FF = $(PREFIX)ielftool
 endif
 ifeq ($(tool), mdk)
 ifeq ($(OS), Windows_NT)
-PREFIX = C:/Users/xidon/program/ARM_Keil/Keil_v5/ARM/ARMCC506/bin/
-LIBFIX = C:/Users/xidon/program/ARM_Keil/Keil_v5/ARM/ARMCC506/lib/
+PREFIX = C:/Users/xidon/program/ARM_Keil/Keil_v5/ARM/ARMCLANG/bin/
+LIBFIX = C:/Users/xidon/program/ARM_Keil/Keil_v5/ARM/ARMCLANG/lib/
 else
 PREFIX = 
 LIBFIX = 

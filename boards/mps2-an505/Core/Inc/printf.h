@@ -46,11 +46,7 @@ extern "C" {
  * This function is declared here only. You have to write your custom implementation somewhere
  * \param character Character to output
  */
-#if defined(__ARMCC_VERSION)
 int put_char(int ch);
-#elif defined(__GNUC__)
-int put_char(int ch);
-#endif
 
 
 /**
