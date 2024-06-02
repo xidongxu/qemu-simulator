@@ -2,6 +2,7 @@
 #define UART_H
 
 #include <stdio.h>
+#include <stdint.h>
 
 void uart_init(void);
 void uart_send(const char* string);

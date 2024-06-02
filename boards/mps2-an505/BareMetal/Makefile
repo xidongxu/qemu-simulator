@@ -53,7 +53,7 @@ ifeq ($(tool), iar)
 OPT = 
 endif
 ifeq ($(tool), mdk)
-OPT = -g --apcs=interwork
+OPT = -g 
 endif
 
 #######################################
@@ -90,10 +90,9 @@ endif
 # C sources
 C_SOURCES = \
 ./application/main.c \
-./startup/gcc/system_ARMCM33.c \
+./application/system_ARMCM33.c \
 ../Core/Src/printf.c \
 ../Core/Src/uart.c \
-../Core/Src/semihosting.c \
 ../../../libutils/fault-dump/src/fault-dump.c \
 ../../../libutils/fault-dump/cpu/cortex-m33/fault-hal.c 
 
@@ -101,7 +100,8 @@ C_SOURCES = \
 ifeq ($(tool), gcc)
 C_SOURCES += \
 ./application/sysmem.c \
-./application/syscalls.c 
+./application/syscalls.c \
+../Core/Src/semihosting.c 
 endif
 
 
@@ -169,7 +169,7 @@ else
 PREFIX = 
 LIBFIX = 
 endif
-CC = $(PREFIX)armcc
+CC = $(PREFIX)armclang
 AS = $(PREFIX)armasm
 LK = $(PREFIX)armlink
 FF = $(PREFIX)fromelf
@@ -192,10 +192,10 @@ FLOAT-ABI =
 MCU = $(CPU) $(FPU) $(FLOAT-ABI)
 endif
 ifeq ($(tool), mdk)
-CPU = --cpu Cortex-M33.fp
-FPU = 
-FLOAT-ABI = 
-MCU = $(CPU) --thumb $(FPU) $(FLOAT-ABI)
+CPU = 
+FPU =  
+FLOAT-ABI =  
+MCU = $(CPU) -mthumb $(FPU) $(FLOAT-ABI)
 endif
 
 
@@ -270,8 +270,8 @@ CFLAGS += -Oh
 endif
 endif
 ifeq ($(tool), mdk)
-ASFLAGS = $(MCU) $(AS_DEFS) $(AS_INCLUDES) $(OPT)
-CFLAGS = $(MCU) $(C_DEFS) $(C_INCLUDES) $(OPT) --c99
+ASFLAGS = --cpu=Cortex-M33 --fpu=FPv5-SP $(AS_DEFS) $(AS_INCLUDES) $(OPT) 
+CFLAGS = --target=arm-arm-none-eabi -mcpu=cortex-m33 -mfpu=fpv5-sp-d16 -mfloat-abi=hard $(C_DEFS) $(C_INCLUDES) $(OPT) -std=c99
 ifeq ($(DEBUG), 1)
 CFLAGS += -g -O0
 endif
@@ -302,7 +302,7 @@ ifeq ($(tool), iar)
 LDSCRIPT = ./startup/iar/gcc_arm.icf
 endif
 ifeq ($(tool), mdk)
-LDSCRIPT = ./startup/mdk/gcc_arm.sct
+LDSCRIPT = ./startup/mdk/ARMCM33_ac6.sct
 endif
 
 

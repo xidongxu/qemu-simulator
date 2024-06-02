@@ -12,7 +12,7 @@
   */
 #include "fault-dump.h"
 
-#if defined(__CC_ARM)
+#if defined(__ARMCC_VERSION)
 extern unsigned int STACK$$Base;
 extern unsigned int STACK$$Length;
 extern unsigned int Image$$ER_IROM1$$Base;

@@ -26,7 +26,10 @@
 #define UART_ICR(base)          (*((volatile uint32_t *)(base + 0x44)))
 #define UART_DMACR(base)        (*((volatile uint32_t *)(base + 0x48)))
 
-#ifdef __GNUC__
+#if defined(__ARMCC_VERSION)
+#define PUTCHAR_PROTOTYPE       int put_char(int ch)
+#define GETCHAR_PROTOTYPE       int get_char(void)
+#elif defined(__GNUC__)
 #define PUTCHAR_PROTOTYPE       int putchar(int ch)
 #define GETCHAR_PROTOTYPE       int getchar(void)
 #else
@@ -48,10 +51,18 @@ GETCHAR_PROTOTYPE {
 int puts(const char* string) {
     int index = 0;
     while (string[index] != '\0') {
+#if defined(__ARMCC_VERSION)
+        put_char(string[index]);
+#elif defined(__GNUC__)
         putchar(string[index]);
+#endif
         index++;
     }
+#if defined(__ARMCC_VERSION)
+    put_char('\n');
+#elif defined(__GNUC__)
     putchar('\n');
+#endif
     return index;
 }
 
