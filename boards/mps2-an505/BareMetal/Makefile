@@ -389,9 +389,9 @@ ifeq ($(tool), mdk)
 $(BUILD_DIR)/%.o: %.c Makefile | $(BUILD_DIR) 
 	$(CC) -c $(CFLAGS) $< -o $@
 $(BUILD_DIR)/%.o: %.s Makefile | $(BUILD_DIR)
-	$(AS) -c $(ASFLAGS) $< -o $@
+	$(AS) $(ASFLAGS) $< -o $@
 $(BUILD_DIR)/%.o: %.S Makefile | $(BUILD_DIR)
-	$(AS) -c $(ASFLAGS) $< -o $@
+	$(AS) $(ASFLAGS) $< -o $@
 $(BUILD_DIR)/$(TARGET).axf: $(OBJECTS) Makefile
 	$(LK) $(OBJECTS) $(LDFLAGS) -o $@
 $(BUILD_DIR)/%.hex: $(BUILD_DIR)/%.axf | $(BUILD_DIR)

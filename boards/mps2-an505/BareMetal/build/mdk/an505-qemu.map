@@ -159,375 +159,375 @@ Image Symbol Table
     printf.c                                 0x00000000   Number         0  printf.o ABSOLUTE
     system_ARMCM33.c                         0x00000000   Number         0  system_ARMCM33.o ABSOLUTE
     uart.c                                   0x00000000   Number         0  uart.o ABSOLUTE
-    RESET                                    0x00000000   Section      572  startup_ARMCM33.o(RESET)
-    .ARM.Collect$$$$00000000                 0x0000023c   Section        0  entry.o(.ARM.Collect$$$$00000000)
-    .ARM.Collect$$$$00000003                 0x0000023c   Section        4  entry4.o(.ARM.Collect$$$$00000003)
-    .ARM.Collect$$$$00000004                 0x00000240   Section        4  entry5.o(.ARM.Collect$$$$00000004)
-    .ARM.Collect$$$$00000008                 0x00000244   Section        0  entry7b.o(.ARM.Collect$$$$00000008)
-    .ARM.Collect$$$$0000000A                 0x00000244   Section        0  entry8b.o(.ARM.Collect$$$$0000000A)
-    .ARM.Collect$$$$0000000B                 0x00000244   Section        8  entry9a.o(.ARM.Collect$$$$0000000B)
-    __lit__00000000                          0x0000024c   Data           4  entry4.o(.ARM.Collect$$$$00002714)
-    .ARM.Collect$$$$0000000D                 0x0000024c   Section        0  entry10a.o(.ARM.Collect$$$$0000000D)
-    .ARM.Collect$$$$0000000F                 0x0000024c   Section        0  entry11a.o(.ARM.Collect$$$$0000000F)
-    .ARM.Collect$$$$00002714                 0x0000024c   Section        4  entry4.o(.ARM.Collect$$$$00002714)
-    $v0                                      0x00000250   Number         0  startup_ARMCM33.o(.text)
-    .text                                    0x00000250   Section       40  startup_ARMCM33.o(.text)
-    $v0                                      0x00000278   Number         0  fault-mdk.o(.text)
-    .text                                    0x00000278   Section       68  fault-mdk.o(.text)
-    .text                                    0x000002bc   Section        0  uldiv.o(.text)
-    .text                                    0x0000031e   Section        0  memseta.o(.text)
-    .text                                    0x00000342   Section        0  dadd.o(.text)
-    .text                                    0x00000490   Section        0  dmul.o(.text)
-    .text                                    0x00000574   Section        0  ddiv.o(.text)
-    .text                                    0x00000652   Section        0  dcmple.o(.text)
-    .text                                    0x00000688   Section        0  dcmplt.o(.text)
-    .text                                    0x000006be   Section        0  dcmpge.o(.text)
-    .text                                    0x000006f4   Section        0  dcmpgt.o(.text)
-    .text                                    0x0000072a   Section        0  dcmpeq.o(.text)
-    .text                                    0x00000762   Section        0  dflti.o(.text)
-    .text                                    0x00000784   Section        0  dfltui.o(.text)
-    .text                                    0x0000079e   Section        0  dfixi.o(.text)
-    .text                                    0x000007dc   Section        0  dfixui.o(.text)
-    .text                                    0x0000080e   Section        0  llshl.o(.text)
-    .text                                    0x0000082c   Section        0  llushr.o(.text)
-    .text                                    0x0000084c   Section        0  llsshr.o(.text)
-    .text                                    0x00000870   Section        0  iusefp.o(.text)
-    .text                                    0x00000870   Section        0  depilogue.o(.text)
-    .text                                    0x0000092c   Section       48  init.o(.text)
-    [Anonymous Symbol]                       0x0000095c   Section        0  system_ARMCM33.o(.text.SystemInit)
-    _atoi                                    0x00000995   Thumb Code    58  printf.o(.text._atoi)
-    [Anonymous Symbol]                       0x00000994   Section        0  printf.o(.text._atoi)
-    _etoa                                    0x000009d1   Thumb Code  1560  printf.o(.text._etoa)
-    [Anonymous Symbol]                       0x000009d0   Section        0  printf.o(.text._etoa)
-    _ftoa                                    0x00001011   Thumb Code  1400  printf.o(.text._ftoa)
-    [Anonymous Symbol]                       0x00001010   Section        0  printf.o(.text._ftoa)
-    _is_digit                                0x00001591   Thumb Code    46  printf.o(.text._is_digit)
-    [Anonymous Symbol]                       0x00001590   Section        0  printf.o(.text._is_digit)
-    _ntoa_format                             0x000015c1   Thumb Code   572  printf.o(.text._ntoa_format)
-    [Anonymous Symbol]                       0x000015c0   Section        0  printf.o(.text._ntoa_format)
-    _ntoa_long                               0x000017fd   Thumb Code   276  printf.o(.text._ntoa_long)
-    [Anonymous Symbol]                       0x000017fc   Section        0  printf.o(.text._ntoa_long)
-    _ntoa_long_long                          0x00001911   Thumb Code   312  printf.o(.text._ntoa_long_long)
-    [Anonymous Symbol]                       0x00001910   Section        0  printf.o(.text._ntoa_long_long)
-    _out_char                                0x00001a49   Thumb Code    36  printf.o(.text._out_char)
-    [Anonymous Symbol]                       0x00001a48   Section        0  printf.o(.text._out_char)
-    _out_null                                0x00001a6d   Thumb Code    16  printf.o(.text._out_null)
-    [Anonymous Symbol]                       0x00001a6c   Section        0  printf.o(.text._out_null)
-    _out_rev                                 0x00001a7d   Thumb Code   192  printf.o(.text._out_rev)
-    [Anonymous Symbol]                       0x00001a7c   Section        0  printf.o(.text._out_rev)
-    _strnlen_s                               0x00001b3d   Thumb Code    68  printf.o(.text._strnlen_s)
-    [Anonymous Symbol]                       0x00001b3c   Section        0  printf.o(.text._strnlen_s)
-    _vsnprintf                               0x00001b81   Thumb Code  2608  printf.o(.text._vsnprintf)
-    [Anonymous Symbol]                       0x00001b80   Section        0  printf.o(.text._vsnprintf)
-    [Anonymous Symbol]                       0x000025b0   Section        0  main.o(.text.dump_callstack)
-    dump_exc_return                          0x00002645   Thumb Code    30  fault-dump.o(.text.dump_exc_return)
-    [Anonymous Symbol]                       0x00002644   Section        0  fault-dump.o(.text.dump_exc_return)
-    [Anonymous Symbol]                       0x00002664   Section        0  fault-dump.o(.text.fault_dump_bm_stack_point)
-    [Anonymous Symbol]                       0x00002674   Section        0  fault-dump.o(.text.fault_dump_bm_stack_start)
-    [Anonymous Symbol]                       0x00002688   Section        0  fault-dump.o(.text.fault_dump_callstack)
-    [Anonymous Symbol]                       0x00002790   Section        0  fault-hal.o(.text.fault_dump_exc_return)
-    [Anonymous Symbol]                       0x000028e8   Section        0  fault-dump.o(.text.fault_dump_handler)
-    [Anonymous Symbol]                       0x00002b68   Section        0  fault-dump.o(.text.fault_dump_init)
-    fault_dump_opcode                        0x00002bcd   Thumb Code    56  fault-dump.o(.text.fault_dump_opcode)
-    [Anonymous Symbol]                       0x00002bcc   Section        0  fault-dump.o(.text.fault_dump_opcode)
-    [Anonymous Symbol]                       0x00002c04   Section        0  main.o(.text.fault_unalign_trigger)
-    [Anonymous Symbol]                       0x00002c64   Section        0  main.o(.text.main)
-    opcode_is_bl_or_blx                      0x00002ca1   Thumb Code   106  fault-dump.o(.text.opcode_is_bl_or_blx)
-    [Anonymous Symbol]                       0x00002ca0   Section        0  fault-dump.o(.text.opcode_is_bl_or_blx)
-    [Anonymous Symbol]                       0x00002d0c   Section        0  printf.o(.text.printf)
-    [Anonymous Symbol]                       0x00002d48   Section        0  uart.o(.text.put_char)
-    [Anonymous Symbol]                       0x00002d70   Section        0  main.o(.text.test0)
-    [Anonymous Symbol]                       0x00002d90   Section        0  main.o(.text.test1)
-    [Anonymous Symbol]                       0x00002dac   Section        0  main.o(.text.test2)
-    [Anonymous Symbol]                       0x00002dc8   Section        0  main.o(.text.test3)
-    [Anonymous Symbol]                       0x00002de4   Section        0  main.o(.text.test4)
-    [Anonymous Symbol]                       0x00002e00   Section        0  main.o(.text.test5)
-    [Anonymous Symbol]                       0x00002e1c   Section        0  uart.o(.text.uart_init)
-    i.__scatterload_copy                     0x00002e5c   Section       14  handlers.o(i.__scatterload_copy)
-    i.__scatterload_null                     0x00002e6a   Section        2  handlers.o(i.__scatterload_null)
-    i.__scatterload_zeroinit                 0x00002e6c   Section       14  handlers.o(i.__scatterload_zeroinit)
-    _ftoa.pow10                              0x00002e80   Data          80  printf.o(.rodata._ftoa.pow10)
-    [Anonymous Symbol]                       0x00002e80   Section        0  printf.o(.rodata._ftoa.pow10)
-    .L.str                                   0x00002ed0   Data           4  main.o(.rodata.str1.1)
-    .L.str.6                                 0x00002ed0   Data           5  main.o(.rodata.str1.1)
-    [Anonymous Symbol]                       0x00002ed0   Section        0  main.o(.rodata.str1.1)
-    .L__func__.HardFault_Handler_Legency     0x00002ed4   Data          26  main.o(.rodata.str1.1)
-    .L.str.9                                 0x00002ed5   Data          20  main.o(.rodata.str1.1)
-    .L.str.7                                 0x00002ee9   Data          14  main.o(.rodata.str1.1)
-    .L__func__.Default_Handler               0x00002eee   Data          16  main.o(.rodata.str1.1)
-    .L.str.2                                 0x00002ef7   Data          27  main.o(.rodata.str1.1)
-    .L.str.1                                 0x00002efe   Data           9  main.o(.rodata.str1.1)
-    .L.str.3                                 0x00002f12   Data          27  main.o(.rodata.str1.1)
-    .L.str.8                                 0x00002f36   Data           8  main.o(.rodata.str1.1)
-    .L.str.3                                 0x00002f3b   Data           3  main.o(.rodata.str1.1)
-    .L.str.23                                0x00002f42   Data           6  main.o(.rodata.str1.1)
-    .L.str.5                                 0x00002f42   Data           6  main.o(.rodata.str1.1)
-    .L.str.4                                 0x00002f48   Data          13  main.o(.rodata.str1.1)
-    .L__func__.test0                         0x00002f55   Data           6  main.o(.rodata.str1.1)
-    .L__func__.test1                         0x00002f5b   Data           6  main.o(.rodata.str1.1)
-    .L__func__.test2                         0x00002f61   Data           6  main.o(.rodata.str1.1)
-    .L__func__.test3                         0x00002f67   Data           6  main.o(.rodata.str1.1)
-    .L__func__.test4                         0x00002f6d   Data           6  main.o(.rodata.str1.1)
-    .L__func__.test5                         0x00002f73   Data           6  main.o(.rodata.str1.1)
-    .L.str.2                                 0x00002fa3   Data           5  printf.o(.rodata.str1.1)
-    [Anonymous Symbol]                       0x00002fa3   Section        0  printf.o(.rodata.str1.1)
-    .L.str.1                                 0x00002fa8   Data           5  printf.o(.rodata.str1.1)
-    .L.str.3                                 0x00002fad   Data           4  printf.o(.rodata.str1.1)
-    .L.str                                   0x00002fb1   Data           4  printf.o(.rodata.str1.1)
-    .L.str.5                                 0x00002fb5   Data          18  fault-dump.o(.rodata.str1.1)
-    [Anonymous Symbol]                       0x00002fb5   Section        0  fault-dump.o(.rodata.str1.1)
-    .L.str.24                                0x00002fc7   Data          23  fault-dump.o(.rodata.str1.1)
-    .L.str.6                                 0x00002fde   Data          18  fault-dump.o(.rodata.str1.1)
-    .L.str.7                                 0x00002ff0   Data          18  fault-dump.o(.rodata.str1.1)
-    .L.str.8                                 0x00003002   Data          18  fault-dump.o(.rodata.str1.1)
-    .L.str.9                                 0x00003014   Data          18  fault-dump.o(.rodata.str1.1)
-    .L.str.10                                0x00003026   Data          18  fault-dump.o(.rodata.str1.1)
-    .L.str.11                                0x00003038   Data          18  fault-dump.o(.rodata.str1.1)
-    .L.str.12                                0x0000304a   Data          18  fault-dump.o(.rodata.str1.1)
-    .L.str.13                                0x0000305c   Data          18  fault-dump.o(.rodata.str1.1)
-    .L.str.14                                0x0000306e   Data          18  fault-dump.o(.rodata.str1.1)
-    .L.str.15                                0x00003080   Data          18  fault-dump.o(.rodata.str1.1)
-    .L.str.20                                0x00003092   Data          18  fault-dump.o(.rodata.str1.1)
-    .L.str.19                                0x000030a4   Data          18  fault-dump.o(.rodata.str1.1)
-    .L.str.16                                0x000030b6   Data          18  fault-dump.o(.rodata.str1.1)
-    .L.str.17                                0x000030c8   Data          18  fault-dump.o(.rodata.str1.1)
-    .L.str.18                                0x000030da   Data          18  fault-dump.o(.rodata.str1.1)
-    .L.str.21                                0x000030ec   Data          18  fault-dump.o(.rodata.str1.1)
-    .L.str.4                                 0x000030fe   Data          31  fault-dump.o(.rodata.str1.1)
-    .L.str                                   0x00003119   Data           4  fault-dump.o(.rodata.str1.1)
-    .L.str.2                                 0x0000311d   Data          32  fault-dump.o(.rodata.str1.1)
-    .L.str.1                                 0x0000313d   Data          36  fault-dump.o(.rodata.str1.1)
-    .L.str                                   0x00003161   Data          36  fault-dump.o(.rodata.str1.1)
-    .L.str.22                                0x00003185   Data          14  fault-dump.o(.rodata.str1.1)
-    .L.str.6                                 0x00003193   Data          28  fault-hal.o(.rodata.str1.1)
-    [Anonymous Symbol]                       0x00003193   Section        0  fault-hal.o(.rodata.str1.1)
-    .L.str.5                                 0x000031af   Data          28  fault-hal.o(.rodata.str1.1)
-    .L.str.8                                 0x000031cb   Data          28  fault-hal.o(.rodata.str1.1)
-    .L.str.9                                 0x000031e7   Data          28  fault-hal.o(.rodata.str1.1)
-    .L.str.14                                0x00003203   Data          28  fault-hal.o(.rodata.str1.1)
-    .L.str.12                                0x0000321f   Data          28  fault-hal.o(.rodata.str1.1)
-    .L.str.11                                0x0000323b   Data          28  fault-hal.o(.rodata.str1.1)
-    .L.str.2                                 0x00003257   Data          28  fault-hal.o(.rodata.str1.1)
-    .L.str.17                                0x00003273   Data          28  fault-hal.o(.rodata.str1.1)
-    .L.str.15                                0x0000328f   Data          28  fault-hal.o(.rodata.str1.1)
-    .L.str.3                                 0x000032ab   Data          28  fault-hal.o(.rodata.str1.1)
-    .L.str.18                                0x000032c7   Data          28  fault-hal.o(.rodata.str1.1)
-    .L.str.16                                0x000032e3   Data          30  fault-hal.o(.rodata.str1.1)
-    .L.str.10                                0x00003301   Data          30  fault-hal.o(.rodata.str1.1)
-    .L.str.13                                0x0000331f   Data          30  fault-hal.o(.rodata.str1.1)
-    .L.str.4                                 0x0000333d   Data          30  fault-hal.o(.rodata.str1.1)
-    .L.str.7                                 0x0000335b   Data          30  fault-hal.o(.rodata.str1.1)
-    .L.str.1                                 0x00003379   Data          30  fault-hal.o(.rodata.str1.1)
-    fault_dump_handler.buffer                0x20000008   Data         256  fault-dump.o(.bss.fault_dump_handler.buffer)
-    [Anonymous Symbol]                       0x20000008   Section        0  fault-dump.o(.bss.fault_dump_handler.buffer)
-    fault_dump_handler.frame                 0x20000108   Data          64  fault-dump.o(.bss.fault_dump_handler.frame)
-    [Anonymous Symbol]                       0x20000108   Section        0  fault-dump.o(.bss.fault_dump_handler.frame)
-    STACK                                    0x20000150   Section     1024  startup_ARMCM33.o(STACK)
+    RESET                                    0x10000000   Section      572  startup_ARMCM33.o(RESET)
+    .ARM.Collect$$$$00000000                 0x1000023c   Section        0  entry.o(.ARM.Collect$$$$00000000)
+    .ARM.Collect$$$$00000003                 0x1000023c   Section        4  entry4.o(.ARM.Collect$$$$00000003)
+    .ARM.Collect$$$$00000004                 0x10000240   Section        4  entry5.o(.ARM.Collect$$$$00000004)
+    .ARM.Collect$$$$00000008                 0x10000244   Section        0  entry7b.o(.ARM.Collect$$$$00000008)
+    .ARM.Collect$$$$0000000A                 0x10000244   Section        0  entry8b.o(.ARM.Collect$$$$0000000A)
+    .ARM.Collect$$$$0000000B                 0x10000244   Section        8  entry9a.o(.ARM.Collect$$$$0000000B)
+    __lit__00000000                          0x1000024c   Data           4  entry4.o(.ARM.Collect$$$$00002714)
+    .ARM.Collect$$$$0000000D                 0x1000024c   Section        0  entry10a.o(.ARM.Collect$$$$0000000D)
+    .ARM.Collect$$$$0000000F                 0x1000024c   Section        0  entry11a.o(.ARM.Collect$$$$0000000F)
+    .ARM.Collect$$$$00002714                 0x1000024c   Section        4  entry4.o(.ARM.Collect$$$$00002714)
+    $v0                                      0x10000250   Number         0  startup_ARMCM33.o(.text)
+    .text                                    0x10000250   Section       40  startup_ARMCM33.o(.text)
+    $v0                                      0x10000278   Number         0  fault-mdk.o(.text)
+    .text                                    0x10000278   Section       68  fault-mdk.o(.text)
+    .text                                    0x100002bc   Section        0  uldiv.o(.text)
+    .text                                    0x1000031e   Section        0  memseta.o(.text)
+    .text                                    0x10000342   Section        0  dadd.o(.text)
+    .text                                    0x10000490   Section        0  dmul.o(.text)
+    .text                                    0x10000574   Section        0  ddiv.o(.text)
+    .text                                    0x10000652   Section        0  dcmple.o(.text)
+    .text                                    0x10000688   Section        0  dcmplt.o(.text)
+    .text                                    0x100006be   Section        0  dcmpge.o(.text)
+    .text                                    0x100006f4   Section        0  dcmpgt.o(.text)
+    .text                                    0x1000072a   Section        0  dcmpeq.o(.text)
+    .text                                    0x10000762   Section        0  dflti.o(.text)
+    .text                                    0x10000784   Section        0  dfltui.o(.text)
+    .text                                    0x1000079e   Section        0  dfixi.o(.text)
+    .text                                    0x100007dc   Section        0  dfixui.o(.text)
+    .text                                    0x1000080e   Section        0  llshl.o(.text)
+    .text                                    0x1000082c   Section        0  llushr.o(.text)
+    .text                                    0x1000084c   Section        0  llsshr.o(.text)
+    .text                                    0x10000870   Section        0  iusefp.o(.text)
+    .text                                    0x10000870   Section        0  depilogue.o(.text)
+    .text                                    0x1000092c   Section       48  init.o(.text)
+    [Anonymous Symbol]                       0x1000095c   Section        0  system_ARMCM33.o(.text.SystemInit)
+    _atoi                                    0x10000995   Thumb Code    58  printf.o(.text._atoi)
+    [Anonymous Symbol]                       0x10000994   Section        0  printf.o(.text._atoi)
+    _etoa                                    0x100009d1   Thumb Code  1560  printf.o(.text._etoa)
+    [Anonymous Symbol]                       0x100009d0   Section        0  printf.o(.text._etoa)
+    _ftoa                                    0x10001011   Thumb Code  1400  printf.o(.text._ftoa)
+    [Anonymous Symbol]                       0x10001010   Section        0  printf.o(.text._ftoa)
+    _is_digit                                0x10001591   Thumb Code    46  printf.o(.text._is_digit)
+    [Anonymous Symbol]                       0x10001590   Section        0  printf.o(.text._is_digit)
+    _ntoa_format                             0x100015c1   Thumb Code   572  printf.o(.text._ntoa_format)
+    [Anonymous Symbol]                       0x100015c0   Section        0  printf.o(.text._ntoa_format)
+    _ntoa_long                               0x100017fd   Thumb Code   276  printf.o(.text._ntoa_long)
+    [Anonymous Symbol]                       0x100017fc   Section        0  printf.o(.text._ntoa_long)
+    _ntoa_long_long                          0x10001911   Thumb Code   312  printf.o(.text._ntoa_long_long)
+    [Anonymous Symbol]                       0x10001910   Section        0  printf.o(.text._ntoa_long_long)
+    _out_char                                0x10001a49   Thumb Code    36  printf.o(.text._out_char)
+    [Anonymous Symbol]                       0x10001a48   Section        0  printf.o(.text._out_char)
+    _out_null                                0x10001a6d   Thumb Code    16  printf.o(.text._out_null)
+    [Anonymous Symbol]                       0x10001a6c   Section        0  printf.o(.text._out_null)
+    _out_rev                                 0x10001a7d   Thumb Code   192  printf.o(.text._out_rev)
+    [Anonymous Symbol]                       0x10001a7c   Section        0  printf.o(.text._out_rev)
+    _strnlen_s                               0x10001b3d   Thumb Code    68  printf.o(.text._strnlen_s)
+    [Anonymous Symbol]                       0x10001b3c   Section        0  printf.o(.text._strnlen_s)
+    _vsnprintf                               0x10001b81   Thumb Code  2608  printf.o(.text._vsnprintf)
+    [Anonymous Symbol]                       0x10001b80   Section        0  printf.o(.text._vsnprintf)
+    [Anonymous Symbol]                       0x100025b0   Section        0  main.o(.text.dump_callstack)
+    dump_exc_return                          0x10002645   Thumb Code    30  fault-dump.o(.text.dump_exc_return)
+    [Anonymous Symbol]                       0x10002644   Section        0  fault-dump.o(.text.dump_exc_return)
+    [Anonymous Symbol]                       0x10002664   Section        0  fault-dump.o(.text.fault_dump_bm_stack_point)
+    [Anonymous Symbol]                       0x10002674   Section        0  fault-dump.o(.text.fault_dump_bm_stack_start)
+    [Anonymous Symbol]                       0x10002688   Section        0  fault-dump.o(.text.fault_dump_callstack)
+    [Anonymous Symbol]                       0x10002790   Section        0  fault-hal.o(.text.fault_dump_exc_return)
+    [Anonymous Symbol]                       0x100028e8   Section        0  fault-dump.o(.text.fault_dump_handler)
+    [Anonymous Symbol]                       0x10002b68   Section        0  fault-dump.o(.text.fault_dump_init)
+    fault_dump_opcode                        0x10002bcd   Thumb Code    56  fault-dump.o(.text.fault_dump_opcode)
+    [Anonymous Symbol]                       0x10002bcc   Section        0  fault-dump.o(.text.fault_dump_opcode)
+    [Anonymous Symbol]                       0x10002c04   Section        0  main.o(.text.fault_unalign_trigger)
+    [Anonymous Symbol]                       0x10002c64   Section        0  main.o(.text.main)
+    opcode_is_bl_or_blx                      0x10002ca1   Thumb Code   106  fault-dump.o(.text.opcode_is_bl_or_blx)
+    [Anonymous Symbol]                       0x10002ca0   Section        0  fault-dump.o(.text.opcode_is_bl_or_blx)
+    [Anonymous Symbol]                       0x10002d0c   Section        0  printf.o(.text.printf)
+    [Anonymous Symbol]                       0x10002d48   Section        0  uart.o(.text.put_char)
+    [Anonymous Symbol]                       0x10002d70   Section        0  main.o(.text.test0)
+    [Anonymous Symbol]                       0x10002d90   Section        0  main.o(.text.test1)
+    [Anonymous Symbol]                       0x10002dac   Section        0  main.o(.text.test2)
+    [Anonymous Symbol]                       0x10002dc8   Section        0  main.o(.text.test3)
+    [Anonymous Symbol]                       0x10002de4   Section        0  main.o(.text.test4)
+    [Anonymous Symbol]                       0x10002e00   Section        0  main.o(.text.test5)
+    [Anonymous Symbol]                       0x10002e1c   Section        0  uart.o(.text.uart_init)
+    i.__scatterload_copy                     0x10002e5c   Section       14  handlers.o(i.__scatterload_copy)
+    i.__scatterload_null                     0x10002e6a   Section        2  handlers.o(i.__scatterload_null)
+    i.__scatterload_zeroinit                 0x10002e6c   Section       14  handlers.o(i.__scatterload_zeroinit)
+    _ftoa.pow10                              0x10002e80   Data          80  printf.o(.rodata._ftoa.pow10)
+    [Anonymous Symbol]                       0x10002e80   Section        0  printf.o(.rodata._ftoa.pow10)
+    .L.str                                   0x10002ed0   Data           4  main.o(.rodata.str1.1)
+    .L.str.6                                 0x10002ed0   Data           5  main.o(.rodata.str1.1)
+    [Anonymous Symbol]                       0x10002ed0   Section        0  main.o(.rodata.str1.1)
+    .L__func__.HardFault_Handler_Legency     0x10002ed4   Data          26  main.o(.rodata.str1.1)
+    .L.str.9                                 0x10002ed5   Data          20  main.o(.rodata.str1.1)
+    .L.str.7                                 0x10002ee9   Data          14  main.o(.rodata.str1.1)
+    .L__func__.Default_Handler               0x10002eee   Data          16  main.o(.rodata.str1.1)
+    .L.str.2                                 0x10002ef7   Data          27  main.o(.rodata.str1.1)
+    .L.str.1                                 0x10002efe   Data           9  main.o(.rodata.str1.1)
+    .L.str.3                                 0x10002f12   Data          27  main.o(.rodata.str1.1)
+    .L.str.8                                 0x10002f36   Data           8  main.o(.rodata.str1.1)
+    .L.str.3                                 0x10002f3b   Data           3  main.o(.rodata.str1.1)
+    .L.str.23                                0x10002f42   Data           6  main.o(.rodata.str1.1)
+    .L.str.5                                 0x10002f42   Data           6  main.o(.rodata.str1.1)
+    .L.str.4                                 0x10002f48   Data          13  main.o(.rodata.str1.1)
+    .L__func__.test0                         0x10002f55   Data           6  main.o(.rodata.str1.1)
+    .L__func__.test1                         0x10002f5b   Data           6  main.o(.rodata.str1.1)
+    .L__func__.test2                         0x10002f61   Data           6  main.o(.rodata.str1.1)
+    .L__func__.test3                         0x10002f67   Data           6  main.o(.rodata.str1.1)
+    .L__func__.test4                         0x10002f6d   Data           6  main.o(.rodata.str1.1)
+    .L__func__.test5                         0x10002f73   Data           6  main.o(.rodata.str1.1)
+    .L.str.2                                 0x10002fa3   Data           5  printf.o(.rodata.str1.1)
+    [Anonymous Symbol]                       0x10002fa3   Section        0  printf.o(.rodata.str1.1)
+    .L.str.1                                 0x10002fa8   Data           5  printf.o(.rodata.str1.1)
+    .L.str.3                                 0x10002fad   Data           4  printf.o(.rodata.str1.1)
+    .L.str                                   0x10002fb1   Data           4  printf.o(.rodata.str1.1)
+    .L.str.5                                 0x10002fb5   Data          18  fault-dump.o(.rodata.str1.1)
+    [Anonymous Symbol]                       0x10002fb5   Section        0  fault-dump.o(.rodata.str1.1)
+    .L.str.24                                0x10002fc7   Data          23  fault-dump.o(.rodata.str1.1)
+    .L.str.6                                 0x10002fde   Data          18  fault-dump.o(.rodata.str1.1)
+    .L.str.7                                 0x10002ff0   Data          18  fault-dump.o(.rodata.str1.1)
+    .L.str.8                                 0x10003002   Data          18  fault-dump.o(.rodata.str1.1)
+    .L.str.9                                 0x10003014   Data          18  fault-dump.o(.rodata.str1.1)
+    .L.str.10                                0x10003026   Data          18  fault-dump.o(.rodata.str1.1)
+    .L.str.11                                0x10003038   Data          18  fault-dump.o(.rodata.str1.1)
+    .L.str.12                                0x1000304a   Data          18  fault-dump.o(.rodata.str1.1)
+    .L.str.13                                0x1000305c   Data          18  fault-dump.o(.rodata.str1.1)
+    .L.str.14                                0x1000306e   Data          18  fault-dump.o(.rodata.str1.1)
+    .L.str.15                                0x10003080   Data          18  fault-dump.o(.rodata.str1.1)
+    .L.str.20                                0x10003092   Data          18  fault-dump.o(.rodata.str1.1)
+    .L.str.19                                0x100030a4   Data          18  fault-dump.o(.rodata.str1.1)
+    .L.str.16                                0x100030b6   Data          18  fault-dump.o(.rodata.str1.1)
+    .L.str.17                                0x100030c8   Data          18  fault-dump.o(.rodata.str1.1)
+    .L.str.18                                0x100030da   Data          18  fault-dump.o(.rodata.str1.1)
+    .L.str.21                                0x100030ec   Data          18  fault-dump.o(.rodata.str1.1)
+    .L.str.4                                 0x100030fe   Data          31  fault-dump.o(.rodata.str1.1)
+    .L.str                                   0x10003119   Data           4  fault-dump.o(.rodata.str1.1)
+    .L.str.2                                 0x1000311d   Data          32  fault-dump.o(.rodata.str1.1)
+    .L.str.1                                 0x1000313d   Data          36  fault-dump.o(.rodata.str1.1)
+    .L.str                                   0x10003161   Data          36  fault-dump.o(.rodata.str1.1)
+    .L.str.22                                0x10003185   Data          14  fault-dump.o(.rodata.str1.1)
+    .L.str.6                                 0x10003193   Data          28  fault-hal.o(.rodata.str1.1)
+    [Anonymous Symbol]                       0x10003193   Section        0  fault-hal.o(.rodata.str1.1)
+    .L.str.5                                 0x100031af   Data          28  fault-hal.o(.rodata.str1.1)
+    .L.str.8                                 0x100031cb   Data          28  fault-hal.o(.rodata.str1.1)
+    .L.str.9                                 0x100031e7   Data          28  fault-hal.o(.rodata.str1.1)
+    .L.str.14                                0x10003203   Data          28  fault-hal.o(.rodata.str1.1)
+    .L.str.12                                0x1000321f   Data          28  fault-hal.o(.rodata.str1.1)
+    .L.str.11                                0x1000323b   Data          28  fault-hal.o(.rodata.str1.1)
+    .L.str.2                                 0x10003257   Data          28  fault-hal.o(.rodata.str1.1)
+    .L.str.17                                0x10003273   Data          28  fault-hal.o(.rodata.str1.1)
+    .L.str.15                                0x1000328f   Data          28  fault-hal.o(.rodata.str1.1)
+    .L.str.3                                 0x100032ab   Data          28  fault-hal.o(.rodata.str1.1)
+    .L.str.18                                0x100032c7   Data          28  fault-hal.o(.rodata.str1.1)
+    .L.str.16                                0x100032e3   Data          30  fault-hal.o(.rodata.str1.1)
+    .L.str.10                                0x10003301   Data          30  fault-hal.o(.rodata.str1.1)
+    .L.str.13                                0x1000331f   Data          30  fault-hal.o(.rodata.str1.1)
+    .L.str.4                                 0x1000333d   Data          30  fault-hal.o(.rodata.str1.1)
+    .L.str.7                                 0x1000335b   Data          30  fault-hal.o(.rodata.str1.1)
+    .L.str.1                                 0x10003379   Data          30  fault-hal.o(.rodata.str1.1)
+    fault_dump_handler.buffer                0x38000008   Data         256  fault-dump.o(.bss.fault_dump_handler.buffer)
+    [Anonymous Symbol]                       0x38000008   Section        0  fault-dump.o(.bss.fault_dump_handler.buffer)
+    fault_dump_handler.frame                 0x38000108   Data          64  fault-dump.o(.bss.fault_dump_handler.frame)
+    [Anonymous Symbol]                       0x38000108   Section        0  fault-dump.o(.bss.fault_dump_handler.frame)
+    STACK                                    0x38000150   Section     1024  startup_ARMCM33.o(STACK)
 
     Global Symbols
 
     Symbol Name                              Value     Ov Type        Size  Object(Section)
 
     BuildAttributes$$THM_ISAv4$E$P$D$K$B$S$7EM$8M$VFPi5$EXTD16$VFPS$VFMA$PE$A:L22UL41UL21$X:L11$S22US41US21$IEEE1$IW$~IW$USESV6$~STKCKD$USESV7$WCHAR32$ENUMINT$~SHL$OSPACE$ROPI$EBA8$MICROLIB$REQ8$PRES8$EABIv2 0x00000000   Number         0  anon$$obj.o ABSOLUTE
-    Image$$ER_IROM1$$Base                    0x00000000   Number         0  anon$$obj.o ABSOLUTE
-    __Vectors                                0x00000000   Data           4  startup_ARMCM33.o(RESET)
     __cpp_initialize__aeabi_                  - Undefined Weak Reference
     __cxa_finalize                            - Undefined Weak Reference
     __decompress                              - Undefined Weak Reference
     _clock_init                               - Undefined Weak Reference
     _microlib_exit                            - Undefined Weak Reference
-    __Vectors_End                            0x0000023c   Data           0  startup_ARMCM33.o(RESET)
     __Vectors_Size                           0x0000023c   Number         0  startup_ARMCM33.o ABSOLUTE
-    __main                                   0x0000023d   Thumb Code     0  entry.o(.ARM.Collect$$$$00000000)
-    _main_stk                                0x0000023d   Thumb Code     0  entry4.o(.ARM.Collect$$$$00000003)
-    _main_scatterload                        0x00000241   Thumb Code     0  entry5.o(.ARM.Collect$$$$00000004)
-    __main_after_scatterload                 0x00000245   Thumb Code     0  entry5.o(.ARM.Collect$$$$00000004)
-    _main_clock                              0x00000245   Thumb Code     0  entry7b.o(.ARM.Collect$$$$00000008)
-    _main_cpp_init                           0x00000245   Thumb Code     0  entry8b.o(.ARM.Collect$$$$0000000A)
-    _main_init                               0x00000245   Thumb Code     0  entry9a.o(.ARM.Collect$$$$0000000B)
-    __rt_final_cpp                           0x0000024d   Thumb Code     0  entry10a.o(.ARM.Collect$$$$0000000D)
-    __rt_final_exit                          0x0000024d   Thumb Code     0  entry11a.o(.ARM.Collect$$$$0000000F)
-    Reset_Handler                            0x00000251   Thumb Code     8  startup_ARMCM33.o(.text)
-    NMI_Handler                              0x00000259   Thumb Code     2  startup_ARMCM33.o(.text)
-    MemManage_Handler                        0x0000025d   Thumb Code     2  startup_ARMCM33.o(.text)
-    BusFault_Handler                         0x0000025f   Thumb Code     2  startup_ARMCM33.o(.text)
-    UsageFault_Handler                       0x00000261   Thumb Code     2  startup_ARMCM33.o(.text)
-    SecureFault_Handler                      0x00000263   Thumb Code     2  startup_ARMCM33.o(.text)
-    SVC_Handler                              0x00000265   Thumb Code     2  startup_ARMCM33.o(.text)
-    DebugMon_Handler                         0x00000267   Thumb Code     2  startup_ARMCM33.o(.text)
-    PendSV_Handler                           0x00000269   Thumb Code     2  startup_ARMCM33.o(.text)
-    SysTick_Handler                          0x0000026b   Thumb Code     2  startup_ARMCM33.o(.text)
-    BRIDGE_ERROR_Handler                     0x0000026d   Thumb Code     0  startup_ARMCM33.o(.text)
-    DMA0_ERROR_Handler                       0x0000026d   Thumb Code     0  startup_ARMCM33.o(.text)
-    DMA0_Handler                             0x0000026d   Thumb Code     0  startup_ARMCM33.o(.text)
-    DMA0_TC_Handler                          0x0000026d   Thumb Code     0  startup_ARMCM33.o(.text)
-    DMA1_ERROR_Handler                       0x0000026d   Thumb Code     0  startup_ARMCM33.o(.text)
-    DMA1_Handler                             0x0000026d   Thumb Code     0  startup_ARMCM33.o(.text)
-    DMA1_TC_Handler                          0x0000026d   Thumb Code     0  startup_ARMCM33.o(.text)
-    DMA2_ERROR_Handler                       0x0000026d   Thumb Code     0  startup_ARMCM33.o(.text)
-    DMA2_Handler                             0x0000026d   Thumb Code     0  startup_ARMCM33.o(.text)
-    DMA2_TC_Handler                          0x0000026d   Thumb Code     0  startup_ARMCM33.o(.text)
-    DMA3_ERROR_Handler                       0x0000026d   Thumb Code     0  startup_ARMCM33.o(.text)
-    DMA3_Handler                             0x0000026d   Thumb Code     0  startup_ARMCM33.o(.text)
-    DMA3_TC_Handler                          0x0000026d   Thumb Code     0  startup_ARMCM33.o(.text)
-    DUALTIMER_Handler                        0x0000026d   Thumb Code     0  startup_ARMCM33.o(.text)
-    ETHERNET_Handler                         0x0000026d   Thumb Code     0  startup_ARMCM33.o(.text)
-    GPIO0_0_Handler                          0x0000026d   Thumb Code     0  startup_ARMCM33.o(.text)
-    GPIO0_10_Handler                         0x0000026d   Thumb Code     0  startup_ARMCM33.o(.text)
-    GPIO0_11_Handler                         0x0000026d   Thumb Code     0  startup_ARMCM33.o(.text)
-    GPIO0_12_Handler                         0x0000026d   Thumb Code     0  startup_ARMCM33.o(.text)
-    GPIO0_13_Handler                         0x0000026d   Thumb Code     0  startup_ARMCM33.o(.text)
-    GPIO0_14_Handler                         0x0000026d   Thumb Code     0  startup_ARMCM33.o(.text)
-    GPIO0_15_Handler                         0x0000026d   Thumb Code     0  startup_ARMCM33.o(.text)
-    GPIO0_1_Handler                          0x0000026d   Thumb Code     0  startup_ARMCM33.o(.text)
-    GPIO0_2_Handler                          0x0000026d   Thumb Code     0  startup_ARMCM33.o(.text)
-    GPIO0_3_Handler                          0x0000026d   Thumb Code     0  startup_ARMCM33.o(.text)
-    GPIO0_4_Handler                          0x0000026d   Thumb Code     0  startup_ARMCM33.o(.text)
-    GPIO0_5_Handler                          0x0000026d   Thumb Code     0  startup_ARMCM33.o(.text)
-    GPIO0_6_Handler                          0x0000026d   Thumb Code     0  startup_ARMCM33.o(.text)
-    GPIO0_7_Handler                          0x0000026d   Thumb Code     0  startup_ARMCM33.o(.text)
-    GPIO0_8_Handler                          0x0000026d   Thumb Code     0  startup_ARMCM33.o(.text)
-    GPIO0_9_Handler                          0x0000026d   Thumb Code     0  startup_ARMCM33.o(.text)
-    GPIO0_Handler                            0x0000026d   Thumb Code     0  startup_ARMCM33.o(.text)
-    GPIO1_0_Handler                          0x0000026d   Thumb Code     0  startup_ARMCM33.o(.text)
-    GPIO1_10_Handler                         0x0000026d   Thumb Code     0  startup_ARMCM33.o(.text)
-    GPIO1_11_Handler                         0x0000026d   Thumb Code     0  startup_ARMCM33.o(.text)
-    GPIO1_12_Handler                         0x0000026d   Thumb Code     0  startup_ARMCM33.o(.text)
-    GPIO1_13_Handler                         0x0000026d   Thumb Code     0  startup_ARMCM33.o(.text)
-    GPIO1_14_Handler                         0x0000026d   Thumb Code     0  startup_ARMCM33.o(.text)
-    GPIO1_15_Handler                         0x0000026d   Thumb Code     0  startup_ARMCM33.o(.text)
-    GPIO1_1_Handler                          0x0000026d   Thumb Code     0  startup_ARMCM33.o(.text)
-    GPIO1_2_Handler                          0x0000026d   Thumb Code     0  startup_ARMCM33.o(.text)
-    GPIO1_3_Handler                          0x0000026d   Thumb Code     0  startup_ARMCM33.o(.text)
-    GPIO1_4_Handler                          0x0000026d   Thumb Code     0  startup_ARMCM33.o(.text)
-    GPIO1_5_Handler                          0x0000026d   Thumb Code     0  startup_ARMCM33.o(.text)
-    GPIO1_6_Handler                          0x0000026d   Thumb Code     0  startup_ARMCM33.o(.text)
-    GPIO1_7_Handler                          0x0000026d   Thumb Code     0  startup_ARMCM33.o(.text)
-    GPIO1_8_Handler                          0x0000026d   Thumb Code     0  startup_ARMCM33.o(.text)
-    GPIO1_9_Handler                          0x0000026d   Thumb Code     0  startup_ARMCM33.o(.text)
-    GPIO1_Handler                            0x0000026d   Thumb Code     0  startup_ARMCM33.o(.text)
-    GPIO2_0_Handler                          0x0000026d   Thumb Code     0  startup_ARMCM33.o(.text)
-    GPIO2_10_Handler                         0x0000026d   Thumb Code     0  startup_ARMCM33.o(.text)
-    GPIO2_11_Handler                         0x0000026d   Thumb Code     0  startup_ARMCM33.o(.text)
-    GPIO2_12_Handler                         0x0000026d   Thumb Code     0  startup_ARMCM33.o(.text)
-    GPIO2_13_Handler                         0x0000026d   Thumb Code     0  startup_ARMCM33.o(.text)
-    GPIO2_14_Handler                         0x0000026d   Thumb Code     0  startup_ARMCM33.o(.text)
-    GPIO2_15_Handler                         0x0000026d   Thumb Code     0  startup_ARMCM33.o(.text)
-    GPIO2_1_Handler                          0x0000026d   Thumb Code     0  startup_ARMCM33.o(.text)
-    GPIO2_2_Handler                          0x0000026d   Thumb Code     0  startup_ARMCM33.o(.text)
-    GPIO2_3_Handler                          0x0000026d   Thumb Code     0  startup_ARMCM33.o(.text)
-    GPIO2_4_Handler                          0x0000026d   Thumb Code     0  startup_ARMCM33.o(.text)
-    GPIO2_5_Handler                          0x0000026d   Thumb Code     0  startup_ARMCM33.o(.text)
-    GPIO2_6_Handler                          0x0000026d   Thumb Code     0  startup_ARMCM33.o(.text)
-    GPIO2_7_Handler                          0x0000026d   Thumb Code     0  startup_ARMCM33.o(.text)
-    GPIO2_8_Handler                          0x0000026d   Thumb Code     0  startup_ARMCM33.o(.text)
-    GPIO2_9_Handler                          0x0000026d   Thumb Code     0  startup_ARMCM33.o(.text)
-    GPIO2_Handler                            0x0000026d   Thumb Code     0  startup_ARMCM33.o(.text)
-    GPIO3_0_Handler                          0x0000026d   Thumb Code     0  startup_ARMCM33.o(.text)
-    GPIO3_1_Handler                          0x0000026d   Thumb Code     0  startup_ARMCM33.o(.text)
-    GPIO3_2_Handler                          0x0000026d   Thumb Code     0  startup_ARMCM33.o(.text)
-    GPIO3_3_Handler                          0x0000026d   Thumb Code     0  startup_ARMCM33.o(.text)
-    GPIO3_Handler                            0x0000026d   Thumb Code     0  startup_ARMCM33.o(.text)
-    I2S0_Handler                             0x0000026d   Thumb Code     0  startup_ARMCM33.o(.text)
-    I2S1_Handler                             0x0000026d   Thumb Code     0  startup_ARMCM33.o(.text)
-    MPC_Handler                              0x0000026d   Thumb Code     0  startup_ARMCM33.o(.text)
-    MSC_Handler                              0x0000026d   Thumb Code     0  startup_ARMCM33.o(.text)
-    NONSEC_WATCHDOG_Handler                  0x0000026d   Thumb Code     0  startup_ARMCM33.o(.text)
-    NONSEC_WATCHDOG_RESET_Handler            0x0000026d   Thumb Code     0  startup_ARMCM33.o(.text)
-    PPC_Handler                              0x0000026d   Thumb Code     0  startup_ARMCM33.o(.text)
-    S32K_TIMER_Handler                       0x0000026d   Thumb Code     0  startup_ARMCM33.o(.text)
-    SPI0_Handler                             0x0000026d   Thumb Code     0  startup_ARMCM33.o(.text)
-    SPI1_Handler                             0x0000026d   Thumb Code     0  startup_ARMCM33.o(.text)
-    SPI2_Handler                             0x0000026d   Thumb Code     0  startup_ARMCM33.o(.text)
-    TIMER0_Handler                           0x0000026d   Thumb Code     0  startup_ARMCM33.o(.text)
-    TIMER1_Handler                           0x0000026d   Thumb Code     0  startup_ARMCM33.o(.text)
-    TSC_Handler                              0x0000026d   Thumb Code     0  startup_ARMCM33.o(.text)
-    UART0RX_Handler                          0x0000026d   Thumb Code     0  startup_ARMCM33.o(.text)
-    UART0TX_Handler                          0x0000026d   Thumb Code     0  startup_ARMCM33.o(.text)
-    UART0_Handler                            0x0000026d   Thumb Code     0  startup_ARMCM33.o(.text)
-    UART1RX_Handler                          0x0000026d   Thumb Code     0  startup_ARMCM33.o(.text)
-    UART1TX_Handler                          0x0000026d   Thumb Code     0  startup_ARMCM33.o(.text)
-    UART1_Handler                            0x0000026d   Thumb Code     0  startup_ARMCM33.o(.text)
-    UART2RX_Handler                          0x0000026d   Thumb Code     0  startup_ARMCM33.o(.text)
-    UART2TX_Handler                          0x0000026d   Thumb Code     0  startup_ARMCM33.o(.text)
-    UART2_Handler                            0x0000026d   Thumb Code     0  startup_ARMCM33.o(.text)
-    UART3RX_Handler                          0x0000026d   Thumb Code     0  startup_ARMCM33.o(.text)
-    UART3TX_Handler                          0x0000026d   Thumb Code     0  startup_ARMCM33.o(.text)
-    UART3_Handler                            0x0000026d   Thumb Code     0  startup_ARMCM33.o(.text)
-    UART4RX_Handler                          0x0000026d   Thumb Code     0  startup_ARMCM33.o(.text)
-    UART4TX_Handler                          0x0000026d   Thumb Code     0  startup_ARMCM33.o(.text)
-    UART4_Handler                            0x0000026d   Thumb Code     0  startup_ARMCM33.o(.text)
-    UART5RX_Handler                          0x0000026d   Thumb Code     0  startup_ARMCM33.o(.text)
-    UART5TX_Handler                          0x0000026d   Thumb Code     0  startup_ARMCM33.o(.text)
-    UART5_Handler                            0x0000026d   Thumb Code     0  startup_ARMCM33.o(.text)
-    UARTOVF_Handler                          0x0000026d   Thumb Code     0  startup_ARMCM33.o(.text)
-    USB_Handler                              0x0000026d   Thumb Code     0  startup_ARMCM33.o(.text)
-    HardFault_Handler                        0x00000279   Thumb Code    58  fault-mdk.o(.text)
-    __aeabi_uldivmod                         0x000002bd   Thumb Code    98  uldiv.o(.text)
-    __aeabi_memset                           0x0000031f   Thumb Code    14  memseta.o(.text)
-    __aeabi_memset4                          0x0000031f   Thumb Code     0  memseta.o(.text)
-    __aeabi_memset8                          0x0000031f   Thumb Code     0  memseta.o(.text)
-    __aeabi_memclr                           0x0000032d   Thumb Code     4  memseta.o(.text)
-    __aeabi_memclr4                          0x0000032d   Thumb Code     0  memseta.o(.text)
-    __aeabi_memclr8                          0x0000032d   Thumb Code     0  memseta.o(.text)
-    _memset$wrapper                          0x00000331   Thumb Code    18  memseta.o(.text)
-    __aeabi_dadd                             0x00000343   Thumb Code   322  dadd.o(.text)
     STACK$$Length                            0x00000400   Number         0  anon$$obj.o ABSOLUTE
-    __aeabi_dsub                             0x00000485   Thumb Code     6  dadd.o(.text)
-    __aeabi_drsub                            0x0000048b   Thumb Code     6  dadd.o(.text)
-    __aeabi_dmul                             0x00000491   Thumb Code   228  dmul.o(.text)
-    __aeabi_ddiv                             0x00000575   Thumb Code   222  ddiv.o(.text)
-    __aeabi_dcmple                           0x00000653   Thumb Code    54  dcmple.o(.text)
-    __aeabi_dcmplt                           0x00000689   Thumb Code    54  dcmplt.o(.text)
-    __aeabi_dcmpge                           0x000006bf   Thumb Code    54  dcmpge.o(.text)
-    __aeabi_dcmpgt                           0x000006f5   Thumb Code    54  dcmpgt.o(.text)
-    __aeabi_dcmpeq                           0x0000072b   Thumb Code    56  dcmpeq.o(.text)
-    __aeabi_i2d                              0x00000763   Thumb Code    34  dflti.o(.text)
-    __aeabi_ui2d                             0x00000785   Thumb Code    26  dfltui.o(.text)
-    __aeabi_d2iz                             0x0000079f   Thumb Code    62  dfixi.o(.text)
-    __aeabi_d2uiz                            0x000007dd   Thumb Code    50  dfixui.o(.text)
-    __aeabi_llsl                             0x0000080f   Thumb Code    30  llshl.o(.text)
-    _ll_shift_l                              0x0000080f   Thumb Code     0  llshl.o(.text)
-    __aeabi_llsr                             0x0000082d   Thumb Code    32  llushr.o(.text)
-    _ll_ushift_r                             0x0000082d   Thumb Code     0  llushr.o(.text)
-    __aeabi_lasr                             0x0000084d   Thumb Code    36  llsshr.o(.text)
-    _ll_sshift_r                             0x0000084d   Thumb Code     0  llsshr.o(.text)
-    __I$use$fp                               0x00000871   Thumb Code     0  iusefp.o(.text)
-    _double_round                            0x00000871   Thumb Code    30  depilogue.o(.text)
-    _double_epilogue                         0x0000088f   Thumb Code   156  depilogue.o(.text)
-    __scatterload                            0x0000092d   Thumb Code    38  init.o(.text)
-    __scatterload_rt2                        0x0000092d   Thumb Code     0  init.o(.text)
-    SystemInit                               0x0000095d   Thumb Code    54  system_ARMCM33.o(.text.SystemInit)
-    dump_callstack                           0x000025b1   Thumb Code   146  main.o(.text.dump_callstack)
-    fault_dump_bm_stack_point                0x00002665   Thumb Code    14  fault-dump.o(.text.fault_dump_bm_stack_point)
-    fault_dump_bm_stack_start                0x00002675   Thumb Code    20  fault-dump.o(.text.fault_dump_bm_stack_start)
-    fault_dump_callstack                     0x00002689   Thumb Code   264  fault-dump.o(.text.fault_dump_callstack)
-    fault_dump_exc_return                    0x00002791   Thumb Code   344  fault-hal.o(.text.fault_dump_exc_return)
-    fault_dump_handler                       0x000028e9   Thumb Code   638  fault-dump.o(.text.fault_dump_handler)
-    fault_dump_init                          0x00002b69   Thumb Code    98  fault-dump.o(.text.fault_dump_init)
-    fault_unalign_trigger                    0x00002c05   Thumb Code    96  main.o(.text.fault_unalign_trigger)
-    main                                     0x00002c65   Thumb Code    58  main.o(.text.main)
-    printf                                   0x00002d0d   Thumb Code    60  printf.o(.text.printf)
-    put_char                                 0x00002d49   Thumb Code    40  uart.o(.text.put_char)
-    test0                                    0x00002d71   Thumb Code    32  main.o(.text.test0)
-    test1                                    0x00002d91   Thumb Code    28  main.o(.text.test1)
-    test2                                    0x00002dad   Thumb Code    28  main.o(.text.test2)
-    test3                                    0x00002dc9   Thumb Code    28  main.o(.text.test3)
-    test4                                    0x00002de5   Thumb Code    28  main.o(.text.test4)
-    test5                                    0x00002e01   Thumb Code    28  main.o(.text.test5)
-    uart_init                                0x00002e1d   Thumb Code    64  uart.o(.text.uart_init)
-    __scatterload_copy                       0x00002e5d   Thumb Code    14  handlers.o(i.__scatterload_copy)
-    __scatterload_null                       0x00002e6b   Thumb Code     2  handlers.o(i.__scatterload_null)
-    __scatterload_zeroinit                   0x00002e6d   Thumb Code    14  handlers.o(i.__scatterload_zeroinit)
-    Region$$Table$$Base                      0x00003398   Number         0  anon$$obj.o(Region$$Table)
     Image$$ER_IROM1$$Length                  0x000033b8   Number         0  anon$$obj.o ABSOLUTE
-    Region$$Table$$Limit                     0x000033b8   Number         0  anon$$obj.o(Region$$Table)
-    SystemCoreClock                          0x20000000   Data           4  system_ARMCM33.o(.data.SystemCoreClock)
-    fd_main_stack_base                       0x20000148   Data           4  fault-dump.o(.bss.fd_main_stack_base)
-    fd_main_stack_full                       0x2000014c   Data           4  fault-dump.o(.bss.fd_main_stack_full)
-    STACK$$Base                              0x20000150   Number         0  startup_ARMCM33.o(STACK)
-    __initial_sp                             0x20000550   Data           0  startup_ARMCM33.o(STACK)
-    Image$$ARM_LIB_STACK$$ZI$$Limit          0x20040000   Number         0  anon$$obj.o ABSOLUTE
+    Image$$ER_IROM1$$Base                    0x10000000   Number         0  anon$$obj.o ABSOLUTE
+    __Vectors                                0x10000000   Data           4  startup_ARMCM33.o(RESET)
+    __Vectors_End                            0x1000023c   Data           0  startup_ARMCM33.o(RESET)
+    __main                                   0x1000023d   Thumb Code     0  entry.o(.ARM.Collect$$$$00000000)
+    _main_stk                                0x1000023d   Thumb Code     0  entry4.o(.ARM.Collect$$$$00000003)
+    _main_scatterload                        0x10000241   Thumb Code     0  entry5.o(.ARM.Collect$$$$00000004)
+    __main_after_scatterload                 0x10000245   Thumb Code     0  entry5.o(.ARM.Collect$$$$00000004)
+    _main_clock                              0x10000245   Thumb Code     0  entry7b.o(.ARM.Collect$$$$00000008)
+    _main_cpp_init                           0x10000245   Thumb Code     0  entry8b.o(.ARM.Collect$$$$0000000A)
+    _main_init                               0x10000245   Thumb Code     0  entry9a.o(.ARM.Collect$$$$0000000B)
+    __rt_final_cpp                           0x1000024d   Thumb Code     0  entry10a.o(.ARM.Collect$$$$0000000D)
+    __rt_final_exit                          0x1000024d   Thumb Code     0  entry11a.o(.ARM.Collect$$$$0000000F)
+    Reset_Handler                            0x10000251   Thumb Code     8  startup_ARMCM33.o(.text)
+    NMI_Handler                              0x10000259   Thumb Code     2  startup_ARMCM33.o(.text)
+    MemManage_Handler                        0x1000025d   Thumb Code     2  startup_ARMCM33.o(.text)
+    BusFault_Handler                         0x1000025f   Thumb Code     2  startup_ARMCM33.o(.text)
+    UsageFault_Handler                       0x10000261   Thumb Code     2  startup_ARMCM33.o(.text)
+    SecureFault_Handler                      0x10000263   Thumb Code     2  startup_ARMCM33.o(.text)
+    SVC_Handler                              0x10000265   Thumb Code     2  startup_ARMCM33.o(.text)
+    DebugMon_Handler                         0x10000267   Thumb Code     2  startup_ARMCM33.o(.text)
+    PendSV_Handler                           0x10000269   Thumb Code     2  startup_ARMCM33.o(.text)
+    SysTick_Handler                          0x1000026b   Thumb Code     2  startup_ARMCM33.o(.text)
+    BRIDGE_ERROR_Handler                     0x1000026d   Thumb Code     0  startup_ARMCM33.o(.text)
+    DMA0_ERROR_Handler                       0x1000026d   Thumb Code     0  startup_ARMCM33.o(.text)
+    DMA0_Handler                             0x1000026d   Thumb Code     0  startup_ARMCM33.o(.text)
+    DMA0_TC_Handler                          0x1000026d   Thumb Code     0  startup_ARMCM33.o(.text)
+    DMA1_ERROR_Handler                       0x1000026d   Thumb Code     0  startup_ARMCM33.o(.text)
+    DMA1_Handler                             0x1000026d   Thumb Code     0  startup_ARMCM33.o(.text)
+    DMA1_TC_Handler                          0x1000026d   Thumb Code     0  startup_ARMCM33.o(.text)
+    DMA2_ERROR_Handler                       0x1000026d   Thumb Code     0  startup_ARMCM33.o(.text)
+    DMA2_Handler                             0x1000026d   Thumb Code     0  startup_ARMCM33.o(.text)
+    DMA2_TC_Handler                          0x1000026d   Thumb Code     0  startup_ARMCM33.o(.text)
+    DMA3_ERROR_Handler                       0x1000026d   Thumb Code     0  startup_ARMCM33.o(.text)
+    DMA3_Handler                             0x1000026d   Thumb Code     0  startup_ARMCM33.o(.text)
+    DMA3_TC_Handler                          0x1000026d   Thumb Code     0  startup_ARMCM33.o(.text)
+    DUALTIMER_Handler                        0x1000026d   Thumb Code     0  startup_ARMCM33.o(.text)
+    ETHERNET_Handler                         0x1000026d   Thumb Code     0  startup_ARMCM33.o(.text)
+    GPIO0_0_Handler                          0x1000026d   Thumb Code     0  startup_ARMCM33.o(.text)
+    GPIO0_10_Handler                         0x1000026d   Thumb Code     0  startup_ARMCM33.o(.text)
+    GPIO0_11_Handler                         0x1000026d   Thumb Code     0  startup_ARMCM33.o(.text)
+    GPIO0_12_Handler                         0x1000026d   Thumb Code     0  startup_ARMCM33.o(.text)
+    GPIO0_13_Handler                         0x1000026d   Thumb Code     0  startup_ARMCM33.o(.text)
+    GPIO0_14_Handler                         0x1000026d   Thumb Code     0  startup_ARMCM33.o(.text)
+    GPIO0_15_Handler                         0x1000026d   Thumb Code     0  startup_ARMCM33.o(.text)
+    GPIO0_1_Handler                          0x1000026d   Thumb Code     0  startup_ARMCM33.o(.text)
+    GPIO0_2_Handler                          0x1000026d   Thumb Code     0  startup_ARMCM33.o(.text)
+    GPIO0_3_Handler                          0x1000026d   Thumb Code     0  startup_ARMCM33.o(.text)
+    GPIO0_4_Handler                          0x1000026d   Thumb Code     0  startup_ARMCM33.o(.text)
+    GPIO0_5_Handler                          0x1000026d   Thumb Code     0  startup_ARMCM33.o(.text)
+    GPIO0_6_Handler                          0x1000026d   Thumb Code     0  startup_ARMCM33.o(.text)
+    GPIO0_7_Handler                          0x1000026d   Thumb Code     0  startup_ARMCM33.o(.text)
+    GPIO0_8_Handler                          0x1000026d   Thumb Code     0  startup_ARMCM33.o(.text)
+    GPIO0_9_Handler                          0x1000026d   Thumb Code     0  startup_ARMCM33.o(.text)
+    GPIO0_Handler                            0x1000026d   Thumb Code     0  startup_ARMCM33.o(.text)
+    GPIO1_0_Handler                          0x1000026d   Thumb Code     0  startup_ARMCM33.o(.text)
+    GPIO1_10_Handler                         0x1000026d   Thumb Code     0  startup_ARMCM33.o(.text)
+    GPIO1_11_Handler                         0x1000026d   Thumb Code     0  startup_ARMCM33.o(.text)
+    GPIO1_12_Handler                         0x1000026d   Thumb Code     0  startup_ARMCM33.o(.text)
+    GPIO1_13_Handler                         0x1000026d   Thumb Code     0  startup_ARMCM33.o(.text)
+    GPIO1_14_Handler                         0x1000026d   Thumb Code     0  startup_ARMCM33.o(.text)
+    GPIO1_15_Handler                         0x1000026d   Thumb Code     0  startup_ARMCM33.o(.text)
+    GPIO1_1_Handler                          0x1000026d   Thumb Code     0  startup_ARMCM33.o(.text)
+    GPIO1_2_Handler                          0x1000026d   Thumb Code     0  startup_ARMCM33.o(.text)
+    GPIO1_3_Handler                          0x1000026d   Thumb Code     0  startup_ARMCM33.o(.text)
+    GPIO1_4_Handler                          0x1000026d   Thumb Code     0  startup_ARMCM33.o(.text)
+    GPIO1_5_Handler                          0x1000026d   Thumb Code     0  startup_ARMCM33.o(.text)
+    GPIO1_6_Handler                          0x1000026d   Thumb Code     0  startup_ARMCM33.o(.text)
+    GPIO1_7_Handler                          0x1000026d   Thumb Code     0  startup_ARMCM33.o(.text)
+    GPIO1_8_Handler                          0x1000026d   Thumb Code     0  startup_ARMCM33.o(.text)
+    GPIO1_9_Handler                          0x1000026d   Thumb Code     0  startup_ARMCM33.o(.text)
+    GPIO1_Handler                            0x1000026d   Thumb Code     0  startup_ARMCM33.o(.text)
+    GPIO2_0_Handler                          0x1000026d   Thumb Code     0  startup_ARMCM33.o(.text)
+    GPIO2_10_Handler                         0x1000026d   Thumb Code     0  startup_ARMCM33.o(.text)
+    GPIO2_11_Handler                         0x1000026d   Thumb Code     0  startup_ARMCM33.o(.text)
+    GPIO2_12_Handler                         0x1000026d   Thumb Code     0  startup_ARMCM33.o(.text)
+    GPIO2_13_Handler                         0x1000026d   Thumb Code     0  startup_ARMCM33.o(.text)
+    GPIO2_14_Handler                         0x1000026d   Thumb Code     0  startup_ARMCM33.o(.text)
+    GPIO2_15_Handler                         0x1000026d   Thumb Code     0  startup_ARMCM33.o(.text)
+    GPIO2_1_Handler                          0x1000026d   Thumb Code     0  startup_ARMCM33.o(.text)
+    GPIO2_2_Handler                          0x1000026d   Thumb Code     0  startup_ARMCM33.o(.text)
+    GPIO2_3_Handler                          0x1000026d   Thumb Code     0  startup_ARMCM33.o(.text)
+    GPIO2_4_Handler                          0x1000026d   Thumb Code     0  startup_ARMCM33.o(.text)
+    GPIO2_5_Handler                          0x1000026d   Thumb Code     0  startup_ARMCM33.o(.text)
+    GPIO2_6_Handler                          0x1000026d   Thumb Code     0  startup_ARMCM33.o(.text)
+    GPIO2_7_Handler                          0x1000026d   Thumb Code     0  startup_ARMCM33.o(.text)
+    GPIO2_8_Handler                          0x1000026d   Thumb Code     0  startup_ARMCM33.o(.text)
+    GPIO2_9_Handler                          0x1000026d   Thumb Code     0  startup_ARMCM33.o(.text)
+    GPIO2_Handler                            0x1000026d   Thumb Code     0  startup_ARMCM33.o(.text)
+    GPIO3_0_Handler                          0x1000026d   Thumb Code     0  startup_ARMCM33.o(.text)
+    GPIO3_1_Handler                          0x1000026d   Thumb Code     0  startup_ARMCM33.o(.text)
+    GPIO3_2_Handler                          0x1000026d   Thumb Code     0  startup_ARMCM33.o(.text)
+    GPIO3_3_Handler                          0x1000026d   Thumb Code     0  startup_ARMCM33.o(.text)
+    GPIO3_Handler                            0x1000026d   Thumb Code     0  startup_ARMCM33.o(.text)
+    I2S0_Handler                             0x1000026d   Thumb Code     0  startup_ARMCM33.o(.text)
+    I2S1_Handler                             0x1000026d   Thumb Code     0  startup_ARMCM33.o(.text)
+    MPC_Handler                              0x1000026d   Thumb Code     0  startup_ARMCM33.o(.text)
+    MSC_Handler                              0x1000026d   Thumb Code     0  startup_ARMCM33.o(.text)
+    NONSEC_WATCHDOG_Handler                  0x1000026d   Thumb Code     0  startup_ARMCM33.o(.text)
+    NONSEC_WATCHDOG_RESET_Handler            0x1000026d   Thumb Code     0  startup_ARMCM33.o(.text)
+    PPC_Handler                              0x1000026d   Thumb Code     0  startup_ARMCM33.o(.text)
+    S32K_TIMER_Handler                       0x1000026d   Thumb Code     0  startup_ARMCM33.o(.text)
+    SPI0_Handler                             0x1000026d   Thumb Code     0  startup_ARMCM33.o(.text)
+    SPI1_Handler                             0x1000026d   Thumb Code     0  startup_ARMCM33.o(.text)
+    SPI2_Handler                             0x1000026d   Thumb Code     0  startup_ARMCM33.o(.text)
+    TIMER0_Handler                           0x1000026d   Thumb Code     0  startup_ARMCM33.o(.text)
+    TIMER1_Handler                           0x1000026d   Thumb Code     0  startup_ARMCM33.o(.text)
+    TSC_Handler                              0x1000026d   Thumb Code     0  startup_ARMCM33.o(.text)
+    UART0RX_Handler                          0x1000026d   Thumb Code     0  startup_ARMCM33.o(.text)
+    UART0TX_Handler                          0x1000026d   Thumb Code     0  startup_ARMCM33.o(.text)
+    UART0_Handler                            0x1000026d   Thumb Code     0  startup_ARMCM33.o(.text)
+    UART1RX_Handler                          0x1000026d   Thumb Code     0  startup_ARMCM33.o(.text)
+    UART1TX_Handler                          0x1000026d   Thumb Code     0  startup_ARMCM33.o(.text)
+    UART1_Handler                            0x1000026d   Thumb Code     0  startup_ARMCM33.o(.text)
+    UART2RX_Handler                          0x1000026d   Thumb Code     0  startup_ARMCM33.o(.text)
+    UART2TX_Handler                          0x1000026d   Thumb Code     0  startup_ARMCM33.o(.text)
+    UART2_Handler                            0x1000026d   Thumb Code     0  startup_ARMCM33.o(.text)
+    UART3RX_Handler                          0x1000026d   Thumb Code     0  startup_ARMCM33.o(.text)
+    UART3TX_Handler                          0x1000026d   Thumb Code     0  startup_ARMCM33.o(.text)
+    UART3_Handler                            0x1000026d   Thumb Code     0  startup_ARMCM33.o(.text)
+    UART4RX_Handler                          0x1000026d   Thumb Code     0  startup_ARMCM33.o(.text)
+    UART4TX_Handler                          0x1000026d   Thumb Code     0  startup_ARMCM33.o(.text)
+    UART4_Handler                            0x1000026d   Thumb Code     0  startup_ARMCM33.o(.text)
+    UART5RX_Handler                          0x1000026d   Thumb Code     0  startup_ARMCM33.o(.text)
+    UART5TX_Handler                          0x1000026d   Thumb Code     0  startup_ARMCM33.o(.text)
+    UART5_Handler                            0x1000026d   Thumb Code     0  startup_ARMCM33.o(.text)
+    UARTOVF_Handler                          0x1000026d   Thumb Code     0  startup_ARMCM33.o(.text)
+    USB_Handler                              0x1000026d   Thumb Code     0  startup_ARMCM33.o(.text)
+    HardFault_Handler                        0x10000279   Thumb Code    58  fault-mdk.o(.text)
+    __aeabi_uldivmod                         0x100002bd   Thumb Code    98  uldiv.o(.text)
+    __aeabi_memset                           0x1000031f   Thumb Code    14  memseta.o(.text)
+    __aeabi_memset4                          0x1000031f   Thumb Code     0  memseta.o(.text)
+    __aeabi_memset8                          0x1000031f   Thumb Code     0  memseta.o(.text)
+    __aeabi_memclr                           0x1000032d   Thumb Code     4  memseta.o(.text)
+    __aeabi_memclr4                          0x1000032d   Thumb Code     0  memseta.o(.text)
+    __aeabi_memclr8                          0x1000032d   Thumb Code     0  memseta.o(.text)
+    _memset$wrapper                          0x10000331   Thumb Code    18  memseta.o(.text)
+    __aeabi_dadd                             0x10000343   Thumb Code   322  dadd.o(.text)
+    __aeabi_dsub                             0x10000485   Thumb Code     6  dadd.o(.text)
+    __aeabi_drsub                            0x1000048b   Thumb Code     6  dadd.o(.text)
+    __aeabi_dmul                             0x10000491   Thumb Code   228  dmul.o(.text)
+    __aeabi_ddiv                             0x10000575   Thumb Code   222  ddiv.o(.text)
+    __aeabi_dcmple                           0x10000653   Thumb Code    54  dcmple.o(.text)
+    __aeabi_dcmplt                           0x10000689   Thumb Code    54  dcmplt.o(.text)
+    __aeabi_dcmpge                           0x100006bf   Thumb Code    54  dcmpge.o(.text)
+    __aeabi_dcmpgt                           0x100006f5   Thumb Code    54  dcmpgt.o(.text)
+    __aeabi_dcmpeq                           0x1000072b   Thumb Code    56  dcmpeq.o(.text)
+    __aeabi_i2d                              0x10000763   Thumb Code    34  dflti.o(.text)
+    __aeabi_ui2d                             0x10000785   Thumb Code    26  dfltui.o(.text)
+    __aeabi_d2iz                             0x1000079f   Thumb Code    62  dfixi.o(.text)
+    __aeabi_d2uiz                            0x100007dd   Thumb Code    50  dfixui.o(.text)
+    __aeabi_llsl                             0x1000080f   Thumb Code    30  llshl.o(.text)
+    _ll_shift_l                              0x1000080f   Thumb Code     0  llshl.o(.text)
+    __aeabi_llsr                             0x1000082d   Thumb Code    32  llushr.o(.text)
+    _ll_ushift_r                             0x1000082d   Thumb Code     0  llushr.o(.text)
+    __aeabi_lasr                             0x1000084d   Thumb Code    36  llsshr.o(.text)
+    _ll_sshift_r                             0x1000084d   Thumb Code     0  llsshr.o(.text)
+    __I$use$fp                               0x10000871   Thumb Code     0  iusefp.o(.text)
+    _double_round                            0x10000871   Thumb Code    30  depilogue.o(.text)
+    _double_epilogue                         0x1000088f   Thumb Code   156  depilogue.o(.text)
+    __scatterload                            0x1000092d   Thumb Code    38  init.o(.text)
+    __scatterload_rt2                        0x1000092d   Thumb Code     0  init.o(.text)
+    SystemInit                               0x1000095d   Thumb Code    54  system_ARMCM33.o(.text.SystemInit)
+    dump_callstack                           0x100025b1   Thumb Code   146  main.o(.text.dump_callstack)
+    fault_dump_bm_stack_point                0x10002665   Thumb Code    14  fault-dump.o(.text.fault_dump_bm_stack_point)
+    fault_dump_bm_stack_start                0x10002675   Thumb Code    20  fault-dump.o(.text.fault_dump_bm_stack_start)
+    fault_dump_callstack                     0x10002689   Thumb Code   264  fault-dump.o(.text.fault_dump_callstack)
+    fault_dump_exc_return                    0x10002791   Thumb Code   344  fault-hal.o(.text.fault_dump_exc_return)
+    fault_dump_handler                       0x100028e9   Thumb Code   638  fault-dump.o(.text.fault_dump_handler)
+    fault_dump_init                          0x10002b69   Thumb Code    98  fault-dump.o(.text.fault_dump_init)
+    fault_unalign_trigger                    0x10002c05   Thumb Code    96  main.o(.text.fault_unalign_trigger)
+    main                                     0x10002c65   Thumb Code    58  main.o(.text.main)
+    printf                                   0x10002d0d   Thumb Code    60  printf.o(.text.printf)
+    put_char                                 0x10002d49   Thumb Code    40  uart.o(.text.put_char)
+    test0                                    0x10002d71   Thumb Code    32  main.o(.text.test0)
+    test1                                    0x10002d91   Thumb Code    28  main.o(.text.test1)
+    test2                                    0x10002dad   Thumb Code    28  main.o(.text.test2)
+    test3                                    0x10002dc9   Thumb Code    28  main.o(.text.test3)
+    test4                                    0x10002de5   Thumb Code    28  main.o(.text.test4)
+    test5                                    0x10002e01   Thumb Code    28  main.o(.text.test5)
+    uart_init                                0x10002e1d   Thumb Code    64  uart.o(.text.uart_init)
+    __scatterload_copy                       0x10002e5d   Thumb Code    14  handlers.o(i.__scatterload_copy)
+    __scatterload_null                       0x10002e6b   Thumb Code     2  handlers.o(i.__scatterload_null)
+    __scatterload_zeroinit                   0x10002e6d   Thumb Code    14  handlers.o(i.__scatterload_zeroinit)
+    Region$$Table$$Base                      0x10003398   Number         0  anon$$obj.o(Region$$Table)
+    Region$$Table$$Limit                     0x100033b8   Number         0  anon$$obj.o(Region$$Table)
+    SystemCoreClock                          0x38000000   Data           4  system_ARMCM33.o(.data.SystemCoreClock)
+    fd_main_stack_base                       0x38000148   Data           4  fault-dump.o(.bss.fd_main_stack_base)
+    fd_main_stack_full                       0x3800014c   Data           4  fault-dump.o(.bss.fd_main_stack_full)
+    STACK$$Base                              0x38000150   Number         0  startup_ARMCM33.o(STACK)
+    __initial_sp                             0x38000550   Data           0  startup_ARMCM33.o(STACK)
+    Image$$ARM_LIB_STACK$$ZI$$Limit          0x38100000   Number         0  anon$$obj.o ABSOLUTE
 
 
 
@@ -535,129 +535,129 @@ Image Symbol Table
 
 Memory Map of the image
 
-  Image Entry point : 0x0000023d
+  Image Entry point : 0x1000023d
 
-  Load Region LR_ROM (Base: 0x00000000, Size: 0x000033c0, Max: 0x00080000, ABSOLUTE)
+  Load Region LR_ROM (Base: 0x10000000, Size: 0x000033c0, Max: 0x00100000, ABSOLUTE)
 
-    Execution Region ER_IROM1 (Base: 0x00000000, Size: 0x000033b8, Max: 0x00080000, ABSOLUTE)
-
-    Base Addr    Size         Type   Attr      Idx    E Section Name        Object
-
-    0x00000000   0x0000023c   Data   RO          155    RESET               startup_ARMCM33.o
-    0x0000023c   0x00000000   Code   RO          166  * .ARM.Collect$$$$00000000  mc_w.l(entry.o)
-    0x0000023c   0x00000004   Code   RO          200    .ARM.Collect$$$$00000003  mc_w.l(entry4.o)
-    0x00000240   0x00000004   Code   RO          203    .ARM.Collect$$$$00000004  mc_w.l(entry5.o)
-    0x00000244   0x00000000   Code   RO          205    .ARM.Collect$$$$00000008  mc_w.l(entry7b.o)
-    0x00000244   0x00000000   Code   RO          207    .ARM.Collect$$$$0000000A  mc_w.l(entry8b.o)
-    0x00000244   0x00000008   Code   RO          208    .ARM.Collect$$$$0000000B  mc_w.l(entry9a.o)
-    0x0000024c   0x00000000   Code   RO          210    .ARM.Collect$$$$0000000D  mc_w.l(entry10a.o)
-    0x0000024c   0x00000000   Code   RO          212    .ARM.Collect$$$$0000000F  mc_w.l(entry11a.o)
-    0x0000024c   0x00000004   Code   RO          201    .ARM.Collect$$$$00002714  mc_w.l(entry4.o)
-    0x00000250   0x00000028   Code   RO          156    .text               startup_ARMCM33.o
-    0x00000278   0x00000044   Code   RO          162    .text               fault-mdk.o
-    0x000002bc   0x00000062   Code   RO          172    .text               mc_w.l(uldiv.o)
-    0x0000031e   0x00000024   Code   RO          174    .text               mc_w.l(memseta.o)
-    0x00000342   0x0000014e   Code   RO          176    .text               mf_w.l(dadd.o)
-    0x00000490   0x000000e4   Code   RO          178    .text               mf_w.l(dmul.o)
-    0x00000574   0x000000de   Code   RO          180    .text               mf_w.l(ddiv.o)
-    0x00000652   0x00000036   Code   RO          182    .text               mf_w.l(dcmple.o)
-    0x00000688   0x00000036   Code   RO          184    .text               mf_w.l(dcmplt.o)
-    0x000006be   0x00000036   Code   RO          186    .text               mf_w.l(dcmpge.o)
-    0x000006f4   0x00000036   Code   RO          188    .text               mf_w.l(dcmpgt.o)
-    0x0000072a   0x00000038   Code   RO          190    .text               mf_w.l(dcmpeq.o)
-    0x00000762   0x00000022   Code   RO          192    .text               mf_w.l(dflti.o)
-    0x00000784   0x0000001a   Code   RO          194    .text               mf_w.l(dfltui.o)
-    0x0000079e   0x0000003e   Code   RO          196    .text               mf_w.l(dfixi.o)
-    0x000007dc   0x00000032   Code   RO          198    .text               mf_w.l(dfixui.o)
-    0x0000080e   0x0000001e   Code   RO          227    .text               mc_w.l(llshl.o)
-    0x0000082c   0x00000020   Code   RO          229    .text               mc_w.l(llushr.o)
-    0x0000084c   0x00000024   Code   RO          231    .text               mc_w.l(llsshr.o)
-    0x00000870   0x00000000   Code   RO          233    .text               mc_w.l(iusefp.o)
-    0x00000870   0x000000ba   Code   RO          234    .text               mf_w.l(depilogue.o)
-    0x0000092a   0x00000002   PAD
-    0x0000092c   0x00000030   Code   RO          236    .text               mc_w.l(init.o)
-    0x0000095c   0x00000036   Code   RO           39    .text.SystemInit    system_ARMCM33.o
-    0x00000992   0x00000002   PAD
-    0x00000994   0x0000003a   Code   RO           73    .text._atoi         printf.o
-    0x000009ce   0x00000002   PAD
-    0x000009d0   0x00000640   Code   RO           81    .text._etoa         printf.o
-    0x00001010   0x00000580   Code   RO           79    .text._ftoa         printf.o
-    0x00001590   0x0000002e   Code   RO           71    .text._is_digit     printf.o
-    0x000015be   0x00000002   PAD
-    0x000015c0   0x0000023c   Code   RO           85    .text._ntoa_format  printf.o
-    0x000017fc   0x00000114   Code   RO           77    .text._ntoa_long    printf.o
-    0x00001910   0x00000138   Code   RO           75    .text._ntoa_long_long  printf.o
-    0x00001a48   0x00000024   Code   RO           53    .text._out_char     printf.o
-    0x00001a6c   0x00000010   Code   RO           69    .text._out_null     printf.o
-    0x00001a7c   0x000000c0   Code   RO           87    .text._out_rev      printf.o
-    0x00001b3c   0x00000044   Code   RO           83    .text._strnlen_s    printf.o
-    0x00001b80   0x00000a30   Code   RO           51    .text._vsnprintf    printf.o
-    0x000025b0   0x00000092   Code   RO           12    .text.dump_callstack  main.o
-    0x00002642   0x00000002   PAD
-    0x00002644   0x0000001e   Code   RO          121    .text.dump_exc_return  fault-dump.o
-    0x00002662   0x00000002   PAD
-    0x00002664   0x0000000e   Code   RO          129    .text.fault_dump_bm_stack_point  fault-dump.o
-    0x00002672   0x00000002   PAD
-    0x00002674   0x00000014   Code   RO          131    .text.fault_dump_bm_stack_start  fault-dump.o
-    0x00002688   0x00000108   Code   RO          123    .text.fault_dump_callstack  fault-dump.o
-    0x00002790   0x00000158   Code   RO          145    .text.fault_dump_exc_return  fault-hal.o
-    0x000028e8   0x0000027e   Code   RO          119    .text.fault_dump_handler  fault-dump.o
-    0x00002b66   0x00000002   PAD
-    0x00002b68   0x00000062   Code   RO          117    .text.fault_dump_init  fault-dump.o
-    0x00002bca   0x00000002   PAD
-    0x00002bcc   0x00000038   Code   RO          125    .text.fault_dump_opcode  fault-dump.o
-    0x00002c04   0x00000060   Code   RO           10    .text.fault_unalign_trigger  main.o
-    0x00002c64   0x0000003a   Code   RO           26    .text.main          main.o
-    0x00002c9e   0x00000002   PAD
-    0x00002ca0   0x0000006a   Code   RO          127    .text.opcode_is_bl_or_blx  fault-dump.o
-    0x00002d0a   0x00000002   PAD
-    0x00002d0c   0x0000003c   Code   RO           49    .text.printf        printf.o
-    0x00002d48   0x00000028   Code   RO           98    .text.put_char      uart.o
-    0x00002d70   0x00000020   Code   RO           14    .text.test0         main.o
-    0x00002d90   0x0000001c   Code   RO           16    .text.test1         main.o
-    0x00002dac   0x0000001c   Code   RO           18    .text.test2         main.o
-    0x00002dc8   0x0000001c   Code   RO           20    .text.test3         main.o
-    0x00002de4   0x0000001c   Code   RO           22    .text.test4         main.o
-    0x00002e00   0x0000001c   Code   RO           24    .text.test5         main.o
-    0x00002e1c   0x00000040   Code   RO          104    .text.uart_init     uart.o
-    0x00002e5c   0x0000000e   Code   RO          242    i.__scatterload_copy  mc_w.l(handlers.o)
-    0x00002e6a   0x00000002   Code   RO          243    i.__scatterload_null  mc_w.l(handlers.o)
-    0x00002e6c   0x0000000e   Code   RO          244    i.__scatterload_zeroinit  mc_w.l(handlers.o)
-    0x00002e7a   0x00000006   PAD
-    0x00002e80   0x00000050   Data   RO           89    .rodata._ftoa.pow10  printf.o
-    0x00002ed0   0x000000d3   Data   RO           28    .rodata.str1.1      main.o
-    0x00002fa3   0x00000012   Data   RO           90    .rodata.str1.1      printf.o
-    0x00002fb5   0x000001de   Data   RO          135    .rodata.str1.1      fault-dump.o
-    0x00003193   0x00000204   Data   RO          147    .rodata.str1.1      fault-hal.o
-    0x00003397   0x00000001   PAD
-    0x00003398   0x00000020   Data   RO          241    Region$$Table       anon$$obj.o
-
-
-    Execution Region RW_RAM (Base: 0x20000000, Size: 0x00000550, Max: 0x0003f200, ABSOLUTE)
+    Execution Region ER_IROM1 (Base: 0x10000000, Size: 0x000033b8, Max: 0x00100000, ABSOLUTE)
 
     Base Addr    Size         Type   Attr      Idx    E Section Name        Object
 
-    0x20000000   0x00000004   Data   RW           41    .data.SystemCoreClock  system_ARMCM33.o
-    0x20000004   0x00000004   PAD
-    0x20000008   0x00000100   Zero   RW          137    .bss.fault_dump_handler.buffer  fault-dump.o
-    0x20000108   0x00000040   Zero   RW          136    .bss.fault_dump_handler.frame  fault-dump.o
-    0x20000148   0x00000004   Zero   RW          133    .bss.fd_main_stack_base  fault-dump.o
-    0x2000014c   0x00000004   Zero   RW          134    .bss.fd_main_stack_full  fault-dump.o
-    0x20000150   0x00000400   Zero   RW          153    STACK               startup_ARMCM33.o
+    0x10000000   0x0000023c   Data   RO          155    RESET               startup_ARMCM33.o
+    0x1000023c   0x00000000   Code   RO          166  * .ARM.Collect$$$$00000000  mc_w.l(entry.o)
+    0x1000023c   0x00000004   Code   RO          200    .ARM.Collect$$$$00000003  mc_w.l(entry4.o)
+    0x10000240   0x00000004   Code   RO          203    .ARM.Collect$$$$00000004  mc_w.l(entry5.o)
+    0x10000244   0x00000000   Code   RO          205    .ARM.Collect$$$$00000008  mc_w.l(entry7b.o)
+    0x10000244   0x00000000   Code   RO          207    .ARM.Collect$$$$0000000A  mc_w.l(entry8b.o)
+    0x10000244   0x00000008   Code   RO          208    .ARM.Collect$$$$0000000B  mc_w.l(entry9a.o)
+    0x1000024c   0x00000000   Code   RO          210    .ARM.Collect$$$$0000000D  mc_w.l(entry10a.o)
+    0x1000024c   0x00000000   Code   RO          212    .ARM.Collect$$$$0000000F  mc_w.l(entry11a.o)
+    0x1000024c   0x00000004   Code   RO          201    .ARM.Collect$$$$00002714  mc_w.l(entry4.o)
+    0x10000250   0x00000028   Code   RO          156    .text               startup_ARMCM33.o
+    0x10000278   0x00000044   Code   RO          162    .text               fault-mdk.o
+    0x100002bc   0x00000062   Code   RO          172    .text               mc_w.l(uldiv.o)
+    0x1000031e   0x00000024   Code   RO          174    .text               mc_w.l(memseta.o)
+    0x10000342   0x0000014e   Code   RO          176    .text               mf_w.l(dadd.o)
+    0x10000490   0x000000e4   Code   RO          178    .text               mf_w.l(dmul.o)
+    0x10000574   0x000000de   Code   RO          180    .text               mf_w.l(ddiv.o)
+    0x10000652   0x00000036   Code   RO          182    .text               mf_w.l(dcmple.o)
+    0x10000688   0x00000036   Code   RO          184    .text               mf_w.l(dcmplt.o)
+    0x100006be   0x00000036   Code   RO          186    .text               mf_w.l(dcmpge.o)
+    0x100006f4   0x00000036   Code   RO          188    .text               mf_w.l(dcmpgt.o)
+    0x1000072a   0x00000038   Code   RO          190    .text               mf_w.l(dcmpeq.o)
+    0x10000762   0x00000022   Code   RO          192    .text               mf_w.l(dflti.o)
+    0x10000784   0x0000001a   Code   RO          194    .text               mf_w.l(dfltui.o)
+    0x1000079e   0x0000003e   Code   RO          196    .text               mf_w.l(dfixi.o)
+    0x100007dc   0x00000032   Code   RO          198    .text               mf_w.l(dfixui.o)
+    0x1000080e   0x0000001e   Code   RO          227    .text               mc_w.l(llshl.o)
+    0x1000082c   0x00000020   Code   RO          229    .text               mc_w.l(llushr.o)
+    0x1000084c   0x00000024   Code   RO          231    .text               mc_w.l(llsshr.o)
+    0x10000870   0x00000000   Code   RO          233    .text               mc_w.l(iusefp.o)
+    0x10000870   0x000000ba   Code   RO          234    .text               mf_w.l(depilogue.o)
+    0x1000092a   0x00000002   PAD
+    0x1000092c   0x00000030   Code   RO          236    .text               mc_w.l(init.o)
+    0x1000095c   0x00000036   Code   RO           39    .text.SystemInit    system_ARMCM33.o
+    0x10000992   0x00000002   PAD
+    0x10000994   0x0000003a   Code   RO           73    .text._atoi         printf.o
+    0x100009ce   0x00000002   PAD
+    0x100009d0   0x00000640   Code   RO           81    .text._etoa         printf.o
+    0x10001010   0x00000580   Code   RO           79    .text._ftoa         printf.o
+    0x10001590   0x0000002e   Code   RO           71    .text._is_digit     printf.o
+    0x100015be   0x00000002   PAD
+    0x100015c0   0x0000023c   Code   RO           85    .text._ntoa_format  printf.o
+    0x100017fc   0x00000114   Code   RO           77    .text._ntoa_long    printf.o
+    0x10001910   0x00000138   Code   RO           75    .text._ntoa_long_long  printf.o
+    0x10001a48   0x00000024   Code   RO           53    .text._out_char     printf.o
+    0x10001a6c   0x00000010   Code   RO           69    .text._out_null     printf.o
+    0x10001a7c   0x000000c0   Code   RO           87    .text._out_rev      printf.o
+    0x10001b3c   0x00000044   Code   RO           83    .text._strnlen_s    printf.o
+    0x10001b80   0x00000a30   Code   RO           51    .text._vsnprintf    printf.o
+    0x100025b0   0x00000092   Code   RO           12    .text.dump_callstack  main.o
+    0x10002642   0x00000002   PAD
+    0x10002644   0x0000001e   Code   RO          121    .text.dump_exc_return  fault-dump.o
+    0x10002662   0x00000002   PAD
+    0x10002664   0x0000000e   Code   RO          129    .text.fault_dump_bm_stack_point  fault-dump.o
+    0x10002672   0x00000002   PAD
+    0x10002674   0x00000014   Code   RO          131    .text.fault_dump_bm_stack_start  fault-dump.o
+    0x10002688   0x00000108   Code   RO          123    .text.fault_dump_callstack  fault-dump.o
+    0x10002790   0x00000158   Code   RO          145    .text.fault_dump_exc_return  fault-hal.o
+    0x100028e8   0x0000027e   Code   RO          119    .text.fault_dump_handler  fault-dump.o
+    0x10002b66   0x00000002   PAD
+    0x10002b68   0x00000062   Code   RO          117    .text.fault_dump_init  fault-dump.o
+    0x10002bca   0x00000002   PAD
+    0x10002bcc   0x00000038   Code   RO          125    .text.fault_dump_opcode  fault-dump.o
+    0x10002c04   0x00000060   Code   RO           10    .text.fault_unalign_trigger  main.o
+    0x10002c64   0x0000003a   Code   RO           26    .text.main          main.o
+    0x10002c9e   0x00000002   PAD
+    0x10002ca0   0x0000006a   Code   RO          127    .text.opcode_is_bl_or_blx  fault-dump.o
+    0x10002d0a   0x00000002   PAD
+    0x10002d0c   0x0000003c   Code   RO           49    .text.printf        printf.o
+    0x10002d48   0x00000028   Code   RO           98    .text.put_char      uart.o
+    0x10002d70   0x00000020   Code   RO           14    .text.test0         main.o
+    0x10002d90   0x0000001c   Code   RO           16    .text.test1         main.o
+    0x10002dac   0x0000001c   Code   RO           18    .text.test2         main.o
+    0x10002dc8   0x0000001c   Code   RO           20    .text.test3         main.o
+    0x10002de4   0x0000001c   Code   RO           22    .text.test4         main.o
+    0x10002e00   0x0000001c   Code   RO           24    .text.test5         main.o
+    0x10002e1c   0x00000040   Code   RO          104    .text.uart_init     uart.o
+    0x10002e5c   0x0000000e   Code   RO          242    i.__scatterload_copy  mc_w.l(handlers.o)
+    0x10002e6a   0x00000002   Code   RO          243    i.__scatterload_null  mc_w.l(handlers.o)
+    0x10002e6c   0x0000000e   Code   RO          244    i.__scatterload_zeroinit  mc_w.l(handlers.o)
+    0x10002e7a   0x00000006   PAD
+    0x10002e80   0x00000050   Data   RO           89    .rodata._ftoa.pow10  printf.o
+    0x10002ed0   0x000000d3   Data   RO           28    .rodata.str1.1      main.o
+    0x10002fa3   0x00000012   Data   RO           90    .rodata.str1.1      printf.o
+    0x10002fb5   0x000001de   Data   RO          135    .rodata.str1.1      fault-dump.o
+    0x10003193   0x00000204   Data   RO          147    .rodata.str1.1      fault-hal.o
+    0x10003397   0x00000001   PAD
+    0x10003398   0x00000020   Data   RO          241    Region$$Table       anon$$obj.o
 
 
-    Execution Region ARM_LIB_HEAP (Base: 0x20000550, Size: 0x00000c00, Max: 0x00000c00, ABSOLUTE)
+    Execution Region RW_RAM (Base: 0x38000000, Size: 0x00000550, Max: 0x000fe000, ABSOLUTE)
 
     Base Addr    Size         Type   Attr      Idx    E Section Name        Object
 
-    0x20000550   0x00000c00   Zero   RW            1    ARM_LIB_HEAP.bss    anon$$obj.o
+    0x38000000   0x00000004   Data   RW           41    .data.SystemCoreClock  system_ARMCM33.o
+    0x38000004   0x00000004   PAD
+    0x38000008   0x00000100   Zero   RW          137    .bss.fault_dump_handler.buffer  fault-dump.o
+    0x38000108   0x00000040   Zero   RW          136    .bss.fault_dump_handler.frame  fault-dump.o
+    0x38000148   0x00000004   Zero   RW          133    .bss.fd_main_stack_base  fault-dump.o
+    0x3800014c   0x00000004   Zero   RW          134    .bss.fd_main_stack_full  fault-dump.o
+    0x38000150   0x00000400   Zero   RW          153    STACK               startup_ARMCM33.o
 
 
-    Execution Region ARM_LIB_STACK (Base: 0x2003fe00, Size: 0x00000200, Max: 0x00000200, ABSOLUTE)
+    Execution Region ARM_LIB_HEAP (Base: 0x38000550, Size: 0x00001000, Max: 0x00001000, ABSOLUTE)
 
     Base Addr    Size         Type   Attr      Idx    E Section Name        Object
 
-    0x2003fe00   0x00000200   Zero   RW            2    ARM_LIB_STACK.bss   anon$$obj.o
+    0x38000550   0x00001000   Zero   RW            1    ARM_LIB_HEAP.bss    anon$$obj.o
+
+
+    Execution Region ARM_LIB_STACK (Base: 0x380ff000, Size: 0x00001000, Max: 0x00001000, ABSOLUTE)
+
+    Base Addr    Size         Type   Attr      Idx    E Section Name        Object
+
+    0x380ff000   0x00001000   Zero   RW            2    ARM_LIB_STACK.bss   anon$$obj.o
 
 
 ==============================================================================
@@ -677,8 +677,8 @@ Image component sizes
        104          0          0          0          0       1575   uart.o
 
     ----------------------------------------------------------------------
-      9580        426       1908          4       4940      24360   Object Totals
-         0          0         32          0       3584          0   (incl. Generated)
+      9580        426       1908          4       9548      24360   Object Totals
+         0          0         32          0       8192          0   (incl. Generated)
         20          0          1          0          4          0   (incl. Padding)
 
     ----------------------------------------------------------------------
@@ -736,14 +736,14 @@ Image component sizes
 
       Code (inc. data)   RO Data    RW Data    ZI Data      Debug   
 
-     11332        444       1908          4       4940      25180   Grand Totals
-     11332        444       1908          4       4940      25180   ELF Image Totals
+     11332        444       1908          4       9548      25180   Grand Totals
+     11332        444       1908          4       9548      25180   ELF Image Totals
      11332        444       1908          4          0          0   ROM Totals
 
 ==============================================================================
 
     Total RO  Size (Code + RO Data)                13240 (  12.93kB)
-    Total RW  Size (RW Data + ZI Data)              4944 (   4.83kB)
+    Total RW  Size (RW Data + ZI Data)              9552 (   9.33kB)
     Total ROM Size (Code + RO Data + RW Data)      13244 (  12.93kB)
 
 ==============================================================================
