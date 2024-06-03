@@ -82,9 +82,9 @@ Removing Unused input sections from the image.
     Removing fault-dump.o(.ARM.exidx.text.fault_dump_bm_stack_start), (8 bytes).
     Removing fault-hal.o(.text), (0 bytes).
     Removing fault-hal.o(.ARM.exidx.text.fault_dump_exc_return), (8 bytes).
-    Removing startup_ARMCM33.o(HEAP), (3072 bytes).
+    Removing startup_ARMCM33.o(HEAP), (4096 bytes).
 
-72 unused section(s) (total 4118 bytes) removed from the image.
+72 unused section(s) (total 5142 bytes) removed from the image.
 
 ==============================================================================
 
@@ -110,7 +110,7 @@ Image Symbol Table
     ../../../libutils/fault-dump/cpu/cortex-m33/fault-mdk.s 0x00000000   Number         0  fault-mdk.o ABSOLUTE
     ../clib/microlib/division.c              0x00000000   Number         0  uldiv.o ABSOLUTE
     ../clib/microlib/init/entry.s            0x00000000   Number         0  entry.o ABSOLUTE
-    ../clib/microlib/init/entry.s            0x00000000   Number         0  entry4.o ABSOLUTE
+    ../clib/microlib/init/entry.s            0x00000000   Number         0  entry2.o ABSOLUTE
     ../clib/microlib/init/entry.s            0x00000000   Number         0  entry5.o ABSOLUTE
     ../clib/microlib/init/entry.s            0x00000000   Number         0  entry7a.o ABSOLUTE
     ../clib/microlib/init/entry.s            0x00000000   Number         0  entry7b.o ABSOLUTE
@@ -161,15 +161,15 @@ Image Symbol Table
     uart.c                                   0x00000000   Number         0  uart.o ABSOLUTE
     RESET                                    0x10000000   Section      572  startup_ARMCM33.o(RESET)
     .ARM.Collect$$$$00000000                 0x1000023c   Section        0  entry.o(.ARM.Collect$$$$00000000)
-    .ARM.Collect$$$$00000003                 0x1000023c   Section        4  entry4.o(.ARM.Collect$$$$00000003)
+    .ARM.Collect$$$$00000001                 0x1000023c   Section        4  entry2.o(.ARM.Collect$$$$00000001)
     .ARM.Collect$$$$00000004                 0x10000240   Section        4  entry5.o(.ARM.Collect$$$$00000004)
     .ARM.Collect$$$$00000008                 0x10000244   Section        0  entry7b.o(.ARM.Collect$$$$00000008)
     .ARM.Collect$$$$0000000A                 0x10000244   Section        0  entry8b.o(.ARM.Collect$$$$0000000A)
     .ARM.Collect$$$$0000000B                 0x10000244   Section        8  entry9a.o(.ARM.Collect$$$$0000000B)
-    __lit__00000000                          0x1000024c   Data           4  entry4.o(.ARM.Collect$$$$00002714)
+    __lit__00000000                          0x1000024c   Data           4  entry2.o(.ARM.Collect$$$$00002712)
     .ARM.Collect$$$$0000000D                 0x1000024c   Section        0  entry10a.o(.ARM.Collect$$$$0000000D)
     .ARM.Collect$$$$0000000F                 0x1000024c   Section        0  entry11a.o(.ARM.Collect$$$$0000000F)
-    .ARM.Collect$$$$00002714                 0x1000024c   Section        4  entry4.o(.ARM.Collect$$$$00002714)
+    .ARM.Collect$$$$00002712                 0x1000024c   Section        4  entry2.o(.ARM.Collect$$$$00002712)
     $v0                                      0x10000250   Number         0  startup_ARMCM33.o(.text)
     .text                                    0x10000250   Section       40  startup_ARMCM33.o(.text)
     $v0                                      0x10000278   Number         0  fault-mdk.o(.text)
@@ -322,7 +322,7 @@ Image Symbol Table
     [Anonymous Symbol]                       0x38000008   Section        0  fault-dump.o(.bss.fault_dump_handler.buffer)
     fault_dump_handler.frame                 0x38000108   Data          64  fault-dump.o(.bss.fault_dump_handler.frame)
     [Anonymous Symbol]                       0x38000108   Section        0  fault-dump.o(.bss.fault_dump_handler.frame)
-    STACK                                    0x38000150   Section     1024  startup_ARMCM33.o(STACK)
+    STACK                                    0x38000150   Section     4096  startup_ARMCM33.o(STACK)
 
     Global Symbols
 
@@ -335,13 +335,13 @@ Image Symbol Table
     _clock_init                               - Undefined Weak Reference
     _microlib_exit                            - Undefined Weak Reference
     __Vectors_Size                           0x0000023c   Number         0  startup_ARMCM33.o ABSOLUTE
-    STACK$$Length                            0x00000400   Number         0  anon$$obj.o ABSOLUTE
+    STACK$$Length                            0x00001000   Number         0  anon$$obj.o ABSOLUTE
     Image$$ER_IROM1$$Length                  0x000033b8   Number         0  anon$$obj.o ABSOLUTE
     Image$$ER_IROM1$$Base                    0x10000000   Number         0  anon$$obj.o ABSOLUTE
     __Vectors                                0x10000000   Data           4  startup_ARMCM33.o(RESET)
     __Vectors_End                            0x1000023c   Data           0  startup_ARMCM33.o(RESET)
     __main                                   0x1000023d   Thumb Code     0  entry.o(.ARM.Collect$$$$00000000)
-    _main_stk                                0x1000023d   Thumb Code     0  entry4.o(.ARM.Collect$$$$00000003)
+    _main_stk                                0x1000023d   Thumb Code     0  entry2.o(.ARM.Collect$$$$00000001)
     _main_scatterload                        0x10000241   Thumb Code     0  entry5.o(.ARM.Collect$$$$00000004)
     __main_after_scatterload                 0x10000245   Thumb Code     0  entry5.o(.ARM.Collect$$$$00000004)
     _main_clock                              0x10000245   Thumb Code     0  entry7b.o(.ARM.Collect$$$$00000008)
@@ -526,8 +526,7 @@ Image Symbol Table
     fd_main_stack_base                       0x38000148   Data           4  fault-dump.o(.bss.fd_main_stack_base)
     fd_main_stack_full                       0x3800014c   Data           4  fault-dump.o(.bss.fd_main_stack_full)
     STACK$$Base                              0x38000150   Number         0  startup_ARMCM33.o(STACK)
-    __initial_sp                             0x38000550   Data           0  startup_ARMCM33.o(STACK)
-    Image$$ARM_LIB_STACK$$ZI$$Limit          0x38100000   Number         0  anon$$obj.o ABSOLUTE
+    __initial_sp                             0x38001150   Data           0  startup_ARMCM33.o(STACK)
 
 
 
@@ -543,121 +542,107 @@ Memory Map of the image
 
     Base Addr    Size         Type   Attr      Idx    E Section Name        Object
 
-    0x10000000   0x0000023c   Data   RO          155    RESET               startup_ARMCM33.o
-    0x1000023c   0x00000000   Code   RO          166  * .ARM.Collect$$$$00000000  mc_w.l(entry.o)
-    0x1000023c   0x00000004   Code   RO          200    .ARM.Collect$$$$00000003  mc_w.l(entry4.o)
-    0x10000240   0x00000004   Code   RO          203    .ARM.Collect$$$$00000004  mc_w.l(entry5.o)
-    0x10000244   0x00000000   Code   RO          205    .ARM.Collect$$$$00000008  mc_w.l(entry7b.o)
-    0x10000244   0x00000000   Code   RO          207    .ARM.Collect$$$$0000000A  mc_w.l(entry8b.o)
-    0x10000244   0x00000008   Code   RO          208    .ARM.Collect$$$$0000000B  mc_w.l(entry9a.o)
-    0x1000024c   0x00000000   Code   RO          210    .ARM.Collect$$$$0000000D  mc_w.l(entry10a.o)
-    0x1000024c   0x00000000   Code   RO          212    .ARM.Collect$$$$0000000F  mc_w.l(entry11a.o)
-    0x1000024c   0x00000004   Code   RO          201    .ARM.Collect$$$$00002714  mc_w.l(entry4.o)
-    0x10000250   0x00000028   Code   RO          156    .text               startup_ARMCM33.o
-    0x10000278   0x00000044   Code   RO          162    .text               fault-mdk.o
-    0x100002bc   0x00000062   Code   RO          172    .text               mc_w.l(uldiv.o)
-    0x1000031e   0x00000024   Code   RO          174    .text               mc_w.l(memseta.o)
-    0x10000342   0x0000014e   Code   RO          176    .text               mf_w.l(dadd.o)
-    0x10000490   0x000000e4   Code   RO          178    .text               mf_w.l(dmul.o)
-    0x10000574   0x000000de   Code   RO          180    .text               mf_w.l(ddiv.o)
-    0x10000652   0x00000036   Code   RO          182    .text               mf_w.l(dcmple.o)
-    0x10000688   0x00000036   Code   RO          184    .text               mf_w.l(dcmplt.o)
-    0x100006be   0x00000036   Code   RO          186    .text               mf_w.l(dcmpge.o)
-    0x100006f4   0x00000036   Code   RO          188    .text               mf_w.l(dcmpgt.o)
-    0x1000072a   0x00000038   Code   RO          190    .text               mf_w.l(dcmpeq.o)
-    0x10000762   0x00000022   Code   RO          192    .text               mf_w.l(dflti.o)
-    0x10000784   0x0000001a   Code   RO          194    .text               mf_w.l(dfltui.o)
-    0x1000079e   0x0000003e   Code   RO          196    .text               mf_w.l(dfixi.o)
-    0x100007dc   0x00000032   Code   RO          198    .text               mf_w.l(dfixui.o)
-    0x1000080e   0x0000001e   Code   RO          227    .text               mc_w.l(llshl.o)
-    0x1000082c   0x00000020   Code   RO          229    .text               mc_w.l(llushr.o)
-    0x1000084c   0x00000024   Code   RO          231    .text               mc_w.l(llsshr.o)
-    0x10000870   0x00000000   Code   RO          233    .text               mc_w.l(iusefp.o)
-    0x10000870   0x000000ba   Code   RO          234    .text               mf_w.l(depilogue.o)
+    0x10000000   0x0000023c   Data   RO          153    RESET               startup_ARMCM33.o
+    0x1000023c   0x00000000   Code   RO          164  * .ARM.Collect$$$$00000000  mc_w.l(entry.o)
+    0x1000023c   0x00000004   Code   RO          198    .ARM.Collect$$$$00000001  mc_w.l(entry2.o)
+    0x10000240   0x00000004   Code   RO          201    .ARM.Collect$$$$00000004  mc_w.l(entry5.o)
+    0x10000244   0x00000000   Code   RO          203    .ARM.Collect$$$$00000008  mc_w.l(entry7b.o)
+    0x10000244   0x00000000   Code   RO          205    .ARM.Collect$$$$0000000A  mc_w.l(entry8b.o)
+    0x10000244   0x00000008   Code   RO          206    .ARM.Collect$$$$0000000B  mc_w.l(entry9a.o)
+    0x1000024c   0x00000000   Code   RO          208    .ARM.Collect$$$$0000000D  mc_w.l(entry10a.o)
+    0x1000024c   0x00000000   Code   RO          210    .ARM.Collect$$$$0000000F  mc_w.l(entry11a.o)
+    0x1000024c   0x00000004   Code   RO          199    .ARM.Collect$$$$00002712  mc_w.l(entry2.o)
+    0x10000250   0x00000028   Code   RO          154    .text               startup_ARMCM33.o
+    0x10000278   0x00000044   Code   RO          160    .text               fault-mdk.o
+    0x100002bc   0x00000062   Code   RO          170    .text               mc_w.l(uldiv.o)
+    0x1000031e   0x00000024   Code   RO          172    .text               mc_w.l(memseta.o)
+    0x10000342   0x0000014e   Code   RO          174    .text               mf_w.l(dadd.o)
+    0x10000490   0x000000e4   Code   RO          176    .text               mf_w.l(dmul.o)
+    0x10000574   0x000000de   Code   RO          178    .text               mf_w.l(ddiv.o)
+    0x10000652   0x00000036   Code   RO          180    .text               mf_w.l(dcmple.o)
+    0x10000688   0x00000036   Code   RO          182    .text               mf_w.l(dcmplt.o)
+    0x100006be   0x00000036   Code   RO          184    .text               mf_w.l(dcmpge.o)
+    0x100006f4   0x00000036   Code   RO          186    .text               mf_w.l(dcmpgt.o)
+    0x1000072a   0x00000038   Code   RO          188    .text               mf_w.l(dcmpeq.o)
+    0x10000762   0x00000022   Code   RO          190    .text               mf_w.l(dflti.o)
+    0x10000784   0x0000001a   Code   RO          192    .text               mf_w.l(dfltui.o)
+    0x1000079e   0x0000003e   Code   RO          194    .text               mf_w.l(dfixi.o)
+    0x100007dc   0x00000032   Code   RO          196    .text               mf_w.l(dfixui.o)
+    0x1000080e   0x0000001e   Code   RO          225    .text               mc_w.l(llshl.o)
+    0x1000082c   0x00000020   Code   RO          227    .text               mc_w.l(llushr.o)
+    0x1000084c   0x00000024   Code   RO          229    .text               mc_w.l(llsshr.o)
+    0x10000870   0x00000000   Code   RO          231    .text               mc_w.l(iusefp.o)
+    0x10000870   0x000000ba   Code   RO          232    .text               mf_w.l(depilogue.o)
     0x1000092a   0x00000002   PAD
-    0x1000092c   0x00000030   Code   RO          236    .text               mc_w.l(init.o)
-    0x1000095c   0x00000036   Code   RO           39    .text.SystemInit    system_ARMCM33.o
+    0x1000092c   0x00000030   Code   RO          234    .text               mc_w.l(init.o)
+    0x1000095c   0x00000036   Code   RO           37    .text.SystemInit    system_ARMCM33.o
     0x10000992   0x00000002   PAD
-    0x10000994   0x0000003a   Code   RO           73    .text._atoi         printf.o
+    0x10000994   0x0000003a   Code   RO           71    .text._atoi         printf.o
     0x100009ce   0x00000002   PAD
-    0x100009d0   0x00000640   Code   RO           81    .text._etoa         printf.o
-    0x10001010   0x00000580   Code   RO           79    .text._ftoa         printf.o
-    0x10001590   0x0000002e   Code   RO           71    .text._is_digit     printf.o
+    0x100009d0   0x00000640   Code   RO           79    .text._etoa         printf.o
+    0x10001010   0x00000580   Code   RO           77    .text._ftoa         printf.o
+    0x10001590   0x0000002e   Code   RO           69    .text._is_digit     printf.o
     0x100015be   0x00000002   PAD
-    0x100015c0   0x0000023c   Code   RO           85    .text._ntoa_format  printf.o
-    0x100017fc   0x00000114   Code   RO           77    .text._ntoa_long    printf.o
-    0x10001910   0x00000138   Code   RO           75    .text._ntoa_long_long  printf.o
-    0x10001a48   0x00000024   Code   RO           53    .text._out_char     printf.o
-    0x10001a6c   0x00000010   Code   RO           69    .text._out_null     printf.o
-    0x10001a7c   0x000000c0   Code   RO           87    .text._out_rev      printf.o
-    0x10001b3c   0x00000044   Code   RO           83    .text._strnlen_s    printf.o
-    0x10001b80   0x00000a30   Code   RO           51    .text._vsnprintf    printf.o
-    0x100025b0   0x00000092   Code   RO           12    .text.dump_callstack  main.o
+    0x100015c0   0x0000023c   Code   RO           83    .text._ntoa_format  printf.o
+    0x100017fc   0x00000114   Code   RO           75    .text._ntoa_long    printf.o
+    0x10001910   0x00000138   Code   RO           73    .text._ntoa_long_long  printf.o
+    0x10001a48   0x00000024   Code   RO           51    .text._out_char     printf.o
+    0x10001a6c   0x00000010   Code   RO           67    .text._out_null     printf.o
+    0x10001a7c   0x000000c0   Code   RO           85    .text._out_rev      printf.o
+    0x10001b3c   0x00000044   Code   RO           81    .text._strnlen_s    printf.o
+    0x10001b80   0x00000a30   Code   RO           49    .text._vsnprintf    printf.o
+    0x100025b0   0x00000092   Code   RO           10    .text.dump_callstack  main.o
     0x10002642   0x00000002   PAD
-    0x10002644   0x0000001e   Code   RO          121    .text.dump_exc_return  fault-dump.o
+    0x10002644   0x0000001e   Code   RO          119    .text.dump_exc_return  fault-dump.o
     0x10002662   0x00000002   PAD
-    0x10002664   0x0000000e   Code   RO          129    .text.fault_dump_bm_stack_point  fault-dump.o
+    0x10002664   0x0000000e   Code   RO          127    .text.fault_dump_bm_stack_point  fault-dump.o
     0x10002672   0x00000002   PAD
-    0x10002674   0x00000014   Code   RO          131    .text.fault_dump_bm_stack_start  fault-dump.o
-    0x10002688   0x00000108   Code   RO          123    .text.fault_dump_callstack  fault-dump.o
-    0x10002790   0x00000158   Code   RO          145    .text.fault_dump_exc_return  fault-hal.o
-    0x100028e8   0x0000027e   Code   RO          119    .text.fault_dump_handler  fault-dump.o
+    0x10002674   0x00000014   Code   RO          129    .text.fault_dump_bm_stack_start  fault-dump.o
+    0x10002688   0x00000108   Code   RO          121    .text.fault_dump_callstack  fault-dump.o
+    0x10002790   0x00000158   Code   RO          143    .text.fault_dump_exc_return  fault-hal.o
+    0x100028e8   0x0000027e   Code   RO          117    .text.fault_dump_handler  fault-dump.o
     0x10002b66   0x00000002   PAD
-    0x10002b68   0x00000062   Code   RO          117    .text.fault_dump_init  fault-dump.o
+    0x10002b68   0x00000062   Code   RO          115    .text.fault_dump_init  fault-dump.o
     0x10002bca   0x00000002   PAD
-    0x10002bcc   0x00000038   Code   RO          125    .text.fault_dump_opcode  fault-dump.o
-    0x10002c04   0x00000060   Code   RO           10    .text.fault_unalign_trigger  main.o
-    0x10002c64   0x0000003a   Code   RO           26    .text.main          main.o
+    0x10002bcc   0x00000038   Code   RO          123    .text.fault_dump_opcode  fault-dump.o
+    0x10002c04   0x00000060   Code   RO            8    .text.fault_unalign_trigger  main.o
+    0x10002c64   0x0000003a   Code   RO           24    .text.main          main.o
     0x10002c9e   0x00000002   PAD
-    0x10002ca0   0x0000006a   Code   RO          127    .text.opcode_is_bl_or_blx  fault-dump.o
+    0x10002ca0   0x0000006a   Code   RO          125    .text.opcode_is_bl_or_blx  fault-dump.o
     0x10002d0a   0x00000002   PAD
-    0x10002d0c   0x0000003c   Code   RO           49    .text.printf        printf.o
-    0x10002d48   0x00000028   Code   RO           98    .text.put_char      uart.o
-    0x10002d70   0x00000020   Code   RO           14    .text.test0         main.o
-    0x10002d90   0x0000001c   Code   RO           16    .text.test1         main.o
-    0x10002dac   0x0000001c   Code   RO           18    .text.test2         main.o
-    0x10002dc8   0x0000001c   Code   RO           20    .text.test3         main.o
-    0x10002de4   0x0000001c   Code   RO           22    .text.test4         main.o
-    0x10002e00   0x0000001c   Code   RO           24    .text.test5         main.o
-    0x10002e1c   0x00000040   Code   RO          104    .text.uart_init     uart.o
-    0x10002e5c   0x0000000e   Code   RO          242    i.__scatterload_copy  mc_w.l(handlers.o)
-    0x10002e6a   0x00000002   Code   RO          243    i.__scatterload_null  mc_w.l(handlers.o)
-    0x10002e6c   0x0000000e   Code   RO          244    i.__scatterload_zeroinit  mc_w.l(handlers.o)
+    0x10002d0c   0x0000003c   Code   RO           47    .text.printf        printf.o
+    0x10002d48   0x00000028   Code   RO           96    .text.put_char      uart.o
+    0x10002d70   0x00000020   Code   RO           12    .text.test0         main.o
+    0x10002d90   0x0000001c   Code   RO           14    .text.test1         main.o
+    0x10002dac   0x0000001c   Code   RO           16    .text.test2         main.o
+    0x10002dc8   0x0000001c   Code   RO           18    .text.test3         main.o
+    0x10002de4   0x0000001c   Code   RO           20    .text.test4         main.o
+    0x10002e00   0x0000001c   Code   RO           22    .text.test5         main.o
+    0x10002e1c   0x00000040   Code   RO          102    .text.uart_init     uart.o
+    0x10002e5c   0x0000000e   Code   RO          240    i.__scatterload_copy  mc_w.l(handlers.o)
+    0x10002e6a   0x00000002   Code   RO          241    i.__scatterload_null  mc_w.l(handlers.o)
+    0x10002e6c   0x0000000e   Code   RO          242    i.__scatterload_zeroinit  mc_w.l(handlers.o)
     0x10002e7a   0x00000006   PAD
-    0x10002e80   0x00000050   Data   RO           89    .rodata._ftoa.pow10  printf.o
-    0x10002ed0   0x000000d3   Data   RO           28    .rodata.str1.1      main.o
-    0x10002fa3   0x00000012   Data   RO           90    .rodata.str1.1      printf.o
-    0x10002fb5   0x000001de   Data   RO          135    .rodata.str1.1      fault-dump.o
-    0x10003193   0x00000204   Data   RO          147    .rodata.str1.1      fault-hal.o
+    0x10002e80   0x00000050   Data   RO           87    .rodata._ftoa.pow10  printf.o
+    0x10002ed0   0x000000d3   Data   RO           26    .rodata.str1.1      main.o
+    0x10002fa3   0x00000012   Data   RO           88    .rodata.str1.1      printf.o
+    0x10002fb5   0x000001de   Data   RO          133    .rodata.str1.1      fault-dump.o
+    0x10003193   0x00000204   Data   RO          145    .rodata.str1.1      fault-hal.o
     0x10003397   0x00000001   PAD
-    0x10003398   0x00000020   Data   RO          241    Region$$Table       anon$$obj.o
+    0x10003398   0x00000020   Data   RO          239    Region$$Table       anon$$obj.o
 
 
-    Execution Region RW_RAM (Base: 0x38000000, Size: 0x00000550, Max: 0x000fe000, ABSOLUTE)
+    Execution Region RW_RAM (Base: 0x38000000, Size: 0x00001150, Max: 0x000fe000, ABSOLUTE)
 
     Base Addr    Size         Type   Attr      Idx    E Section Name        Object
 
-    0x38000000   0x00000004   Data   RW           41    .data.SystemCoreClock  system_ARMCM33.o
+    0x38000000   0x00000004   Data   RW           39    .data.SystemCoreClock  system_ARMCM33.o
     0x38000004   0x00000004   PAD
-    0x38000008   0x00000100   Zero   RW          137    .bss.fault_dump_handler.buffer  fault-dump.o
-    0x38000108   0x00000040   Zero   RW          136    .bss.fault_dump_handler.frame  fault-dump.o
-    0x38000148   0x00000004   Zero   RW          133    .bss.fd_main_stack_base  fault-dump.o
-    0x3800014c   0x00000004   Zero   RW          134    .bss.fd_main_stack_full  fault-dump.o
-    0x38000150   0x00000400   Zero   RW          153    STACK               startup_ARMCM33.o
-
-
-    Execution Region ARM_LIB_HEAP (Base: 0x38000550, Size: 0x00001000, Max: 0x00001000, ABSOLUTE)
-
-    Base Addr    Size         Type   Attr      Idx    E Section Name        Object
-
-    0x38000550   0x00001000   Zero   RW            1    ARM_LIB_HEAP.bss    anon$$obj.o
-
-
-    Execution Region ARM_LIB_STACK (Base: 0x380ff000, Size: 0x00001000, Max: 0x00001000, ABSOLUTE)
-
-    Base Addr    Size         Type   Attr      Idx    E Section Name        Object
-
-    0x380ff000   0x00001000   Zero   RW            2    ARM_LIB_STACK.bss   anon$$obj.o
+    0x38000008   0x00000100   Zero   RW          135    .bss.fault_dump_handler.buffer  fault-dump.o
+    0x38000108   0x00000040   Zero   RW          134    .bss.fault_dump_handler.frame  fault-dump.o
+    0x38000148   0x00000004   Zero   RW          131    .bss.fd_main_stack_base  fault-dump.o
+    0x3800014c   0x00000004   Zero   RW          132    .bss.fd_main_stack_full  fault-dump.o
+    0x38000150   0x00001000   Zero   RW          151    STACK               startup_ARMCM33.o
 
 
 ==============================================================================
@@ -672,13 +657,13 @@ Image component sizes
         68         10          0          0          0        488   fault-mdk.o
        472          0        211          0          0       3749   main.o
       7252        406         98          0          0      10505   printf.o
-        40         10        572          0       1024        920   startup_ARMCM33.o
+        40         10        572          0       4096        920   startup_ARMCM33.o
         54          0          0          4          0       1991   system_ARMCM33.o
        104          0          0          0          0       1575   uart.o
 
     ----------------------------------------------------------------------
-      9580        426       1908          4       9548      24360   Object Totals
-         0          0         32          0       8192          0   (incl. Generated)
+      9580        426       1908          4       4428      24360   Object Totals
+         0          0         32          0          0          0   (incl. Generated)
         20          0          1          0          4          0   (incl. Padding)
 
     ----------------------------------------------------------------------
@@ -688,7 +673,7 @@ Image component sizes
          0          0          0          0          0          0   entry.o
          0          0          0          0          0          0   entry10a.o
          0          0          0          0          0          0   entry11a.o
-         8          4          0          0          0          0   entry4.o
+         8          4          0          0          0          0   entry2.o
          4          0          0          0          0          0   entry5.o
          0          0          0          0          0          0   entry7b.o
          0          0          0          0          0          0   entry8b.o
@@ -736,14 +721,14 @@ Image component sizes
 
       Code (inc. data)   RO Data    RW Data    ZI Data      Debug   
 
-     11332        444       1908          4       9548      25180   Grand Totals
-     11332        444       1908          4       9548      25180   ELF Image Totals
+     11332        444       1908          4       4428      25180   Grand Totals
+     11332        444       1908          4       4428      25180   ELF Image Totals
      11332        444       1908          4          0          0   ROM Totals
 
 ==============================================================================
 
     Total RO  Size (Code + RO Data)                13240 (  12.93kB)
-    Total RW  Size (RW Data + ZI Data)              9552 (   9.33kB)
+    Total RW  Size (RW Data + ZI Data)              4432 (   4.33kB)
     Total ROM Size (Code + RO Data + RW Data)      13244 (  12.93kB)
 
 ==============================================================================
