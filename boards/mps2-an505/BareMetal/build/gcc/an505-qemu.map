@@ -1229,15 +1229,15 @@ LOAD linker stubs
  .debug_ranges  0x00000220       0x48 .\build\gcc/fault-dump.o
  .debug_ranges  0x00000268       0x10 .\build\gcc/fault-hal.o
 
-.debug_line     0x00000000     0x22ff
+.debug_line     0x00000000     0x22fd
  .debug_line    0x00000000      0x3f3 .\build\gcc/main.o
  .debug_line    0x000003f3      0x1d5 .\build\gcc/system_ARMCM33.o
  .debug_line    0x000005c8     0x1211 .\build\gcc/printf.o
- .debug_line    0x000017d9      0x33e .\build\gcc/uart.o
- .debug_line    0x00001b17      0x5a8 .\build\gcc/fault-dump.o
- .debug_line    0x000020bf      0x137 .\build\gcc/fault-hal.o
- .debug_line    0x000021f6       0x86 .\build\gcc/startup_ARMCM33.o
- .debug_line    0x0000227c       0x83 .\build\gcc/fault-gcc.o
+ .debug_line    0x000017d9      0x33c .\build\gcc/uart.o
+ .debug_line    0x00001b15      0x5a8 .\build\gcc/fault-dump.o
+ .debug_line    0x000020bd      0x137 .\build\gcc/fault-hal.o
+ .debug_line    0x000021f4       0x86 .\build\gcc/startup_ARMCM33.o
+ .debug_line    0x0000227a       0x83 .\build\gcc/fault-gcc.o
 
 .debug_str      0x00000000      0x8f4
  .debug_str     0x00000000      0x3d3 .\build\gcc/main.o
