@@ -1,0 +1,404 @@
+###############################################################################
+#
+# IAR ELF Linker V9.50.2.385/W64 for ARM                  03/Jun/2024  23:59:26
+# Copyright 2007-2024 IAR Systems AB.
+#
+#    Output file  =  .\build\iar/an505-qemu.out
+#    Map file     =  .\build\iar/an505-qemu.map
+#    Command line =
+#        .\build\iar/main.o .\build\iar/system_ARMCM33.o .\build\iar/printf.o
+#        .\build\iar/uart.o .\build\iar/fault-dump.o .\build\iar/fault-hal.o
+#        .\build\iar/startup_ARMCM33.o .\build\iar/fault-iar.o --cpu=Cortex-M33
+#        --fpu=VFPv5_sp --config ./startup/iar/ARMCM33_iar.icf --semihosting
+#        --entry __iar_program_start --vfe --text_out locale --no_out_extension
+#        --map .\build\iar/an505-qemu.map -o .\build\iar/an505-qemu.out
+#
+###############################################################################
+
+*******************************************************************************
+*** RUNTIME MODEL ATTRIBUTES
+***
+
+CppFlavor       = *
+__CPP_Runtime   = 1
+__SystemLibrary = DLib
+__dlib_version  = 6
+
+
+*******************************************************************************
+*** HEAP SELECTION
+***
+
+The basic heap was selected because --advanced_heap
+was not specified and the application did not appear to
+be primarily optimized for speed.
+
+
+*******************************************************************************
+*** PLACEMENT SUMMARY
+***
+
+"A0":  place at address 0x1000'0000 { ro section .intvec };
+"P1":  place in [from 0x1000'0000 to 0x1010'0000] { ro };
+define block CSTACK with size = 4K, alignment = 8 { };
+define block HEAP with size = 4K, alignment = 8 { };
+"P2":  place in [from 0x3800'0000 to 0x3810'0000] {
+          rw, block CSTACK, block HEAP };
+initialize by copy { rw };
+
+  Section            Kind         Address  Aligment    Size  Object
+  -------            ----         -------  --------    ----  ------
+"A0":                                                 0x7c0
+  .intvec            ro code  0x1000'0000         4   0x7c0  startup_ARMCM33.o [1]
+                            - 0x1000'07c0             0x7c0
+
+"P1":                                                0x287c
+  .text                       0x1000'07c0            0x231c  <Block>
+    .text            ro code  0x1000'07c0         4   0x174  main.o [1]
+    .text            ro code  0x1000'0934         4  0x1138  printf.o [1]
+    .text            ro code  0x1000'1a6c         4    0x66  ABImemset.o [4]
+    .text            ro code  0x1000'1ad2         2     0x2  startup_ARMCM33.o [1]
+    .text            ro code  0x1000'1ad4         4   0x330  fault-dump.o [1]
+    .text            ro code  0x1000'1e04         4    0x58  uart.o [1]
+    .text            ro code  0x1000'1e5c         4   0x230  I64DivMod.o [4]
+    .text            ro code  0x1000'208c         4    0x20  DblCmpEq.o [3]
+    .text            ro code  0x1000'20ac         4    0x34  DblCmpLe.o [3]
+    .text            ro code  0x1000'20e0         4    0x34  DblCmpGe.o [3]
+    .text            ro code  0x1000'2114         4    0x36  DblToS32.o [3]
+    .text            ro code  0x1000'214a         2    0x2a  copy_init3.o [4]
+    .text            ro code  0x1000'2174         4    0x22  S32ToDbl.o [3]
+    .text            ro code  0x1000'2198         4   0x25e  DblAddSub.o [3]
+    .text            ro code  0x1000'23f8         4   0x1aa  DblMul.o [3]
+    .text            ro code  0x1000'25a4         4    0x22  DblToU32.o [3]
+    .text            ro code  0x1000'25c8         4    0x1c  U32ToDbl.o [3]
+    .text            ro code  0x1000'25e4         4   0x246  DblDiv.o [3]
+    .text            ro code  0x1000'282c         4    0xf0  fault-hal.o [1]
+    .text            ro code  0x1000'291c         4     0x2  I64DivZer.o [4]
+    .text            ro code  0x1000'2920         4    0x2c  system_ARMCM33.o [1]
+    .text            ro code  0x1000'294c         4    0x28  startup_ARMCM33.o [1]
+    .text            ro code  0x1000'2974         4    0x48  fault-iar.o [1]
+    .text            ro code  0x1000'29bc         4    0x1c  cstartup_M.o [4]
+    .text            ro code  0x1000'29d8         4    0x22  fpinit_M.o [3]
+    .text            ro code  0x1000'29fc         4    0x1e  cmain.o [4]
+    .text            ro code  0x1000'2a1a         2     0x4  low_level_init.o [2]
+    .text            ro code  0x1000'2a20         4    0x2a  data_init.o [4]
+    .text            ro code  0x1000'2a4a         2     0x4  exit.o [2]
+    .text            ro code  0x1000'2a50         4     0xa  cexit.o [4]
+    .text            ro code  0x1000'2a5c         4    0x14  exit.o [5]
+    .text            ro code  0x1000'2a70         4    0x2c  iarttio.o [5]
+    .text            ro code  0x1000'2a9c         4     0x8  XShttio.o [2]
+    .text            ro code  0x1000'2aa4         2    0x38  zero_init3.o [4]
+  .rodata            const    0x1000'2adc         4    0x24  fault-dump.o [1]
+  .rodata            const    0x1000'2b00         8    0x50  printf.o [1]
+  .rodata            const    0x1000'2b50         4    0x24  fault-dump.o [1]
+  .iar.init_table    const    0x1000'2b74         4    0x24  - Linker created -
+  .rodata            const    0x1000'2b98         4    0x20  fault-dump.o [1]
+  .rodata            const    0x1000'2bb8         4    0x20  fault-dump.o [1]
+  .rodata            const    0x1000'2bd8         4    0x20  fault-hal.o [1]
+  .rodata            const    0x1000'2bf8         4    0x20  fault-hal.o [1]
+  .rodata            const    0x1000'2c18         4    0x20  fault-hal.o [1]
+  .rodata            const    0x1000'2c38         4    0x20  fault-hal.o [1]
+  .rodata            const    0x1000'2c58         4    0x20  fault-hal.o [1]
+  .rodata            const    0x1000'2c78         4    0x20  fault-hal.o [1]
+  .rodata            const    0x1000'2c98         4    0x1c  main.o [1]
+  .rodata            const    0x1000'2cb4         4    0x1c  main.o [1]
+  .rodata            const    0x1000'2cd0         4    0x1c  fault-hal.o [1]
+  .rodata            const    0x1000'2cec         4    0x1c  fault-hal.o [1]
+  .rodata            const    0x1000'2d08         4    0x1c  fault-hal.o [1]
+  .rodata            const    0x1000'2d24         4    0x1c  fault-hal.o [1]
+  .rodata            const    0x1000'2d40         4    0x1c  fault-hal.o [1]
+  .rodata            const    0x1000'2d5c         4    0x1c  fault-hal.o [1]
+  .rodata            const    0x1000'2d78         4    0x1c  fault-hal.o [1]
+  .rodata            const    0x1000'2d94         4    0x1c  fault-hal.o [1]
+  .rodata            const    0x1000'2db0         4    0x1c  fault-hal.o [1]
+  .rodata            const    0x1000'2dcc         4    0x1c  fault-hal.o [1]
+  .rodata            const    0x1000'2de8         4    0x1c  fault-hal.o [1]
+  .rodata            const    0x1000'2e04         4    0x1c  fault-hal.o [1]
+  .rodata            const    0x1000'2e20         4    0x18  fault-dump.o [1]
+  .rodata            const    0x1000'2e38         4    0x14  main.o [1]
+  .rodata            const    0x1000'2e4c         4    0x14  fault-dump.o [1]
+  .rodata            const    0x1000'2e60         4    0x14  fault-dump.o [1]
+  .rodata            const    0x1000'2e74         4    0x14  fault-dump.o [1]
+  .rodata            const    0x1000'2e88         4    0x14  fault-dump.o [1]
+  .rodata            const    0x1000'2e9c         4    0x14  fault-dump.o [1]
+  .rodata            const    0x1000'2eb0         4    0x14  fault-dump.o [1]
+  .rodata            const    0x1000'2ec4         4    0x14  fault-dump.o [1]
+  .rodata            const    0x1000'2ed8         4    0x14  fault-dump.o [1]
+  .rodata            const    0x1000'2eec         4    0x14  fault-dump.o [1]
+  .rodata            const    0x1000'2f00         4    0x14  fault-dump.o [1]
+  .rodata            const    0x1000'2f14         4    0x14  fault-dump.o [1]
+  .rodata            const    0x1000'2f28         4    0x14  fault-dump.o [1]
+  .rodata            const    0x1000'2f3c         4    0x14  fault-dump.o [1]
+  .rodata            const    0x1000'2f50         4    0x14  fault-dump.o [1]
+  .rodata            const    0x1000'2f64         4    0x14  fault-dump.o [1]
+  .rodata            const    0x1000'2f78         4    0x14  fault-dump.o [1]
+  .rodata            const    0x1000'2f8c         4    0x14  fault-dump.o [1]
+  .rodata            const    0x1000'2fa0         4    0x10  main.o [1]
+  .rodata            const    0x1000'2fb0         4    0x10  main.o [1]
+  .rodata            const    0x1000'2fc0         4    0x10  fault-dump.o [1]
+  Initializer bytes  const    0x1000'2fd0         4     0xc  <for P2-1>
+  .rodata            const    0x1000'2fdc         4     0x8  main.o [1]
+  .rodata            const    0x1000'2fe4         4     0x8  main.o [1]
+  .rodata            const    0x1000'2fec         4     0x8  main.o [1]
+  .rodata            const    0x1000'2ff4         4     0x8  main.o [1]
+  .rodata            const    0x1000'2ffc         4     0x8  main.o [1]
+  .rodata            const    0x1000'3004         4     0x8  main.o [1]
+  .rodata            const    0x1000'300c         4     0x8  main.o [1]
+  .rodata            const    0x1000'3014         4     0x8  main.o [1]
+  .rodata            const    0x1000'301c         4     0x8  main.o [1]
+  .rodata            const    0x1000'3024         4     0x8  printf.o [1]
+  .rodata            const    0x1000'302c         4     0x8  printf.o [1]
+  .rodata            const    0x1000'3034         4     0x8  fault-dump.o [1]
+  .rodata            const    0x1000'303c               0x0  zero_init3.o [4]
+  .rodata            const    0x1000'303c               0x0  copy_init3.o [4]
+                            - 0x1000'303c            0x287c
+
+"P2", part 1 of 3:                                      0xc
+  P2-1                        0x3800'0000         4     0xc  <Init block>
+    .data            inited   0x3800'0000         4     0x4  system_ARMCM33.o [1]
+    .data            inited   0x3800'0004         4     0x8  XShttio.o [2]
+                            - 0x3800'000c               0xc
+
+"P2", part 2 of 3:                                    0x148
+  .bss               zero     0x3800'000c         4   0x100  fault-dump.o [1]
+  .bss               zero     0x3800'010c         4    0x40  fault-dump.o [1]
+  .bss               zero     0x3800'014c         4     0x4  fault-dump.o [1]
+  .bss               zero     0x3800'0150         4     0x4  fault-dump.o [1]
+                            - 0x3800'0154             0x148
+
+"P2", part 3 of 3:                                   0x1000
+  CSTACK                      0x3800'0158         8  0x1000  <Block>
+    CSTACK           uninit   0x3800'0158            0x1000  <Block tail>
+                            - 0x3800'1158            0x1000
+
+Unused ranges:
+
+         From           To      Size
+         ----           --      ----
+  0x1000'303c  0x1010'0000  0xf'cfc5
+  0x3800'0154  0x3800'0157       0x4
+  0x3800'1158  0x3810'0000  0xf'eea9
+
+
+*******************************************************************************
+*** INIT TABLE
+***
+
+          Address      Size
+          -------      ----
+Zero (__iar_zero_init3)
+    1 destination range, total size 0x148:
+          0x3800'000c  0x148
+
+Copy (__iar_copy_init3)
+    1 source range, total size 0xc:
+          0x1000'2fd0    0xc
+    1 destination range, total size 0xc:
+          0x3800'0000    0xc
+
+
+
+*******************************************************************************
+*** MODULE SUMMARY
+***
+
+    Module             ro code  ro data  rw data
+    ------             -------  -------  -------
+command line/config:
+    --------------------------------------------
+    Total:
+
+C:\Users\xidon\code\github\qemu-simulator\boards\mps2-an505\BareMetal\build\iar: [1]
+    fault-dump.o           816      524      328
+    fault-hal.o            240      528
+    fault-iar.o             72
+    main.o                 372      180
+    printf.o             4'408       96
+    startup_ARMCM33.o    2'026
+    system_ARMCM33.o        44        4        4
+    uart.o                  88
+    --------------------------------------------
+    Total:               8'066    1'332      332
+
+dl7M_tln.a: [2]
+    XShttio.o                8        8        8
+    exit.o                   4
+    low_level_init.o         4
+    --------------------------------------------
+    Total:                  16        8        8
+
+m7M_tls.a: [3]
+    DblAddSub.o            606
+    DblCmpEq.o              32
+    DblCmpGe.o              52
+    DblCmpLe.o              52
+    DblDiv.o               582
+    DblMul.o               426
+    DblToS32.o              54
+    DblToU32.o              34
+    S32ToDbl.o              34
+    U32ToDbl.o              28
+    fpinit_M.o              34
+    --------------------------------------------
+    Total:               1'934
+
+rt7M_tl.a: [4]
+    ABImemset.o            102
+    I64DivMod.o            560
+    I64DivZer.o              2
+    cexit.o                 10
+    cmain.o                 30
+    copy_init3.o            42
+    cstartup_M.o            28
+    data_init.o             42
+    zero_init3.o            56
+    --------------------------------------------
+    Total:                 872
+
+shb_l.a: [5]
+    exit.o                  20
+    iarttio.o               44
+    --------------------------------------------
+    Total:                  64
+
+    Gaps                    20
+    Linker created                   36    4'096
+------------------------------------------------
+    Grand Total:        10'972    1'376    4'436
+
+
+*******************************************************************************
+*** ENTRY LIST
+***
+
+Entry                       Address   Size  Type      Object
+-----                       -------   ----  ----      ------
+.iar.init_table$$Base   0x1000'2b74          --   Gb  - Linker created -
+.iar.init_table$$Limit  0x1000'2b98          --   Gb  - Linker created -
+.text$$Base             0x1000'07c0          --   Gb  - Linker created -
+.text$$Limit            0x1000'2adc          --   Gb  - Linker created -
+?main                   0x1000'29fd         Code  Gb  cmain.o [4]
+BusFault_Handler        0x1000'1ad3         Code  Wk  startup_ARMCM33.o [1]
+CSTACK$$Base            0x3800'0158          --   Gb  - Linker created -
+CSTACK$$Limit           0x3800'1158          --   Gb  - Linker created -
+DebugMon_Handler        0x1000'1ad3         Code  Wk  startup_ARMCM33.o [1]
+HardFault_Handler       0x1000'2975         Code  Gb  fault-iar.o [1]
+Interrupt0_Handler      0x1000'1ad3         Code  Wk  startup_ARMCM33.o [1]
+Interrupt1_Handler      0x1000'1ad3         Code  Wk  startup_ARMCM33.o [1]
+Interrupt2_Handler      0x1000'1ad3         Code  Wk  startup_ARMCM33.o [1]
+Interrupt3_Handler      0x1000'1ad3         Code  Wk  startup_ARMCM33.o [1]
+Interrupt4_Handler      0x1000'1ad3         Code  Wk  startup_ARMCM33.o [1]
+Interrupt5_Handler      0x1000'1ad3         Code  Wk  startup_ARMCM33.o [1]
+Interrupt6_Handler      0x1000'1ad3         Code  Wk  startup_ARMCM33.o [1]
+Interrupt7_Handler      0x1000'1ad3         Code  Wk  startup_ARMCM33.o [1]
+Interrupt8_Handler      0x1000'1ad3         Code  Wk  startup_ARMCM33.o [1]
+Interrupt9_Handler      0x1000'1ad3         Code  Wk  startup_ARMCM33.o [1]
+MemManage_Handler       0x1000'1ad3         Code  Wk  startup_ARMCM33.o [1]
+NMI_Handler             0x1000'1ad3         Code  Wk  startup_ARMCM33.o [1]
+PendSV_Handler          0x1000'1ad3         Code  Wk  startup_ARMCM33.o [1]
+Region$$Table$$Base     0x1000'2b74          --   Gb  - Linker created -
+Region$$Table$$Limit    0x1000'2b98          --   Gb  - Linker created -
+Reset_Handler           0x1000'294d         Code  Wk  startup_ARMCM33.o [1]
+SVC_Handler             0x1000'1ad3         Code  Wk  startup_ARMCM33.o [1]
+SecureFault_Handler     0x1000'1ad3         Code  Wk  startup_ARMCM33.o [1]
+SysTick_Handler         0x1000'1ad3         Code  Wk  startup_ARMCM33.o [1]
+SystemCoreClock         0x3800'0000    0x4  Data  Gb  system_ARMCM33.o [1]
+SystemInit              0x1000'2921   0x18  Code  Gb  system_ARMCM33.o [1]
+UsageFault_Handler      0x1000'1ad3         Code  Wk  startup_ARMCM33.o [1]
+__Vectors               0x1000'0000          --   Gb  startup_ARMCM33.o [1]
+__Vectors_End           0x1000'07c0         Data  Gb  startup_ARMCM33.o [1]
+__Vectors_Size {Abs}          0x7c0          --   Gb  startup_ARMCM33.o [1]
+__aeabi_cdcmpeq         0x1000'208d         Code  Gb  DblCmpEq.o [3]
+__aeabi_cdcmple         0x1000'20ad         Code  Gb  DblCmpLe.o [3]
+__aeabi_cdrcmple        0x1000'20e1         Code  Gb  DblCmpGe.o [3]
+__aeabi_d2iz            0x1000'2115         Code  Gb  DblToS32.o [3]
+__aeabi_d2uiz           0x1000'25a5         Code  Gb  DblToU32.o [3]
+__aeabi_dadd            0x1000'2199         Code  Gb  DblAddSub.o [3]
+__aeabi_ddiv            0x1000'25e5         Code  Gb  DblDiv.o [3]
+__aeabi_dmul            0x1000'23f9         Code  Gb  DblMul.o [3]
+__aeabi_dsub            0x1000'2315         Code  Gb  DblAddSub.o [3]
+__aeabi_i2d             0x1000'2175         Code  Gb  S32ToDbl.o [3]
+__aeabi_ldiv0           0x1000'291d         Code  Gb  I64DivZer.o [4]
+__aeabi_memset          0x1000'1a6d         Code  Gb  ABImemset.o [4]
+__aeabi_ui2d            0x1000'25c9         Code  Gb  U32ToDbl.o [3]
+__aeabi_uldivmod        0x1000'1e5d         Code  Gb  I64DivMod.o [4]
+__cmain                 0x1000'29fd         Code  Gb  cmain.o [4]
+__exit                  0x1000'2a5d   0x14  Code  Gb  exit.o [5]
+__iar_Memset            0x1000'1a6d         Code  Gb  ABImemset.o [4]
+__iar_Memset_word       0x1000'1a75         Code  Gb  ABImemset.o [4]
+__iar_close_ttio        0x1000'2a71   0x2c  Code  Gb  iarttio.o [5]
+__iar_copy_init3        0x1000'214b   0x2a  Code  Gb  copy_init3.o [4]
+__iar_data_init3        0x1000'2a21   0x18  Code  Gb  data_init.o [4]
+__iar_init_vfp          0x1000'29d9         Code  Gb  fpinit_M.o [3]
+__iar_lookup_ttioh      0x1000'2a9d    0x8  Code  Gb  XShttio.o [2]
+__iar_program_start     0x1000'29bd         Code  Gb  cstartup_M.o [4]
+__iar_ttio_handles      0x3800'0004    0x8  Data  Lc  XShttio.o [2]
+__iar_zero_init3        0x1000'2aa5   0x38  Code  Gb  zero_init3.o [4]
+__low_level_init        0x1000'2a1b    0x4  Code  Gb  low_level_init.o [2]
+__vector_table          0x1000'0000         Data  Gb  startup_ARMCM33.o [1]
+__vector_table_0x1c     0x1000'001c         Data  Gb  startup_ARMCM33.o [1]
+_atoi                   0x1000'0983   0x28  Code  Lc  printf.o [1]
+_call_main              0x1000'2a09         Code  Gb  cmain.o [4]
+_etoa                   0x1000'0fa5  0x380  Code  Lc  printf.o [1]
+_exit                   0x1000'2a51         Code  Gb  cexit.o [4]
+_ftoa                   0x1000'0c81  0x314  Code  Lc  printf.o [1]
+_ftoa::pow10            0x1000'2b00   0x50  Data  Lc  printf.o [1]
+_is_digit               0x1000'096b   0x18  Code  Lc  printf.o [1]
+_ntoa_format            0x1000'0a19  0x11c  Code  Lc  printf.o [1]
+_ntoa_long              0x1000'0b35   0x9e  Code  Lc  printf.o [1]
+_ntoa_long_long         0x1000'0bd3   0xaa  Code  Lc  printf.o [1]
+_out_char               0x1000'0937   0x1c  Code  Lc  printf.o [1]
+_out_null               0x1000'0935    0x2  Code  Lc  printf.o [1]
+_out_rev                0x1000'09ab   0x6e  Code  Lc  printf.o [1]
+_strnlen_s              0x1000'0953   0x18  Code  Lc  printf.o [1]
+_vsnprintf              0x1000'133d  0x6b0  Code  Lc  printf.o [1]
+dump_callstack          0x1000'080f   0x5e  Code  Gb  main.o [1]
+dump_exc_return         0x1000'1b77   0x14  Code  Lc  fault-dump.o [1]
+exit                    0x1000'2a4b    0x4  Code  Gb  exit.o [2]
+fault_dump_bm_stack_point
+                        0x1000'1d75    0x6  Code  Gb  fault-dump.o [1]
+fault_dump_bm_stack_start
+                        0x1000'1d7b    0x4  Code  Gb  fault-dump.o [1]
+fault_dump_callstack    0x1000'1ce7   0x8e  Code  Gb  fault-dump.o [1]
+fault_dump_exc_return   0x1000'282d   0xf0  Code  Gb  fault-hal.o [1]
+fault_dump_handler      0x1000'1b8b  0x15c  Code  Gb  fault-dump.o [1]
+fault_dump_handler::buffer
+                        0x3800'000c  0x100  Data  Lc  fault-dump.o [1]
+fault_dump_handler::frame
+                        0x3800'010c   0x40  Data  Lc  fault-dump.o [1]
+fault_dump_init         0x1000'1ad5   0x2c  Code  Gb  fault-dump.o [1]
+fault_dump_opcode       0x1000'1b01   0x34  Code  Lc  fault-dump.o [1]
+fault_unalign_trigger   0x1000'07c1   0x4e  Code  Gb  main.o [1]
+fd_main_stack_base      0x3800'014c    0x4  Data  Gb  fault-dump.o [1]
+fd_main_stack_full      0x3800'0150    0x4  Data  Gb  fault-dump.o [1]
+main                    0x1000'08d1   0x24  Code  Gb  main.o [1]
+opcode_is_bl_or_blx     0x1000'1b35   0x42  Code  Lc  fault-dump.o [1]
+printf                  0x1000'19ed   0x1e  Code  Gb  printf.o [1]
+put_char                0x1000'1e05    0xe  Code  Gb  uart.o [1]
+test0                   0x1000'086d   0x14  Code  Gb  main.o [1]
+test0::__func__         0x1000'2fec    0x8  Data  Lc  main.o [1]
+test1                   0x1000'0881   0x10  Code  Gb  main.o [1]
+test1::__func__         0x1000'2ff4    0x8  Data  Lc  main.o [1]
+test2                   0x1000'0891   0x10  Code  Gb  main.o [1]
+test2::__func__         0x1000'2ffc    0x8  Data  Lc  main.o [1]
+test3                   0x1000'08a1   0x10  Code  Gb  main.o [1]
+test3::__func__         0x1000'3004    0x8  Data  Lc  main.o [1]
+test4                   0x1000'08b1   0x10  Code  Gb  main.o [1]
+test4::__func__         0x1000'300c    0x8  Data  Lc  main.o [1]
+test5                   0x1000'08c1   0x10  Code  Gb  main.o [1]
+test5::__func__         0x1000'3014    0x8  Data  Lc  main.o [1]
+uart_init               0x1000'1e13   0x28  Code  Gb  uart.o [1]
+
+
+[1] = C:\Users\xidon\code\github\qemu-simulator\boards\mps2-an505\BareMetal\build\iar
+[2] = dl7M_tln.a
+[3] = m7M_tls.a
+[4] = rt7M_tl.a
+[5] = shb_l.a
+
+  10'972 bytes of readonly  code memory
+   1'376 bytes of readonly  data memory
+   4'436 bytes of readwrite data memory
+
+Errors: none
+Warnings: none

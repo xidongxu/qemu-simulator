@@ -26,21 +26,13 @@
 #define UART_ICR(base)          (*((volatile uint32_t *)(base + 0x44)))
 #define UART_DMACR(base)        (*((volatile uint32_t *)(base + 0x48)))
 
-#if defined(__GNUC__)
-#define PUTCHAR_PROTOTYPE       int put_char(int ch)
-#define GETCHAR_PROTOTYPE       int get_char(void)
-#else
-#define PUTCHAR_PROTOTYPE       int fputc(int ch, FILE *f)
-#define GETCHAR_PROTOTYPE       int fgetc(FILE *f)
-#endif
-
-PUTCHAR_PROTOTYPE {
+int put_char(int ch) {
     while (UART_FLAG(UART0) & 0x20);
     UART_DATA(UART0) = ch;
     return ch;
 }
 
-GETCHAR_PROTOTYPE {
+int get_char(void) {
     while ((UART_FLAG(UART0) & 0x40) == 0);
     return UART_DATA(UART0);
 }

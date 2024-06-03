@@ -299,7 +299,7 @@ ifeq ($(tool), gcc)
 LDSCRIPT = ./startup/gcc/gcc_arm.ld
 endif
 ifeq ($(tool), iar)
-LDSCRIPT = ./startup/iar/gcc_arm.icf
+LDSCRIPT = ./startup/iar/ARMCM33_iar.icf
 endif
 ifeq ($(tool), mdk)
 LDSCRIPT = ./startup/mdk/ARMCM33_ac6.sct
