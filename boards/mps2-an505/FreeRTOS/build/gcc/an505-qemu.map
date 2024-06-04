@@ -153,26 +153,6 @@ Discarded input sections
                 0x00000000        0x8 .\build\gcc/uart.o
  .text.uart_recv
                 0x00000000       0x20 .\build\gcc/uart.o
- .text          0x00000000        0x0 .\build\gcc/semihosting.o
- .data          0x00000000        0x0 .\build\gcc/semihosting.o
- .bss           0x00000000        0x0 .\build\gcc/semihosting.o
- .text.semihosting_putc
-                0x00000000       0x12 .\build\gcc/semihosting.o
- .text.semihosting_shutdown
-                0x00000000        0x8 .\build\gcc/semihosting.o
- .text.putchar  0x00000000       0x1a .\build\gcc/semihosting.o
- .debug_info    0x00000000       0xc6 .\build\gcc/semihosting.o
- .debug_abbrev  0x00000000       0xab .\build\gcc/semihosting.o
- .debug_loc     0x00000000       0xab .\build\gcc/semihosting.o
- .debug_aranges
-                0x00000000       0x30 .\build\gcc/semihosting.o
- .debug_ranges  0x00000000       0x20 .\build\gcc/semihosting.o
- .debug_line    0x00000000       0x95 .\build\gcc/semihosting.o
- .debug_str     0x00000000      0x14b .\build\gcc/semihosting.o
- .comment       0x00000000       0x4a .\build\gcc/semihosting.o
- .debug_frame   0x00000000       0x50 .\build\gcc/semihosting.o
- .ARM.attributes
-                0x00000000       0x3a .\build\gcc/semihosting.o
  .text          0x00000000        0x0 .\build\gcc/fault-dump.o
  .data          0x00000000        0x0 .\build\gcc/fault-dump.o
  .bss           0x00000000        0x0 .\build\gcc/fault-dump.o
@@ -230,6 +210,26 @@ Discarded input sections
  .debug_frame   0x00000000      0x190 .\build\gcc/syscalls.o
  .ARM.attributes
                 0x00000000       0x3a .\build\gcc/syscalls.o
+ .text          0x00000000        0x0 .\build\gcc/semihosting.o
+ .data          0x00000000        0x0 .\build\gcc/semihosting.o
+ .bss           0x00000000        0x0 .\build\gcc/semihosting.o
+ .text.semihosting_putc
+                0x00000000       0x12 .\build\gcc/semihosting.o
+ .text.semihosting_shutdown
+                0x00000000        0x8 .\build\gcc/semihosting.o
+ .text.putchar  0x00000000       0x1a .\build\gcc/semihosting.o
+ .debug_info    0x00000000       0xc6 .\build\gcc/semihosting.o
+ .debug_abbrev  0x00000000       0xab .\build\gcc/semihosting.o
+ .debug_loc     0x00000000       0xab .\build\gcc/semihosting.o
+ .debug_aranges
+                0x00000000       0x30 .\build\gcc/semihosting.o
+ .debug_ranges  0x00000000       0x20 .\build\gcc/semihosting.o
+ .debug_line    0x00000000       0x95 .\build\gcc/semihosting.o
+ .debug_str     0x00000000      0x14b .\build\gcc/semihosting.o
+ .comment       0x00000000       0x4a .\build\gcc/semihosting.o
+ .debug_frame   0x00000000       0x50 .\build\gcc/semihosting.o
+ .ARM.attributes
+                0x00000000       0x3a .\build\gcc/semihosting.o
  .data          0x00000000        0x0 .\build\gcc/startup_ARMCM33.o
  .bss           0x00000000        0x0 .\build\gcc/startup_ARMCM33.o
  .ARM.extab     0x00000000        0x0 .\build\gcc/startup_ARMCM33.o
@@ -612,11 +612,11 @@ LOAD .\build\gcc/main.o
 LOAD .\build\gcc/system_ARMCM33.o
 LOAD .\build\gcc/printf.o
 LOAD .\build\gcc/uart.o
-LOAD .\build\gcc/semihosting.o
 LOAD .\build\gcc/fault-dump.o
 LOAD .\build\gcc/fault-hal.o
 LOAD .\build\gcc/sysmem.o
 LOAD .\build\gcc/syscalls.o
+LOAD .\build\gcc/semihosting.o
 LOAD .\build\gcc/startup_ARMCM33.o
 LOAD .\build\gcc/fault-gcc.o
 LOAD c:/users/xidon/program/arm_gcc/gcc-arm-none-eabi-10.3-2021.10/bin/../lib/gcc/arm-none-eabi/10.3.1/../../../../arm-none-eabi/lib/thumb/v8-m.main+fp/hard\libc.a
@@ -1229,15 +1229,15 @@ LOAD linker stubs
  .debug_ranges  0x00000220       0x48 .\build\gcc/fault-dump.o
  .debug_ranges  0x00000268       0x10 .\build\gcc/fault-hal.o
 
-.debug_line     0x00000000     0x22ff
+.debug_line     0x00000000     0x22fd
  .debug_line    0x00000000      0x3f3 .\build\gcc/main.o
  .debug_line    0x000003f3      0x1d5 .\build\gcc/system_ARMCM33.o
  .debug_line    0x000005c8     0x1211 .\build\gcc/printf.o
- .debug_line    0x000017d9      0x33e .\build\gcc/uart.o
- .debug_line    0x00001b17      0x5a8 .\build\gcc/fault-dump.o
- .debug_line    0x000020bf      0x137 .\build\gcc/fault-hal.o
- .debug_line    0x000021f6       0x86 .\build\gcc/startup_ARMCM33.o
- .debug_line    0x0000227c       0x83 .\build\gcc/fault-gcc.o
+ .debug_line    0x000017d9      0x33c .\build\gcc/uart.o
+ .debug_line    0x00001b15      0x5a8 .\build\gcc/fault-dump.o
+ .debug_line    0x000020bd      0x137 .\build\gcc/fault-hal.o
+ .debug_line    0x000021f4       0x86 .\build\gcc/startup_ARMCM33.o
+ .debug_line    0x0000227a       0x83 .\build\gcc/fault-gcc.o
 
 .debug_str      0x00000000      0x8f3
  .debug_str     0x00000000      0x3d2 .\build\gcc/main.o
