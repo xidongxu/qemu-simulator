@@ -96,12 +96,33 @@ C_SOURCES = \
 ../../../libutils/fault-dump/src/fault-dump.c \
 ../../../libutils/fault-dump/cpu/cortex-m33/fault-hal.c 
 
+# FreeRTOS C sources
+C_SOURCES += \
+../../../librtos/FreeRTOS/list.c \
+../../../librtos/FreeRTOS/queue.c \
+../../../librtos/FreeRTOS/tasks.c \
+../../../librtos/FreeRTOS/timers.c \
+../../../librtos/FreeRTOS/croutine.c \
+../../../librtos/FreeRTOS/event_groups.c \
+../../../librtos/FreeRTOS/portable/MemMang/heap_4.c \
+
 
 ifeq ($(tool), gcc)
 C_SOURCES += \
+../../../librtos/FreeRTOS/portable/GCC/ARM_CM33_NTZ/non_secure/port.c \
+../../../librtos/FreeRTOS/portable/GCC/ARM_CM33_NTZ/non_secure/portasm.c \
 ./application/sysmem.c \
 ./application/syscalls.c \
 ../Core/Src/semihosting.c 
+endif
+ifeq ($(tool), iar)
+C_SOURCES += \
+../../../librtos/FreeRTOS/portable/IAR/ARM_CM33_NTZ/non_secure/port.c 
+endif
+ifeq ($(tool), mdk)
+C_SOURCES += \
+../../../librtos/FreeRTOS/portable/GCC/ARM_CM33_NTZ/non_secure/port.c \
+../../../librtos/FreeRTOS/portable/GCC/ARM_CM33_NTZ/non_secure/portasm.c 
 endif
 
 
@@ -114,6 +135,7 @@ endif
 ifeq ($(tool), iar)
 ASM_SOURCES = \
 ./startup/iar/startup_ARMCM33.s \
+../../../librtos/FreeRTOS/portable/IAR/ARM_CM33_NTZ/non_secure/portasm.s \
 ../../../libutils/fault-dump/cpu/cortex-m33/fault-iar.s
 endif
 ifeq ($(tool), mdk)
@@ -236,7 +258,9 @@ endif
 #######################################
 # AS includes
 #######################################
-AS_INCLUDES = 
+AS_INCLUDES = \
+-I./application \
+-I../../../librtos/FreeRTOS/include 
 
 
 #######################################
@@ -247,7 +271,24 @@ C_INCLUDES = \
 -I../Drivers/CMSIS_5/Device/ARM/ARMCM33/Include \
 -I../Drivers/CMSIS_5/CMSIS/Core/Include \
 -I../../../libutils/fault-dump/inc \
--I../../../libutils/fault-dump/cpu/cortex-m33 
+-I../../../libutils/fault-dump/cpu/cortex-m33 \
+-I./application \
+-I../../../librtos/FreeRTOS \
+-I../../../librtos/FreeRTOS/include 
+
+
+ifeq ($(tool), gcc)
+C_INCLUDES += \
+-I../../../librtos/FreeRTOS/portable/GCC/ARM_CM33_NTZ/non_secure 
+endif
+ifeq ($(tool), iar)
+C_INCLUDES += \
+-I../../../librtos/FreeRTOS/portable/IAR/ARM_CM33_NTZ/non_secure 
+endif
+ifeq ($(tool), mdk)
+C_INCLUDES += \
+-I../../../librtos/FreeRTOS/portable/GCC/ARM_CM33_NTZ/non_secure 
+endif
 
 
 #######################################

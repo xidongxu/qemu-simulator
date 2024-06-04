@@ -4,6 +4,13 @@
 #include "printf.h"
 #include "ARMCM33_DSP_FP.h"
 #include "fault-dump.h"
+#include "FreeRTOSConfig.h"
+#include <FreeRTOS.h>
+#include <task.h>
+#include <queue.h>
+#include <timers.h>
+
+uint8_t ucHeap[configTOTAL_HEAP_SIZE];
 
 void HardFault_Handler_Legency(void) {
     printf("%s\n", __func__);
@@ -85,13 +92,32 @@ void test5(void) {
     test4();
 }
 
+static void main_task_entry(void *parameters) {
+    while(1) {
+        vTaskDelay(1000);
+        printf("hello this is FreeRTOS.\r\n");
+    }
+}
+
+static void main_task_init(void) {
+    static TaskHandle_t main_task = NULL;
+    BaseType_t xReturn = pdPASS;
+    xReturn = xTaskCreate(main_task_entry, "main_task", 2048, NULL, 1U, &main_task);
+    if (xReturn == pdPASS) {
+        vTaskStartScheduler();
+    } else {
+        printf("main task create failed(%d).\r\n", (int)(xReturn));
+    }
+}
+
 int main(void) {
     int count = 0;
     uart_init();
 
     printf("Start\r\n");
     fault_dump_init();
-    test5();
+    main_task_init();
+    // test5();
 
     while (1) {
         __NOP();
