@@ -139,5 +139,6 @@
 #define configENABLE_FPU                       0
 #define configENABLE_MPU                       0
 #define configENABLE_TRUSTZONE                 0
+#define configRUN_FREERTOS_SECURE_ONLY         1
 
 #endif /* FREERTOS_CONFIG_H */
