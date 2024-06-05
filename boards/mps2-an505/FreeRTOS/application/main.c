@@ -94,7 +94,7 @@ void test5(void) {
 
 static void main_task_entry(void *parameters) {
     while(1) {
-        vTaskDelay(100);
+        vTaskDelay(1000);
         printf("hello this is FreeRTOS.\r\n");
     }
 }
