@@ -268,3 +268,7 @@ unsigned int fault_dump_bm_stack_point(void) {
 unsigned int fault_dump_bm_stack_start(void) {
     return FD_STACK_START;
 }
+
+int fault_dump_parser_register(stack_parser_t *parser) {
+    return 0;
+}
