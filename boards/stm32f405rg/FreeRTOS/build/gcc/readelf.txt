@@ -10,7 +10,7 @@ ELF Header:
   Version:                           0x1
   Entry point address:               0x800335d
   Start of program headers:          52 (bytes into file)
-  Start of section headers:          426708 (bytes into file)
+  Start of section headers:          428100 (bytes into file)
   Flags:                             0x5000400, Version5 EABI, hard-float ABI
   Size of this header:               52 (bytes)
   Size of program headers:           32 (bytes)
@@ -38,13 +38,13 @@ Section Headers:
   [14] .debug_loc        PROGBITS        00000000 038df4 010677 00      0   0  1
   [15] .debug_aranges    PROGBITS        00000000 049470 000e50 00      0   0  8
   [16] .debug_ranges     PROGBITS        00000000 04a2c0 001110 00      0   0  8
-  [17] .debug_line       PROGBITS        00000000 04b3d0 00fb42 00      0   0  1
-  [18] .debug_str        PROGBITS        00000000 05af12 004f49 01  MS  0   0  1
-  [19] .comment          PROGBITS        00000000 05fe5b 000049 01  MS  0   0  1
-  [20] .debug_frame      PROGBITS        00000000 05fea4 002ea4 00      0   0  4
-  [21] .symtab           SYMTAB          00000000 062d48 003830 10     22 632  4
-  [22] .strtab           STRTAB          00000000 066578 001c63 00      0   0  1
-  [23] .shstrtab         STRTAB          00000000 0681db 0000f6 00      0   0  1
+  [17] .debug_line       PROGBITS        00000000 04b3d0 0100a4 00      0   0  1
+  [18] .debug_str        PROGBITS        00000000 05b474 004f55 01  MS  0   0  1
+  [19] .comment          PROGBITS        00000000 0603c9 000049 01  MS  0   0  1
+  [20] .debug_frame      PROGBITS        00000000 060414 002ea4 00      0   0  4
+  [21] .symtab           SYMTAB          00000000 0632b8 003830 10     22 632  4
+  [22] .strtab           STRTAB          00000000 066ae8 001c63 00      0   0  1
+  [23] .shstrtab         STRTAB          00000000 06874b 0000f6 00      0   0  1
 Key to Flags:
   W (write), A (alloc), X (execute), M (merge), S (strings), I (info),
   L (link order), O (extra OS processing required), G (group), T (TLS),
