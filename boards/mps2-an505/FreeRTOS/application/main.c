@@ -93,9 +93,15 @@ void test5(void) {
 }
 
 static void main_task_entry(void *parameters) {
+    int counter = 0;
     while(1) {
         vTaskDelay(1000);
         printf("hello this is FreeRTOS.\r\n");
+        if (counter >= 3) {
+            test5();
+        } else {
+            counter++;
+        }
     }
 }
 
@@ -117,7 +123,6 @@ int main(void) {
     printf("Start\r\n");
     fault_dump_init();
     main_task_init();
-    // test5();
 
     while (1) {
         __NOP();
