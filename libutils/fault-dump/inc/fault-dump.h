@@ -80,7 +80,7 @@ int  fault_dump_callstack(unsigned int *buffer, size_t size, unsigned int *stack
 unsigned int fault_dump_bm_stack_point(void);
 unsigned int fault_dump_bm_stack_start(void);
 /* stack frame parser object interface */
-int fault_dump_parser_register(stack_parser_t *parser);
+int fault_dump_set_stack_parser(stack_parser_t *parser);
 
 #ifdef __cplusplus
 }
