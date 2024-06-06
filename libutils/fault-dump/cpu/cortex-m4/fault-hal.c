@@ -34,3 +34,11 @@ void fault_dump_exc_return(unsigned int exc_return) {
     }
     printf(" \r\n");
 }
+
+bool fault_dump_using_msp(unsigned int exc_return) {
+    if (FD_CHECK_BIT(exc_return, 2)) {
+        return false;
+    } else {
+        return true;
+    }
+}

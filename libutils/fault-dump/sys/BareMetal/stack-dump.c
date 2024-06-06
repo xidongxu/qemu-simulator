@@ -12,6 +12,7 @@
   */
 #include "fault-dump.h"
 
-void freertos_stack_dump(unsigned int exc_return) {
-    return;
+int baremetal_stack_parser(unsigned int *buffer, size_t size, unsigned int *stack_point, unsigned int *stack_start) {
+    int count = fault_dump_callstack(buffer, size, stack_point, stack_point);
+    return count;
 }

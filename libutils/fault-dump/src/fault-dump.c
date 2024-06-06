@@ -109,6 +109,9 @@ extern unsigned int _estack;
 #define FD_STACK_READVAL(point)             (*(unsigned int*)((point)--))
 #endif
 
+/* stack parser default value */
+static volatile stack_parser_t fd_msp_stack_parser = fault_dump_callstack;
+static volatile stack_parser_t fd_psp_stack_parser = fault_dump_callstack;
 /* stack segment information */
 volatile unsigned int fd_main_stack_base = 0;
 volatile unsigned int fd_main_stack_full = 0;
@@ -158,6 +161,17 @@ static void dump_exc_return(unsigned int exc_return) {
 #endif
 }
 
+static bool stack_using_msp(unsigned int exc_return) {
+    bool result = true;
+#if FD_DUMP_EXC_RETURN_VALUE
+    extern bool fault_dump_using_msp(unsigned int exc_return);
+    result = fault_dump_using_msp(exc_return);
+#else
+    result = (exc_return & 0x02) ? false : true;
+#endif
+    return result;
+}
+
 void fault_dump_handler(unsigned int *stack, unsigned int linker) {
     int count = 0, index = 0;
     unsigned int *point = stack;
@@ -204,9 +218,16 @@ void fault_dump_handler(unsigned int *stack, unsigned int linker) {
     dump_exc_return(linker);
     // Get callstack information.
     index = (sizeof(stack_frame_t) / sizeof(unsigned int));
-    count = fault_dump_callstack(buffer, FD_STACK_DUMP_DEPTH_MAX, 
-                                (unsigned int *)&stack[index], 
-                                (unsigned int *)FD_STACK_START);
+    // Get currently using stack.
+    if (stack_using_msp(linker)) {
+        count = fd_msp_stack_parser(buffer, FD_STACK_DUMP_DEPTH_MAX, 
+                                    (unsigned int *)&stack[index], 
+                                    (unsigned int *)FD_STACK_START);
+    } else {
+        count = fd_psp_stack_parser(buffer, FD_STACK_DUMP_DEPTH_MAX, 
+                                    (unsigned int *)&stack[index], 
+                                    (unsigned int *)FD_STACK_START);
+    }
     // Print stack information.
     printf(" Stack Call: ");
     printf("%08X ", (unsigned int)frame.except.pc);
@@ -269,6 +290,11 @@ unsigned int fault_dump_bm_stack_start(void) {
     return FD_STACK_START;
 }
 
-int fault_dump_set_stack_parser(stack_parser_t *parser) {
-    return 0;
+int fault_dump_psp_stack_parser(stack_parser_t parser) {
+    int result = FD_EEMPTY;
+    if (parser != NULL) {
+        fd_psp_stack_parser = parser;
+        result = FD_EOK;
+    }
+    return result;
 }

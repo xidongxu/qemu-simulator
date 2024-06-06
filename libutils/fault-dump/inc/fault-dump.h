@@ -67,11 +67,7 @@ struct stack_frame {
     stack_frame_except_t except;
 };
 
-typedef struct stack_parser stack_parser_t;
-struct stack_parser {
-    int (*init)(void);
-    int (*exec)(unsigned int *);
-};
+typedef int (*stack_parser_t)(unsigned int*, size_t, unsigned int*, unsigned int*);
 
 void fault_dump_init(void);
 void fault_dump_handler(unsigned int *stack, unsigned int linker);
@@ -80,7 +76,7 @@ int  fault_dump_callstack(unsigned int *buffer, size_t size, unsigned int *stack
 unsigned int fault_dump_bm_stack_point(void);
 unsigned int fault_dump_bm_stack_start(void);
 /* stack frame parser object interface */
-int fault_dump_set_stack_parser(stack_parser_t *parser);
+int fault_dump_psp_stack_parser(stack_parser_t parser);
 
 #ifdef __cplusplus
 }
