@@ -20,30 +20,6 @@ void Default_Handler(void) {
     printf("%s\n", __func__);
 }
 
-void fault_div_zero_trigger(void) {
-    int a = 0, b = 0, c = 0;
-
-    SCB->CCR |= SCB_CCR_DIV_0_TRP_Msk;
-    c = (a + (b / c));
-    printf("c = %d\r\n", c);
-}
-
-void fault_unalign_trigger(void) {
-    volatile int *addr = NULL;
-    volatile int value = 0;
-    SCB->CCR |= SCB_CCR_UNALIGN_TRP_Msk;
-
-    addr = (int*)0x00;
-    value = *addr;
-    printf("addr:0x%02X-value:0x%08X\r\n", (int)addr, value);
-    addr = (int*)0x04;
-    value = *addr;
-    printf("addr:0x%02X-value:0x%08X\r\n", (int)addr, value);
-    addr = (int*)0x03;
-    value = *addr;
-    printf("addr:0x%02X-value:0x%08X\r\n", (int)addr, value);
-}
-
 void dump_callstack(void) {
     unsigned int buffer[FD_STACK_DUMP_DEPTH_MAX] = {0};
     unsigned int point = fault_dump_bm_stack_point();
@@ -63,8 +39,8 @@ void dump_callstack(void) {
 void test0(void) {
     printf("this is %s.\r\n", __func__);
     dump_callstack();
-    // trigger a fault.
-    fault_unalign_trigger();
+    extern void fault_dump_unalign(void);
+    fault_dump_unalign();
 }
 
 void test1(void) {

@@ -116,10 +116,6 @@ Discarded input sections
                 0x00000000       0x10 .\build\gcc/main.o
  .text.Default_Handler
                 0x00000000       0x10 .\build\gcc/main.o
- .rodata.fault_div_zero_trigger.str1.4
-                0x00000000        0x9 .\build\gcc/main.o
- .text.fault_div_zero_trigger
-                0x00000000       0x20 .\build\gcc/main.o
  .rodata.__func__.7
                 0x00000000       0x10 .\build\gcc/main.o
  .rodata.__func__.8
@@ -156,9 +152,15 @@ Discarded input sections
  .text          0x00000000        0x0 .\build\gcc/fault-dump.o
  .data          0x00000000        0x0 .\build\gcc/fault-dump.o
  .bss           0x00000000        0x0 .\build\gcc/fault-dump.o
+ .text.fault_dump_psp_stack_parser
+                0x00000000       0x14 .\build\gcc/fault-dump.o
  .text          0x00000000        0x0 .\build\gcc/fault-hal.o
  .data          0x00000000        0x0 .\build\gcc/fault-hal.o
  .bss           0x00000000        0x0 .\build\gcc/fault-hal.o
+ .rodata.fault_dump_div_zero.str1.4
+                0x00000000        0xc .\build\gcc/fault-hal.o
+ .text.fault_dump_div_zero
+                0x00000000       0x20 .\build\gcc/fault-hal.o
  .text          0x00000000        0x0 .\build\gcc/list.o
  .data          0x00000000        0x0 .\build\gcc/list.o
  .bss           0x00000000        0x0 .\build\gcc/list.o
@@ -938,7 +940,7 @@ LOAD c:/users/xidon/program/arm_gcc/gcc-arm-none-eabi-10.3-2021.10/bin/../lib/gc
                 0x00001000                __HEAP_SIZE = 0x1000
                 0x00000000                __STACKSEAL_SIZE = 0x0
 
-.text           0x10000000     0x5da0
+.text           0x10000000     0x5de4
                 0x10000000                . = ALIGN (0x4)
                 0x10000000                _stext = .
  *(.vectors)
@@ -949,455 +951,461 @@ LOAD c:/users/xidon/program/arm_gcc/gcc-arm-none-eabi-10.3-2021.10/bin/../lib/gc
  .text          0x100007c0       0x40 c:/users/xidon/program/arm_gcc/gcc-arm-none-eabi-10.3-2021.10/bin/../lib/gcc/arm-none-eabi/10.3.1/thumb/v8-m.main+fp/hard/crtbegin.o
  .text.main_task_init
                 0x10000800       0x44 .\build\gcc/main.o
- .text.fault_unalign_trigger
-                0x10000844       0x4c .\build\gcc/main.o
-                0x10000844                fault_unalign_trigger
  .text.dump_callstack
-                0x10000890       0x68 .\build\gcc/main.o
-                0x10000890                dump_callstack
- .text.test0    0x100008f8       0x1c .\build\gcc/main.o
-                0x100008f8                test0
- .text.test1    0x10000914       0x18 .\build\gcc/main.o
-                0x10000914                test1
- .text.test2    0x1000092c       0x18 .\build\gcc/main.o
-                0x1000092c                test2
- .text.test3    0x10000944       0x18 .\build\gcc/main.o
-                0x10000944                test3
- .text.test4    0x1000095c       0x18 .\build\gcc/main.o
-                0x1000095c                test4
- .text.test5    0x10000974       0x18 .\build\gcc/main.o
-                0x10000974                test5
+                0x10000844       0x68 .\build\gcc/main.o
+                0x10000844                dump_callstack
+ .text.test0    0x100008ac       0x1c .\build\gcc/main.o
+                0x100008ac                test0
+ .text.test1    0x100008c8       0x18 .\build\gcc/main.o
+                0x100008c8                test1
+ .text.test2    0x100008e0       0x18 .\build\gcc/main.o
+                0x100008e0                test2
+ .text.test3    0x100008f8       0x18 .\build\gcc/main.o
+                0x100008f8                test3
+ .text.test4    0x10000910       0x18 .\build\gcc/main.o
+                0x10000910                test4
+ .text.test5    0x10000928       0x18 .\build\gcc/main.o
+                0x10000928                test5
  .text.main_task_entry
-                0x1000098c       0x24 .\build\gcc/main.o
- .text.main     0x100009b0       0x2c .\build\gcc/main.o
-                0x100009b0                main
+                0x10000940       0x24 .\build\gcc/main.o
+ .text.main     0x10000964       0x2c .\build\gcc/main.o
+                0x10000964                main
  .text.SystemInit
-                0x100009dc       0x2c .\build\gcc/system_ARMCM33.o
-                0x100009dc                SystemInit
+                0x10000990       0x2c .\build\gcc/system_ARMCM33.o
+                0x10000990                SystemInit
  .text._out_null
-                0x10000a08        0x2 .\build\gcc/printf.o
- .text._atoi    0x10000a0a       0x24 .\build\gcc/printf.o
+                0x100009bc        0x2 .\build\gcc/printf.o
+ .text._atoi    0x100009be       0x24 .\build\gcc/printf.o
  .text._out_rev
-                0x10000a2e       0x7e .\build\gcc/printf.o
+                0x100009e2       0x7e .\build\gcc/printf.o
  .text._ntoa_format
-                0x10000aac      0x138 .\build\gcc/printf.o
+                0x10000a60      0x138 .\build\gcc/printf.o
  .text._ntoa_long
-                0x10000be4       0x94 .\build\gcc/printf.o
+                0x10000b98       0x94 .\build\gcc/printf.o
  .text._ntoa_long_long
-                0x10000c78       0xc6 .\build\gcc/printf.o
- *fill*         0x10000d3e        0x2 
- .text._etoa    0x10000d40      0x3ec .\build\gcc/printf.o
- *fill*         0x1000112c        0x4 
- .text._ftoa    0x10001130      0x398 .\build\gcc/printf.o
+                0x10000c2c       0xc6 .\build\gcc/printf.o
+ *fill*         0x10000cf2        0x6 
+ .text._etoa    0x10000cf8      0x3ec .\build\gcc/printf.o
+ *fill*         0x100010e4        0x4 
+ .text._ftoa    0x100010e8      0x398 .\build\gcc/printf.o
  .text._vsnprintf
-                0x100014c8      0x680 .\build\gcc/printf.o
+                0x10001480      0x680 .\build\gcc/printf.o
  .text._out_char
-                0x10001b48        0xc .\build\gcc/printf.o
- .text.printf   0x10001b54       0x2c .\build\gcc/printf.o
-                0x10001b54                printf
+                0x10001b00        0xc .\build\gcc/printf.o
+ .text.printf   0x10001b0c       0x2c .\build\gcc/printf.o
+                0x10001b0c                printf
  .text.put_char
-                0x10001b80       0x14 .\build\gcc/uart.o
-                0x10001b80                put_char
- .text.puts     0x10001b94       0x1e .\build\gcc/uart.o
-                0x10001b94                puts
- *fill*         0x10001bb2        0x2 
+                0x10001b38       0x14 .\build\gcc/uart.o
+                0x10001b38                put_char
+ .text.puts     0x10001b4c       0x1e .\build\gcc/uart.o
+                0x10001b4c                puts
+ *fill*         0x10001b6a        0x2 
  .text.uart_init
-                0x10001bb4       0x24 .\build\gcc/uart.o
-                0x10001bb4                uart_init
+                0x10001b6c       0x24 .\build\gcc/uart.o
+                0x10001b6c                uart_init
  .text.fault_dump_opcode
-                0x10001bd8       0x2c .\build\gcc/fault-dump.o
+                0x10001b90       0x2c .\build\gcc/fault-dump.o
  .text.opcode_is_bl_or_blx
-                0x10001c04       0x36 .\build\gcc/fault-dump.o
- *fill*         0x10001c3a        0x2 
- .text.dump_exc_return
-                0x10001c3c       0x18 .\build\gcc/fault-dump.o
- .text.fault_dump_init
-                0x10001c54       0x50 .\build\gcc/fault-dump.o
-                0x10001c54                fault_dump_init
+                0x10001bbc       0x36 .\build\gcc/fault-dump.o
+ *fill*         0x10001bf2        0x2 
  .text.fault_dump_callstack
-                0x10001ca4       0x7c .\build\gcc/fault-dump.o
-                0x10001ca4                fault_dump_callstack
+                0x10001bf4       0x7c .\build\gcc/fault-dump.o
+                0x10001bf4                fault_dump_callstack
+ .text.dump_exc_return
+                0x10001c70       0x18 .\build\gcc/fault-dump.o
+ .text.stack_using_msp
+                0x10001c88        0x8 .\build\gcc/fault-dump.o
+ .text.fault_dump_init
+                0x10001c90       0x50 .\build\gcc/fault-dump.o
+                0x10001c90                fault_dump_init
  .text.fault_dump_handler
-                0x10001d20      0x184 .\build\gcc/fault-dump.o
-                0x10001d20                fault_dump_handler
+                0x10001ce0      0x1ac .\build\gcc/fault-dump.o
+                0x10001ce0                fault_dump_handler
  .text.fault_dump_bm_stack_point
-                0x10001ea4        0x6 .\build\gcc/fault-dump.o
-                0x10001ea4                fault_dump_bm_stack_point
- *fill*         0x10001eaa        0x2 
+                0x10001e8c        0x6 .\build\gcc/fault-dump.o
+                0x10001e8c                fault_dump_bm_stack_point
+ *fill*         0x10001e92        0x2 
  .text.fault_dump_bm_stack_start
-                0x10001eac        0x8 .\build\gcc/fault-dump.o
-                0x10001eac                fault_dump_bm_stack_start
+                0x10001e94        0x8 .\build\gcc/fault-dump.o
+                0x10001e94                fault_dump_bm_stack_start
  .text.fault_dump_exc_return
-                0x10001eb4       0xfc .\build\gcc/fault-hal.o
-                0x10001eb4                fault_dump_exc_return
+                0x10001e9c       0xfc .\build\gcc/fault-hal.o
+                0x10001e9c                fault_dump_exc_return
+ .text.fault_dump_using_msp
+                0x10001f98        0xe .\build\gcc/fault-hal.o
+                0x10001f98                fault_dump_using_msp
+ *fill*         0x10001fa6        0x2 
+ .text.fault_dump_unalign
+                0x10001fa8       0x4c .\build\gcc/fault-hal.o
+                0x10001fa8                fault_dump_unalign
  .text.vListInitialise
-                0x10001fb0       0x1a .\build\gcc/list.o
-                0x10001fb0                vListInitialise
+                0x10001ff4       0x1a .\build\gcc/list.o
+                0x10001ff4                vListInitialise
  .text.vListInitialiseItem
-                0x10001fca        0x6 .\build\gcc/list.o
-                0x10001fca                vListInitialiseItem
+                0x1000200e        0x6 .\build\gcc/list.o
+                0x1000200e                vListInitialiseItem
  .text.vListInsert
-                0x10001fd0       0x32 .\build\gcc/list.o
-                0x10001fd0                vListInsert
+                0x10002014       0x32 .\build\gcc/list.o
+                0x10002014                vListInsert
  .text.uxListRemove
-                0x10002002       0x24 .\build\gcc/list.o
-                0x10002002                uxListRemove
+                0x10002046       0x24 .\build\gcc/list.o
+                0x10002046                uxListRemove
  .text.prvIsQueueEmpty
-                0x10002026       0x1a .\build\gcc/queue.o
+                0x1000206a       0x1a .\build\gcc/queue.o
  .text.prvCopyDataToQueue
-                0x10002040       0x76 .\build\gcc/queue.o
+                0x10002084       0x76 .\build\gcc/queue.o
  .text.prvCopyDataFromQueue
-                0x100020b6       0x24 .\build\gcc/queue.o
+                0x100020fa       0x24 .\build\gcc/queue.o
  .text.prvNotifyQueueSetContainer
-                0x100020da       0x58 .\build\gcc/queue.o
+                0x1000211e       0x58 .\build\gcc/queue.o
  .text.prvUnlockQueue
-                0x10002132       0x82 .\build\gcc/queue.o
+                0x10002176       0x82 .\build\gcc/queue.o
  .text.xQueueGenericReset
-                0x100021b4       0x86 .\build\gcc/queue.o
-                0x100021b4                xQueueGenericReset
+                0x100021f8       0x86 .\build\gcc/queue.o
+                0x100021f8                xQueueGenericReset
  .text.prvInitialiseNewQueue
-                0x1000223a       0x20 .\build\gcc/queue.o
+                0x1000227e       0x20 .\build\gcc/queue.o
  .text.xQueueGenericCreateStatic
-                0x1000225a       0x3e .\build\gcc/queue.o
-                0x1000225a                xQueueGenericCreateStatic
+                0x1000229e       0x3e .\build\gcc/queue.o
+                0x1000229e                xQueueGenericCreateStatic
  .text.xQueueReceive
-                0x10002298       0xf0 .\build\gcc/queue.o
-                0x10002298                xQueueReceive
+                0x100022dc       0xf0 .\build\gcc/queue.o
+                0x100022dc                xQueueReceive
  .text.vQueueWaitForMessageRestricted
-                0x10002388       0x52 .\build\gcc/queue.o
-                0x10002388                vQueueWaitForMessageRestricted
- *fill*         0x100023da        0x2 
+                0x100023cc       0x52 .\build\gcc/queue.o
+                0x100023cc                vQueueWaitForMessageRestricted
+ *fill*         0x1000241e        0x2 
  .text.prvGetExpectedIdleTime
-                0x100023dc       0x40 .\build\gcc/tasks.o
+                0x10002420       0x40 .\build\gcc/tasks.o
  .text.prvResetNextTaskUnblockTime
-                0x1000241c       0x28 .\build\gcc/tasks.o
+                0x10002460       0x28 .\build\gcc/tasks.o
  .text.prvInitialiseNewTask
-                0x10002444       0x96 .\build\gcc/tasks.o
+                0x10002488       0x96 .\build\gcc/tasks.o
  .text.prvCreateStaticTask
-                0x100024da       0x52 .\build\gcc/tasks.o
+                0x1000251e       0x52 .\build\gcc/tasks.o
  .text.prvInitialiseTaskLists
-                0x1000252c       0x68 .\build\gcc/tasks.o
+                0x10002570       0x68 .\build\gcc/tasks.o
  .text.prvAddNewTaskToReadyList
-                0x10002594       0xbc .\build\gcc/tasks.o
+                0x100025d8       0xbc .\build\gcc/tasks.o
  .text.prvCreateTask
-                0x10002650       0x62 .\build\gcc/tasks.o
+                0x10002694       0x62 .\build\gcc/tasks.o
  .text.prvDeleteTCB
-                0x100026b2       0x24 .\build\gcc/tasks.o
- *fill*         0x100026d6        0x2 
+                0x100026f6       0x24 .\build\gcc/tasks.o
+ *fill*         0x1000271a        0x2 
  .text.prvCheckTasksWaitingTermination
-                0x100026d8       0x4c .\build\gcc/tasks.o
+                0x1000271c       0x4c .\build\gcc/tasks.o
  .text.prvAddCurrentTaskToDelayedList
-                0x10002724       0xa8 .\build\gcc/tasks.o
+                0x10002768       0xa8 .\build\gcc/tasks.o
  .text.xTaskCreateStatic
-                0x100027cc       0x28 .\build\gcc/tasks.o
-                0x100027cc                xTaskCreateStatic
+                0x10002810       0x28 .\build\gcc/tasks.o
+                0x10002810                xTaskCreateStatic
  .text.xTaskCreate
-                0x100027f4       0x22 .\build\gcc/tasks.o
-                0x100027f4                xTaskCreate
- *fill*         0x10002816        0x2 
+                0x10002838       0x22 .\build\gcc/tasks.o
+                0x10002838                xTaskCreate
+ *fill*         0x1000285a        0x2 
  .text.vTaskSuspendAll
-                0x10002818       0x10 .\build\gcc/tasks.o
-                0x10002818                vTaskSuspendAll
+                0x1000285c       0x10 .\build\gcc/tasks.o
+                0x1000285c                vTaskSuspendAll
  .text.xTaskGetTickCount
-                0x10002828        0xc .\build\gcc/tasks.o
-                0x10002828                xTaskGetTickCount
+                0x1000286c        0xc .\build\gcc/tasks.o
+                0x1000286c                xTaskGetTickCount
  .text.uxTaskGetNumberOfTasks
-                0x10002834        0xc .\build\gcc/tasks.o
-                0x10002834                uxTaskGetNumberOfTasks
+                0x10002878        0xc .\build\gcc/tasks.o
+                0x10002878                uxTaskGetNumberOfTasks
  .text.vTaskStepTick
-                0x10002840       0x3c .\build\gcc/tasks.o
-                0x10002840                vTaskStepTick
+                0x10002884       0x3c .\build\gcc/tasks.o
+                0x10002884                vTaskStepTick
  .text.xTaskIncrementTick
-                0x1000287c      0x160 .\build\gcc/tasks.o
-                0x1000287c                xTaskIncrementTick
+                0x100028c0      0x160 .\build\gcc/tasks.o
+                0x100028c0                xTaskIncrementTick
  .text.xTaskResumeAll
-                0x100029dc      0x130 .\build\gcc/tasks.o
-                0x100029dc                xTaskResumeAll
+                0x10002a20      0x130 .\build\gcc/tasks.o
+                0x10002a20                xTaskResumeAll
  .text.vTaskDelay
-                0x10002b0c       0x1e .\build\gcc/tasks.o
-                0x10002b0c                vTaskDelay
- *fill*         0x10002b2a        0x2 
+                0x10002b50       0x1e .\build\gcc/tasks.o
+                0x10002b50                vTaskDelay
+ *fill*         0x10002b6e        0x2 
  .text.prvIdleTask
-                0x10002b2c       0x38 .\build\gcc/tasks.o
+                0x10002b70       0x38 .\build\gcc/tasks.o
  .text.vTaskSwitchContext
-                0x10002b64       0x84 .\build\gcc/tasks.o
-                0x10002b64                vTaskSwitchContext
+                0x10002ba8       0x84 .\build\gcc/tasks.o
+                0x10002ba8                vTaskSwitchContext
  .text.vTaskPlaceOnEventList
-                0x10002be8       0x1c .\build\gcc/tasks.o
-                0x10002be8                vTaskPlaceOnEventList
+                0x10002c2c       0x1c .\build\gcc/tasks.o
+                0x10002c2c                vTaskPlaceOnEventList
  .text.vTaskPlaceOnEventListRestricted
-                0x10002c04       0x3c .\build\gcc/tasks.o
-                0x10002c04                vTaskPlaceOnEventListRestricted
+                0x10002c48       0x3c .\build\gcc/tasks.o
+                0x10002c48                vTaskPlaceOnEventListRestricted
  .text.xTaskRemoveFromEventList
-                0x10002c40       0xe4 .\build\gcc/tasks.o
-                0x10002c40                xTaskRemoveFromEventList
+                0x10002c84       0xe4 .\build\gcc/tasks.o
+                0x10002c84                xTaskRemoveFromEventList
  .text.vTaskInternalSetTimeOutState
-                0x10002d24       0x18 .\build\gcc/tasks.o
-                0x10002d24                vTaskInternalSetTimeOutState
+                0x10002d68       0x18 .\build\gcc/tasks.o
+                0x10002d68                vTaskInternalSetTimeOutState
  .text.xTaskCheckForTimeOut
-                0x10002d3c       0x7c .\build\gcc/tasks.o
-                0x10002d3c                xTaskCheckForTimeOut
+                0x10002d80       0x7c .\build\gcc/tasks.o
+                0x10002d80                xTaskCheckForTimeOut
  .text.vTaskMissedYield
-                0x10002db8        0xc .\build\gcc/tasks.o
-                0x10002db8                vTaskMissedYield
+                0x10002dfc        0xc .\build\gcc/tasks.o
+                0x10002dfc                vTaskMissedYield
  .text.eTaskConfirmSleepModeStatus
-                0x10002dc4       0x48 .\build\gcc/tasks.o
-                0x10002dc4                eTaskConfirmSleepModeStatus
+                0x10002e08       0x48 .\build\gcc/tasks.o
+                0x10002e08                eTaskConfirmSleepModeStatus
  .text.xTaskPriorityDisinherit
-                0x10002e0c       0x80 .\build\gcc/tasks.o
-                0x10002e0c                xTaskPriorityDisinherit
+                0x10002e50       0x80 .\build\gcc/tasks.o
+                0x10002e50                xTaskPriorityDisinherit
  .text.vApplicationGetIdleTaskMemory
-                0x10002e8c       0x18 .\build\gcc/tasks.o
-                0x10002e8c                vApplicationGetIdleTaskMemory
+                0x10002ed0       0x18 .\build\gcc/tasks.o
+                0x10002ed0                vApplicationGetIdleTaskMemory
  .text.prvCreateIdleTasks
-                0x10002ea4       0x6c .\build\gcc/tasks.o
+                0x10002ee8       0x6c .\build\gcc/tasks.o
  .text.vTaskStartScheduler
-                0x10002f10       0x48 .\build\gcc/tasks.o
-                0x10002f10                vTaskStartScheduler
+                0x10002f54       0x48 .\build\gcc/tasks.o
+                0x10002f54                vTaskStartScheduler
  .text.vApplicationGetTimerTaskMemory
-                0x10002f58       0x18 .\build\gcc/tasks.o
-                0x10002f58                vApplicationGetTimerTaskMemory
+                0x10002f9c       0x18 .\build\gcc/tasks.o
+                0x10002f9c                vApplicationGetTimerTaskMemory
  .text.prvGetNextExpireTime
-                0x10002f70       0x20 .\build\gcc/timers.o
+                0x10002fb4       0x20 .\build\gcc/timers.o
  .text.prvInsertTimerInActiveList
-                0x10002f90       0x48 .\build\gcc/timers.o
+                0x10002fd4       0x48 .\build\gcc/timers.o
  .text.prvReloadTimer
-                0x10002fd8       0x28 .\build\gcc/timers.o
+                0x1000301c       0x28 .\build\gcc/timers.o
  .text.prvProcessExpiredTimer
-                0x10003000       0x40 .\build\gcc/timers.o
+                0x10003044       0x40 .\build\gcc/timers.o
  .text.prvSwitchTimerLists
-                0x10003040       0x30 .\build\gcc/timers.o
+                0x10003084       0x30 .\build\gcc/timers.o
  .text.prvSampleTimeNow
-                0x10003070       0x2c .\build\gcc/timers.o
+                0x100030b4       0x2c .\build\gcc/timers.o
  .text.prvProcessTimerOrBlockTask
-                0x1000309c       0x68 .\build\gcc/timers.o
+                0x100030e0       0x68 .\build\gcc/timers.o
  .text.prvProcessReceivedCommands
-                0x10003104       0xf8 .\build\gcc/timers.o
+                0x10003148       0xf8 .\build\gcc/timers.o
  .text.prvTimerTask
-                0x100031fc       0x16 .\build\gcc/timers.o
- *fill*         0x10003212        0x2 
+                0x10003240       0x16 .\build\gcc/timers.o
+ *fill*         0x10003256        0x2 
  .text.prvCheckForValidListAndQueue
-                0x10003214       0x60 .\build\gcc/timers.o
+                0x10003258       0x60 .\build\gcc/timers.o
  .text.xTimerCreateTimerTask
-                0x10003274       0x5c .\build\gcc/timers.o
-                0x10003274                xTimerCreateTimerTask
+                0x100032b8       0x5c .\build\gcc/timers.o
+                0x100032b8                xTimerCreateTimerTask
  .text.prvHeapInit
-                0x100032d0       0x58 .\build\gcc/heap_4.o
+                0x10003314       0x58 .\build\gcc/heap_4.o
  .text.prvInsertBlockIntoFreeList
-                0x10003328       0x64 .\build\gcc/heap_4.o
+                0x1000336c       0x64 .\build\gcc/heap_4.o
  .text.pvPortMalloc
-                0x1000338c       0xd4 .\build\gcc/heap_4.o
-                0x1000338c                pvPortMalloc
+                0x100033d0       0xd4 .\build\gcc/heap_4.o
+                0x100033d0                pvPortMalloc
  .text.vPortFree
-                0x10003460       0x50 .\build\gcc/heap_4.o
-                0x10003460                vPortFree
+                0x100034a4       0x50 .\build\gcc/heap_4.o
+                0x100034a4                vPortFree
  .text.prvTaskExitError
-                0x100034b0       0x18 .\build\gcc/port.o
+                0x100034f4       0x18 .\build\gcc/port.o
  .text.vPortSuppressTicksAndSleep
-                0x100034c8      0x114 .\build\gcc/port.o
-                0x100034c8                vPortSuppressTicksAndSleep
+                0x1000350c      0x114 .\build\gcc/port.o
+                0x1000350c                vPortSuppressTicksAndSleep
  .text.vPortSetupTimerInterrupt
-                0x100035dc       0x3c .\build\gcc/port.o
-                0x100035dc                vPortSetupTimerInterrupt
+                0x10003620       0x3c .\build\gcc/port.o
+                0x10003620                vPortSetupTimerInterrupt
  .text.vPortYield
-                0x10003618       0x16 .\build\gcc/port.o
-                0x10003618                vPortYield
- *fill*         0x1000362e        0x2 
+                0x1000365c       0x16 .\build\gcc/port.o
+                0x1000365c                vPortYield
+ *fill*         0x10003672        0x2 
  .text.vPortEnterCritical
-                0x10003630       0x1c .\build\gcc/port.o
-                0x10003630                vPortEnterCritical
+                0x10003674       0x1c .\build\gcc/port.o
+                0x10003674                vPortEnterCritical
  .text.vPortExitCritical
-                0x1000364c       0x1c .\build\gcc/port.o
-                0x1000364c                vPortExitCritical
+                0x10003690       0x1c .\build\gcc/port.o
+                0x10003690                vPortExitCritical
  .text.SysTick_Handler
-                0x10003668       0x22 .\build\gcc/port.o
-                0x10003668                SysTick_Handler
+                0x100036ac       0x22 .\build\gcc/port.o
+                0x100036ac                SysTick_Handler
  .text.vPortSVCHandler_C
-                0x1000368a       0x14 .\build\gcc/port.o
-                0x1000368a                vPortSVCHandler_C
- *fill*         0x1000369e        0x2 
+                0x100036ce       0x14 .\build\gcc/port.o
+                0x100036ce                vPortSVCHandler_C
+ *fill*         0x100036e2        0x2 
  .text.pxPortInitialiseStack
-                0x100036a0       0x90 .\build\gcc/port.o
-                0x100036a0                pxPortInitialiseStack
+                0x100036e4       0x90 .\build\gcc/port.o
+                0x100036e4                pxPortInitialiseStack
  .text.xPortStartScheduler
-                0x10003730       0x40 .\build\gcc/port.o
-                0x10003730                xPortStartScheduler
+                0x10003774       0x40 .\build\gcc/port.o
+                0x10003774                xPortStartScheduler
  .text.vRestoreContextOfFirstTask
-                0x10003770       0x2c .\build\gcc/portasm.o
-                0x10003770                vRestoreContextOfFirstTask
+                0x100037b4       0x2c .\build\gcc/portasm.o
+                0x100037b4                vRestoreContextOfFirstTask
  .text.vStartFirstTask
-                0x1000379c       0x20 .\build\gcc/portasm.o
-                0x1000379c                vStartFirstTask
+                0x100037e0       0x20 .\build\gcc/portasm.o
+                0x100037e0                vStartFirstTask
  .text.ulSetInterruptMask
-                0x100037bc       0x16 .\build\gcc/portasm.o
-                0x100037bc                ulSetInterruptMask
+                0x10003800       0x16 .\build\gcc/portasm.o
+                0x10003800                ulSetInterruptMask
  .text.vClearInterruptMask
-                0x100037d2        0xe .\build\gcc/portasm.o
-                0x100037d2                vClearInterruptMask
+                0x10003816        0xe .\build\gcc/portasm.o
+                0x10003816                vClearInterruptMask
  .text.PendSV_Handler
-                0x100037e0       0x48 .\build\gcc/portasm.o
-                0x100037e0                PendSV_Handler
+                0x10003824       0x48 .\build\gcc/portasm.o
+                0x10003824                PendSV_Handler
  .text.SVC_Handler
-                0x10003828       0x18 .\build\gcc/portasm.o
-                0x10003828                SVC_Handler
- .text._getpid  0x10003840        0x4 .\build\gcc/syscalls.o
-                0x10003840                _getpid
- .text._kill    0x10003844       0x10 .\build\gcc/syscalls.o
-                0x10003844                _kill
- .text._exit    0x10003854        0xc .\build\gcc/syscalls.o
-                0x10003854                _exit
- .text          0x10003860       0x70 .\build\gcc/startup_ARMCM33.o
-                0x10003860                Reset_Handler
-                0x100038b4                Interrupt3_Handler
-                0x100038b4                Interrupt8_Handler
-                0x100038b4                Interrupt5_Handler
-                0x100038b4                UsageFault_Handler
-                0x100038b4                NMI_Handler
-                0x100038b4                DebugMon_Handler
-                0x100038b4                Interrupt7_Handler
-                0x100038b4                Interrupt2_Handler
-                0x100038b4                Interrupt0_Handler
-                0x100038b4                Interrupt4_Handler
-                0x100038b4                SecureFault_Handler
-                0x100038b4                Interrupt9_Handler
-                0x100038b4                Interrupt6_Handler
-                0x100038b4                MemManage_Handler
-                0x100038b4                Interrupt1_Handler
-                0x100038b4                BusFault_Handler
- .text          0x100038d0       0x48 .\build\gcc/fault-gcc.o
-                0x100038d0                HardFault_Handler
- .text.__errno  0x10003918        0xc c:/users/xidon/program/arm_gcc/gcc-arm-none-eabi-10.3-2021.10/bin/../lib/gcc/arm-none-eabi/10.3.1/../../../../arm-none-eabi/lib/thumb/v8-m.main+fp/hard\libc.a(lib_a-errno.o)
-                0x10003918                __errno
- .text          0x10003924       0xec c:/users/xidon/program/arm_gcc/gcc-arm-none-eabi-10.3-2021.10/bin/../lib/gcc/arm-none-eabi/10.3.1/../../../../arm-none-eabi/lib/thumb/v8-m.main+fp/hard\libc.a(lib_a-memcpy.o)
-                0x10003924                memcpy
- .text.memset   0x10003a10       0xa4 c:/users/xidon/program/arm_gcc/gcc-arm-none-eabi-10.3-2021.10/bin/../lib/gcc/arm-none-eabi/10.3.1/../../../../arm-none-eabi/lib/thumb/v8-m.main+fp/hard\libc.a(lib_a-memset.o)
-                0x10003a10                memset
+                0x1000386c       0x18 .\build\gcc/portasm.o
+                0x1000386c                SVC_Handler
+ .text._getpid  0x10003884        0x4 .\build\gcc/syscalls.o
+                0x10003884                _getpid
+ .text._kill    0x10003888       0x10 .\build\gcc/syscalls.o
+                0x10003888                _kill
+ .text._exit    0x10003898        0xc .\build\gcc/syscalls.o
+                0x10003898                _exit
+ .text          0x100038a4       0x70 .\build\gcc/startup_ARMCM33.o
+                0x100038a4                Reset_Handler
+                0x100038f8                Interrupt3_Handler
+                0x100038f8                Interrupt8_Handler
+                0x100038f8                Interrupt5_Handler
+                0x100038f8                UsageFault_Handler
+                0x100038f8                NMI_Handler
+                0x100038f8                DebugMon_Handler
+                0x100038f8                Interrupt7_Handler
+                0x100038f8                Interrupt2_Handler
+                0x100038f8                Interrupt0_Handler
+                0x100038f8                Interrupt4_Handler
+                0x100038f8                SecureFault_Handler
+                0x100038f8                Interrupt9_Handler
+                0x100038f8                Interrupt6_Handler
+                0x100038f8                MemManage_Handler
+                0x100038f8                Interrupt1_Handler
+                0x100038f8                BusFault_Handler
+ .text          0x10003914       0x48 .\build\gcc/fault-gcc.o
+                0x10003914                HardFault_Handler
+ .text.__errno  0x1000395c        0xc c:/users/xidon/program/arm_gcc/gcc-arm-none-eabi-10.3-2021.10/bin/../lib/gcc/arm-none-eabi/10.3.1/../../../../arm-none-eabi/lib/thumb/v8-m.main+fp/hard\libc.a(lib_a-errno.o)
+                0x1000395c                __errno
+ .text          0x10003968       0xec c:/users/xidon/program/arm_gcc/gcc-arm-none-eabi-10.3-2021.10/bin/../lib/gcc/arm-none-eabi/10.3.1/../../../../arm-none-eabi/lib/thumb/v8-m.main+fp/hard\libc.a(lib_a-memcpy.o)
+                0x10003968                memcpy
+ .text.memset   0x10003a54       0xa4 c:/users/xidon/program/arm_gcc/gcc-arm-none-eabi-10.3-2021.10/bin/../lib/gcc/arm-none-eabi/10.3.1/../../../../arm-none-eabi/lib/thumb/v8-m.main+fp/hard\libc.a(lib_a-memset.o)
+                0x10003a54                memset
  .text.startup.register_fini
-                0x10003ab4       0x14 c:/users/xidon/program/arm_gcc/gcc-arm-none-eabi-10.3-2021.10/bin/../lib/gcc/arm-none-eabi/10.3.1/../../../../arm-none-eabi/lib/thumb/v8-m.main+fp/hard\libc.a(lib_a-__call_atexit.o)
- .text.atexit   0x10003ac8        0xc c:/users/xidon/program/arm_gcc/gcc-arm-none-eabi-10.3-2021.10/bin/../lib/gcc/arm-none-eabi/10.3.1/../../../../arm-none-eabi/lib/thumb/v8-m.main+fp/hard\libc.a(lib_a-atexit.o)
-                0x10003ac8                atexit
+                0x10003af8       0x14 c:/users/xidon/program/arm_gcc/gcc-arm-none-eabi-10.3-2021.10/bin/../lib/gcc/arm-none-eabi/10.3.1/../../../../arm-none-eabi/lib/thumb/v8-m.main+fp/hard\libc.a(lib_a-__call_atexit.o)
+ .text.atexit   0x10003b0c        0xc c:/users/xidon/program/arm_gcc/gcc-arm-none-eabi-10.3-2021.10/bin/../lib/gcc/arm-none-eabi/10.3.1/../../../../arm-none-eabi/lib/thumb/v8-m.main+fp/hard\libc.a(lib_a-atexit.o)
+                0x10003b0c                atexit
  .text.__libc_fini_array
-                0x10003ad4       0x2c c:/users/xidon/program/arm_gcc/gcc-arm-none-eabi-10.3-2021.10/bin/../lib/gcc/arm-none-eabi/10.3.1/../../../../arm-none-eabi/lib/thumb/v8-m.main+fp/hard\libc.a(lib_a-fini.o)
-                0x10003ad4                __libc_fini_array
+                0x10003b18       0x2c c:/users/xidon/program/arm_gcc/gcc-arm-none-eabi-10.3-2021.10/bin/../lib/gcc/arm-none-eabi/10.3.1/../../../../arm-none-eabi/lib/thumb/v8-m.main+fp/hard\libc.a(lib_a-fini.o)
+                0x10003b18                __libc_fini_array
  .text.__retarget_lock_acquire_recursive
-                0x10003b00        0x4 c:/users/xidon/program/arm_gcc/gcc-arm-none-eabi-10.3-2021.10/bin/../lib/gcc/arm-none-eabi/10.3.1/../../../../arm-none-eabi/lib/thumb/v8-m.main+fp/hard\libc.a(lib_a-lock.o)
-                0x10003b00                __retarget_lock_acquire_recursive
+                0x10003b44        0x4 c:/users/xidon/program/arm_gcc/gcc-arm-none-eabi-10.3-2021.10/bin/../lib/gcc/arm-none-eabi/10.3.1/../../../../arm-none-eabi/lib/thumb/v8-m.main+fp/hard\libc.a(lib_a-lock.o)
+                0x10003b44                __retarget_lock_acquire_recursive
  .text.__retarget_lock_release_recursive
-                0x10003b04        0x4 c:/users/xidon/program/arm_gcc/gcc-arm-none-eabi-10.3-2021.10/bin/../lib/gcc/arm-none-eabi/10.3.1/../../../../arm-none-eabi/lib/thumb/v8-m.main+fp/hard\libc.a(lib_a-lock.o)
-                0x10003b04                __retarget_lock_release_recursive
+                0x10003b48        0x4 c:/users/xidon/program/arm_gcc/gcc-arm-none-eabi-10.3-2021.10/bin/../lib/gcc/arm-none-eabi/10.3.1/../../../../arm-none-eabi/lib/thumb/v8-m.main+fp/hard\libc.a(lib_a-lock.o)
+                0x10003b48                __retarget_lock_release_recursive
  .text.__register_exitproc
-                0x10003b08       0x90 c:/users/xidon/program/arm_gcc/gcc-arm-none-eabi-10.3-2021.10/bin/../lib/gcc/arm-none-eabi/10.3.1/../../../../arm-none-eabi/lib/thumb/v8-m.main+fp/hard\libc.a(lib_a-__atexit.o)
-                0x10003b08                __register_exitproc
- .text          0x10003b98      0x378 c:/users/xidon/program/arm_gcc/gcc-arm-none-eabi-10.3-2021.10/bin/../lib/gcc/arm-none-eabi/10.3.1/thumb/v8-m.main+fp/hard\libgcc.a(_arm_addsubdf3.o)
-                0x10003b98                __aeabi_drsub
-                0x10003ba0                __aeabi_dsub
-                0x10003ba0                __subdf3
-                0x10003ba4                __aeabi_dadd
-                0x10003ba4                __adddf3
-                0x10003e1c                __floatunsidf
-                0x10003e1c                __aeabi_ui2d
-                0x10003e3c                __floatsidf
-                0x10003e3c                __aeabi_i2d
-                0x10003e60                __aeabi_f2d
-                0x10003e60                __extendsfdf2
-                0x10003ea4                __floatundidf
-                0x10003ea4                __aeabi_ul2d
-                0x10003eb4                __floatdidf
-                0x10003eb4                __aeabi_l2d
- .text          0x10003f10      0x424 c:/users/xidon/program/arm_gcc/gcc-arm-none-eabi-10.3-2021.10/bin/../lib/gcc/arm-none-eabi/10.3.1/thumb/v8-m.main+fp/hard\libgcc.a(_arm_muldivdf3.o)
-                0x10003f10                __aeabi_dmul
-                0x10003f10                __muldf3
-                0x10004164                __divdf3
-                0x10004164                __aeabi_ddiv
- .text          0x10004334      0x110 c:/users/xidon/program/arm_gcc/gcc-arm-none-eabi-10.3-2021.10/bin/../lib/gcc/arm-none-eabi/10.3.1/thumb/v8-m.main+fp/hard\libgcc.a(_arm_cmpdf2.o)
-                0x10004334                __gtdf2
-                0x10004334                __gedf2
-                0x1000433c                __ltdf2
-                0x1000433c                __ledf2
-                0x10004344                __nedf2
-                0x10004344                __eqdf2
-                0x10004344                __cmpdf2
-                0x100043c0                __aeabi_cdrcmple
-                0x100043d0                __aeabi_cdcmpeq
-                0x100043d0                __aeabi_cdcmple
-                0x100043e0                __aeabi_dcmpeq
-                0x100043f4                __aeabi_dcmplt
-                0x10004408                __aeabi_dcmple
-                0x1000441c                __aeabi_dcmpge
-                0x10004430                __aeabi_dcmpgt
- .text          0x10004444       0x50 c:/users/xidon/program/arm_gcc/gcc-arm-none-eabi-10.3-2021.10/bin/../lib/gcc/arm-none-eabi/10.3.1/thumb/v8-m.main+fp/hard\libgcc.a(_arm_fixdfsi.o)
-                0x10004444                __aeabi_d2iz
-                0x10004444                __fixdfsi
- .text          0x10004494       0x40 c:/users/xidon/program/arm_gcc/gcc-arm-none-eabi-10.3-2021.10/bin/../lib/gcc/arm-none-eabi/10.3.1/thumb/v8-m.main+fp/hard\libgcc.a(_arm_fixunsdfsi.o)
-                0x10004494                __aeabi_d2uiz
-                0x10004494                __fixunsdfsi
- .text          0x100044d4       0x30 c:/users/xidon/program/arm_gcc/gcc-arm-none-eabi-10.3-2021.10/bin/../lib/gcc/arm-none-eabi/10.3.1/thumb/v8-m.main+fp/hard\libgcc.a(_aeabi_uldivmod.o)
-                0x100044d4                __aeabi_uldivmod
- .text          0x10004504      0x2ec c:/users/xidon/program/arm_gcc/gcc-arm-none-eabi-10.3-2021.10/bin/../lib/gcc/arm-none-eabi/10.3.1/thumb/v8-m.main+fp/hard\libgcc.a(_udivmoddi4.o)
-                0x10004504                __udivmoddi4
- .text          0x100047f0      0xa44 c:/users/xidon/program/arm_gcc/gcc-arm-none-eabi-10.3-2021.10/bin/../lib/gcc/arm-none-eabi/10.3.1/thumb/v8-m.main+fp/hard\libgcc.a(unwind-arm.o)
-                0x10004ab0                _Unwind_GetCFA
-                0x10004ab4                __gnu_Unwind_RaiseException
-                0x10004b1c                __gnu_Unwind_ForcedUnwind
-                0x10004b30                __gnu_Unwind_Resume
-                0x10004b74                __gnu_Unwind_Resume_or_Rethrow
-                0x10004b88                _Unwind_Complete
-                0x10004b8c                _Unwind_DeleteException
-                0x10004b98                _Unwind_VRS_Get
-                0x10004be4                _Unwind_VRS_Set
-                0x10004c30                __gnu_Unwind_Backtrace
-                0x10004f74                __aeabi_unwind_cpp_pr0
-                0x10004f78                __aeabi_unwind_cpp_pr1
-                0x10004f7c                __aeabi_unwind_cpp_pr2
-                0x10004f80                _Unwind_VRS_Pop
- .text          0x10005234      0x1ac c:/users/xidon/program/arm_gcc/gcc-arm-none-eabi-10.3-2021.10/bin/../lib/gcc/arm-none-eabi/10.3.1/thumb/v8-m.main+fp/hard\libgcc.a(libunwind.o)
-                0x10005234                __restore_core_regs
-                0x10005234                restore_core_regs
-                0x1000524c                __gnu_Unwind_Restore_VFP
-                0x10005254                __gnu_Unwind_Save_VFP
-                0x1000525c                __gnu_Unwind_Restore_VFP_D
-                0x10005264                __gnu_Unwind_Save_VFP_D
-                0x1000526c                __gnu_Unwind_Restore_VFP_D_16_to_31
-                0x10005274                __gnu_Unwind_Save_VFP_D_16_to_31
-                0x1000527c                __gnu_Unwind_Restore_WMMXD
-                0x100052c0                __gnu_Unwind_Save_WMMXD
-                0x10005304                __gnu_Unwind_Restore_WMMXC
-                0x10005318                __gnu_Unwind_Save_WMMXC
-                0x1000532c                ___Unwind_RaiseException
-                0x1000532c                _Unwind_RaiseException
-                0x10005350                _Unwind_Resume
-                0x10005350                ___Unwind_Resume
-                0x10005374                _Unwind_Resume_or_Rethrow
-                0x10005374                ___Unwind_Resume_or_Rethrow
-                0x10005398                _Unwind_ForcedUnwind
-                0x10005398                ___Unwind_ForcedUnwind
-                0x100053bc                ___Unwind_Backtrace
-                0x100053bc                _Unwind_Backtrace
- .text          0x100053e0      0x374 c:/users/xidon/program/arm_gcc/gcc-arm-none-eabi-10.3-2021.10/bin/../lib/gcc/arm-none-eabi/10.3.1/thumb/v8-m.main+fp/hard\libgcc.a(pr-support.o)
-                0x10005438                __gnu_unwind_execute
-                0x10005704                __gnu_unwind_frame
-                0x10005734                _Unwind_GetRegionStart
-                0x10005740                _Unwind_GetLanguageSpecificData
- .text          0x10005754        0x4 c:/users/xidon/program/arm_gcc/gcc-arm-none-eabi-10.3-2021.10/bin/../lib/gcc/arm-none-eabi/10.3.1/thumb/v8-m.main+fp/hard\libgcc.a(_dvmd_tls.o)
-                0x10005754                __aeabi_idiv0
-                0x10005754                __aeabi_ldiv0
- .text.abort    0x10005758       0x10 c:/users/xidon/program/arm_gcc/gcc-arm-none-eabi-10.3-2021.10/bin/../lib/gcc/arm-none-eabi/10.3.1/../../../../arm-none-eabi/lib/thumb/v8-m.main+fp/hard\libc.a(lib_a-abort.o)
-                0x10005758                abort
- .text.raise    0x10005768       0x5c c:/users/xidon/program/arm_gcc/gcc-arm-none-eabi-10.3-2021.10/bin/../lib/gcc/arm-none-eabi/10.3.1/../../../../arm-none-eabi/lib/thumb/v8-m.main+fp/hard\libc.a(lib_a-signal.o)
-                0x10005768                raise
- .text._kill_r  0x100057c4       0x2c c:/users/xidon/program/arm_gcc/gcc-arm-none-eabi-10.3-2021.10/bin/../lib/gcc/arm-none-eabi/10.3.1/../../../../arm-none-eabi/lib/thumb/v8-m.main+fp/hard\libc.a(lib_a-signalr.o)
-                0x100057c4                _kill_r
+                0x10003b4c       0x90 c:/users/xidon/program/arm_gcc/gcc-arm-none-eabi-10.3-2021.10/bin/../lib/gcc/arm-none-eabi/10.3.1/../../../../arm-none-eabi/lib/thumb/v8-m.main+fp/hard\libc.a(lib_a-__atexit.o)
+                0x10003b4c                __register_exitproc
+ .text          0x10003bdc      0x378 c:/users/xidon/program/arm_gcc/gcc-arm-none-eabi-10.3-2021.10/bin/../lib/gcc/arm-none-eabi/10.3.1/thumb/v8-m.main+fp/hard\libgcc.a(_arm_addsubdf3.o)
+                0x10003bdc                __aeabi_drsub
+                0x10003be4                __aeabi_dsub
+                0x10003be4                __subdf3
+                0x10003be8                __aeabi_dadd
+                0x10003be8                __adddf3
+                0x10003e60                __floatunsidf
+                0x10003e60                __aeabi_ui2d
+                0x10003e80                __floatsidf
+                0x10003e80                __aeabi_i2d
+                0x10003ea4                __aeabi_f2d
+                0x10003ea4                __extendsfdf2
+                0x10003ee8                __floatundidf
+                0x10003ee8                __aeabi_ul2d
+                0x10003ef8                __floatdidf
+                0x10003ef8                __aeabi_l2d
+ .text          0x10003f54      0x424 c:/users/xidon/program/arm_gcc/gcc-arm-none-eabi-10.3-2021.10/bin/../lib/gcc/arm-none-eabi/10.3.1/thumb/v8-m.main+fp/hard\libgcc.a(_arm_muldivdf3.o)
+                0x10003f54                __aeabi_dmul
+                0x10003f54                __muldf3
+                0x100041a8                __divdf3
+                0x100041a8                __aeabi_ddiv
+ .text          0x10004378      0x110 c:/users/xidon/program/arm_gcc/gcc-arm-none-eabi-10.3-2021.10/bin/../lib/gcc/arm-none-eabi/10.3.1/thumb/v8-m.main+fp/hard\libgcc.a(_arm_cmpdf2.o)
+                0x10004378                __gtdf2
+                0x10004378                __gedf2
+                0x10004380                __ltdf2
+                0x10004380                __ledf2
+                0x10004388                __nedf2
+                0x10004388                __eqdf2
+                0x10004388                __cmpdf2
+                0x10004404                __aeabi_cdrcmple
+                0x10004414                __aeabi_cdcmpeq
+                0x10004414                __aeabi_cdcmple
+                0x10004424                __aeabi_dcmpeq
+                0x10004438                __aeabi_dcmplt
+                0x1000444c                __aeabi_dcmple
+                0x10004460                __aeabi_dcmpge
+                0x10004474                __aeabi_dcmpgt
+ .text          0x10004488       0x50 c:/users/xidon/program/arm_gcc/gcc-arm-none-eabi-10.3-2021.10/bin/../lib/gcc/arm-none-eabi/10.3.1/thumb/v8-m.main+fp/hard\libgcc.a(_arm_fixdfsi.o)
+                0x10004488                __aeabi_d2iz
+                0x10004488                __fixdfsi
+ .text          0x100044d8       0x40 c:/users/xidon/program/arm_gcc/gcc-arm-none-eabi-10.3-2021.10/bin/../lib/gcc/arm-none-eabi/10.3.1/thumb/v8-m.main+fp/hard\libgcc.a(_arm_fixunsdfsi.o)
+                0x100044d8                __aeabi_d2uiz
+                0x100044d8                __fixunsdfsi
+ .text          0x10004518       0x30 c:/users/xidon/program/arm_gcc/gcc-arm-none-eabi-10.3-2021.10/bin/../lib/gcc/arm-none-eabi/10.3.1/thumb/v8-m.main+fp/hard\libgcc.a(_aeabi_uldivmod.o)
+                0x10004518                __aeabi_uldivmod
+ .text          0x10004548      0x2ec c:/users/xidon/program/arm_gcc/gcc-arm-none-eabi-10.3-2021.10/bin/../lib/gcc/arm-none-eabi/10.3.1/thumb/v8-m.main+fp/hard\libgcc.a(_udivmoddi4.o)
+                0x10004548                __udivmoddi4
+ .text          0x10004834      0xa44 c:/users/xidon/program/arm_gcc/gcc-arm-none-eabi-10.3-2021.10/bin/../lib/gcc/arm-none-eabi/10.3.1/thumb/v8-m.main+fp/hard\libgcc.a(unwind-arm.o)
+                0x10004af4                _Unwind_GetCFA
+                0x10004af8                __gnu_Unwind_RaiseException
+                0x10004b60                __gnu_Unwind_ForcedUnwind
+                0x10004b74                __gnu_Unwind_Resume
+                0x10004bb8                __gnu_Unwind_Resume_or_Rethrow
+                0x10004bcc                _Unwind_Complete
+                0x10004bd0                _Unwind_DeleteException
+                0x10004bdc                _Unwind_VRS_Get
+                0x10004c28                _Unwind_VRS_Set
+                0x10004c74                __gnu_Unwind_Backtrace
+                0x10004fb8                __aeabi_unwind_cpp_pr0
+                0x10004fbc                __aeabi_unwind_cpp_pr1
+                0x10004fc0                __aeabi_unwind_cpp_pr2
+                0x10004fc4                _Unwind_VRS_Pop
+ .text          0x10005278      0x1ac c:/users/xidon/program/arm_gcc/gcc-arm-none-eabi-10.3-2021.10/bin/../lib/gcc/arm-none-eabi/10.3.1/thumb/v8-m.main+fp/hard\libgcc.a(libunwind.o)
+                0x10005278                __restore_core_regs
+                0x10005278                restore_core_regs
+                0x10005290                __gnu_Unwind_Restore_VFP
+                0x10005298                __gnu_Unwind_Save_VFP
+                0x100052a0                __gnu_Unwind_Restore_VFP_D
+                0x100052a8                __gnu_Unwind_Save_VFP_D
+                0x100052b0                __gnu_Unwind_Restore_VFP_D_16_to_31
+                0x100052b8                __gnu_Unwind_Save_VFP_D_16_to_31
+                0x100052c0                __gnu_Unwind_Restore_WMMXD
+                0x10005304                __gnu_Unwind_Save_WMMXD
+                0x10005348                __gnu_Unwind_Restore_WMMXC
+                0x1000535c                __gnu_Unwind_Save_WMMXC
+                0x10005370                ___Unwind_RaiseException
+                0x10005370                _Unwind_RaiseException
+                0x10005394                _Unwind_Resume
+                0x10005394                ___Unwind_Resume
+                0x100053b8                _Unwind_Resume_or_Rethrow
+                0x100053b8                ___Unwind_Resume_or_Rethrow
+                0x100053dc                _Unwind_ForcedUnwind
+                0x100053dc                ___Unwind_ForcedUnwind
+                0x10005400                ___Unwind_Backtrace
+                0x10005400                _Unwind_Backtrace
+ .text          0x10005424      0x374 c:/users/xidon/program/arm_gcc/gcc-arm-none-eabi-10.3-2021.10/bin/../lib/gcc/arm-none-eabi/10.3.1/thumb/v8-m.main+fp/hard\libgcc.a(pr-support.o)
+                0x1000547c                __gnu_unwind_execute
+                0x10005748                __gnu_unwind_frame
+                0x10005778                _Unwind_GetRegionStart
+                0x10005784                _Unwind_GetLanguageSpecificData
+ .text          0x10005798        0x4 c:/users/xidon/program/arm_gcc/gcc-arm-none-eabi-10.3-2021.10/bin/../lib/gcc/arm-none-eabi/10.3.1/thumb/v8-m.main+fp/hard\libgcc.a(_dvmd_tls.o)
+                0x10005798                __aeabi_idiv0
+                0x10005798                __aeabi_ldiv0
+ .text.abort    0x1000579c       0x10 c:/users/xidon/program/arm_gcc/gcc-arm-none-eabi-10.3-2021.10/bin/../lib/gcc/arm-none-eabi/10.3.1/../../../../arm-none-eabi/lib/thumb/v8-m.main+fp/hard\libc.a(lib_a-abort.o)
+                0x1000579c                abort
+ .text.raise    0x100057ac       0x5c c:/users/xidon/program/arm_gcc/gcc-arm-none-eabi-10.3-2021.10/bin/../lib/gcc/arm-none-eabi/10.3.1/../../../../arm-none-eabi/lib/thumb/v8-m.main+fp/hard\libc.a(lib_a-signal.o)
+                0x100057ac                raise
+ .text._kill_r  0x10005808       0x2c c:/users/xidon/program/arm_gcc/gcc-arm-none-eabi-10.3-2021.10/bin/../lib/gcc/arm-none-eabi/10.3.1/../../../../arm-none-eabi/lib/thumb/v8-m.main+fp/hard\libc.a(lib_a-signalr.o)
+                0x10005808                _kill_r
  .text._getpid_r
-                0x100057f0        0x4 c:/users/xidon/program/arm_gcc/gcc-arm-none-eabi-10.3-2021.10/bin/../lib/gcc/arm-none-eabi/10.3.1/../../../../arm-none-eabi/lib/thumb/v8-m.main+fp/hard\libc.a(lib_a-signalr.o)
-                0x100057f0                _getpid_r
+                0x10005834        0x4 c:/users/xidon/program/arm_gcc/gcc-arm-none-eabi-10.3-2021.10/bin/../lib/gcc/arm-none-eabi/10.3.1/../../../../arm-none-eabi/lib/thumb/v8-m.main+fp/hard\libc.a(lib_a-signalr.o)
+                0x10005834                _getpid_r
  *(.init)
- .init          0x100057f4        0x4 c:/users/xidon/program/arm_gcc/gcc-arm-none-eabi-10.3-2021.10/bin/../lib/gcc/arm-none-eabi/10.3.1/thumb/v8-m.main+fp/hard/crti.o
-                0x100057f4                _init
- .init          0x100057f8        0x8 c:/users/xidon/program/arm_gcc/gcc-arm-none-eabi-10.3-2021.10/bin/../lib/gcc/arm-none-eabi/10.3.1/thumb/v8-m.main+fp/hard/crtn.o
+ .init          0x10005838        0x4 c:/users/xidon/program/arm_gcc/gcc-arm-none-eabi-10.3-2021.10/bin/../lib/gcc/arm-none-eabi/10.3.1/thumb/v8-m.main+fp/hard/crti.o
+                0x10005838                _init
+ .init          0x1000583c        0x8 c:/users/xidon/program/arm_gcc/gcc-arm-none-eabi-10.3-2021.10/bin/../lib/gcc/arm-none-eabi/10.3.1/thumb/v8-m.main+fp/hard/crtn.o
  *(.fini)
- .fini          0x10005800        0x4 c:/users/xidon/program/arm_gcc/gcc-arm-none-eabi-10.3-2021.10/bin/../lib/gcc/arm-none-eabi/10.3.1/thumb/v8-m.main+fp/hard/crti.o
-                0x10005800                _fini
- .fini          0x10005804        0x8 c:/users/xidon/program/arm_gcc/gcc-arm-none-eabi-10.3-2021.10/bin/../lib/gcc/arm-none-eabi/10.3.1/thumb/v8-m.main+fp/hard/crtn.o
+ .fini          0x10005844        0x4 c:/users/xidon/program/arm_gcc/gcc-arm-none-eabi-10.3-2021.10/bin/../lib/gcc/arm-none-eabi/10.3.1/thumb/v8-m.main+fp/hard/crti.o
+                0x10005844                _fini
+ .fini          0x10005848        0x8 c:/users/xidon/program/arm_gcc/gcc-arm-none-eabi-10.3-2021.10/bin/../lib/gcc/arm-none-eabi/10.3.1/thumb/v8-m.main+fp/hard/crtn.o
  *crtbegin.o(.ctors)
  *crtbegin?.o(.ctors)
  *(EXCLUDE_FILE(*crtend.o *crtend?.o) .ctors)
@@ -1410,119 +1418,119 @@ LOAD c:/users/xidon/program/arm_gcc/gcc-arm-none-eabi-10.3-2021.10/bin/../lib/gc
  *(.dtors)
  *(.rodata*)
  .rodata.main_task_init.str1.4
-                0x1000580c       0x2b .\build\gcc/main.o
- *fill*         0x10005837        0x1 
- .rodata.fault_unalign_trigger.str1.4
-                0x10005838       0x1b .\build\gcc/main.o
- *fill*         0x10005853        0x1 
+                0x10005850       0x2b .\build\gcc/main.o
+ *fill*         0x1000587b        0x1 
  .rodata.dump_callstack.str1.4
-                0x10005854       0x38 .\build\gcc/main.o
+                0x1000587c       0x38 .\build\gcc/main.o
  .rodata.test0.str1.4
-                0x1000588c        0xe .\build\gcc/main.o
- *fill*         0x1000589a        0x2 
+                0x100058b4        0xe .\build\gcc/main.o
+ *fill*         0x100058c2        0x2 
  .rodata.main_task_entry.str1.4
-                0x1000589c       0x19 .\build\gcc/main.o
- *fill*         0x100058b5        0x3 
+                0x100058c4       0x19 .\build\gcc/main.o
+ *fill*         0x100058dd        0x3 
  .rodata.main.str1.4
-                0x100058b8       0x1c .\build\gcc/main.o
+                0x100058e0       0x1c .\build\gcc/main.o
  .rodata.__func__.1
-                0x100058d4        0x6 .\build\gcc/main.o
- *fill*         0x100058da        0x2 
- .rodata.__func__.2
-                0x100058dc        0x6 .\build\gcc/main.o
- *fill*         0x100058e2        0x2 
- .rodata.__func__.3
-                0x100058e4        0x6 .\build\gcc/main.o
- *fill*         0x100058ea        0x2 
- .rodata.__func__.4
-                0x100058ec        0x6 .\build\gcc/main.o
- *fill*         0x100058f2        0x2 
- .rodata.__func__.5
-                0x100058f4        0x6 .\build\gcc/main.o
- *fill*         0x100058fa        0x2 
- .rodata.__func__.6
                 0x100058fc        0x6 .\build\gcc/main.o
  *fill*         0x10005902        0x2 
+ .rodata.__func__.2
+                0x10005904        0x6 .\build\gcc/main.o
+ *fill*         0x1000590a        0x2 
+ .rodata.__func__.3
+                0x1000590c        0x6 .\build\gcc/main.o
+ *fill*         0x10005912        0x2 
+ .rodata.__func__.4
+                0x10005914        0x6 .\build\gcc/main.o
+ *fill*         0x1000591a        0x2 
+ .rodata.__func__.5
+                0x1000591c        0x6 .\build\gcc/main.o
+ *fill*         0x10005922        0x2 
+ .rodata.__func__.6
+                0x10005924        0x6 .\build\gcc/main.o
+ *fill*         0x1000592a        0x2 
  .rodata._ftoa.str1.4
-                0x10005904       0x15 .\build\gcc/printf.o
- *fill*         0x10005919        0x7 
+                0x1000592c       0x15 .\build\gcc/printf.o
+ *fill*         0x10005941        0x7 
  .rodata.pow10.0
-                0x10005920       0x50 .\build\gcc/printf.o
+                0x10005948       0x50 .\build\gcc/printf.o
  .rodata.dump_exc_return.str1.4
-                0x10005970       0x17 .\build\gcc/fault-dump.o
- *fill*         0x10005987        0x1 
+                0x10005998       0x17 .\build\gcc/fault-dump.o
+ *fill*         0x100059af        0x1 
  .rodata.fault_dump_init.str1.4
-                0x10005988       0x68 .\build\gcc/fault-dump.o
+                0x100059b0       0x68 .\build\gcc/fault-dump.o
  .rodata.fault_dump_handler.str1.4
-                0x100059f0      0x182 .\build\gcc/fault-dump.o
+                0x10005a18      0x182 .\build\gcc/fault-dump.o
                                 0x18e (size before relaxing)
- *fill*         0x10005b72        0x2 
+ *fill*         0x10005b9a        0x2 
  .rodata.fault_dump_exc_return.str1.4
-                0x10005b74      0x213 .\build\gcc/fault-hal.o
- *fill*         0x10005d87        0x1 
+                0x10005b9c      0x213 .\build\gcc/fault-hal.o
+ *fill*         0x10005daf        0x1 
+ .rodata.fault_dump_unalign.str1.4
+                0x10005db0       0x1b .\build\gcc/fault-hal.o
+ *fill*         0x10005dcb        0x1 
  .rodata.prvCreateIdleTasks.str1.4
-                0x10005d88        0x5 .\build\gcc/tasks.o
- *fill*         0x10005d8d        0x3 
+                0x10005dcc        0x5 .\build\gcc/tasks.o
+ *fill*         0x10005dd1        0x3 
  .rodata.xTimerCreateTimerTask.str1.4
-                0x10005d90        0x8 .\build\gcc/timers.o
+                0x10005dd4        0x8 .\build\gcc/timers.o
  .rodata._global_impure_ptr
-                0x10005d98        0x4 c:/users/xidon/program/arm_gcc/gcc-arm-none-eabi-10.3-2021.10/bin/../lib/gcc/arm-none-eabi/10.3.1/../../../../arm-none-eabi/lib/thumb/v8-m.main+fp/hard\libc.a(lib_a-impure.o)
-                0x10005d98                _global_impure_ptr
+                0x10005ddc        0x4 c:/users/xidon/program/arm_gcc/gcc-arm-none-eabi-10.3-2021.10/bin/../lib/gcc/arm-none-eabi/10.3.1/../../../../arm-none-eabi/lib/thumb/v8-m.main+fp/hard\libc.a(lib_a-impure.o)
+                0x10005ddc                _global_impure_ptr
  *(.eh_frame*)
- .eh_frame      0x10005d9c        0x0 c:/users/xidon/program/arm_gcc/gcc-arm-none-eabi-10.3-2021.10/bin/../lib/gcc/arm-none-eabi/10.3.1/thumb/v8-m.main+fp/hard/crtbegin.o
- .eh_frame      0x10005d9c        0x4 c:/users/xidon/program/arm_gcc/gcc-arm-none-eabi-10.3-2021.10/bin/../lib/gcc/arm-none-eabi/10.3.1/thumb/v8-m.main+fp/hard/crtend.o
-                0x10005da0                . = ALIGN (0x4)
-                0x10005da0                _etext = .
+ .eh_frame      0x10005de0        0x0 c:/users/xidon/program/arm_gcc/gcc-arm-none-eabi-10.3-2021.10/bin/../lib/gcc/arm-none-eabi/10.3.1/thumb/v8-m.main+fp/hard/crtbegin.o
+ .eh_frame      0x10005de0        0x4 c:/users/xidon/program/arm_gcc/gcc-arm-none-eabi-10.3-2021.10/bin/../lib/gcc/arm-none-eabi/10.3.1/thumb/v8-m.main+fp/hard/crtend.o
+                0x10005de4                . = ALIGN (0x4)
+                0x10005de4                _etext = .
 
-.glue_7         0x10005da0        0x0
- .glue_7        0x10005da0        0x0 linker stubs
+.glue_7         0x10005de4        0x0
+ .glue_7        0x10005de4        0x0 linker stubs
 
-.glue_7t        0x10005da0        0x0
- .glue_7t       0x10005da0        0x0 linker stubs
+.glue_7t        0x10005de4        0x0
+ .glue_7t       0x10005de4        0x0 linker stubs
 
-.vfp11_veneer   0x10005da0        0x0
- .vfp11_veneer  0x10005da0        0x0 linker stubs
+.vfp11_veneer   0x10005de4        0x0
+ .vfp11_veneer  0x10005de4        0x0 linker stubs
 
-.v4_bx          0x10005da0        0x0
- .v4_bx         0x10005da0        0x0 linker stubs
+.v4_bx          0x10005de4        0x0
+ .v4_bx         0x10005de4        0x0 linker stubs
 
-.iplt           0x10005da0        0x0
- .iplt          0x10005da0        0x0 c:/users/xidon/program/arm_gcc/gcc-arm-none-eabi-10.3-2021.10/bin/../lib/gcc/arm-none-eabi/10.3.1/thumb/v8-m.main+fp/hard/crtbegin.o
+.iplt           0x10005de4        0x0
+ .iplt          0x10005de4        0x0 c:/users/xidon/program/arm_gcc/gcc-arm-none-eabi-10.3-2021.10/bin/../lib/gcc/arm-none-eabi/10.3.1/thumb/v8-m.main+fp/hard/crtbegin.o
 
-.ARM.extab      0x10005da0       0x18
+.ARM.extab      0x10005de4       0x18
  *(.ARM.extab* .gnu.linkonce.armextab.*)
- .ARM.extab     0x10005da0       0x18 c:/users/xidon/program/arm_gcc/gcc-arm-none-eabi-10.3-2021.10/bin/../lib/gcc/arm-none-eabi/10.3.1/thumb/v8-m.main+fp/hard\libgcc.a(pr-support.o)
-                0x10005db8                __exidx_start = .
+ .ARM.extab     0x10005de4       0x18 c:/users/xidon/program/arm_gcc/gcc-arm-none-eabi-10.3-2021.10/bin/../lib/gcc/arm-none-eabi/10.3.1/thumb/v8-m.main+fp/hard\libgcc.a(pr-support.o)
+                0x10005dfc                __exidx_start = .
 
-.ARM.exidx      0x10005db8       0xc0
+.ARM.exidx      0x10005dfc       0xc0
  *(.ARM.exidx* .gnu.linkonce.armexidx.*)
- .ARM.exidx     0x10005db8       0x10 .\build\gcc/startup_ARMCM33.o
+ .ARM.exidx     0x10005dfc       0x10 .\build\gcc/startup_ARMCM33.o
                                  0x18 (size before relaxing)
- .ARM.exidx     0x10005dc8        0x0 c:/users/xidon/program/arm_gcc/gcc-arm-none-eabi-10.3-2021.10/bin/../lib/gcc/arm-none-eabi/10.3.1/thumb/v8-m.main+fp/hard\libgcc.a(_udivmoddi4.o)
+ .ARM.exidx     0x10005e0c        0x0 c:/users/xidon/program/arm_gcc/gcc-arm-none-eabi-10.3-2021.10/bin/../lib/gcc/arm-none-eabi/10.3.1/thumb/v8-m.main+fp/hard\libgcc.a(_udivmoddi4.o)
                                   0x8 (size before relaxing)
- .ARM.exidx     0x10005dc8       0x78 c:/users/xidon/program/arm_gcc/gcc-arm-none-eabi-10.3-2021.10/bin/../lib/gcc/arm-none-eabi/10.3.1/thumb/v8-m.main+fp/hard\libgcc.a(unwind-arm.o)
+ .ARM.exidx     0x10005e0c       0x78 c:/users/xidon/program/arm_gcc/gcc-arm-none-eabi-10.3-2021.10/bin/../lib/gcc/arm-none-eabi/10.3.1/thumb/v8-m.main+fp/hard\libgcc.a(unwind-arm.o)
                                  0xd8 (size before relaxing)
- .ARM.exidx     0x10005e40       0x38 c:/users/xidon/program/arm_gcc/gcc-arm-none-eabi-10.3-2021.10/bin/../lib/gcc/arm-none-eabi/10.3.1/thumb/v8-m.main+fp/hard\libgcc.a(pr-support.o)
-                0x10005e78                __exidx_end = .
+ .ARM.exidx     0x10005e84       0x38 c:/users/xidon/program/arm_gcc/gcc-arm-none-eabi-10.3-2021.10/bin/../lib/gcc/arm-none-eabi/10.3.1/thumb/v8-m.main+fp/hard\libgcc.a(pr-support.o)
+                0x10005ebc                __exidx_end = .
 
-.rel.dyn        0x10005e78        0x0
- .rel.iplt      0x10005e78        0x0 c:/users/xidon/program/arm_gcc/gcc-arm-none-eabi-10.3-2021.10/bin/../lib/gcc/arm-none-eabi/10.3.1/thumb/v8-m.main+fp/hard/crtbegin.o
+.rel.dyn        0x10005ebc        0x0
+ .rel.iplt      0x10005ebc        0x0 c:/users/xidon/program/arm_gcc/gcc-arm-none-eabi-10.3-2021.10/bin/../lib/gcc/arm-none-eabi/10.3.1/thumb/v8-m.main+fp/hard/crtbegin.o
 
-.copy.table     0x10005e78        0xc
-                0x10005e78                . = ALIGN (0x4)
-                0x10005e78                __copy_table_start__ = .
-                0x10005e78        0x4 LONG 0x10005e84 __etext
-                0x10005e7c        0x4 LONG 0x38000000 __data_start__
-                0x10005e80        0x4 LONG 0x112 ((__data_end__ - __data_start__) / 0x4)
-                0x10005e84                __copy_table_end__ = .
+.copy.table     0x10005ebc        0xc
+                0x10005ebc                . = ALIGN (0x4)
+                0x10005ebc                __copy_table_start__ = .
+                0x10005ebc        0x4 LONG 0x10005ec8 __etext
+                0x10005ec0        0x4 LONG 0x38000000 __data_start__
+                0x10005ec4        0x4 LONG 0x114 ((__data_end__ - __data_start__) / 0x4)
+                0x10005ec8                __copy_table_end__ = .
 
-.zero.table     0x10005e84        0x0
-                0x10005e84                . = ALIGN (0x4)
-                0x10005e84                __zero_table_start__ = .
-                0x10005e84                __zero_table_end__ = .
-                0x10005e84                __etext = ALIGN (0x4)
+.zero.table     0x10005ec8        0x0
+                0x10005ec8                . = ALIGN (0x4)
+                0x10005ec8                __zero_table_start__ = .
+                0x10005ec8                __zero_table_end__ = .
+                0x10005ec8                __etext = ALIGN (0x4)
 
-.data           0x38000000      0x448 load address 0x10005e84
+.data           0x38000000      0x450 load address 0x10005ec8
                 0x38000000                __data_start__ = .
  *(vtable)
  *(.data)
@@ -1530,165 +1538,169 @@ LOAD c:/users/xidon/program/arm_gcc/gcc-arm-none-eabi-10.3-2021.10/bin/../lib/gc
  .data.SystemCoreClock
                 0x38000000        0x4 .\build\gcc/system_ARMCM33.o
                 0x38000000                SystemCoreClock
+ .data.fd_msp_stack_parser
+                0x38000004        0x4 .\build\gcc/fault-dump.o
+ .data.fd_psp_stack_parser
+                0x38000008        0x4 .\build\gcc/fault-dump.o
  .data.uxTopUsedPriority
-                0x38000004        0x4 .\build\gcc/tasks.o
+                0x3800000c        0x4 .\build\gcc/tasks.o
  .data.ulCriticalNesting
-                0x38000008        0x4 .\build\gcc/port.o
+                0x38000010        0x4 .\build\gcc/port.o
  .data._impure_ptr
-                0x3800000c        0x4 c:/users/xidon/program/arm_gcc/gcc-arm-none-eabi-10.3-2021.10/bin/../lib/gcc/arm-none-eabi/10.3.1/../../../../arm-none-eabi/lib/thumb/v8-m.main+fp/hard\libc.a(lib_a-impure.o)
-                0x3800000c                _impure_ptr
+                0x38000014        0x4 c:/users/xidon/program/arm_gcc/gcc-arm-none-eabi-10.3-2021.10/bin/../lib/gcc/arm-none-eabi/10.3.1/../../../../arm-none-eabi/lib/thumb/v8-m.main+fp/hard\libc.a(lib_a-impure.o)
+                0x38000014                _impure_ptr
  .data.impure_data
-                0x38000010      0x428 c:/users/xidon/program/arm_gcc/gcc-arm-none-eabi-10.3-2021.10/bin/../lib/gcc/arm-none-eabi/10.3.1/../../../../arm-none-eabi/lib/thumb/v8-m.main+fp/hard\libc.a(lib_a-impure.o)
+                0x38000018      0x428 c:/users/xidon/program/arm_gcc/gcc-arm-none-eabi-10.3-2021.10/bin/../lib/gcc/arm-none-eabi/10.3.1/../../../../arm-none-eabi/lib/thumb/v8-m.main+fp/hard\libc.a(lib_a-impure.o)
  .data.__atexit_recursive_mutex
-                0x38000438        0x4 c:/users/xidon/program/arm_gcc/gcc-arm-none-eabi-10.3-2021.10/bin/../lib/gcc/arm-none-eabi/10.3.1/../../../../arm-none-eabi/lib/thumb/v8-m.main+fp/hard\libc.a(lib_a-__call_atexit.o)
-                0x38000438                __atexit_recursive_mutex
-                0x3800043c                . = ALIGN (0x4)
-                0x3800043c                PROVIDE (__preinit_array_start = .)
+                0x38000440        0x4 c:/users/xidon/program/arm_gcc/gcc-arm-none-eabi-10.3-2021.10/bin/../lib/gcc/arm-none-eabi/10.3.1/../../../../arm-none-eabi/lib/thumb/v8-m.main+fp/hard\libc.a(lib_a-__call_atexit.o)
+                0x38000440                __atexit_recursive_mutex
+                0x38000444                . = ALIGN (0x4)
+                0x38000444                PROVIDE (__preinit_array_start = .)
  *(.preinit_array)
-                0x3800043c                PROVIDE (__preinit_array_end = .)
-                0x3800043c                . = ALIGN (0x4)
-                0x3800043c                PROVIDE (__init_array_start = .)
+                0x38000444                PROVIDE (__preinit_array_end = .)
+                0x38000444                . = ALIGN (0x4)
+                0x38000444                PROVIDE (__init_array_start = .)
  *(SORT_BY_NAME(.init_array.*))
  .init_array.00000
-                0x3800043c        0x4 c:/users/xidon/program/arm_gcc/gcc-arm-none-eabi-10.3-2021.10/bin/../lib/gcc/arm-none-eabi/10.3.1/../../../../arm-none-eabi/lib/thumb/v8-m.main+fp/hard\libc.a(lib_a-__call_atexit.o)
+                0x38000444        0x4 c:/users/xidon/program/arm_gcc/gcc-arm-none-eabi-10.3-2021.10/bin/../lib/gcc/arm-none-eabi/10.3.1/../../../../arm-none-eabi/lib/thumb/v8-m.main+fp/hard\libc.a(lib_a-__call_atexit.o)
  *(.init_array)
- .init_array    0x38000440        0x4 c:/users/xidon/program/arm_gcc/gcc-arm-none-eabi-10.3-2021.10/bin/../lib/gcc/arm-none-eabi/10.3.1/thumb/v8-m.main+fp/hard/crtbegin.o
-                0x38000444                PROVIDE (__init_array_end = .)
-                0x38000444                . = ALIGN (0x4)
-                0x38000444                PROVIDE (__fini_array_start = .)
+ .init_array    0x38000448        0x4 c:/users/xidon/program/arm_gcc/gcc-arm-none-eabi-10.3-2021.10/bin/../lib/gcc/arm-none-eabi/10.3.1/thumb/v8-m.main+fp/hard/crtbegin.o
+                0x3800044c                PROVIDE (__init_array_end = .)
+                0x3800044c                . = ALIGN (0x4)
+                0x3800044c                PROVIDE (__fini_array_start = .)
  *(SORT_BY_NAME(.fini_array.*))
  *(.fini_array)
- .fini_array    0x38000444        0x4 c:/users/xidon/program/arm_gcc/gcc-arm-none-eabi-10.3-2021.10/bin/../lib/gcc/arm-none-eabi/10.3.1/thumb/v8-m.main+fp/hard/crtbegin.o
-                0x38000448                PROVIDE (__fini_array_end = .)
+ .fini_array    0x3800044c        0x4 c:/users/xidon/program/arm_gcc/gcc-arm-none-eabi-10.3-2021.10/bin/../lib/gcc/arm-none-eabi/10.3.1/thumb/v8-m.main+fp/hard/crtbegin.o
+                0x38000450                PROVIDE (__fini_array_end = .)
  *(.jcr*)
-                0x38000448                . = ALIGN (0x4)
-                0x38000448                __data_end__ = .
+                0x38000450                . = ALIGN (0x4)
+                0x38000450                __data_end__ = .
 
-.igot.plt       0x38000448        0x0 load address 0x100062cc
- .igot.plt      0x38000448        0x0 c:/users/xidon/program/arm_gcc/gcc-arm-none-eabi-10.3-2021.10/bin/../lib/gcc/arm-none-eabi/10.3.1/thumb/v8-m.main+fp/hard/crtbegin.o
+.igot.plt       0x38000450        0x0 load address 0x10006318
+ .igot.plt      0x38000450        0x0 c:/users/xidon/program/arm_gcc/gcc-arm-none-eabi-10.3-2021.10/bin/../lib/gcc/arm-none-eabi/10.3.1/thumb/v8-m.main+fp/hard/crtbegin.o
 
-.bss            0x38000448     0x88cc
-                0x38000448                . = ALIGN (0x4)
-                0x38000448                __bss_start__ = .
+.bss            0x38000450     0x88cc
+                0x38000450                . = ALIGN (0x4)
+                0x38000450                __bss_start__ = .
  *(.bss)
- .bss           0x38000448       0x1c c:/users/xidon/program/arm_gcc/gcc-arm-none-eabi-10.3-2021.10/bin/../lib/gcc/arm-none-eabi/10.3.1/thumb/v8-m.main+fp/hard/crtbegin.o
+ .bss           0x38000450       0x1c c:/users/xidon/program/arm_gcc/gcc-arm-none-eabi-10.3-2021.10/bin/../lib/gcc/arm-none-eabi/10.3.1/thumb/v8-m.main+fp/hard/crtbegin.o
  *(.bss.*)
  .bss.main_task.0
-                0x38000464        0x4 .\build\gcc/main.o
- .bss.ucHeap    0x38000468     0x8000 .\build\gcc/main.o
-                0x38000468                ucHeap
- .bss.buffer.0  0x38008468      0x100 .\build\gcc/fault-dump.o
+                0x3800046c        0x4 .\build\gcc/main.o
+ .bss.ucHeap    0x38000470     0x8000 .\build\gcc/main.o
+                0x38000470                ucHeap
+ .bss.buffer.0  0x38008470      0x100 .\build\gcc/fault-dump.o
  .bss.fd_main_stack_base
-                0x38008568        0x4 .\build\gcc/fault-dump.o
-                0x38008568                fd_main_stack_base
+                0x38008570        0x4 .\build\gcc/fault-dump.o
+                0x38008570                fd_main_stack_base
  .bss.fd_main_stack_full
-                0x3800856c        0x4 .\build\gcc/fault-dump.o
-                0x3800856c                fd_main_stack_full
- .bss.frame.1   0x38008570       0x40 .\build\gcc/fault-dump.o
+                0x38008574        0x4 .\build\gcc/fault-dump.o
+                0x38008574                fd_main_stack_full
+ .bss.frame.1   0x38008578       0x40 .\build\gcc/fault-dump.o
  .bss.pxCurrentTCB
-                0x380085b0        0x4 .\build\gcc/tasks.o
-                0x380085b0                pxCurrentTCB
- .bss.pxDelayedTaskList
-                0x380085b4        0x4 .\build\gcc/tasks.o
- .bss.pxOverflowDelayedTaskList
                 0x380085b8        0x4 .\build\gcc/tasks.o
+                0x380085b8                pxCurrentTCB
+ .bss.pxDelayedTaskList
+                0x380085bc        0x4 .\build\gcc/tasks.o
+ .bss.pxOverflowDelayedTaskList
+                0x380085c0        0x4 .\build\gcc/tasks.o
  .bss.pxReadyTasksLists
-                0x380085bc       0x8c .\build\gcc/tasks.o
+                0x380085c4       0x8c .\build\gcc/tasks.o
  .bss.uxCurrentNumberOfTasks
-                0x38008648        0x4 .\build\gcc/tasks.o
+                0x38008650        0x4 .\build\gcc/tasks.o
  .bss.uxDeletedTasksWaitingCleanUp
-                0x3800864c        0x4 .\build\gcc/tasks.o
+                0x38008654        0x4 .\build\gcc/tasks.o
  .bss.uxIdleTaskStack.2
-                0x38008650      0x200 .\build\gcc/tasks.o
+                0x38008658      0x200 .\build\gcc/tasks.o
  .bss.uxSchedulerSuspended
-                0x38008850        0x4 .\build\gcc/tasks.o
+                0x38008858        0x4 .\build\gcc/tasks.o
  .bss.uxTaskNumber
-                0x38008854        0x4 .\build\gcc/tasks.o
+                0x3800885c        0x4 .\build\gcc/tasks.o
  .bss.uxTimerTaskStack.0
-                0x38008858      0x200 .\build\gcc/tasks.o
+                0x38008860      0x200 .\build\gcc/tasks.o
  .bss.uxTopReadyPriority
-                0x38008a58        0x4 .\build\gcc/tasks.o
+                0x38008a60        0x4 .\build\gcc/tasks.o
  .bss.xDelayedTaskList1
-                0x38008a5c       0x1c .\build\gcc/tasks.o
+                0x38008a64       0x1c .\build\gcc/tasks.o
  .bss.xDelayedTaskList2
-                0x38008a78       0x1c .\build\gcc/tasks.o
+                0x38008a80       0x1c .\build\gcc/tasks.o
  .bss.xIdleTaskHandles
-                0x38008a94        0x4 .\build\gcc/tasks.o
+                0x38008a9c        0x4 .\build\gcc/tasks.o
  .bss.xIdleTaskTCB.3
-                0x38008a98       0x4c .\build\gcc/tasks.o
+                0x38008aa0       0x4c .\build\gcc/tasks.o
  .bss.xNextTaskUnblockTime
-                0x38008ae4        0x4 .\build\gcc/tasks.o
- .bss.xNumOfOverflows
-                0x38008ae8        0x4 .\build\gcc/tasks.o
- .bss.xPendedTicks
                 0x38008aec        0x4 .\build\gcc/tasks.o
+ .bss.xNumOfOverflows
+                0x38008af0        0x4 .\build\gcc/tasks.o
+ .bss.xPendedTicks
+                0x38008af4        0x4 .\build\gcc/tasks.o
  .bss.xPendingReadyList
-                0x38008af0       0x1c .\build\gcc/tasks.o
+                0x38008af8       0x1c .\build\gcc/tasks.o
  .bss.xSchedulerRunning
-                0x38008b0c        0x4 .\build\gcc/tasks.o
+                0x38008b14        0x4 .\build\gcc/tasks.o
  .bss.xSuspendedTaskList
-                0x38008b10       0x1c .\build\gcc/tasks.o
+                0x38008b18       0x1c .\build\gcc/tasks.o
  .bss.xTasksWaitingTermination
-                0x38008b2c       0x1c .\build\gcc/tasks.o
+                0x38008b34       0x1c .\build\gcc/tasks.o
  .bss.xTickCount
-                0x38008b48        0x4 .\build\gcc/tasks.o
+                0x38008b50        0x4 .\build\gcc/tasks.o
  .bss.xTimerTaskTCB.1
-                0x38008b4c       0x4c .\build\gcc/tasks.o
+                0x38008b54       0x4c .\build\gcc/tasks.o
  .bss.xYieldPendings
-                0x38008b98        0x4 .\build\gcc/tasks.o
+                0x38008ba0        0x4 .\build\gcc/tasks.o
  .bss.pxCurrentTimerList
-                0x38008b9c        0x4 .\build\gcc/timers.o
+                0x38008ba4        0x4 .\build\gcc/timers.o
  .bss.pxOverflowTimerList
-                0x38008ba0        0x4 .\build\gcc/timers.o
+                0x38008ba8        0x4 .\build\gcc/timers.o
  .bss.ucStaticTimerQueueStorage.1
-                0x38008ba4       0xa0 .\build\gcc/timers.o
+                0x38008bac       0xa0 .\build\gcc/timers.o
  .bss.xActiveTimerList1
-                0x38008c44       0x1c .\build\gcc/timers.o
+                0x38008c4c       0x1c .\build\gcc/timers.o
  .bss.xActiveTimerList2
-                0x38008c60       0x1c .\build\gcc/timers.o
+                0x38008c68       0x1c .\build\gcc/timers.o
  .bss.xLastTime.2
-                0x38008c7c        0x4 .\build\gcc/timers.o
+                0x38008c84        0x4 .\build\gcc/timers.o
  .bss.xStaticTimerQueue.0
-                0x38008c80       0x5c .\build\gcc/timers.o
+                0x38008c88       0x5c .\build\gcc/timers.o
  .bss.xTimerQueue
-                0x38008cdc        0x4 .\build\gcc/timers.o
+                0x38008ce4        0x4 .\build\gcc/timers.o
  .bss.xTimerTaskHandle
-                0x38008ce0        0x4 .\build\gcc/timers.o
- .bss.pxEnd     0x38008ce4        0x4 .\build\gcc/heap_4.o
+                0x38008ce8        0x4 .\build\gcc/timers.o
+ .bss.pxEnd     0x38008cec        0x4 .\build\gcc/heap_4.o
  .bss.xFreeBytesRemaining
-                0x38008ce8        0x4 .\build\gcc/heap_4.o
- .bss.xMinimumEverFreeBytesRemaining
-                0x38008cec        0x4 .\build\gcc/heap_4.o
- .bss.xNumberOfSuccessfulAllocations
                 0x38008cf0        0x4 .\build\gcc/heap_4.o
- .bss.xNumberOfSuccessfulFrees
+ .bss.xMinimumEverFreeBytesRemaining
                 0x38008cf4        0x4 .\build\gcc/heap_4.o
- .bss.xStart    0x38008cf8        0x8 .\build\gcc/heap_4.o
+ .bss.xNumberOfSuccessfulAllocations
+                0x38008cf8        0x4 .\build\gcc/heap_4.o
+ .bss.xNumberOfSuccessfulFrees
+                0x38008cfc        0x4 .\build\gcc/heap_4.o
+ .bss.xStart    0x38008d00        0x8 .\build\gcc/heap_4.o
  .bss.ulStoppedTimerCompensation
-                0x38008d00        0x4 .\build\gcc/port.o
- .bss.ulTimerCountsForOneTick
-                0x38008d04        0x4 .\build\gcc/port.o
- .bss.xMaximumPossibleSuppressedTicks
                 0x38008d08        0x4 .\build\gcc/port.o
+ .bss.ulTimerCountsForOneTick
+                0x38008d0c        0x4 .\build\gcc/port.o
+ .bss.xMaximumPossibleSuppressedTicks
+                0x38008d10        0x4 .\build\gcc/port.o
  .bss.__lock___atexit_recursive_mutex
-                0x38008d0c        0x1 c:/users/xidon/program/arm_gcc/gcc-arm-none-eabi-10.3-2021.10/bin/../lib/gcc/arm-none-eabi/10.3.1/../../../../arm-none-eabi/lib/thumb/v8-m.main+fp/hard\libc.a(lib_a-lock.o)
-                0x38008d0c                __lock___atexit_recursive_mutex
- *fill*         0x38008d0d        0x3 
- .bss.errno     0x38008d10        0x4 c:/users/xidon/program/arm_gcc/gcc-arm-none-eabi-10.3-2021.10/bin/../lib/gcc/arm-none-eabi/10.3.1/../../../../arm-none-eabi/lib/thumb/v8-m.main+fp/hard\libc.a(lib_a-reent.o)
-                0x38008d10                errno
+                0x38008d14        0x1 c:/users/xidon/program/arm_gcc/gcc-arm-none-eabi-10.3-2021.10/bin/../lib/gcc/arm-none-eabi/10.3.1/../../../../arm-none-eabi/lib/thumb/v8-m.main+fp/hard\libc.a(lib_a-lock.o)
+                0x38008d14                __lock___atexit_recursive_mutex
+ *fill*         0x38008d15        0x3 
+ .bss.errno     0x38008d18        0x4 c:/users/xidon/program/arm_gcc/gcc-arm-none-eabi-10.3-2021.10/bin/../lib/gcc/arm-none-eabi/10.3.1/../../../../arm-none-eabi/lib/thumb/v8-m.main+fp/hard\libc.a(lib_a-reent.o)
+                0x38008d18                errno
  *(COMMON)
-                0x38008d14                . = ALIGN (0x4)
-                0x38008d14                __bss_end__ = .
+                0x38008d1c                . = ALIGN (0x4)
+                0x38008d1c                __bss_end__ = .
 
-.heap           0x38008d14     0x1004
-                0x38008d18                . = ALIGN (0x8)
- *fill*         0x38008d14        0x4 
-                0x38008d18                __end__ = .
+.heap           0x38008d1c     0x1004
+                0x38008d20                . = ALIGN (0x8)
+ *fill*         0x38008d1c        0x4 
+                0x38008d20                __end__ = .
                 [!provide]                PROVIDE (end = .)
-                0x38009d18                . = (. + __HEAP_SIZE)
- *fill*         0x38008d18     0x1000 
-                0x38009d18                . = ALIGN (0x8)
-                0x38009d18                __HeapLimit = .
+                0x38009d20                . = (. + __HEAP_SIZE)
+ *fill*         0x38008d20     0x1000 
+                0x38009d20                . = ALIGN (0x8)
+                0x38009d20                __HeapLimit = .
 
 .stack          0x380ff000     0x1000
                 0x380ff000                . = ALIGN (0x8)
@@ -1809,183 +1821,183 @@ LOAD linker stubs
  .comment       0x00000049       0x4a .\build\gcc/port.o
  .comment       0x00000049       0x4a .\build\gcc/portasm.o
 
-.debug_info     0x00000000     0xc179
- .debug_info    0x00000000      0xbd7 .\build\gcc/main.o
- .debug_info    0x00000bd7      0x4e9 .\build\gcc/system_ARMCM33.o
- .debug_info    0x000010c0     0x1bc5 .\build\gcc/printf.o
- .debug_info    0x00002c85      0x253 .\build\gcc/uart.o
- .debug_info    0x00002ed8      0x8b2 .\build\gcc/fault-dump.o
- .debug_info    0x0000378a      0x291 .\build\gcc/fault-hal.o
- .debug_info    0x00003a1b      0x2cf .\build\gcc/list.o
- .debug_info    0x00003cea     0x24c1 .\build\gcc/queue.o
- .debug_info    0x000061ab     0x38f4 .\build\gcc/tasks.o
- .debug_info    0x00009a9f     0x1990 .\build\gcc/timers.o
- .debug_info    0x0000b42f      0x619 .\build\gcc/heap_4.o
- .debug_info    0x0000ba48      0x567 .\build\gcc/port.o
- .debug_info    0x0000bfaf      0x17e .\build\gcc/portasm.o
- .debug_info    0x0000c12d       0x26 .\build\gcc/startup_ARMCM33.o
- .debug_info    0x0000c153       0x26 .\build\gcc/fault-gcc.o
+.debug_info     0x00000000     0xc337
+ .debug_info    0x00000000      0x72d .\build\gcc/main.o
+ .debug_info    0x0000072d      0x4e9 .\build\gcc/system_ARMCM33.o
+ .debug_info    0x00000c16     0x1bc5 .\build\gcc/printf.o
+ .debug_info    0x000027db      0x253 .\build\gcc/uart.o
+ .debug_info    0x00002a2e      0xa05 .\build\gcc/fault-dump.o
+ .debug_info    0x00003433      0x7a6 .\build\gcc/fault-hal.o
+ .debug_info    0x00003bd9      0x2cf .\build\gcc/list.o
+ .debug_info    0x00003ea8     0x24c1 .\build\gcc/queue.o
+ .debug_info    0x00006369     0x38f4 .\build\gcc/tasks.o
+ .debug_info    0x00009c5d     0x1990 .\build\gcc/timers.o
+ .debug_info    0x0000b5ed      0x619 .\build\gcc/heap_4.o
+ .debug_info    0x0000bc06      0x567 .\build\gcc/port.o
+ .debug_info    0x0000c16d      0x17e .\build\gcc/portasm.o
+ .debug_info    0x0000c2eb       0x26 .\build\gcc/startup_ARMCM33.o
+ .debug_info    0x0000c311       0x26 .\build\gcc/fault-gcc.o
 
-.debug_abbrev   0x00000000     0x1a9c
- .debug_abbrev  0x00000000      0x201 .\build\gcc/main.o
- .debug_abbrev  0x00000201       0xf0 .\build\gcc/system_ARMCM33.o
- .debug_abbrev  0x000002f1      0x3d1 .\build\gcc/printf.o
- .debug_abbrev  0x000006c2      0x15f .\build\gcc/uart.o
- .debug_abbrev  0x00000821      0x29d .\build\gcc/fault-dump.o
- .debug_abbrev  0x00000abe       0xa6 .\build\gcc/fault-hal.o
- .debug_abbrev  0x00000b64      0x11d .\build\gcc/list.o
- .debug_abbrev  0x00000c81      0x2bc .\build\gcc/queue.o
- .debug_abbrev  0x00000f3d      0x321 .\build\gcc/tasks.o
- .debug_abbrev  0x0000125e      0x322 .\build\gcc/timers.o
- .debug_abbrev  0x00001580      0x25e .\build\gcc/heap_4.o
- .debug_abbrev  0x000017de      0x1de .\build\gcc/port.o
- .debug_abbrev  0x000019bc       0xb8 .\build\gcc/portasm.o
- .debug_abbrev  0x00001a74       0x14 .\build\gcc/startup_ARMCM33.o
- .debug_abbrev  0x00001a88       0x14 .\build\gcc/fault-gcc.o
+.debug_abbrev   0x00000000     0x1b78
+ .debug_abbrev  0x00000000      0x1bc .\build\gcc/main.o
+ .debug_abbrev  0x000001bc       0xf0 .\build\gcc/system_ARMCM33.o
+ .debug_abbrev  0x000002ac      0x3d1 .\build\gcc/printf.o
+ .debug_abbrev  0x0000067d      0x15f .\build\gcc/uart.o
+ .debug_abbrev  0x000007dc      0x2f2 .\build\gcc/fault-dump.o
+ .debug_abbrev  0x00000ace      0x172 .\build\gcc/fault-hal.o
+ .debug_abbrev  0x00000c40      0x11d .\build\gcc/list.o
+ .debug_abbrev  0x00000d5d      0x2bc .\build\gcc/queue.o
+ .debug_abbrev  0x00001019      0x321 .\build\gcc/tasks.o
+ .debug_abbrev  0x0000133a      0x322 .\build\gcc/timers.o
+ .debug_abbrev  0x0000165c      0x25e .\build\gcc/heap_4.o
+ .debug_abbrev  0x000018ba      0x1de .\build\gcc/port.o
+ .debug_abbrev  0x00001a98       0xb8 .\build\gcc/portasm.o
+ .debug_abbrev  0x00001b50       0x14 .\build\gcc/startup_ARMCM33.o
+ .debug_abbrev  0x00001b64       0x14 .\build\gcc/fault-gcc.o
 
-.debug_loc      0x00000000     0xb2e6
- .debug_loc     0x00000000      0x3ac .\build\gcc/main.o
- .debug_loc     0x000003ac     0x2213 .\build\gcc/printf.o
- .debug_loc     0x000025bf      0x176 .\build\gcc/uart.o
- .debug_loc     0x00002735      0x62a .\build\gcc/fault-dump.o
- .debug_loc     0x00002d5f       0x42 .\build\gcc/fault-hal.o
- .debug_loc     0x00002da1       0xe5 .\build\gcc/list.o
- .debug_loc     0x00002e86     0x2af0 .\build\gcc/queue.o
- .debug_loc     0x00005976     0x3a3d .\build\gcc/tasks.o
- .debug_loc     0x000093b3     0x155b .\build\gcc/timers.o
- .debug_loc     0x0000a90e      0x528 .\build\gcc/heap_4.o
- .debug_loc     0x0000ae36      0x4b0 .\build\gcc/port.o
+.debug_loc      0x00000000     0xb47a
+ .debug_loc     0x00000000      0x322 .\build\gcc/main.o
+ .debug_loc     0x00000322     0x2213 .\build\gcc/printf.o
+ .debug_loc     0x00002535      0x176 .\build\gcc/uart.o
+ .debug_loc     0x000026ab      0x77c .\build\gcc/fault-dump.o
+ .debug_loc     0x00002e27      0x10e .\build\gcc/fault-hal.o
+ .debug_loc     0x00002f35       0xe5 .\build\gcc/list.o
+ .debug_loc     0x0000301a     0x2af0 .\build\gcc/queue.o
+ .debug_loc     0x00005b0a     0x3a3d .\build\gcc/tasks.o
+ .debug_loc     0x00009547     0x155b .\build\gcc/timers.o
+ .debug_loc     0x0000aaa2      0x528 .\build\gcc/heap_4.o
+ .debug_loc     0x0000afca      0x4b0 .\build\gcc/port.o
 
-.debug_aranges  0x00000000      0x8d0
+.debug_aranges  0x00000000      0x8e8
  .debug_aranges
-                0x00000000       0x88 .\build\gcc/main.o
+                0x00000000       0x78 .\build\gcc/main.o
  .debug_aranges
-                0x00000088       0x28 .\build\gcc/system_ARMCM33.o
+                0x00000078       0x28 .\build\gcc/system_ARMCM33.o
  .debug_aranges
-                0x000000b0       0xa8 .\build\gcc/printf.o
+                0x000000a0       0xa8 .\build\gcc/printf.o
  .debug_aranges
-                0x00000158       0x48 .\build\gcc/uart.o
+                0x00000148       0x48 .\build\gcc/uart.o
  .debug_aranges
-                0x000001a0       0x58 .\build\gcc/fault-dump.o
+                0x00000190       0x68 .\build\gcc/fault-dump.o
  .debug_aranges
-                0x000001f8       0x20 .\build\gcc/fault-hal.o
+                0x000001f8       0x38 .\build\gcc/fault-hal.o
  .debug_aranges
-                0x00000218       0x40 .\build\gcc/list.o
+                0x00000230       0x40 .\build\gcc/list.o
  .debug_aranges
-                0x00000258      0x160 .\build\gcc/queue.o
+                0x00000270      0x160 .\build\gcc/queue.o
  .debug_aranges
-                0x000003b8      0x290 .\build\gcc/tasks.o
+                0x000003d0      0x290 .\build\gcc/tasks.o
  .debug_aranges
-                0x00000648      0x108 .\build\gcc/timers.o
+                0x00000660      0x108 .\build\gcc/timers.o
  .debug_aranges
-                0x00000750       0x68 .\build\gcc/heap_4.o
+                0x00000768       0x68 .\build\gcc/heap_4.o
  .debug_aranges
-                0x000007b8       0x78 .\build\gcc/port.o
+                0x000007d0       0x78 .\build\gcc/port.o
  .debug_aranges
-                0x00000830       0x60 .\build\gcc/portasm.o
+                0x00000848       0x60 .\build\gcc/portasm.o
  .debug_aranges
-                0x00000890       0x20 .\build\gcc/startup_ARMCM33.o
+                0x000008a8       0x20 .\build\gcc/startup_ARMCM33.o
  .debug_aranges
-                0x000008b0       0x20 .\build\gcc/fault-gcc.o
+                0x000008c8       0x20 .\build\gcc/fault-gcc.o
 
-.debug_ranges   0x00000000      0xc18
- .debug_ranges  0x00000000       0x90 .\build\gcc/main.o
- .debug_ranges  0x00000090       0x18 .\build\gcc/system_ARMCM33.o
- .debug_ranges  0x000000a8      0x150 .\build\gcc/printf.o
- .debug_ranges  0x000001f8       0x38 .\build\gcc/uart.o
- .debug_ranges  0x00000230       0x48 .\build\gcc/fault-dump.o
- .debug_ranges  0x00000278       0x10 .\build\gcc/fault-hal.o
- .debug_ranges  0x00000288       0x30 .\build\gcc/list.o
- .debug_ranges  0x000002b8      0x228 .\build\gcc/queue.o
- .debug_ranges  0x000004e0      0x530 .\build\gcc/tasks.o
- .debug_ranges  0x00000a10       0xf8 .\build\gcc/timers.o
- .debug_ranges  0x00000b08       0x58 .\build\gcc/heap_4.o
- .debug_ranges  0x00000b60       0x68 .\build\gcc/port.o
- .debug_ranges  0x00000bc8       0x50 .\build\gcc/portasm.o
+.debug_ranges   0x00000000      0xc30
+ .debug_ranges  0x00000000       0x80 .\build\gcc/main.o
+ .debug_ranges  0x00000080       0x18 .\build\gcc/system_ARMCM33.o
+ .debug_ranges  0x00000098      0x150 .\build\gcc/printf.o
+ .debug_ranges  0x000001e8       0x38 .\build\gcc/uart.o
+ .debug_ranges  0x00000220       0x58 .\build\gcc/fault-dump.o
+ .debug_ranges  0x00000278       0x28 .\build\gcc/fault-hal.o
+ .debug_ranges  0x000002a0       0x30 .\build\gcc/list.o
+ .debug_ranges  0x000002d0      0x228 .\build\gcc/queue.o
+ .debug_ranges  0x000004f8      0x530 .\build\gcc/tasks.o
+ .debug_ranges  0x00000a28       0xf8 .\build\gcc/timers.o
+ .debug_ranges  0x00000b20       0x58 .\build\gcc/heap_4.o
+ .debug_ranges  0x00000b78       0x68 .\build\gcc/port.o
+ .debug_ranges  0x00000be0       0x50 .\build\gcc/portasm.o
 
-.debug_line     0x00000000     0x8c31
- .debug_line    0x00000000      0x4dd .\build\gcc/main.o
- .debug_line    0x000004dd      0x1d5 .\build\gcc/system_ARMCM33.o
- .debug_line    0x000006b2     0x1211 .\build\gcc/printf.o
- .debug_line    0x000018c3      0x33c .\build\gcc/uart.o
- .debug_line    0x00001bff      0x5a8 .\build\gcc/fault-dump.o
- .debug_line    0x000021a7      0x137 .\build\gcc/fault-hal.o
- .debug_line    0x000022de      0x39d .\build\gcc/list.o
- .debug_line    0x0000267b     0x1727 .\build\gcc/queue.o
- .debug_line    0x00003da2     0x3228 .\build\gcc/tasks.o
- .debug_line    0x00006fca      0xbd8 .\build\gcc/timers.o
- .debug_line    0x00007ba2      0x751 .\build\gcc/heap_4.o
- .debug_line    0x000082f3      0x5f6 .\build\gcc/port.o
- .debug_line    0x000088e9      0x23f .\build\gcc/portasm.o
- .debug_line    0x00008b28       0x86 .\build\gcc/startup_ARMCM33.o
- .debug_line    0x00008bae       0x83 .\build\gcc/fault-gcc.o
+.debug_line     0x00000000     0x8d98
+ .debug_line    0x00000000      0x434 .\build\gcc/main.o
+ .debug_line    0x00000434      0x1d5 .\build\gcc/system_ARMCM33.o
+ .debug_line    0x00000609     0x1211 .\build\gcc/printf.o
+ .debug_line    0x0000181a      0x33c .\build\gcc/uart.o
+ .debug_line    0x00001b56      0x61c .\build\gcc/fault-dump.o
+ .debug_line    0x00002172      0x2d3 .\build\gcc/fault-hal.o
+ .debug_line    0x00002445      0x39d .\build\gcc/list.o
+ .debug_line    0x000027e2     0x1727 .\build\gcc/queue.o
+ .debug_line    0x00003f09     0x3228 .\build\gcc/tasks.o
+ .debug_line    0x00007131      0xbd8 .\build\gcc/timers.o
+ .debug_line    0x00007d09      0x751 .\build\gcc/heap_4.o
+ .debug_line    0x0000845a      0x5f6 .\build\gcc/port.o
+ .debug_line    0x00008a50      0x23f .\build\gcc/portasm.o
+ .debug_line    0x00008c8f       0x86 .\build\gcc/startup_ARMCM33.o
+ .debug_line    0x00008d15       0x83 .\build\gcc/fault-gcc.o
 
-.debug_str      0x00000000     0x2fcf
- .debug_str     0x00000000      0x461 .\build\gcc/main.o
-                                0x4f3 (size before relaxing)
- .debug_str     0x00000461       0x6c .\build\gcc/system_ARMCM33.o
+.debug_str      0x00000000     0x3041
+ .debug_str     0x00000000      0x305 .\build\gcc/main.o
+                                0x38e (size before relaxing)
+ .debug_str     0x00000305      0x1a3 .\build\gcc/system_ARMCM33.o
                                 0x345 (size before relaxing)
- .debug_str     0x000004cd      0x274 .\build\gcc/printf.o
+ .debug_str     0x000004a8      0x27a .\build\gcc/printf.o
                                 0x473 (size before relaxing)
- .debug_str     0x00000741       0x45 .\build\gcc/uart.o
+ .debug_str     0x00000722       0x45 .\build\gcc/uart.o
                                 0x22e (size before relaxing)
- .debug_str     0x00000786      0x15e .\build\gcc/fault-dump.o
-                                0x40c (size before relaxing)
- .debug_str     0x000008e4       0x38 .\build\gcc/fault-hal.o
-                                0x20c (size before relaxing)
- .debug_str     0x0000091c      0x12f .\build\gcc/list.o
+ .debug_str     0x00000767      0x1d6 .\build\gcc/fault-dump.o
+                                0x48b (size before relaxing)
+ .debug_str     0x0000093d       0x51 .\build\gcc/fault-hal.o
+                                0x3ab (size before relaxing)
+ .debug_str     0x0000098e      0x12f .\build\gcc/list.o
                                 0x2fc (size before relaxing)
- .debug_str     0x00000a4b      0x9c5 .\build\gcc/queue.o
+ .debug_str     0x00000abd      0x9c5 .\build\gcc/queue.o
                                 0xcfa (size before relaxing)
- .debug_str     0x00001410     0x1012 .\build\gcc/tasks.o
+ .debug_str     0x00001482     0x1012 .\build\gcc/tasks.o
                                0x165b (size before relaxing)
- .debug_str     0x00002422      0x59d .\build\gcc/timers.o
+ .debug_str     0x00002494      0x59d .\build\gcc/timers.o
                                 0xc31 (size before relaxing)
- .debug_str     0x000029bf      0x2d8 .\build\gcc/heap_4.o
+ .debug_str     0x00002a31      0x2d8 .\build\gcc/heap_4.o
                                 0x547 (size before relaxing)
- .debug_str     0x00002c97      0x239 .\build\gcc/port.o
+ .debug_str     0x00002d09      0x239 .\build\gcc/port.o
                                 0x58c (size before relaxing)
- .debug_str     0x00002ed0       0x99 .\build\gcc/portasm.o
+ .debug_str     0x00002f42       0x99 .\build\gcc/portasm.o
                                 0x29d (size before relaxing)
- .debug_str     0x00002f69       0x2e .\build\gcc/startup_ARMCM33.o
+ .debug_str     0x00002fdb       0x2e .\build\gcc/startup_ARMCM33.o
                                  0x73 (size before relaxing)
- .debug_str     0x00002f97       0x38 .\build\gcc/fault-gcc.o
+ .debug_str     0x00003009       0x38 .\build\gcc/fault-gcc.o
                                  0x8b (size before relaxing)
 
-.debug_frame    0x00000000     0x22f8
- .debug_frame   0x00000000      0x178 .\build\gcc/main.o
- .debug_frame   0x00000178       0x30 .\build\gcc/system_ARMCM33.o
- .debug_frame   0x000001a8      0x2cc .\build\gcc/printf.o
- .debug_frame   0x00000474       0x90 .\build\gcc/uart.o
- .debug_frame   0x00000504       0xcc .\build\gcc/fault-dump.o
- .debug_frame   0x000005d0       0x28 .\build\gcc/fault-hal.o
- .debug_frame   0x000005f8       0x70 .\build\gcc/list.o
- .debug_frame   0x00000668      0x4a8 .\build\gcc/queue.o
- .debug_frame   0x00000b10      0x7f0 .\build\gcc/tasks.o
- .debug_frame   0x00001300      0x328 .\build\gcc/timers.o
- .debug_frame   0x00001628       0xfc .\build\gcc/heap_4.o
- .debug_frame   0x00001724      0x118 .\build\gcc/port.o
- .debug_frame   0x0000183c       0xa0 .\build\gcc/portasm.o
- .debug_frame   0x000018dc       0x20 c:/users/xidon/program/arm_gcc/gcc-arm-none-eabi-10.3-2021.10/bin/../lib/gcc/arm-none-eabi/10.3.1/../../../../arm-none-eabi/lib/thumb/v8-m.main+fp/hard\libc.a(lib_a-errno.o)
- .debug_frame   0x000018fc       0x2c c:/users/xidon/program/arm_gcc/gcc-arm-none-eabi-10.3-2021.10/bin/../lib/gcc/arm-none-eabi/10.3.1/../../../../arm-none-eabi/lib/thumb/v8-m.main+fp/hard\libc.a(lib_a-memset.o)
- .debug_frame   0x00001928       0x68 c:/users/xidon/program/arm_gcc/gcc-arm-none-eabi-10.3-2021.10/bin/../lib/gcc/arm-none-eabi/10.3.1/../../../../arm-none-eabi/lib/thumb/v8-m.main+fp/hard\libc.a(lib_a-__call_atexit.o)
- .debug_frame   0x00001990       0x20 c:/users/xidon/program/arm_gcc/gcc-arm-none-eabi-10.3-2021.10/bin/../lib/gcc/arm-none-eabi/10.3.1/../../../../arm-none-eabi/lib/thumb/v8-m.main+fp/hard\libc.a(lib_a-atexit.o)
- .debug_frame   0x000019b0       0x34 c:/users/xidon/program/arm_gcc/gcc-arm-none-eabi-10.3-2021.10/bin/../lib/gcc/arm-none-eabi/10.3.1/../../../../arm-none-eabi/lib/thumb/v8-m.main+fp/hard\libc.a(lib_a-fini.o)
- .debug_frame   0x000019e4       0xb0 c:/users/xidon/program/arm_gcc/gcc-arm-none-eabi-10.3-2021.10/bin/../lib/gcc/arm-none-eabi/10.3.1/../../../../arm-none-eabi/lib/thumb/v8-m.main+fp/hard\libc.a(lib_a-lock.o)
- .debug_frame   0x00001a94       0x34 c:/users/xidon/program/arm_gcc/gcc-arm-none-eabi-10.3-2021.10/bin/../lib/gcc/arm-none-eabi/10.3.1/../../../../arm-none-eabi/lib/thumb/v8-m.main+fp/hard\libc.a(lib_a-__atexit.o)
- .debug_frame   0x00001ac8       0x64 c:/users/xidon/program/arm_gcc/gcc-arm-none-eabi-10.3-2021.10/bin/../lib/gcc/arm-none-eabi/10.3.1/../../../../arm-none-eabi/lib/thumb/v8-m.main+fp/hard\libc.a(lib_a-reent.o)
- .debug_frame   0x00001b2c       0xac c:/users/xidon/program/arm_gcc/gcc-arm-none-eabi-10.3-2021.10/bin/../lib/gcc/arm-none-eabi/10.3.1/thumb/v8-m.main+fp/hard\libgcc.a(_arm_addsubdf3.o)
- .debug_frame   0x00001bd8       0x50 c:/users/xidon/program/arm_gcc/gcc-arm-none-eabi-10.3-2021.10/bin/../lib/gcc/arm-none-eabi/10.3.1/thumb/v8-m.main+fp/hard\libgcc.a(_arm_muldivdf3.o)
- .debug_frame   0x00001c28       0xc4 c:/users/xidon/program/arm_gcc/gcc-arm-none-eabi-10.3-2021.10/bin/../lib/gcc/arm-none-eabi/10.3.1/thumb/v8-m.main+fp/hard\libgcc.a(_arm_cmpdf2.o)
- .debug_frame   0x00001cec       0x24 c:/users/xidon/program/arm_gcc/gcc-arm-none-eabi-10.3-2021.10/bin/../lib/gcc/arm-none-eabi/10.3.1/thumb/v8-m.main+fp/hard\libgcc.a(_arm_fixdfsi.o)
- .debug_frame   0x00001d10       0x24 c:/users/xidon/program/arm_gcc/gcc-arm-none-eabi-10.3-2021.10/bin/../lib/gcc/arm-none-eabi/10.3.1/thumb/v8-m.main+fp/hard\libgcc.a(_arm_fixunsdfsi.o)
- .debug_frame   0x00001d34       0x2c c:/users/xidon/program/arm_gcc/gcc-arm-none-eabi-10.3-2021.10/bin/../lib/gcc/arm-none-eabi/10.3.1/thumb/v8-m.main+fp/hard\libgcc.a(_aeabi_uldivmod.o)
- .debug_frame   0x00001d60       0x38 c:/users/xidon/program/arm_gcc/gcc-arm-none-eabi-10.3-2021.10/bin/../lib/gcc/arm-none-eabi/10.3.1/thumb/v8-m.main+fp/hard\libgcc.a(_udivmoddi4.o)
- .debug_frame   0x00001d98      0x2e4 c:/users/xidon/program/arm_gcc/gcc-arm-none-eabi-10.3-2021.10/bin/../lib/gcc/arm-none-eabi/10.3.1/thumb/v8-m.main+fp/hard\libgcc.a(unwind-arm.o)
- .debug_frame   0x0000207c      0x104 c:/users/xidon/program/arm_gcc/gcc-arm-none-eabi-10.3-2021.10/bin/../lib/gcc/arm-none-eabi/10.3.1/thumb/v8-m.main+fp/hard\libgcc.a(pr-support.o)
- .debug_frame   0x00002180       0x28 c:/users/xidon/program/arm_gcc/gcc-arm-none-eabi-10.3-2021.10/bin/../lib/gcc/arm-none-eabi/10.3.1/../../../../arm-none-eabi/lib/thumb/v8-m.main+fp/hard\libc.a(lib_a-abort.o)
- .debug_frame   0x000021a8      0x114 c:/users/xidon/program/arm_gcc/gcc-arm-none-eabi-10.3-2021.10/bin/../lib/gcc/arm-none-eabi/10.3.1/../../../../arm-none-eabi/lib/thumb/v8-m.main+fp/hard\libc.a(lib_a-signal.o)
- .debug_frame   0x000022bc       0x3c c:/users/xidon/program/arm_gcc/gcc-arm-none-eabi-10.3-2021.10/bin/../lib/gcc/arm-none-eabi/10.3.1/../../../../arm-none-eabi/lib/thumb/v8-m.main+fp/hard\libc.a(lib_a-signalr.o)
+.debug_frame    0x00000000     0x2330
+ .debug_frame   0x00000000      0x140 .\build\gcc/main.o
+ .debug_frame   0x00000140       0x30 .\build\gcc/system_ARMCM33.o
+ .debug_frame   0x00000170      0x2cc .\build\gcc/printf.o
+ .debug_frame   0x0000043c       0x90 .\build\gcc/uart.o
+ .debug_frame   0x000004cc       0xf4 .\build\gcc/fault-dump.o
+ .debug_frame   0x000005c0       0x70 .\build\gcc/fault-hal.o
+ .debug_frame   0x00000630       0x70 .\build\gcc/list.o
+ .debug_frame   0x000006a0      0x4a8 .\build\gcc/queue.o
+ .debug_frame   0x00000b48      0x7f0 .\build\gcc/tasks.o
+ .debug_frame   0x00001338      0x328 .\build\gcc/timers.o
+ .debug_frame   0x00001660       0xfc .\build\gcc/heap_4.o
+ .debug_frame   0x0000175c      0x118 .\build\gcc/port.o
+ .debug_frame   0x00001874       0xa0 .\build\gcc/portasm.o
+ .debug_frame   0x00001914       0x20 c:/users/xidon/program/arm_gcc/gcc-arm-none-eabi-10.3-2021.10/bin/../lib/gcc/arm-none-eabi/10.3.1/../../../../arm-none-eabi/lib/thumb/v8-m.main+fp/hard\libc.a(lib_a-errno.o)
+ .debug_frame   0x00001934       0x2c c:/users/xidon/program/arm_gcc/gcc-arm-none-eabi-10.3-2021.10/bin/../lib/gcc/arm-none-eabi/10.3.1/../../../../arm-none-eabi/lib/thumb/v8-m.main+fp/hard\libc.a(lib_a-memset.o)
+ .debug_frame   0x00001960       0x68 c:/users/xidon/program/arm_gcc/gcc-arm-none-eabi-10.3-2021.10/bin/../lib/gcc/arm-none-eabi/10.3.1/../../../../arm-none-eabi/lib/thumb/v8-m.main+fp/hard\libc.a(lib_a-__call_atexit.o)
+ .debug_frame   0x000019c8       0x20 c:/users/xidon/program/arm_gcc/gcc-arm-none-eabi-10.3-2021.10/bin/../lib/gcc/arm-none-eabi/10.3.1/../../../../arm-none-eabi/lib/thumb/v8-m.main+fp/hard\libc.a(lib_a-atexit.o)
+ .debug_frame   0x000019e8       0x34 c:/users/xidon/program/arm_gcc/gcc-arm-none-eabi-10.3-2021.10/bin/../lib/gcc/arm-none-eabi/10.3.1/../../../../arm-none-eabi/lib/thumb/v8-m.main+fp/hard\libc.a(lib_a-fini.o)
+ .debug_frame   0x00001a1c       0xb0 c:/users/xidon/program/arm_gcc/gcc-arm-none-eabi-10.3-2021.10/bin/../lib/gcc/arm-none-eabi/10.3.1/../../../../arm-none-eabi/lib/thumb/v8-m.main+fp/hard\libc.a(lib_a-lock.o)
+ .debug_frame   0x00001acc       0x34 c:/users/xidon/program/arm_gcc/gcc-arm-none-eabi-10.3-2021.10/bin/../lib/gcc/arm-none-eabi/10.3.1/../../../../arm-none-eabi/lib/thumb/v8-m.main+fp/hard\libc.a(lib_a-__atexit.o)
+ .debug_frame   0x00001b00       0x64 c:/users/xidon/program/arm_gcc/gcc-arm-none-eabi-10.3-2021.10/bin/../lib/gcc/arm-none-eabi/10.3.1/../../../../arm-none-eabi/lib/thumb/v8-m.main+fp/hard\libc.a(lib_a-reent.o)
+ .debug_frame   0x00001b64       0xac c:/users/xidon/program/arm_gcc/gcc-arm-none-eabi-10.3-2021.10/bin/../lib/gcc/arm-none-eabi/10.3.1/thumb/v8-m.main+fp/hard\libgcc.a(_arm_addsubdf3.o)
+ .debug_frame   0x00001c10       0x50 c:/users/xidon/program/arm_gcc/gcc-arm-none-eabi-10.3-2021.10/bin/../lib/gcc/arm-none-eabi/10.3.1/thumb/v8-m.main+fp/hard\libgcc.a(_arm_muldivdf3.o)
+ .debug_frame   0x00001c60       0xc4 c:/users/xidon/program/arm_gcc/gcc-arm-none-eabi-10.3-2021.10/bin/../lib/gcc/arm-none-eabi/10.3.1/thumb/v8-m.main+fp/hard\libgcc.a(_arm_cmpdf2.o)
+ .debug_frame   0x00001d24       0x24 c:/users/xidon/program/arm_gcc/gcc-arm-none-eabi-10.3-2021.10/bin/../lib/gcc/arm-none-eabi/10.3.1/thumb/v8-m.main+fp/hard\libgcc.a(_arm_fixdfsi.o)
+ .debug_frame   0x00001d48       0x24 c:/users/xidon/program/arm_gcc/gcc-arm-none-eabi-10.3-2021.10/bin/../lib/gcc/arm-none-eabi/10.3.1/thumb/v8-m.main+fp/hard\libgcc.a(_arm_fixunsdfsi.o)
+ .debug_frame   0x00001d6c       0x2c c:/users/xidon/program/arm_gcc/gcc-arm-none-eabi-10.3-2021.10/bin/../lib/gcc/arm-none-eabi/10.3.1/thumb/v8-m.main+fp/hard\libgcc.a(_aeabi_uldivmod.o)
+ .debug_frame   0x00001d98       0x38 c:/users/xidon/program/arm_gcc/gcc-arm-none-eabi-10.3-2021.10/bin/../lib/gcc/arm-none-eabi/10.3.1/thumb/v8-m.main+fp/hard\libgcc.a(_udivmoddi4.o)
+ .debug_frame   0x00001dd0      0x2e4 c:/users/xidon/program/arm_gcc/gcc-arm-none-eabi-10.3-2021.10/bin/../lib/gcc/arm-none-eabi/10.3.1/thumb/v8-m.main+fp/hard\libgcc.a(unwind-arm.o)
+ .debug_frame   0x000020b4      0x104 c:/users/xidon/program/arm_gcc/gcc-arm-none-eabi-10.3-2021.10/bin/../lib/gcc/arm-none-eabi/10.3.1/thumb/v8-m.main+fp/hard\libgcc.a(pr-support.o)
+ .debug_frame   0x000021b8       0x28 c:/users/xidon/program/arm_gcc/gcc-arm-none-eabi-10.3-2021.10/bin/../lib/gcc/arm-none-eabi/10.3.1/../../../../arm-none-eabi/lib/thumb/v8-m.main+fp/hard\libc.a(lib_a-abort.o)
+ .debug_frame   0x000021e0      0x114 c:/users/xidon/program/arm_gcc/gcc-arm-none-eabi-10.3-2021.10/bin/../lib/gcc/arm-none-eabi/10.3.1/../../../../arm-none-eabi/lib/thumb/v8-m.main+fp/hard\libc.a(lib_a-signal.o)
+ .debug_frame   0x000022f4       0x3c c:/users/xidon/program/arm_gcc/gcc-arm-none-eabi-10.3-2021.10/bin/../lib/gcc/arm-none-eabi/10.3.1/../../../../arm-none-eabi/lib/thumb/v8-m.main+fp/hard\libc.a(lib_a-signalr.o)
 
 Cross Reference Table
 
@@ -2416,20 +2428,24 @@ errno                                             c:/users/xidon/program/arm_gcc
                                                   c:/users/xidon/program/arm_gcc/gcc-arm-none-eabi-10.3-2021.10/bin/../lib/gcc/arm-none-eabi/10.3.1/../../../../arm-none-eabi/lib/thumb/v8-m.main+fp/hard\libc.a(lib_a-sbrkr.o)
 exit                                              c:/users/xidon/program/arm_gcc/gcc-arm-none-eabi-10.3-2021.10/bin/../lib/gcc/arm-none-eabi/10.3.1/../../../../arm-none-eabi/lib/thumb/v8-m.main+fp/hard\libc.a(lib_a-exit.o)
                                                   c:/users/xidon/program/arm_gcc/gcc-arm-none-eabi-10.3-2021.10/bin/../lib/gcc/arm-none-eabi/10.3.1/../../../../arm-none-eabi/lib/thumb/v8-m.main+fp/hard/crt0.o
-fault_div_zero_trigger                            .\build\gcc/main.o
 fault_dump_bm_stack_point                         .\build\gcc/fault-dump.o
                                                   .\build\gcc/main.o
 fault_dump_bm_stack_start                         .\build\gcc/fault-dump.o
                                                   .\build\gcc/main.o
 fault_dump_callstack                              .\build\gcc/fault-dump.o
                                                   .\build\gcc/main.o
+fault_dump_div_zero                               .\build\gcc/fault-hal.o
 fault_dump_exc_return                             .\build\gcc/fault-hal.o
                                                   .\build\gcc/fault-dump.o
 fault_dump_handler                                .\build\gcc/fault-dump.o
                                                   .\build\gcc/fault-gcc.o
 fault_dump_init                                   .\build\gcc/fault-dump.o
                                                   .\build\gcc/main.o
-fault_unalign_trigger                             .\build\gcc/main.o
+fault_dump_psp_stack_parser                       .\build\gcc/fault-dump.o
+fault_dump_unalign                                .\build\gcc/fault-hal.o
+                                                  .\build\gcc/main.o
+fault_dump_using_msp                              .\build\gcc/fault-hal.o
+                                                  .\build\gcc/fault-dump.o
 fclose                                            c:/users/xidon/program/arm_gcc/gcc-arm-none-eabi-10.3-2021.10/bin/../lib/gcc/arm-none-eabi/10.3.1/../../../../arm-none-eabi/lib/thumb/v8-m.main+fp/hard\libc.a(lib_a-fclose.o)
 fctprintf                                         .\build\gcc/printf.o
 fd_main_stack_base                                .\build\gcc/fault-dump.o
