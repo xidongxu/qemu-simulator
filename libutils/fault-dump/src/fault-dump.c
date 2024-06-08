@@ -290,6 +290,14 @@ unsigned int fault_dump_bm_stack_start(void) {
     return FD_STACK_START;
 }
 
+unsigned int fault_dump_text_base(void) {
+    return FD_CODE_TEXT_BASE;
+}
+
+unsigned int fault_dump_text_ends(void) {
+    return FD_CODE_TEXT_ENDS;
+}
+
 int fault_dump_psp_stack_parser(stack_parser_t parser) {
     int result = FD_EEMPTY;
     if (parser != NULL) {

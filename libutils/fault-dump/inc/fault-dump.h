@@ -75,6 +75,9 @@ int  fault_dump_callstack(unsigned int *buffer, size_t size, unsigned int *stack
 /* bare metal code stack information. */
 unsigned int fault_dump_bm_stack_point(void);
 unsigned int fault_dump_bm_stack_start(void);
+/* code text information. */
+unsigned int fault_dump_text_base(void);
+unsigned int fault_dump_text_ends(void);
 /* stack frame parser object interface */
 int fault_dump_psp_stack_parser(stack_parser_t parser);
 
