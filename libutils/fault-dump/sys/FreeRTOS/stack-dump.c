@@ -34,7 +34,7 @@ int freestos_return_parser(unsigned int stack_point) {
     sp = (unsigned int*)(stack_point + ((reg_cnt + fpu_cnt + 6) * sizeof(unsigned int)));
     pc = 0;
     // *sp = return adress.
-    if ((*sp >= fault_dump_text_base()) && (*sp <= fault_dump_text_ends)) {
+    if ((*sp >= fault_dump_text_base()) && (*sp <= fault_dump_text_ends())) {
         pc = *sp;
     }
     return pc;
