@@ -40,7 +40,22 @@ int freestos_return_parser(unsigned int stack_point) {
     return pc;
 }
 
-int freertos_stack_parser(unsigned int *buffer, size_t size, unsigned int *stack_point, unsigned int *stack_start) {
-    int count = fault_dump_callstack(buffer, size, stack_point, stack_point);
+int freertos_stack_parser(unsigned int *buffer, size_t length, unsigned int *stack_point, unsigned int *stack_start) {
+    int count = 0;
+    unsigned int pc = 0;
+    unsigned int buff = buffer;
+    size_t size = length;
+
+    if ((buffer == NULL) || (length <= 0) || (stack_point == NULL) || (stack_start == NULL)) {
+        return count;
+    }
+    pc = freestos_return_parser(stack_point);
+    if (pc > 0) {
+        buffer[0] = pc;
+        buff = buffer[1];
+        size = length - 1;
+        count = count + 1;
+    }
+    count += fault_dump_callstack(buff, size, stack_point, stack_point);
     return count;
 }
