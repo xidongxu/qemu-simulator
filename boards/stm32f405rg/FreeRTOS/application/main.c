@@ -112,6 +112,8 @@ int main(void) {
     MX_USART1_UART_Init();
 
     fault_dump_init();
+    extern int freertos_stack_parser(unsigned int *buffer, size_t length, unsigned int *stack_point, unsigned int *stack_start);
+    fault_dump_psp_stack_parser(freertos_stack_parser);
     main_task_init();
 
     while (1) {

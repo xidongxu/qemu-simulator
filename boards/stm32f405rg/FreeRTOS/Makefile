@@ -112,7 +112,8 @@ C_SOURCES =  \
 ../Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_exti.c \
 ../Core/Src/system_stm32f4xx.c \
 ../../../libutils/fault-dump/src/fault-dump.c \
-../../../libutils/fault-dump/cpu/cortex-m4/fault-hal.c 
+../../../libutils/fault-dump/cpu/cortex-m4/fault-hal.c \
+../../../libutils/fault-dump/sys/FreeRTOS/stack-dump.c 
 # FreeRTOS C sources
 C_SOURCES += \
 ../../../librtos/FreeRTOS/list.c \

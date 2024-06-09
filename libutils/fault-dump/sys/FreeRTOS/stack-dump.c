@@ -11,7 +11,7 @@
   ******************************************************************************
   */
 #include "fault-dump.h"
-#include "FreeRTOSConfig.h"
+#include "FreeRTOS.h"
 
 int freestos_return_parser(unsigned int stack_point) {
     unsigned int pc = 0, *sp = NULL, reg_cnt = 10, fpu_cnt = 0;
