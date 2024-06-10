@@ -13,7 +13,7 @@
 #include "fault-dump.h"
 #include "FreeRTOS.h"
 
-int freestos_return_parser(unsigned int stack_point) {
+int freestos_frame_parser(unsigned int stack_point) {
     unsigned int pc = 0, *sp = NULL, reg_cnt = 10, fpu_cnt = 0;
     sp = (unsigned int*)(stack_point + sizeof(unsigned int));
     pc = *sp;
@@ -49,7 +49,7 @@ int freertos_stack_parser(unsigned int *buffer, size_t length, unsigned int *sta
     if ((buffer == NULL) || (length <= 0) || (stack_point == NULL) || (stack_start == NULL)) {
         return count;
     }
-    pc = freestos_return_parser(stack_point);
+    pc = freestos_frame_parser(stack_point);
     if (pc > 0) {
         buffer[0] = pc;
         buff = buffer[1];

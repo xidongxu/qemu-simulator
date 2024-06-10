@@ -13,15 +13,15 @@
 080046e8 r __func__.0
 080046f8 r __func__.1
 080046b8 r __func__.1
-08004708 r __func__.2
 080046c0 r __func__.2
+08004708 r __func__.2
 0800471c r __func__.3
 080046c8 r __func__.3
 080046d0 r __func__.4
 08004730 r __func__.4
 080046d8 r __func__.5
-080046e0 r __func__.6
 08004744 r __func__.6
+080046e0 r __func__.6
 08004bf4 d __init_array_end
 08004bf0 d __init_array_start
 08000608 T __io_putchar
@@ -168,7 +168,7 @@
 200081f4 b frame.1
 080001b4 t frame_dummy
 08001baa T freertos_stack_parser
-08001b48 T freestos_return_parser
+08001b48 T freestos_frame_parser
 080035ac W FSMC_IRQHandler
 08000000 R g_pfnVectors
 08001708 W HAL_Delay
