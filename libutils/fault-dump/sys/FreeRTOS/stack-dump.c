@@ -11,7 +11,9 @@
   ******************************************************************************
   */
 #include "fault-dump.h"
+#include "FreeRTOSConfig.h"
 #include "FreeRTOS.h"
+#include "task.h"
 
 int freestos_frame_parser(unsigned int stack_point) {
     unsigned int pc = 0, *sp = NULL, reg_cnt = 10, fpu_cnt = 0;
@@ -42,20 +44,17 @@ int freestos_frame_parser(unsigned int stack_point) {
 
 int freertos_stack_parser(unsigned int *buffer, size_t length, unsigned int *stack_point, unsigned int *stack_start) {
     int count = 0;
-    unsigned int pc = 0;
-    unsigned int buff = buffer;
-    size_t size = length;
-
+    TaskStatus_t xTaskStatus = {0};
+    TaskHandle_t xTaskPoints = {0};
     if ((buffer == NULL) || (length <= 0) || (stack_point == NULL) || (stack_start == NULL)) {
         return count;
     }
-    pc = freestos_frame_parser(stack_point);
-    if (pc > 0) {
-        buffer[0] = pc;
-        buff = buffer[1];
-        size = length - 1;
-        count = count + 1;
-    }
-    count += fault_dump_callstack(buff, size, stack_point, stack_point);
+    xTaskPoints = xTaskGetCurrentTaskHandle();
+    vTaskGetInfo(xTaskPoints, &xTaskStatus, pdTRUE, eInvalid);
+    printf(" Task Name: %s.\r\n", xTaskStatus.pcTaskName);
+    printf(" StackPoint: 0x%08X.\r\n", stack_point);
+    printf(" StackStart: 0x%08X.\r\n", xTaskStatus.pxStackBase);
+    printf(" Stack Ends: 0x%08X.\r\n", xTaskStatus.pxEndOfStack);
+    count += fault_dump_callstack(buff, size, xTaskStatus.pxStackBase, xTaskStatus.pxEndOfStack);
     return count;
 }

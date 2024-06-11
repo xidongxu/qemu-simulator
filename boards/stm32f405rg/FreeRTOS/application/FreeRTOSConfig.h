@@ -46,7 +46,7 @@
 #define configUSE_TICKLESS_IDLE                    1
 #define configMAX_PRIORITIES                       5U
 #define configMINIMAL_STACK_SIZE                   128U
-#define configMAX_TASK_NAME_LEN                    4U
+#define configMAX_TASK_NAME_LEN                    32U
 #define configTICK_TYPE_WIDTH_IN_BITS              TICK_TYPE_WIDTH_32_BITS
 #define configIDLE_SHOULD_YIELD                    1
 #define configTASK_NOTIFICATION_ARRAY_ENTRIES      1U
@@ -100,7 +100,7 @@
 /******************************************************************************/
 
 #define configGENERATE_RUN_TIME_STATS           0
-#define configUSE_TRACE_FACILITY                0
+#define configUSE_TRACE_FACILITY                1
 #define configUSE_STATS_FORMATTING_FUNCTIONS    0
 #define configKERNEL_PROVIDED_STATIC_MEMORY     1
 
@@ -131,5 +131,7 @@
 #define INCLUDE_xTaskAbortDelay                1
 #define INCLUDE_xTaskGetHandle                 1
 #define INCLUDE_xTaskResumeFromISR             1
+
+#define configRECORD_STACK_HIGH_ADDRESS        1
 
 #endif /* FREERTOS_CONFIG_H */
