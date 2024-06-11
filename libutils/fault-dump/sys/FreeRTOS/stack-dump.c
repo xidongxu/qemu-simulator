@@ -46,15 +46,15 @@ int freertos_stack_parser(unsigned int *buffer, size_t length, unsigned int *sta
     int count = 0;
     TaskStatus_t xTaskStatus = {0};
     TaskHandle_t xTaskPoints = {0};
-    if ((buffer == NULL) || (length <= 0) || (stack_point == NULL) || (stack_start == NULL)) {
+    if ((buffer == NULL) || (length <= 0) || (stack_point == NULL)) {
         return count;
     }
     xTaskPoints = xTaskGetCurrentTaskHandle();
     vTaskGetInfo(xTaskPoints, &xTaskStatus, pdTRUE, eInvalid);
-    printf(" Task Name: %s.\r\n", xTaskStatus.pcTaskName);
-    printf(" StackPoint: 0x%08X.\r\n", stack_point);
-    printf(" StackStart: 0x%08X.\r\n", xTaskStatus.pxStackBase);
-    printf(" Stack Ends: 0x%08X.\r\n", xTaskStatus.pxEndOfStack);
-    count += fault_dump_callstack(buff, size, xTaskStatus.pxStackBase, xTaskStatus.pxEndOfStack);
+    printf(" CurrentTask: %s.\r\n", xTaskStatus.pcTaskName);
+    printf(" Stack Point: 0x%08X.\r\n", stack_point);
+    printf(" Stack Start: 0x%08X.\r\n", xTaskStatus.pxStackBase);
+    printf(" Stack Fulls: 0x%08X.\r\n", xTaskStatus.pxEndOfStack);
+    count = fault_dump_callstack(buffer, length, stack_point, xTaskStatus.pxEndOfStack);
     return count;
 }

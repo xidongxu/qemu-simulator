@@ -224,9 +224,7 @@ void fault_dump_handler(unsigned int *stack, unsigned int linker) {
                                     (unsigned int *)&stack[index], 
                                     (unsigned int *)FD_STACK_START);
     } else {
-        count = fd_psp_stack_parser(buffer, FD_STACK_DUMP_DEPTH_MAX, 
-                                    (unsigned int *)&stack[index], 
-                                    (unsigned int *)FD_STACK_START);
+        count = fd_psp_stack_parser(buffer, FD_STACK_DUMP_DEPTH_MAX, stack, NULL);
     }
     // Print stack information.
     printf(" Stack Call: ");
