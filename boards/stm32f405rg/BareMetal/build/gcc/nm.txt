@@ -12,14 +12,14 @@
 08003158 d __frame_dummy_init_array_entry
 08002c60 r __func__.0
 08002c30 r __func__.0
-08002c38 r __func__.1
 08002c70 r __func__.1
+08002c38 r __func__.1
 08002c40 r __func__.2
 08002c80 r __func__.2
 08002c48 r __func__.3
 08002c94 r __func__.3
-08002ca8 r __func__.4
 08002c50 r __func__.4
+08002ca8 r __func__.4
 08002c58 r __func__.5
 08002cbc r __func__.6
 0800315c d __init_array_end
@@ -231,8 +231,9 @@
 08001b88 W SPI1_IRQHandler
 08001b88 W SPI2_IRQHandler
 08001b88 W SPI3_IRQHandler
-080001ec t stack_checked
+08000200 t stack_checked
 080001fe t stack_invalid
+080001f6 t stack_use_psp
 080017b4 t stack_using_msp
 08002010 t std
 080006f0 T SVC_Handler

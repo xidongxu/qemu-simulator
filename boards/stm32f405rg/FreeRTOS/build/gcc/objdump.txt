@@ -138,18 +138,18 @@ HardFault_Handler:
     cpsid   i                           /* disable interrupts */
  80001d0:	b672      	cpsid	i
     ldr     r3, =fd_main_stack_base     /* r3 = &fd_main_stack_base */
- 80001d2:	4b0e      	ldr	r3, [pc, #56]	; (800020c <stack_invalid+0xe>)
+ 80001d2:	4b0e      	ldr	r3, [pc, #56]	; (800020c <stack_checked+0xc>)
     ldr     r1, [r3]                    /* r1 = fd_main_stack_base  */
  80001d4:	6819      	ldr	r1, [r3, #0]
     ldr     r3, =fd_main_stack_full     /* r3 = &fd_main_stack_full */
- 80001d6:	4b0e      	ldr	r3, [pc, #56]	; (8000210 <stack_invalid+0x12>)
+ 80001d6:	4b0e      	ldr	r3, [pc, #56]	; (8000210 <stack_checked+0x10>)
     ldr     r2, [r3]                    /* r2 = fd_main_stack_full  */
  80001d8:	681a      	ldr	r2, [r3, #0]
 
     tst     lr, #4                      /* use exc_return value get sp value */
  80001da:	f01e 0f04 	tst.w	lr, #4
-    bne     stack_checked               /* if (sp != msp), jump to stack_checked */
- 80001de:	d105      	bne.n	80001ec <stack_checked>
+    bne     stack_use_psp               /* if (sp != msp), jump to stack_use_psp */
+ 80001de:	d10a      	bne.n	80001f6 <stack_use_psp>
 
     mrs     r0, msp                     /* else (sp == msp), r0 = sp = msp */
  80001e0:	f3ef 8008 	mrs	r0, MSP
@@ -162,41 +162,44 @@ HardFault_Handler:
     bgt     stack_invalid               /* msp > stack_base_addr, msp is invalid */
  80001ea:	dc08      	bgt.n	80001fe <stack_invalid>
 
-080001ec <stack_checked>:
-    
-stack_checked:
-    push    {r4 - r11}                  /* sp value is in stack range, push r4 - r11 to stack */
+    push    {r4 - r11}                  /* stack value is normal, push {r4 - r11} to stack */
  80001ec:	e92d 0ff0 	stmdb	sp!, {r4, r5, r6, r7, r8, r9, sl, fp}
+    mrs     r0, msp                     /* refresh r0 = sp = msp */
+ 80001f0:	f3ef 8008 	mrs	r0, MSP
+    b       stack_checked
+ 80001f4:	e004      	b.n	8000200 <stack_checked>
 
-    tst     lr, #4                      /* update sp value to r0 */
- 80001f0:	f01e 0f04 	tst.w	lr, #4
-    ite     eq
- 80001f4:	bf0c      	ite	eq
-    mrseq   r0, msp                     /* lr & 0x04 == 1, r0 = sp = msp */
- 80001f6:	f3ef 8008 	mrseq	r0, MSP
-    mrsne   r0, psp                     /* lr & 0x04 == 0, r0 = sp = psp */
- 80001fa:	f3ef 8009 	mrsne	r0, PSP
+080001f6 <stack_use_psp>:
+stack_use_psp:
+    mrs     r0, psp                     /* lr & 0x04 == 0, r0 = sp = psp */
+ 80001f6:	f3ef 8009 	mrs	r0, PSP
+    stmdb   r0!, {r4 - r11}             /* sp using psp, use stmdb push {r4 - r11} to stack */
+ 80001fa:	e920 0ff0 	stmdb	r0!, {r4, r5, r6, r7, r8, r9, sl, fp}
 
 080001fe <stack_invalid>:
+    
 stack_invalid:
+    nop                                 /* stack value is invalid, not to process temporary */
+ 80001fe:	bf00      	nop
+
+08000200 <stack_checked>:
+stack_checked:
     mov     r1, lr                      /* now, r0 = sp, r1 = lr */
- 80001fe:	4671      	mov	r1, lr
+ 8000200:	4671      	mov	r1, lr
     ldr     r2, =fault_dump_handler     /* now, r2 = fault_dump_handler */
- 8000200:	4a04      	ldr	r2, [pc, #16]	; (8000214 <stack_invalid+0x16>)
+ 8000202:	4a04      	ldr	r2, [pc, #16]	; (8000214 <stack_checked+0x14>)
     dsb                                 /* wait for memory access to complete */
- 8000202:	f3bf 8f4f 	dsb	sy
+ 8000204:	f3bf 8f4f 	dsb	sy
     cpsie   i                           /* enable interrupts */
- 8000206:	b662      	cpsie	i
+ 8000208:	b662      	cpsie	i
     bx      r2                          /* jump to fault_dump_handler */
- 8000208:	4710      	bx	r2
- 800020a:	81ec0000 	mvnhi	r0, r0
+ 800020a:	4710      	bx	r2
     ldr     r3, =fd_main_stack_base     /* r3 = &fd_main_stack_base */
- 800020e:	81f02000 	mvnshi	r2, r0
+ 800020c:	200081ec 	andcs	r8, r0, ip, ror #3
     ldr     r3, =fd_main_stack_full     /* r3 = &fd_main_stack_full */
- 8000212:	18952000 	ldmne	r5, {sp}
+ 8000210:	200081f0 	strdcs	r8, [r0], -r0
     ldr     r2, =fault_dump_handler     /* now, r2 = fault_dump_handler */
- 8000216:	00000800 	andeq	r0, r0, r0, lsl #16
- 800021a:	00000000 	andeq	r0, r0, r0
+ 8000214:	08001895 	stmdaeq	r0, {r0, r2, r4, r7, fp, ip}
 	...
 
 08000220 <memchr>:
@@ -70897,7 +70900,7 @@ Disassembly of section .debug_line:
    10a14:	03080036 	movweq	r0, #32822	; 0x8036
    10a18:	020100f1 	andeq	r0, r1, #241	; 0xf1
    10a1c:	01010001 	tsteq	r1, r1
-   10a20:	0000007e 	andeq	r0, r0, lr, ror r0
+   10a20:	0000007f 	andeq	r0, r0, pc, ror r0
    10a24:	004d0003 	subeq	r0, sp, r3
    10a28:	01020000 	mrseq	r0, (UNDEF: 2)
    10a2c:	000d0efb 	strdeq	r0, [sp], -fp
@@ -70924,11 +70927,11 @@ Disassembly of section .debug_line:
    10a80:	21212101 			; <UNDEFINED> instruction: 0x21212101
    10a84:	222f2221 	eorcs	r2, pc, #268435458	; 0x10000002
    10a88:	2121212f 			; <UNDEFINED> instruction: 0x2121212f
-   10a8c:	212f3023 			; <UNDEFINED> instruction: 0x212f3023
-   10a90:	2121302f 			; <UNDEFINED> instruction: 0x2121302f
-   10a94:	6603212f 	strvs	r2, [r3], -pc, lsr #2
-   10a98:	1503302e 	strne	r3, [r3, #-46]	; 0xffffffd2
-   10a9c:	0002022e 	andeq	r0, r2, lr, lsr #4
+   10a8c:	222f2f22 	eorcs	r2, pc, #34, 30	; 0x88
+   10a90:	2122312f 			; <UNDEFINED> instruction: 0x2122312f
+   10a94:	03212f21 			; <UNDEFINED> instruction: 0x03212f21
+   10a98:	03302064 	teqeq	r0, #100	; 0x64
+   10a9c:	02022e17 	andeq	r2, r2, #368	; 0x170
    10aa0:	Address 0x00010aa0 is out of bounds.
 
 

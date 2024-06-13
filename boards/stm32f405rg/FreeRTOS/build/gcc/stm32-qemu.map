@@ -2580,7 +2580,7 @@ LOAD c:/users/xidon/program/arm_gcc/gcc-arm-none-eabi-10.3-2021.10/bin/../lib/gc
  .debug_ranges  0x000010e8       0x98 .\build\gcc/syscalls.o
  .debug_ranges  0x00001180       0x20 .\build\gcc/startup_stm32f405xx.o
 
-.debug_line     0x00000000    0x10aa2
+.debug_line     0x00000000    0x10aa3
  .debug_line    0x00000000      0x5b7 .\build\gcc/main.o
  .debug_line    0x000005b7      0x47e .\build\gcc/stm32f4xx_it.o
  .debug_line    0x00000a35      0x16f .\build\gcc/gpio.o
@@ -2605,7 +2605,7 @@ LOAD c:/users/xidon/program/arm_gcc/gcc-arm-none-eabi-10.3-2021.10/bin/../lib/gc
  .debug_line    0x00010397      0x1e8 .\build\gcc/sysmem.o
  .debug_line    0x0001057f      0x41d .\build\gcc/syscalls.o
  .debug_line    0x0001099c       0x84 .\build\gcc/startup_stm32f405xx.o
- .debug_line    0x00010a20       0x82 .\build\gcc/fault-gcc.o
+ .debug_line    0x00010a20       0x83 .\build\gcc/fault-gcc.o
 
 .debug_str      0x00000000     0x5275
  .debug_str     0x00000000      0x992 .\build\gcc/main.o
