@@ -30,23 +30,24 @@ HardFault_Handler:
     ldr     r2, [r3]                    /* r2 = fd_main_stack_full  */
 
     tst     lr, #4                      /* use exc_return value get sp value */
-    bne     stack_checked               /* if (sp != msp), jump to stack_checked */
+    bne     stack_use_psp               /* if (sp != msp), jump to stack_use_psp */
 
     mrs     r0, msp                     /* else (sp == msp), r0 = sp = msp */
     cmp     r0, r1                      /* compare msp and stack base addr */
     blt     stack_invalid               /* msp < stack_base_addr, msp is invalid */
     cmp     r0, r2                      /* compare msp and stack full addr */
     bgt     stack_invalid               /* msp > stack_base_addr, msp is invalid */
+
+    push    {r4 - r11}                  /* stack value is normal, push {r4 - r11} to stack */
+    mrs     r0, msp                     /* refresh r0 = sp = msp */
+    b       stack_checked
+stack_use_psp:
+    mrs     r0, psp                     /* lr & 0x04 == 0, r0 = sp = psp */
+    stmdb   r0!, {r4 - r11}             /* sp using psp, use stmdb push {r4 - r11} to stack */
     
-stack_checked:
-    push    {r4 - r11}                  /* sp value is in stack range, push r4 - r11 to stack */
-
-    tst     lr, #4                      /* update sp value to r0 */
-    ite     eq
-    mrseq   r0, msp                     /* lr & 0x04 == 1, r0 = sp = msp */
-    mrsne   r0, psp                     /* lr & 0x04 == 0, r0 = sp = psp */
-
 stack_invalid:
+    nop                                 /* stack value is invalid, not to process temporary */
+stack_checked:
     mov     r1, lr                      /* now, r0 = sp, r1 = lr */
     ldr     r2, =fault_dump_handler     /* now, r2 = fault_dump_handler */
     dsb                                 /* wait for memory access to complete */

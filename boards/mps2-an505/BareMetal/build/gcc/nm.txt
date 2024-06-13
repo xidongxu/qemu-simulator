@@ -218,8 +218,9 @@
 10002e64 t search_EIT_table
 10002000 W SecureFault_Handler
 10002e50 t selfrel_offset31
-10002038 t stack_checked
+1000204c t stack_checked
 1000204a t stack_invalid
+10002042 t stack_use_psp
 10001c20 t stack_using_msp
 10002000 W SVC_Handler
 38000000 D SystemCoreClock

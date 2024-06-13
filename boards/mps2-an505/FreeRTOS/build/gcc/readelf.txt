@@ -10,7 +10,7 @@ ELF Header:
   Version:                           0x1
   Entry point address:               0x100038a5
   Start of program headers:          52 (bytes into file)
-  Start of section headers:          325852 (bytes into file)
+  Start of section headers:          326072 (bytes into file)
   Flags:                             0x5000400, Version5 EABI, hard-float ABI
   Size of this header:               52 (bytes)
   Size of program headers:           32 (bytes)
@@ -33,17 +33,17 @@ Section Headers:
   [ 9] .stack            PROGBITS        380ff000 021454 001000 00   W  0   0  1
   [10] .ARM.attributes   ARM_ATTRIBUTES  00000000 022454 000036 00      0   0  1
   [11] .comment          PROGBITS        00000000 02248a 000049 01  MS  0   0  1
-  [12] .debug_info       PROGBITS        00000000 0224d3 00c337 00      0   0  1
-  [13] .debug_abbrev     PROGBITS        00000000 02e80a 001b78 00      0   0  1
-  [14] .debug_loc        PROGBITS        00000000 030382 00b47a 00      0   0  1
-  [15] .debug_aranges    PROGBITS        00000000 03b800 0008e8 00      0   0  8
-  [16] .debug_ranges     PROGBITS        00000000 03c0e8 000c30 00      0   0  1
-  [17] .debug_line       PROGBITS        00000000 03cd18 008d98 00      0   0  1
-  [18] .debug_str        PROGBITS        00000000 045ab0 003041 01  MS  0   0  1
-  [19] .debug_frame      PROGBITS        00000000 048af4 002330 00      0   0  4
-  [20] .symtab           SYMTAB          00000000 04ae24 0030a0 10     21 553  4
-  [21] .strtab           STRTAB          00000000 04dec4 001930 00      0   0  1
-  [22] .shstrtab         STRTAB          00000000 04f7f4 0000e6 00      0   0  1
+  [12] .debug_info       PROGBITS        00000000 0224d3 00c371 00      0   0  1
+  [13] .debug_abbrev     PROGBITS        00000000 02e844 001b78 00      0   0  1
+  [14] .debug_loc        PROGBITS        00000000 0303bc 00b47a 00      0   0  1
+  [15] .debug_aranges    PROGBITS        00000000 03b838 0008f8 00      0   0  8
+  [16] .debug_ranges     PROGBITS        00000000 03c130 000c40 00      0   0  1
+  [17] .debug_line       PROGBITS        00000000 03cd70 008dc7 00      0   0  1
+  [18] .debug_str        PROGBITS        00000000 045b37 00306b 01  MS  0   0  1
+  [19] .debug_frame      PROGBITS        00000000 048ba4 002350 00      0   0  4
+  [20] .symtab           SYMTAB          00000000 04aef4 0030a0 10     21 553  4
+  [21] .strtab           STRTAB          00000000 04df94 00193e 00      0   0  1
+  [22] .shstrtab         STRTAB          00000000 04f8d2 0000e6 00      0   0  1
 Key to Flags:
   W (write), A (alloc), X (execute), M (merge), S (strings), I (info),
   L (link order), O (extra OS processing required), G (group), T (TLS),
@@ -623,9 +623,9 @@ Symbol table '.symtab' contains 778 entries:
    438: 10003898     0 NOTYPE  LOCAL  DEFAULT    1 $t
    439: 00000000     0 FILE    LOCAL  DEFAULT  ABS fault-gcc.o
    440: 10003914     0 NOTYPE  LOCAL  DEFAULT    1 $t
-   441: 10003930     0 NOTYPE  LOCAL  DEFAULT    1 stack_checked
+   441: 1000393a     0 NOTYPE  LOCAL  DEFAULT    1 stack_use_psp
    442: 10003942     0 NOTYPE  LOCAL  DEFAULT    1 stack_invalid
-   443: 1000394e     0 NOTYPE  LOCAL  DEFAULT    1 $d
+   443: 10003944     0 NOTYPE  LOCAL  DEFAULT    1 stack_checked
    444: 10003950     0 NOTYPE  LOCAL  DEFAULT    1 $d
    445: 00000000     0 FILE    LOCAL  DEFAULT  ABS errno.c
    446: 1000395c     0 NOTYPE  LOCAL  DEFAULT    1 $t

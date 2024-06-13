@@ -1,6 +1,6 @@
 ###############################################################################
 #
-# IAR ELF Linker V9.50.2.385/W64 for ARM                  07/Jun/2024  23:15:32
+# IAR ELF Linker V9.50.2.385/W64 for ARM                  13/Jun/2024  23:35:29
 # Copyright 2007-2024 IAR Systems AB.
 #
 #    Output file  =  .\build\iar/an505-qemu.out
@@ -358,12 +358,12 @@ dump_callstack          0x1000'07c1   0x5e  Code  Gb  main.o [1]
 dump_exc_return         0x1000'09e7   0x14  Code  Lc  fault-dump.o [1]
 exit                    0x1000'2a93    0x4  Code  Gb  exit.o [2]
 fault_dump_bm_stack_point
-                        0x1000'0c17    0x6  Code  Gb  fault-dump.o [1]
+                        0x1000'0c15    0x6  Code  Gb  fault-dump.o [1]
 fault_dump_bm_stack_start
-                        0x1000'0c1d    0x4  Code  Gb  fault-dump.o [1]
-fault_dump_callstack    0x1000'0b89   0x8e  Code  Gb  fault-dump.o [1]
+                        0x1000'0c1b    0x4  Code  Gb  fault-dump.o [1]
+fault_dump_callstack    0x1000'0b87   0x8e  Code  Gb  fault-dump.o [1]
 fault_dump_exc_return   0x1000'1de5   0xa4  Code  Gb  fault-hal.o [1]
-fault_dump_handler      0x1000'0a0b  0x17e  Code  Gb  fault-dump.o [1]
+fault_dump_handler      0x1000'0a0b  0x17c  Code  Gb  fault-dump.o [1]
 fault_dump_handler::buffer
                         0x3800'0014  0x100  Data  Lc  fault-dump.o [1]
 fault_dump_handler::frame

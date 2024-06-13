@@ -1,6 +1,6 @@
 ###############################################################################
 #
-# IAR ELF Linker V9.50.2.385/W64 for ARM                  07/Jun/2024  23:16:06
+# IAR ELF Linker V9.50.2.385/W64 for ARM                  13/Jun/2024  23:39:45
 # Copyright 2007-2024 IAR Systems AB.
 #
 #    Output file  =  .\build\iar/an505-qemu.out
@@ -444,12 +444,12 @@ eTaskConfirmSleepModeStatus
                         0x1000'291d    0x4e  Code  Gb  tasks.o [1]
 exit                    0x1000'458b     0x4  Code  Gb  exit.o [2]
 fault_dump_bm_stack_point
-                        0x1000'0c7b     0x6  Code  Gb  fault-dump.o [1]
+                        0x1000'0c79     0x6  Code  Gb  fault-dump.o [1]
 fault_dump_bm_stack_start
-                        0x1000'0c81     0x4  Code  Gb  fault-dump.o [1]
-fault_dump_callstack    0x1000'0bed    0x8e  Code  Gb  fault-dump.o [1]
+                        0x1000'0c7f     0x4  Code  Gb  fault-dump.o [1]
+fault_dump_callstack    0x1000'0beb    0x8e  Code  Gb  fault-dump.o [1]
 fault_dump_exc_return   0x1000'1e49    0xa4  Code  Gb  fault-hal.o [1]
-fault_dump_handler      0x1000'0a6f   0x17e  Code  Gb  fault-dump.o [1]
+fault_dump_handler      0x1000'0a6f   0x17c  Code  Gb  fault-dump.o [1]
 fault_dump_handler::buffer
                         0x3800'841c   0x100  Data  Lc  fault-dump.o [1]
 fault_dump_handler::frame
