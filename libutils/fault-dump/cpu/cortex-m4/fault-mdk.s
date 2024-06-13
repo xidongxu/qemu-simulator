@@ -24,7 +24,7 @@ HardFault_Handler    PROC
     LDR     R2, [R3]                    ; r2 = fd_main_stack_full
 
     TST     LR, #4                      ; use exc_return value get sp value
-    BNE     stack_checked               ; if (sp != msp), jump to stack_checked
+    BNE     stack_use_psp               ; if (sp != msp), jump to stack_use_psp
     
     MRS     R0, MSP                     ; else (sp == msp), r0 = sp = msp
     CMP     R0, R1                      ; compare msp and stack base addr
@@ -32,15 +32,16 @@ HardFault_Handler    PROC
     CMP     R0, R2                      ; compare msp and stack full addr
     BGT     stack_invalid               ; msp > stack_base_addr, msp is invalid
 
-stack_checked
-    PUSH    {R4 - R11}                  ; sp value is in stack range, push r4 - r11 to stack
-
-    TST     LR, #4                      ; update sp value to r0
-    ITE     EQ
-    MRSEQ   R0, MSP                     ; lr & 0x04 == 1, r0 = sp = msp
-    MRSNE   R0, PSP                     ; lr & 0x04 == 0, r0 = sp = psp
-
+    PUSH    {R4 - R11}                  ; stack value is normal, push {r4 - r11} to stack
+    MRS     R0, MSP                     ; refresh r0 = sp = msp
+    B       stack_checked
+stack_use_psp
+    MRS     R0, PSP                     ; lr & 0x04 == 0, r0 = sp = psp
+    STMDB   R0!, {R4 - R11}             ; sp using psp, use stmdb push {r4 - r11} to stack
+    
 stack_invalid
+    NOP                                 ; stack value is invalid, not to process temporary
+stack_checked
     MOV     R1, LR                      ; now, r0 = sp, r1 = lr
     DSB                                 ; wait for memory access to complete 
     CPSIE   i                           ; enable interrupts 
