@@ -94,7 +94,8 @@ C_SOURCES = \
 ../Core/Src/printf.c \
 ../Core/Src/uart.c \
 ../../../libutils/fault-dump/src/fault-dump.c \
-../../../libutils/fault-dump/cpu/cortex-m33/fault-hal.c 
+../../../libutils/fault-dump/cpu/cortex-m33/fault-hal.c \
+../../../libutils/fault-dump/sys/FreeRTOS/stack-dump.c  
 
 # FreeRTOS C sources
 C_SOURCES += \

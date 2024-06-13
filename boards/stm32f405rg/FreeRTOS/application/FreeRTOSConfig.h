@@ -132,6 +132,10 @@
 #define INCLUDE_xTaskGetHandle                 1
 #define INCLUDE_xTaskResumeFromISR             1
 
+/******************************************************************************/
+/* Add by xiddongxu ***********************************************************/
+/******************************************************************************/
+
 #define configRECORD_STACK_HIGH_ADDRESS        1
 
 #endif /* FREERTOS_CONFIG_H */
