@@ -35,10 +35,16 @@ HardFault_Handler    PROC
     PUSH    {R4 - R11}                  ; stack value is normal, push {r4 - r11} to stack
     MRS     R0, MSP                     ; refresh r0 = sp = msp
     B       stack_checked
+
 stack_use_psp
     MRS     R0, PSP                     ; lr & 0x04 == 0, r0 = sp = psp
+    MRS     R1, PSPLIM                  ; r1 = psplim
+    CMP     R0, R1                      ; compare psp and psplim
+    BLT     stack_invalid               ; psp < psplim, psp is invalid
+
     STMDB   R0!, {R4 - R11}             ; sp using psp, use stmdb push {r4 - r11} to stack
-    
+    B       stack_checked
+
 stack_invalid
     NOP                                 ; stack value is invalid, not to process temporary
 stack_checked

@@ -41,9 +41,15 @@ HardFault_Handler:
     push    {r4 - r11}                  /* stack value is normal, push {r4 - r11} to stack */
     mrs     r0, msp                     /* refresh r0 = sp = msp */
     b       stack_checked
+
 stack_use_psp:
     mrs     r0, psp                     /* lr & 0x04 == 0, r0 = sp = psp */
+    mrs     r1, psplim                  /* r1 = psplim */
+    cmp     r0, r1                      /* compare psp and psplim */
+    blt     stack_invalid               /* psp < psplim, psp is invalid */
+
     stmdb   r0!, {r4 - r11}             /* sp using psp, use stmdb push {r4 - r11} to stack */
+    b       stack_checked
     
 stack_invalid:
     nop                                 /* stack value is invalid, not to process temporary */
