@@ -1,6 +1,6 @@
 ###############################################################################
 #
-# IAR ELF Linker V9.50.2.385/W64 for ARM                  14/Jun/2024  00:00:11
+# IAR ELF Linker V9.50.2.385/W64 for ARM                  14/Aug/2024  23:34:01
 # Copyright 2007-2024 IAR Systems AB.
 #
 #    Output file  =  .\build\iar/stm32-qemu.out
@@ -382,7 +382,7 @@ command line/config:
     -------------------------------------------------
     Total:
 
-C:\Users\xidon\code\github\qemu-simulator\boards\stm32f405rg\FreeRTOS\build\iar: [1]
+C:\Users\xidon\code\github\qemu-simulator\boards\stm32f405rg\threadx\build\iar: [1]
     fault-dump.o                884      532      336
     fault-hal.o                 236      292
     fault-iar.o                  72
@@ -894,7 +894,7 @@ xTimerTaskHandle        0x2000'8940     0x4  Data  Lc  timers.o [1]
 xYieldPendings          0x2000'891c     0x4  Data  Lc  tasks.o [1]
 
 
-[1] = C:\Users\xidon\code\github\qemu-simulator\boards\stm32f405rg\FreeRTOS\build\iar
+[1] = C:\Users\xidon\code\github\qemu-simulator\boards\stm32f405rg\threadx\build\iar
 [2] = dl7M_tln.a
 [3] = m7M_tls.a
 [4] = rt7M_tl.a

@@ -394,7 +394,7 @@ Discarded input sections
  .debug_aranges
                 0x00000000       0x18 .\build\gcc/croutine.o
  .debug_line    0x00000000       0x1d .\build\gcc/croutine.o
- .debug_str     0x00000000      0x1bd .\build\gcc/croutine.o
+ .debug_str     0x00000000      0x1bc .\build\gcc/croutine.o
  .comment       0x00000000       0x4a .\build\gcc/croutine.o
  .ARM.attributes
                 0x00000000       0x3a .\build\gcc/croutine.o
@@ -440,7 +440,7 @@ Discarded input sections
                 0x00000000       0x98 .\build\gcc/event_groups.o
  .debug_ranges  0x00000000       0xa0 .\build\gcc/event_groups.o
  .debug_line    0x00000000      0x7f2 .\build\gcc/event_groups.o
- .debug_str     0x00000000      0x7e9 .\build\gcc/event_groups.o
+ .debug_str     0x00000000      0x7e8 .\build\gcc/event_groups.o
  .comment       0x00000000       0x4a .\build\gcc/event_groups.o
  .debug_frame   0x00000000      0x194 .\build\gcc/event_groups.o
  .ARM.attributes
@@ -489,7 +489,7 @@ Discarded input sections
                 0x00000000       0x20 .\build\gcc/sysmem.o
  .debug_ranges  0x00000000       0x10 .\build\gcc/sysmem.o
  .debug_line    0x00000000      0x1e8 .\build\gcc/sysmem.o
- .debug_str     0x00000000      0x242 .\build\gcc/sysmem.o
+ .debug_str     0x00000000      0x241 .\build\gcc/sysmem.o
  .comment       0x00000000       0x4a .\build\gcc/sysmem.o
  .debug_frame   0x00000000       0x28 .\build\gcc/sysmem.o
  .ARM.attributes
@@ -522,7 +522,7 @@ Discarded input sections
                 0x00000000       0xa8 .\build\gcc/syscalls.o
  .debug_ranges  0x00000000       0x98 .\build\gcc/syscalls.o
  .debug_line    0x00000000      0x41d .\build\gcc/syscalls.o
- .debug_str     0x00000000      0x416 .\build\gcc/syscalls.o
+ .debug_str     0x00000000      0x415 .\build\gcc/syscalls.o
  .comment       0x00000000       0x4a .\build\gcc/syscalls.o
  .debug_frame   0x00000000      0x190 .\build\gcc/syscalls.o
  .ARM.attributes
@@ -542,7 +542,7 @@ Discarded input sections
                 0x00000000       0x30 .\build\gcc/semihosting.o
  .debug_ranges  0x00000000       0x20 .\build\gcc/semihosting.o
  .debug_line    0x00000000       0x95 .\build\gcc/semihosting.o
- .debug_str     0x00000000      0x14b .\build\gcc/semihosting.o
+ .debug_str     0x00000000      0x14a .\build\gcc/semihosting.o
  .comment       0x00000000       0x4a .\build\gcc/semihosting.o
  .debug_frame   0x00000000       0x50 .\build\gcc/semihosting.o
  .ARM.attributes
@@ -1990,39 +1990,39 @@ LOAD linker stubs
  .debug_line    0x00009539       0x86 .\build\gcc/startup_ARMCM33.o
  .debug_line    0x000095bf       0x88 .\build\gcc/fault-gcc.o
 
-.debug_str      0x00000000     0x32da
- .debug_str     0x00000000      0x33e .\build\gcc/main.o
-                                0x3c7 (size before relaxing)
- .debug_str     0x0000033e      0x1a3 .\build\gcc/system_ARMCM33.o
-                                0x345 (size before relaxing)
- .debug_str     0x000004e1      0x273 .\build\gcc/printf.o
-                                0x473 (size before relaxing)
- .debug_str     0x00000754       0x45 .\build\gcc/uart.o
-                                0x22e (size before relaxing)
- .debug_str     0x00000799      0x1e4 .\build\gcc/fault-dump.o
-                                0x4b5 (size before relaxing)
- .debug_str     0x0000097d       0x51 .\build\gcc/fault-hal.o
-                                0x3ab (size before relaxing)
- .debug_str     0x000009ce      0x190 .\build\gcc/stack-dump.o
-                                0x428 (size before relaxing)
- .debug_str     0x00000b5e      0x123 .\build\gcc/list.o
-                                0x2fc (size before relaxing)
- .debug_str     0x00000c81      0xa02 .\build\gcc/queue.o
-                                0xd59 (size before relaxing)
- .debug_str     0x00001683     0x1075 .\build\gcc/tasks.o
-                               0x17d2 (size before relaxing)
- .debug_str     0x000026f8      0x5df .\build\gcc/timers.o
-                                0xc98 (size before relaxing)
- .debug_str     0x00002cd7      0x2d8 .\build\gcc/heap_4.o
-                                0x547 (size before relaxing)
- .debug_str     0x00002faf      0x22c .\build\gcc/port.o
-                                0x58c (size before relaxing)
- .debug_str     0x000031db       0x99 .\build\gcc/portasm.o
-                                0x29d (size before relaxing)
- .debug_str     0x00003274       0x2e .\build\gcc/startup_ARMCM33.o
-                                 0x73 (size before relaxing)
- .debug_str     0x000032a2       0x38 .\build\gcc/fault-gcc.o
-                                 0x8b (size before relaxing)
+.debug_str      0x00000000     0x32d9
+ .debug_str     0x00000000      0x33d .\build\gcc/main.o
+                                0x3c6 (size before relaxing)
+ .debug_str     0x0000033d      0x1a3 .\build\gcc/system_ARMCM33.o
+                                0x344 (size before relaxing)
+ .debug_str     0x000004e0      0x273 .\build\gcc/printf.o
+                                0x472 (size before relaxing)
+ .debug_str     0x00000753       0x45 .\build\gcc/uart.o
+                                0x22d (size before relaxing)
+ .debug_str     0x00000798      0x1e4 .\build\gcc/fault-dump.o
+                                0x4b4 (size before relaxing)
+ .debug_str     0x0000097c       0x51 .\build\gcc/fault-hal.o
+                                0x3aa (size before relaxing)
+ .debug_str     0x000009cd      0x190 .\build\gcc/stack-dump.o
+                                0x427 (size before relaxing)
+ .debug_str     0x00000b5d      0x123 .\build\gcc/list.o
+                                0x2fb (size before relaxing)
+ .debug_str     0x00000c80      0xa02 .\build\gcc/queue.o
+                                0xd58 (size before relaxing)
+ .debug_str     0x00001682     0x1075 .\build\gcc/tasks.o
+                               0x17d1 (size before relaxing)
+ .debug_str     0x000026f7      0x5df .\build\gcc/timers.o
+                                0xc97 (size before relaxing)
+ .debug_str     0x00002cd6      0x2d8 .\build\gcc/heap_4.o
+                                0x546 (size before relaxing)
+ .debug_str     0x00002fae      0x22c .\build\gcc/port.o
+                                0x58b (size before relaxing)
+ .debug_str     0x000031da       0x99 .\build\gcc/portasm.o
+                                0x29c (size before relaxing)
+ .debug_str     0x00003273       0x2e .\build\gcc/startup_ARMCM33.o
+                                 0x72 (size before relaxing)
+ .debug_str     0x000032a1       0x38 .\build\gcc/fault-gcc.o
+                                 0x8a (size before relaxing)
 
 .debug_frame    0x00000000     0x2470
  .debug_frame   0x00000000      0x140 .\build\gcc/main.o

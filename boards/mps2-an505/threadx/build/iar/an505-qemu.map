@@ -1,6 +1,6 @@
 ###############################################################################
 #
-# IAR ELF Linker V9.50.2.385/W64 for ARM                  18/Jun/2024  23:42:22
+# IAR ELF Linker V9.50.2.385/W64 for ARM                  14/Aug/2024  23:34:52
 # Copyright 2007-2024 IAR Systems AB.
 #
 #    Output file  =  .\build\iar/an505-qemu.out
@@ -284,7 +284,7 @@ command line/config:
     --------------------------------------------
     Total:
 
-C:\Users\xidon\code\github\qemu-simulator\boards\mps2-an505\FreeRTOS\build\iar: [1]
+C:\Users\xidon\code\github\qemu-simulator\boards\mps2-an505\threadx\build\iar: [1]
     fault-dump.o           892      532      336
     fault-hal.o            344      556
     fault-iar.o             84
@@ -661,7 +661,7 @@ xTimerTaskHandle        0x3800'88f4     0x4  Data  Lc  timers.o [1]
 xYieldPendings          0x3800'88d0     0x4  Data  Lc  tasks.o [1]
 
 
-[1] = C:\Users\xidon\code\github\qemu-simulator\boards\mps2-an505\FreeRTOS\build\iar
+[1] = C:\Users\xidon\code\github\qemu-simulator\boards\mps2-an505\threadx\build\iar
 [2] = dl7M_tln.a
 [3] = m7M_tls.a
 [4] = rt7M_tl.a

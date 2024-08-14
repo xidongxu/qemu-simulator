@@ -457,7 +457,7 @@ Removing Unused debug sections from the image.
     Removing event_groups.o(.debug_abbrev), (316 bytes).
     Removing event_groups.o(.debug_info), (2044 bytes).
     Removing event_groups.o(.debug_ranges), (136 bytes).
-    Removing event_groups.o(.debug_str), (1521 bytes).
+    Removing event_groups.o(.debug_str), (1520 bytes).
     Removing event_groups.o(.debug_frame), (436 bytes).
     Removing event_groups.o(.debug_line), (2080 bytes).
     Removing getc.o(.debug_frame), (68 bytes).
@@ -468,7 +468,7 @@ Removing Unused debug sections from the image.
     Removing fgetc_ub.o(.debug_frame), (212 bytes).
     Removing fgetc_h.o(.debug_frame), (68 bytes).
 
-13 unused debug section(s) (total 7297 bytes) removed from the image.
+13 unused debug section(s) (total 7296 bytes) removed from the image.
 
 ==============================================================================
 
@@ -1503,25 +1503,25 @@ Image component sizes
 
       Code (inc. data)   RO Data    RW Data    ZI Data      Debug   Object Name
 
-      1356          0        478          8        328       4829   fault-dump.o
-       480          0        549          0          0       2999   fault-hal.o
+      1356          0        478          8        328       4828   fault-dump.o
+       480          0        549          0          0       2998   fault-hal.o
         80         10          0          0          0        492   fault-mdk.o
-       942          0          0          0         28       4366   heap_4.o
-       246          0          0          0          0       2175   list.o
-       528          0        242          0      32772       2851   main.o
-      1194          0          0          4         12       3875   port.o
-       208         16          0          0          0       1372   portasm.o
-      7252        406         98          0          0      10504   printf.o
-      1436          0          0          0          0      15486   queue.o
-       154          0         92          0          0       2389   stack-dump.o
+       942          0          0          0         28       4365   heap_4.o
+       246          0          0          0          0       2174   list.o
+       528          0        242          0      32772       2850   main.o
+      1194          0          0          4         12       3874   port.o
+       208         16          0          0          0       1371   portasm.o
+      7252        406         98          0          0      10503   printf.o
+      1436          0          0          0          0      15485   queue.o
+       154          0         92          0          0       2388   stack-dump.o
         40         10        572          0       4096        920   startup_ARMCM33.o
-        54          0          0          4          0       1990   system_ARMCM33.o
-      5578          0          9          0       1596      29319   tasks.o
-      1230         10          8          0        336      11102   timers.o
-       104          0          0          0          0       1572   uart.o
+        54          0          0          4          0       1989   system_ARMCM33.o
+      5578          0          9          0       1596      29318   tasks.o
+      1230         10          8          0        336      11101   timers.o
+       104          0          0          0          0       1571   uart.o
 
     ----------------------------------------------------------------------
-     20984        452       2080         16      39168      96241   Object Totals
+     20984        452       2080         16      39168      96227   Object Totals
          0          0         32          0          0          0   (incl. Generated)
        102          0          0          0          0          0   (incl. Padding)
 
@@ -1581,8 +1581,8 @@ Image component sizes
 
       Code (inc. data)   RO Data    RW Data    ZI Data      Debug   
 
-     22772        470       2080         16      39168      96917   Grand Totals
-     22772        470       2080         16      39168      96917   ELF Image Totals
+     22772        470       2080         16      39168      96903   Grand Totals
+     22772        470       2080         16      39168      96903   ELF Image Totals
      22772        470       2080         16          0          0   ROM Totals
 
 ==============================================================================
@@ -1598,11 +1598,11 @@ Image component sizes
 
 Image input and output debug sizes
 
-    Total input debug size                      105542 ( 103.07kB)
+    Total input debug size                      105527 ( 103.05kB)
     Duplicate debug size                            32 (   0.03kB)
-    Unused debug size                             7297 (   7.13kB)
+    Unused debug size                             7296 (   7.12kB)
     Compressed debug size                         1296 (   1.27kB)
-    Total output debug size                      96917 (  94.65kB)
+    Total output debug size                      96903 (  94.63kB)
     Image debug size reduction                   8.17 percent
 
 ==============================================================================
