@@ -1,0 +1,1 @@
+qemu-system-arm -M netduinoplus2 -nographic -kernel ./build/gcc/stm32-qemu.bin -S -s
