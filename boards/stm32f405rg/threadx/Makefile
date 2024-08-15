@@ -110,57 +110,52 @@ C_SOURCES =  \
 ../Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_cortex.c \
 ../Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal.c \
 ../Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_exti.c \
-../Core/Src/system_stm32f4xx.c \
-../../../libutils/fault-dump/src/fault-dump.c \
-../../../libutils/fault-dump/cpu/cortex-m4/fault-hal.c \
-../../../libutils/fault-dump/sys/FreeRTOS/stack-dump.c 
-# FreeRTOS C sources
-C_SOURCES += \
-../../../librtos/FreeRTOS/list.c \
-../../../librtos/FreeRTOS/queue.c \
-../../../librtos/FreeRTOS/tasks.c \
-../../../librtos/FreeRTOS/timers.c \
-../../../librtos/FreeRTOS/croutine.c \
-../../../librtos/FreeRTOS/event_groups.c \
-../../../librtos/FreeRTOS/portable/MemMang/heap_4.c 
+../Core/Src/system_stm32f4xx.c 
+# threadx C sources
+C_SOURCES += $(wildcard ../../../librtos/threadx/common/src/*.c)
 # Platform C sources
 ifeq ($(tool), gcc)
 C_SOURCES += \
-../../../librtos/FreeRTOS/portable/GCC/ARM_CM4F/port.c \
 ./application/sysmem.c \
 ./application/syscalls.c 
 endif
 ifeq ($(tool), iar)
 C_SOURCES += \
-../../../librtos/FreeRTOS/portable/IAR/ARM_CM4F/port.c 
+
 endif
 ifeq ($(tool), mdk)
 C_SOURCES += \
-../../../librtos/FreeRTOS/portable/RVDS/ARM_CM4F/port.c 
+
+endif
+
+
+# asm sources
+ifeq ($(tool), gcc)
+ASM_SOURCES = \
+./startup/gcc/startup_stm32f405xx.s 
+endif
+ifeq ($(tool), iar)
+ASM_SOURCES = \
+./startup/iar/startup_stm32f405xx.s 
+endif
+ifeq ($(tool), mdk)
+ASM_SOURCES = \
+./startup/mdk/startup_stm32f405xx.s 
 endif
 
 
 # ASM sources
 ifeq ($(tool), gcc)
-ASM_SOURCES =  \
-./startup/gcc/startup_stm32f405xx.s \
-../../../libutils/fault-dump/cpu/cortex-m4/fault-gcc.s
+ASMM_SOURCES = \
+./startup/gcc/tx_initialize_low_level.S \
+$(wildcard ../../../librtos/threadx/ports/cortex_m4/gnu/src/*.S)
 endif
 ifeq ($(tool), iar)
-ASM_SOURCES =  \
-./startup/iar/startup_stm32f405xx.s \
-../../../librtos/FreeRTOS/portable/IAR/ARM_CM4F/portasm.s \
-../../../libutils/fault-dump/cpu/cortex-m4/fault-iar.s
+ASMM_SOURCES = 
 endif
 ifeq ($(tool), mdk)
-ASM_SOURCES =  \
-./startup/mdk/startup_stm32f405xx.s \
-../../../libutils/fault-dump/cpu/cortex-m4/fault-mdk.s
-endif
-
-
-# ASM sources
 ASMM_SOURCES = 
+endif
 
 
 #######################################
@@ -239,13 +234,14 @@ endif
 # ASFLAGS
 #######################################
 ifeq ($(tool), gcc)
-AS_DEFS = 
+AS_DEFS = \
+-DTX_ENABLE_FPU_SUPPORT
 endif
 ifeq ($(tool), iar)
 AS_DEFS = 
 endif
 ifeq ($(tool), mdk)
-AS_DEFS =  \
+AS_DEFS = \
 --pd "__MICROLIB SETA 1"
 endif
 
@@ -255,7 +251,10 @@ endif
 #######################################
 C_DEFS =  \
 -DUSE_HAL_DRIVER \
--DSTM32F405xx 
+-DSTM32F405xx \
+-DTX_INCLUDE_USER_DEFINE_FILE \
+-DTX_ENABLE_STACK_CHECKING \
+-DTX_ENABLE_FPU_SUPPORT
 
 
 ifeq ($(tool), gcc)
@@ -289,21 +288,20 @@ C_INCLUDES =  \
 -I../../../libutils/fault-dump/inc \
 -I../../../libutils/fault-dump/cpu/cortex-m4 \
 -I./application \
--I../../../librtos/FreeRTOS \
--I../../../librtos/FreeRTOS/include 
+-I../../../librtos/threadx/common/inc 
 
 
 ifeq ($(tool), gcc)
 C_INCLUDES += \
--I../../../librtos/FreeRTOS/portable/GCC/ARM_CM4F 
+-I../../../librtos/threadx/ports/cortex_m4/gnu/inc 
 endif
 ifeq ($(tool), iar)
 C_INCLUDES += \
--I../../../librtos/FreeRTOS/portable/IAR/ARM_CM4F 
+-I../../../librtos/threadx/ports/cortex_m4/iar/inc 
 endif
 ifeq ($(tool), mdk)
 C_INCLUDES += \
--I../../../librtos/FreeRTOS/portable/RVDS/ARM_CM4F 
+-I../../../librtos/threadx/ports/cortex_m4/ac5/inc 
 endif
 
 

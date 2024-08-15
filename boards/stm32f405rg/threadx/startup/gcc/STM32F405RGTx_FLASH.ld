@@ -207,6 +207,7 @@ SECTIONS
   }
 
   .ARM.attributes 0 : { *(.ARM.attributes) }
+  __RAM_segment_used_end__ = .;
 }
 
 

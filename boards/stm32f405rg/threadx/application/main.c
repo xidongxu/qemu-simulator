@@ -17,14 +17,7 @@
 #include <string.h>
 #include <stdio.h>
 #include <stdlib.h>
-#include "fault-dump.h"
 
-#include <FreeRTOS.h>
-#include <task.h>
-#include <queue.h>
-#include <timers.h>
-
-uint8_t ucHeap[configTOTAL_HEAP_SIZE];
 void SystemClock_Config(void);
 
 #ifdef __GNUC__
@@ -82,27 +75,11 @@ void test5(void) {
 }
 
 static void main_task_entry(void *parameters) {
-    int counter = 0;
-    while(1) {
-        vTaskDelay(1000);
-        printf("hello this is FreeRTOS.\r\n");
-        if (counter >= 3) {
-            test5();
-        } else {
-            counter++;
-        }
-    }
+
 }
 
 static void main_task_init(void) {
-    static TaskHandle_t main_task = NULL;
-    BaseType_t xReturn = pdPASS;
-    xReturn = xTaskCreate(main_task_entry, "main_task", 2048, NULL, 1U, &main_task);
-    if (xReturn == pdPASS) {
-        vTaskStartScheduler();
-    } else {
-        printf("main task create failed(%d).\r\n", (int)(xReturn));
-    }
+
 }
 
 int main(void) {
@@ -111,9 +88,6 @@ int main(void) {
     MX_GPIO_Init();
     MX_USART1_UART_Init();
 
-    fault_dump_init();
-    extern int freertos_stack_parser(unsigned int *buffer, size_t length, unsigned int *stack_point, unsigned int *stack_start);
-    fault_dump_psp_stack_parser(freertos_stack_parser);
     main_task_init();
 
     while (1) {
