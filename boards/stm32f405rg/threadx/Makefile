@@ -382,7 +382,7 @@ endif
 ifeq ($(tool), mdk)
 LIBS = --library_type=microlib
 LIBDIR = --libpath=$(LIBFIX)
-LDFLAGS = --scatter $(LDSCRIPT) $(LIBS) $(LIBDIR) --map --symbols --info common --info debug --info sizes --info totals --info unused --info veneers --list $(BUILD_DIR)/$(TARGET).map --strict
+LDFLAGS = $(LIBS) $(LIBDIR) --map --ro-base=0x08000000 --rw-base=0x20000000 --first __tx_vectors --datacompressor=off --inline --info=inline --callgraph --symbols --info common --info debug --info sizes --info totals --info unused --info veneers --list $(BUILD_DIR)/$(TARGET).map --strict
 endif
 
 
