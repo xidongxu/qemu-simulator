@@ -45,8 +45,6 @@ size_t __write(int handle, const unsigned char * buffer, size_t size) {
 
 void test0(void) {
     printf("this is %s.\r\n", __func__);
-    extern void fault_dump_unalign(void);
-    fault_dump_unalign();
 }
 
 void test1(void) {
@@ -74,11 +72,11 @@ void test5(void) {
     test4();
 }
 
-static void main_task_entry(void *parameters) {
+static void tx_task_entry(void *parameters) {
 
 }
 
-static void main_task_init(void) {
+void tx_application_define(void *first_unused_memory) {
 
 }
 
@@ -87,8 +85,6 @@ int main(void) {
     // SystemClock_Config();
     MX_GPIO_Init();
     MX_USART1_UART_Init();
-
-    main_task_init();
 
     while (1) {
         printf("hello qemu.\r\n");

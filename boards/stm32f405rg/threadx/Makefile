@@ -94,6 +94,7 @@ C_SOURCES =  \
 ../Core/Src/gpio.c \
 ../Core/Src/usart.c \
 ../Core/Src/stm32f4xx_hal_msp.c \
+../Core/Src/stm32f4xx_hal_timebase_tim.c \
 ../Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_tim.c \
 ../Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_tim_ex.c \
 ../Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_uart.c \
@@ -136,11 +137,15 @@ ASM_SOURCES = \
 endif
 ifeq ($(tool), iar)
 ASM_SOURCES = \
-./startup/iar/startup_stm32f405xx.s 
+./startup/iar/startup_stm32f405xx.s \
+./startup/iar/tx_initialize_low_level.s \
+$(wildcard ../../../librtos/threadx/ports/cortex_m4/iar/src/*.s)
 endif
 ifeq ($(tool), mdk)
 ASM_SOURCES = \
-./startup/mdk/startup_stm32f405xx.s 
+./startup/mdk/startup_stm32f405xx.s \
+./startup/mdk/tx_initialize_low_level.s \
+$(wildcard ../../../librtos/threadx/ports/cortex_m4/keil/src/*.s)
 endif
 
 
@@ -301,7 +306,7 @@ C_INCLUDES += \
 endif
 ifeq ($(tool), mdk)
 C_INCLUDES += \
--I../../../librtos/threadx/ports/cortex_m4/ac5/inc 
+-I../../../librtos/threadx/ports/cortex_m4/keil/inc 
 endif
 
 
