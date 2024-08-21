@@ -382,7 +382,7 @@ endif
 ifeq ($(tool), mdk)
 LIBS = --library_type=microlib
 LIBDIR = --libpath=$(LIBFIX)
-LDFLAGS = $(LIBS) $(LIBDIR) --map --ro-base=0x08000000 --rw-base=0x20000000 --first __tx_vectors --datacompressor=off --inline --info=inline --callgraph --symbols --info common --info debug --info sizes --info totals --info unused --info veneers --list $(BUILD_DIR)/$(TARGET).map --strict
+LDFLAGS = $(LIBS) $(LIBDIR) --map --ro-base=0x08000000 --zi-base=0x20000000 --first __tx_vectors --datacompressor=off --inline --info=inline --callgraph --symbols --info common --info debug --info sizes --info totals --info unused --info veneers --list $(BUILD_DIR)/$(TARGET).map --strict
 endif
 
 
@@ -449,9 +449,9 @@ ifeq ($(tool), mdk)
 $(BUILD_DIR)/%.o: %.c Makefile | $(BUILD_DIR) 
 	$(CC) -c $(CFLAGS) $< -o $@
 $(BUILD_DIR)/%.o: %.s Makefile | $(BUILD_DIR)
-	$(AS) -c $(ASFLAGS) $< -o $@
+	$(AS) $(ASFLAGS) $< -o $@
 $(BUILD_DIR)/%.o: %.S Makefile | $(BUILD_DIR)
-	$(AS) -c $(ASFLAGS) $< -o $@
+	$(AS) $(ASFLAGS) $< -o $@
 $(BUILD_DIR)/$(TARGET).axf: $(OBJECTS) Makefile
 	$(LK) $(OBJECTS) $(LDFLAGS) -o $@
 $(BUILD_DIR)/%.hex: $(BUILD_DIR)/%.axf | $(BUILD_DIR)
