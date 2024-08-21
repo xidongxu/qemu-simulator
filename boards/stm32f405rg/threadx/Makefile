@@ -53,7 +53,7 @@ ifeq ($(tool), iar)
 OPT = 
 endif
 ifeq ($(tool), mdk)
-OPT = -g --apcs=interwork
+OPT = -g
 endif
 
 #######################################
@@ -472,6 +472,7 @@ ifeq ($(OS), Windows_NT)
 	del $(BUILD_DIR)\*.o
 	del $(BUILD_DIR)\*.d
 	del $(BUILD_DIR)\*.lst
+	del $(BUILD_DIR)\*.htm
 else
 	rm -fR $(BUILD_DIR)/*.o
 	rm -fR $(BUILD_DIR)/*.d
