@@ -196,6 +196,7 @@ CC = $(PREFIX)iccarm
 AS = $(PREFIX)iasmarm
 LK = $(PREFIX)ilinkarm
 FF = $(PREFIX)ielftool
+OB = $(PREFIX)ielfdumparm
 endif
 ifeq ($(tool), mdk)
 ifeq ($(OS), Windows_NT)
@@ -209,6 +210,7 @@ CC = $(PREFIX)armcc
 AS = $(PREFIX)armasm
 LK = $(PREFIX)armlink
 FF = $(PREFIX)fromelf
+OB = $(PREFIX)fromelf
 endif
 
  
@@ -440,6 +442,7 @@ $(BUILD_DIR)/%.o: %.S Makefile | $(BUILD_DIR)
 	$(AS) -c $(ASFLAGS) $< -o $@
 $(BUILD_DIR)/$(TARGET).out: $(OBJECTS) Makefile
 	$(LK) $(OBJECTS) $(LDFLAGS) -o $@
+	$(OB) --source --code $@ -o $(BUILD_DIR)/objdump.txt
 $(BUILD_DIR)/%.hex: $(BUILD_DIR)/%.out | $(BUILD_DIR)
 	$(FF) --ihex $< $@ 
 $(BUILD_DIR)/%.bin: $(BUILD_DIR)/%.out | $(BUILD_DIR)
@@ -454,6 +457,7 @@ $(BUILD_DIR)/%.o: %.S Makefile | $(BUILD_DIR)
 	$(AS) $(ASFLAGS) $< -o $@
 $(BUILD_DIR)/$(TARGET).axf: $(OBJECTS) Makefile
 	$(LK) $(OBJECTS) $(LDFLAGS) -o $@
+	$(OB) --text -a -c -d $@ -o $(BUILD_DIR)/objdump.txt
 $(BUILD_DIR)/%.hex: $(BUILD_DIR)/%.axf | $(BUILD_DIR)
 	$(FF) --i32 --output $@ $<
 $(BUILD_DIR)/%.bin: $(BUILD_DIR)/%.axf | $(BUILD_DIR)
