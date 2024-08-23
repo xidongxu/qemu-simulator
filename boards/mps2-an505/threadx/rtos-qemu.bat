@@ -2,6 +2,7 @@
 
 set tool=%1
 set file=""
+set qemu=C:/Users/xidon/code/github/qemu-machine/qemu-build/qemu-system-arm.exe
 
 if %tool% == gcc (
     set file=./build/gcc/an505-qemu.elf
@@ -18,7 +19,7 @@ if not exist "%file%" (
 )
 
 echo executable file is exist, start qemu:
-qemu-system-arm.exe -machine mps2-an505 -cpu cortex-m33 -m 16M -nographic -kernel %file% -S -s
+%qemu% -machine mps2-an505 -cpu cortex-m33 -m 16M -nographic -kernel %file% -S -s
 
 :finish
 pause

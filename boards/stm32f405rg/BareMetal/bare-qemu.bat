@@ -2,6 +2,7 @@
 
 set tool=%1
 set file=""
+set qemu=C:/Users/xidon/code/github/qemu-machine/qemu-build/qemu-system-arm.exe
 
 if %tool% == gcc (
     set file=./build/gcc/stm32-qemu.elf
@@ -18,7 +19,7 @@ if not exist "%file%" (
 )
 
 echo executable file is exist, start qemu:
-qemu-system-arm.exe -M netduinoplus2 -nographic -kernel %file% -S -s
+%qemu% -M netduinoplus2 -nographic -kernel %file% -S -s
 
 :finish
 pause
