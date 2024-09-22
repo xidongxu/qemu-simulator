@@ -77,7 +77,7 @@ void test5(void) {
 
 int main(void) {
     HAL_Init();
-    // SystemClock_Config();
+    SystemClock_Config();
     MX_GPIO_Init();
     MX_USART1_UART_Init();
 
@@ -125,7 +125,7 @@ void SystemClock_Config(void) {
     RCC_ClkInitStruct.APB1CLKDivider = RCC_HCLK_DIV4;
     RCC_ClkInitStruct.APB2CLKDivider = RCC_HCLK_DIV2;
 
-    if (HAL_RCC_ClockConfig(&RCC_ClkInitStruct, FLASH_LATENCY_5) != HAL_OK) {
+    if (HAL_RCC_ClockConfig(&RCC_ClkInitStruct, FLASH_LATENCY_0) != HAL_OK) {
         Error_Handler();
     }
 }
