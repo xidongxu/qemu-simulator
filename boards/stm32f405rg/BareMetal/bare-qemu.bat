@@ -2,7 +2,7 @@
 
 set tool=%1
 set file=""
-set qemu=C:/Users/xidon/code/github/qemu-machine/qemu-build/qemu-system-arm.exe
+set qemu=qemu-system-arm.exe
 
 if %tool% == gcc (
     set file=./build/gcc/stm32-qemu.elf
