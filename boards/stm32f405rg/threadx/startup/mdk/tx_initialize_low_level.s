@@ -46,7 +46,7 @@
 ;
 ;
 SYSTEM_CLOCK        EQU     168000000
-SYSTICK_CYCLES      EQU     ((SYSTEM_CLOCK / 100) -1)
+SYSTICK_CYCLES      EQU     ((SYSTEM_CLOCK / 1000) -1)
 ;
 ;
     AREA ||.text||, CODE, READONLY
