@@ -318,7 +318,7 @@ SECTIONS
     . = ALIGN(8);
   } > RAM
 */
-
+  __RAM_segment_used_end__ = .;
   /* Check if data + heap + stack exceeds RAM limit */
   ASSERT(__StackLimit >= __HeapLimit, "region RAM overflowed with stack")
 }

@@ -53,7 +53,7 @@ ifeq ($(tool), iar)
 OPT = 
 endif
 ifeq ($(tool), mdk)
-OPT = -g 
+OPT = -g
 endif
 
 #######################################
@@ -92,62 +92,61 @@ C_SOURCES = \
 ./application/main.c \
 ./application/system_ARMCM33.c \
 ../Core/Src/printf.c \
-../Core/Src/uart.c \
-../../../libutils/fault-dump/src/fault-dump.c \
-../../../libutils/fault-dump/cpu/cortex-m33/fault-hal.c \
-../../../libutils/fault-dump/sys/FreeRTOS/stack-dump.c  
-
-# FreeRTOS C sources
-C_SOURCES += \
-../../../librtos/FreeRTOS/list.c \
-../../../librtos/FreeRTOS/queue.c \
-../../../librtos/FreeRTOS/tasks.c \
-../../../librtos/FreeRTOS/timers.c \
-../../../librtos/FreeRTOS/croutine.c \
-../../../librtos/FreeRTOS/event_groups.c \
-../../../librtos/FreeRTOS/portable/MemMang/heap_4.c \
-
-
+../Core/Src/uart.c 
+# threadx C sources
+C_SOURCES += $(wildcard ../../../librtos/threadx/common/src/*.c)
+# Platform C sources
 ifeq ($(tool), gcc)
 C_SOURCES += \
-../../../librtos/FreeRTOS/portable/GCC/ARM_CM33_NTZ/non_secure/port.c \
-../../../librtos/FreeRTOS/portable/GCC/ARM_CM33_NTZ/non_secure/portasm.c \
 ./application/sysmem.c \
 ./application/syscalls.c \
 ../Core/Src/semihosting.c 
 endif
 ifeq ($(tool), iar)
 C_SOURCES += \
-../../../librtos/FreeRTOS/portable/IAR/ARM_CM33_NTZ/non_secure/port.c 
+
 endif
 ifeq ($(tool), mdk)
 C_SOURCES += \
-../../../librtos/FreeRTOS/portable/GCC/ARM_CM33_NTZ/non_secure/port.c \
-../../../librtos/FreeRTOS/portable/GCC/ARM_CM33_NTZ/non_secure/portasm.c 
+
+endif
+
+
+# asm sources
+ifeq ($(tool), gcc)
+ASM_SOURCES = \
+./startup/gcc/startup_ARMCM33.s 
+endif
+ifeq ($(tool), iar)
+ASM_SOURCES = \
+./startup/iar/startup_ARMCM33.s \
+./startup/iar/tx_initialize_low_level.s \
+$(wildcard ../../../librtos/threadx/ports/cortex_m33/iar/src/*.s)
+endif
+ifeq ($(tool), mdk)
+ASM_SOURCES = \
+./startup/mdk/startup_ARMCM33.s 
 endif
 
 
 # ASM sources
 ifeq ($(tool), gcc)
-ASM_SOURCES = \
-./startup/gcc/startup_ARMCM33.s \
-../../../libutils/fault-dump/cpu/cortex-m33/fault-gcc.s
+ASMM_EXCLUDE = ../../../librtos/threadx/ports/cortex_m33/gnu/src/tx_initialize_low_level.S
+ASMM_SOURCES = \
+./startup/gcc/tx_initialize_low_level.S \
+$(wildcard ../../../librtos/threadx/ports/cortex_m33/gnu/src/*.S)
+ASMM_SOURCES := $(filter-out $(ASMM_EXCLUDE), $(ASMM_SOURCES))
 endif
 ifeq ($(tool), iar)
-ASM_SOURCES = \
-./startup/iar/startup_ARMCM33.s \
-../../../librtos/FreeRTOS/portable/IAR/ARM_CM33_NTZ/non_secure/portasm.s \
-../../../libutils/fault-dump/cpu/cortex-m33/fault-iar.s
+ASMM_SOURCES = 
 endif
 ifeq ($(tool), mdk)
-ASM_SOURCES = \
-./startup/mdk/startup_ARMCM33.s \
-../../../libutils/fault-dump/cpu/cortex-m33/fault-mdk.s
+ASMM_EXCLUDE = ../../../librtos/threadx/ports/cortex_m33/ac6/src/tx_initialize_low_level.S
+ASMM_SOURCES = \
+./startup/mdk/tx_initialize_low_level.S \
+$(wildcard ../../../librtos/threadx/ports/cortex_m33/ac6/src/*.S)
+ASMM_SOURCES := $(filter-out $(ASMM_EXCLUDE), $(ASMM_SOURCES))
 endif
-
-
-# ASM sources
-ASMM_SOURCES = 
 
 
 #######################################
@@ -183,6 +182,7 @@ CC = $(PREFIX)iccarm
 AS = $(PREFIX)iasmarm
 LK = $(PREFIX)ilinkarm
 FF = $(PREFIX)ielftool
+OB = $(PREFIX)ielfdumparm
 endif
 ifeq ($(tool), mdk)
 ifeq ($(OS), Windows_NT)
@@ -196,9 +196,10 @@ CC = $(PREFIX)armclang
 AS = $(PREFIX)armasm
 LK = $(PREFIX)armlink
 FF = $(PREFIX)fromelf
+OB = $(PREFIX)fromelf
 endif
 
-
+ 
 #######################################
 # CFLAGS
 #######################################
@@ -223,13 +224,15 @@ endif
 
 
 #######################################
-# AS defines
+# ASFLAGS
 #######################################
 ifeq ($(tool), gcc)
-AS_DEFS = 
+AS_DEFS = \
+-DTX_ENABLE_FPU_SUPPORT 
 endif
 ifeq ($(tool), iar)
-AS_DEFS = 
+AS_DEFS = \
+-DTX_SINGLE_MODE_SECURE 
 endif
 ifeq ($(tool), mdk)
 AS_DEFS = \
@@ -241,7 +244,11 @@ endif
 # C defines
 #######################################
 C_DEFS = \
--DARMCM33_DSP_FP 
+-DARMCM33_DSP_FP \
+-DTX_INCLUDE_USER_DEFINE_FILE \
+-DTX_ENABLE_STACK_CHECKING \
+-DTX_ENABLE_FPU_SUPPORT \
+-DTX_SINGLE_MODE_SECURE
 
 
 ifeq ($(tool), gcc)
@@ -260,8 +267,7 @@ endif
 # AS includes
 #######################################
 AS_INCLUDES = \
--I./application \
--I../../../librtos/FreeRTOS/include 
+-I./application 
 
 
 #######################################
@@ -271,24 +277,21 @@ C_INCLUDES = \
 -I../Core/Inc \
 -I../Drivers/CMSIS_5/Device/ARM/ARMCM33/Include \
 -I../Drivers/CMSIS_5/CMSIS/Core/Include \
--I../../../libutils/fault-dump/inc \
--I../../../libutils/fault-dump/cpu/cortex-m33 \
 -I./application \
--I../../../librtos/FreeRTOS \
--I../../../librtos/FreeRTOS/include 
+-I../../../librtos/threadx/common/inc 
 
 
 ifeq ($(tool), gcc)
 C_INCLUDES += \
--I../../../librtos/FreeRTOS/portable/GCC/ARM_CM33_NTZ/non_secure 
+-I../../../librtos/threadx/ports/cortex_m33/gnu/inc 
 endif
 ifeq ($(tool), iar)
 C_INCLUDES += \
--I../../../librtos/FreeRTOS/portable/IAR/ARM_CM33_NTZ/non_secure 
+-I../../../librtos/threadx/ports/cortex_m33/iar/inc 
 endif
 ifeq ($(tool), mdk)
 C_INCLUDES += \
--I../../../librtos/FreeRTOS/portable/GCC/ARM_CM33_NTZ/non_secure 
+-I../../../librtos/threadx/ports/cortex_m33/ac6/inc 
 endif
 
 
@@ -296,15 +299,15 @@ endif
 # compile gcc flags
 #######################################
 ifeq ($(tool), gcc)
-ASFLAGS = $(MCU) $(AS_DEFS) $(AS_INCLUDES) $(OPT) -Wall -specs=nosys.specs -fdata-sections -ffunction-sections -fno-exceptions 
-CFLAGS = $(MCU) $(C_DEFS) $(C_INCLUDES) $(OPT) -Wall -mthumb -specs=nosys.specs -fdata-sections -ffunction-sections -fno-exceptions 
+ASFLAGS = $(MCU) $(AS_DEFS) $(AS_INCLUDES) $(OPT) -Wall -fdata-sections -ffunction-sections
+CFLAGS += $(MCU) $(C_DEFS) $(C_INCLUDES) $(OPT) -Wall -fdata-sections -ffunction-sections
 ifeq ($(DEBUG), 1)
 CFLAGS += -g -gdwarf-2
 endif
 endif
 ifeq ($(tool), iar)
 ASFLAGS = $(MCU) $(AS_DEFS) $(AS_INCLUDES) $(OPT) -s+ -w+ -r -S
-CFLAGS = $(MCU) $(C_DEFS) $(C_INCLUDES) $(OPT) -Dewarm --diag_suppress Pa050 --no_cse --no_unroll --no_inline --no_code_motion --no_tbaa --no_clustering --no_scheduling --endian=little -e --silent
+CFLAGS += $(MCU) $(C_DEFS) $(C_INCLUDES) $(OPT) -Dewarm --diag_suppress Pa050 --no_cse --no_unroll --no_inline --no_code_motion --no_tbaa --no_clustering --no_scheduling --endian=little -e --silent
 ifeq ($(DEBUG), 1)
 CFLAGS += -On --debug
 else
@@ -354,7 +357,7 @@ endif
 ifeq ($(tool), gcc)
 LIBS = -lc -lm -lnosys 
 LIBDIR = 
-LDFLAGS = $(MCU) --specs=nosys.specs -T$(LDSCRIPT) $(LIBDIR) $(LIBS) -Wl,-Map=$(BUILD_DIR)/$(TARGET).map,--cref -Wl,--gc-sections
+LDFLAGS = $(MCU) -specs=nano.specs -T$(LDSCRIPT) $(LIBDIR) $(LIBS) -Wl,-Map=$(BUILD_DIR)/$(TARGET).map,--cref -Wl,--gc-sections
 endif
 ifeq ($(tool), iar)
 LIBS =
@@ -422,6 +425,7 @@ $(BUILD_DIR)/%.o: %.S Makefile | $(BUILD_DIR)
 	$(AS) -c $(ASFLAGS) $< -o $@
 $(BUILD_DIR)/$(TARGET).out: $(OBJECTS) Makefile
 	$(LK) $(OBJECTS) $(LDFLAGS) -o $@
+	$(OB) --source --code $@ -o $(BUILD_DIR)/objdump.txt
 $(BUILD_DIR)/%.hex: $(BUILD_DIR)/%.out | $(BUILD_DIR)
 	$(FF) --ihex $< $@ 
 $(BUILD_DIR)/%.bin: $(BUILD_DIR)/%.out | $(BUILD_DIR)
@@ -436,6 +440,7 @@ $(BUILD_DIR)/%.o: %.S Makefile | $(BUILD_DIR)
 	$(AS) $(ASFLAGS) $< -o $@
 $(BUILD_DIR)/$(TARGET).axf: $(OBJECTS) Makefile
 	$(LK) $(OBJECTS) $(LDFLAGS) -o $@
+	$(OB) --text -a -c -d $@ -o $(BUILD_DIR)/objdump.txt
 $(BUILD_DIR)/%.hex: $(BUILD_DIR)/%.axf | $(BUILD_DIR)
 	$(FF) --i32 --output $@ $<
 $(BUILD_DIR)/%.bin: $(BUILD_DIR)/%.axf | $(BUILD_DIR)
@@ -454,6 +459,7 @@ ifeq ($(OS), Windows_NT)
 	del $(BUILD_DIR)\*.o
 	del $(BUILD_DIR)\*.d
 	del $(BUILD_DIR)\*.lst
+	del $(BUILD_DIR)\*.htm
 else
 	rm -fR $(BUILD_DIR)/*.o
 	rm -fR $(BUILD_DIR)/*.d
