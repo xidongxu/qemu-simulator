@@ -1,6 +1,6 @@
 ###############################################################################
 #
-# IAR ELF Linker V9.50.2.385/W64 for ARM                  16/Oct/2024  23:47:53
+# IAR ELF Linker V9.50.2.385/W64 for ARM                  17/Oct/2024  23:24:42
 # Copyright 2007-2024 IAR Systems AB.
 #
 #    Output file  =  .\build\iar/an505-qemu.out
@@ -207,7 +207,7 @@ initialize by copy { rw };
   .intvec            ro code  0x1000'0000         4   0x7c0  startup_ARMCM33.o [1]
                             - 0x1000'07c0             0x7c0
 
-"P1":                                                0x2624
+"P1":                                                0x3b34
   .text              ro code  0x1000'07c0         4  0x1138  printf.o [1]
   .text              ro code  0x1000'18f8         4    0x58  uart.o [1]
   .text              ro code  0x1000'1950         4   0x230  I64DivMod.o [4]
@@ -228,83 +228,134 @@ initialize by copy { rw };
   .text              ro code  0x1000'26a0         2    0x36  tx_timer_system_deactivate.o [1]
   .text              ro code  0x1000'26d8         4    0x24  tx_thread_stack_error_handler.o [1]
   .text              ro code  0x1000'26fc         4    0x98  tx_thread_stack_analyze.o [1]
-  .text              ro code  0x1000'2794         4   0x19c  tx_thread_time_slice.o [1]
-  .text              ro code  0x1000'2930         4    0xcc  tx_thread_schedule.o [1]
-  .text              ro code  0x1000'29fc         4    0xc4  tx_initialize_low_level.o [1]
-  .text              ro code  0x1000'2ac0         4    0xb8  tx_timer_interrupt.o [1]
-  .text              ro code  0x1000'2b78         4    0x1c  tx_timer_expiration_process.o [1]
-  .text              ro code  0x1000'2b94         4    0x2c  system_ARMCM33.o [1]
-  .rodata            const    0x1000'2bc0         8    0x50  printf.o [1]
-  .text              ro code  0x1000'2c10         2    0x38  zero_init3.o [4]
-  .text              ro code  0x1000'2c48         4    0x2c  main.o [1]
-  .text              ro code  0x1000'2c74         4    0x2c  iarttio.o [5]
-  .text              ro code  0x1000'2ca0         4     0x8  XShttio.o [2]
-  .text              ro code  0x1000'2ca8         4    0x2a  data_init.o [4]
-  .text              ro code  0x1000'2cd4         4    0x28  startup_ARMCM33.o [1]
-  .text              ro code  0x1000'2cfc         4    0x22  fpinit_M.o [3]
-  .iar.init_table    const    0x1000'2d20         4    0x24  - Linker created -
-  .text              ro code  0x1000'2d44         4    0x1e  cmain.o [4]
-  .text              ro code  0x1000'2d62         2     0x4  low_level_init.o [2]
-  .text              ro code  0x1000'2d66         2     0x4  exit.o [2]
-  .text              ro code  0x1000'2d6c         4     0xa  cexit.o [4]
-  .text              ro code  0x1000'2d78         4    0x14  exit.o [5]
-  .text              ro code  0x1000'2d8c         4    0x1c  cstartup_M.o [4]
-  .rodata            const    0x1000'2da8         4    0x14  main.o [1]
-  Initializer bytes  const    0x1000'2dbc         4    0x10  <for P2-1>
-  .rodata            const    0x1000'2dcc         4     0x8  main.o [1]
-  .rodata            const    0x1000'2dd4         4     0x8  printf.o [1]
-  .rodata            const    0x1000'2ddc         4     0x8  printf.o [1]
-  .rodata            const    0x1000'2de4               0x0  zero_init3.o [4]
-  .rodata            const    0x1000'2de4               0x0  copy_init3.o [4]
-                            - 0x1000'2de4            0x2624
+  .text              ro code  0x1000'2794         4   0x320  tx_thread_system_suspend.o [1]
+  .text              ro code  0x1000'2ab4         4    0x7c  tx_timer_system_activate.o [1]
+  .text              ro code  0x1000'2b30         4   0x264  tx_timer_thread_entry.o [1]
+  .text              ro code  0x1000'2d94         4   0x1cc  tx_thread_create.o [1]
+  .text              ro code  0x1000'2f60         4    0x98  rand.o [2]
+  .text              ro code  0x1000'2ff8         4    0x66  ABImemset.o [4]
+  .text              ro code  0x1000'3060         4    0x44  tx_thread_stack_build.o [1]
+  .text              ro code  0x1000'30a4         4   0x19c  tx_byte_pool_search.o [1]
+  .text              ro code  0x1000'3240         4   0x19c  tx_thread_time_slice.o [1]
+  .text              ro code  0x1000'33dc         4   0x190  txe_thread_create.o [1]
+  .text              ro code  0x1000'356c         4    0xf4  tx_thread_system_preempt_check.o [1]
+  .text              ro code  0x1000'3660         4   0x110  tx_byte_allocate.o [1]
+  .text              ro code  0x1000'3770         4    0xf4  tx_byte_pool_create.o [1]
+  .text              ro code  0x1000'3864         4    0xf4  txe_byte_pool_create.o [1]
+  .text              ro code  0x1000'3958         4    0xcc  tx_thread_schedule.o [1]
+  .text              ro code  0x1000'3a24         4    0xc4  tx_initialize_low_level.o [1]
+  .text              ro code  0x1000'3ae8         4    0xb8  tx_timer_interrupt.o [1]
+  .text              ro code  0x1000'3ba0         4    0x1c  tx_timer_expiration_process.o [1]
+  .text              ro code  0x1000'3bbc         4    0xc0  main.o [1]
+  .text              ro code  0x1000'3c7c         4    0x8c  tx_thread_sleep.o [1]
+  .text              ro code  0x1000'3d08         4    0xc0  txe_byte_allocate.o [1]
+  .text              ro code  0x1000'3dc8         4    0x38  txe_block_release.o [1]
+  .text              ro code  0x1000'3e00         4    0x48  tx_initialize_kernel_enter.o [1]
+  .text              ro code  0x1000'3e48         4    0x94  tx_block_release.o [1]
+  .text              ro code  0x1000'3edc         2     0xc  tx_initialize_high_level.o [1]
+  .text              ro code  0x1000'3ee8         4    0x20  tx_thread_initialize.o [1]
+  .text              ro code  0x1000'3f08         4    0x8c  tx_timer_initialize.o [1]
+  .text              ro code  0x1000'3f94         2    0x5c  tx_byte_pool_cleanup.o [1]
+  .text              ro code  0x1000'3ff0         4    0x58  tx_thread_timeout.o [1]
+  .rodata            const    0x1000'4048         8    0x50  printf.o [1]
+  .text              ro code  0x1000'4098         4    0x48  tx_thread_shell_entry.o [1]
+  .text              ro code  0x1000'40e0         2    0x38  zero_init3.o [4]
+  .text              ro code  0x1000'4118         4    0x2c  system_ARMCM33.o [1]
+  .text              ro code  0x1000'4144         4    0x2c  iarttio.o [5]
+  .text              ro code  0x1000'4170         4     0x8  XShttio.o [2]
+  .text              ro code  0x1000'4178         4    0x2a  data_init.o [4]
+  .text              ro code  0x1000'41a4         4    0x28  startup_ARMCM33.o [1]
+  .text              ro code  0x1000'41cc         4    0x22  fpinit_M.o [3]
+  .iar.init_table    const    0x1000'41f0         4    0x24  - Linker created -
+  .text              ro code  0x1000'4214         4    0x1e  cmain.o [4]
+  .text              ro code  0x1000'4232         2     0x4  low_level_init.o [2]
+  .text              ro code  0x1000'4236         2     0x4  exit.o [2]
+  .text              ro code  0x1000'423c         4     0xa  cexit.o [4]
+  .text              ro code  0x1000'4248         4    0x14  exit.o [5]
+  .text              ro code  0x1000'425c         4    0x1c  cstartup_M.o [4]
+  Initializer bytes  const    0x1000'4278         4    0x18  <for P2-1>
+  .rodata            const    0x1000'4290         4    0x14  main.o [1]
+  .rodata            const    0x1000'42a4         4    0x14  main.o [1]
+  .rodata            const    0x1000'42b8         4    0x14  tx_timer_initialize.o [1]
+  .rodata            const    0x1000'42cc         4     0x8  main.o [1]
+  .rodata            const    0x1000'42d4         4     0x8  main.o [1]
+  .rodata            const    0x1000'42dc         4     0x8  main.o [1]
+  .rodata            const    0x1000'42e4         4     0x8  printf.o [1]
+  .rodata            const    0x1000'42ec         4     0x8  printf.o [1]
+  .rodata            const    0x1000'42f4               0x0  zero_init3.o [4]
+  .rodata            const    0x1000'42f4               0x0  copy_init3.o [4]
+                            - 0x1000'42f4            0x3b34
 
-"P2", part 1 of 3:                                     0x10
-  P2-1                        0x3800'0000         4    0x10  <Init block>
+"P2", part 1 of 3:                                     0x18
+  P2-1                        0x3800'0000         4    0x18  <Init block>
     .data            inited   0x3800'0000         4     0x4  system_ARMCM33.o [1]
     .data            inited   0x3800'0004         4     0x4  tx_thread_initialize.o [1]
-    .data            inited   0x3800'0008         4     0x8  XShttio.o [2]
-                            - 0x3800'0010              0x10
+    .data            inited   0x3800'0008         4     0x8  rand.o [2]
+    .data            inited   0x3800'0010         4     0x8  XShttio.o [2]
+                            - 0x3800'0018              0x18
 
-"P2", part 2 of 3:                                    0x1dc
-  .bss               zero     0x3800'0010         4    0xd8  tx_timer_initialize.o [1]
-  .bss               zero     0x3800'00e8         4    0x80  tx_thread_initialize.o [1]
-  .bss               zero     0x3800'0168         4    0x20  tx_thread_initialize.o [1]
-  FREE_MEM           zero     0x3800'0188              0x10  tx_initialize_low_level.o [1]
-  .bss               zero     0x3800'0198         4     0x4  tx_initialize_high_level.o [1]
-  .bss               zero     0x3800'019c         4     0x4  tx_thread_initialize.o [1]
-  .bss               zero     0x3800'01a0         4     0x4  tx_thread_initialize.o [1]
-  .bss               zero     0x3800'01a4         4     0x4  tx_thread_initialize.o [1]
-  .bss               zero     0x3800'01a8         4     0x4  tx_thread_initialize.o [1]
-  .bss               zero     0x3800'01ac         4     0x4  tx_thread_initialize.o [1]
-  .bss               zero     0x3800'01b0         4     0x4  tx_thread_initialize.o [1]
-  .bss               zero     0x3800'01b4         4     0x4  tx_thread_initialize.o [1]
-  .bss               zero     0x3800'01b8         4     0x4  tx_thread_initialize.o [1]
-  .bss               zero     0x3800'01bc         4     0x4  tx_thread_initialize.o [1]
-  .bss               zero     0x3800'01c0         4     0x4  tx_thread_initialize.o [1]
-  .bss               zero     0x3800'01c4         4     0x4  tx_thread_initialize.o [1]
-  .bss               zero     0x3800'01c8         4     0x4  tx_thread_initialize.o [1]
-  .bss               zero     0x3800'01cc         4     0x4  tx_thread_initialize.o [1]
-  .bss               zero     0x3800'01d0         4     0x4  tx_timer_initialize.o [1]
-  .bss               zero     0x3800'01d4         4     0x4  tx_timer_initialize.o [1]
-  .bss               zero     0x3800'01d8         4     0x4  tx_timer_initialize.o [1]
-  .bss               zero     0x3800'01dc         4     0x4  tx_timer_initialize.o [1]
-  .bss               zero     0x3800'01e0         4     0x4  tx_timer_initialize.o [1]
-  .bss               zero     0x3800'01e4         4     0x4  tx_timer_initialize.o [1]
-  .bss               zero     0x3800'01e8         4     0x4  tx_timer_initialize.o [1]
-                            - 0x3800'01ec             0x1dc
+"P2", part 2 of 3:                                   0x242c
+  .bss               zero     0x3800'0018         4  0x1000  main.o [1]
+  .bss               zero     0x3800'1018         4  0x1000  tx_timer_initialize.o [1]
+  .bss               zero     0x3800'2018         4    0xd8  main.o [1]
+  .bss               zero     0x3800'20f0         4    0xd8  tx_timer_initialize.o [1]
+  .bss               zero     0x3800'21c8         4    0x84  rand.o [2]
+  .bss               zero     0x3800'224c         4    0x80  tx_thread_initialize.o [1]
+  .bss               zero     0x3800'22cc         4    0x80  tx_timer_initialize.o [1]
+  .bss               zero     0x3800'234c         4    0x34  main.o [1]
+  .bss               zero     0x3800'2380         4    0x20  tx_thread_initialize.o [1]
+  FREE_MEM           zero     0x3800'23a0              0x10  tx_initialize_low_level.o [1]
+  .bss               zero     0x3800'23b0         4     0x4  tx_initialize_high_level.o [1]
+  .bss               zero     0x3800'23b4         4     0x4  tx_initialize_high_level.o [1]
+  .bss               zero     0x3800'23b8         4     0x4  tx_initialize_high_level.o [1]
+  .bss               zero     0x3800'23bc         4     0x4  tx_thread_initialize.o [1]
+  .bss               zero     0x3800'23c0         4     0x4  tx_thread_initialize.o [1]
+  .bss               zero     0x3800'23c4         4     0x4  tx_thread_initialize.o [1]
+  .bss               zero     0x3800'23c8         4     0x4  tx_thread_initialize.o [1]
+  .bss               zero     0x3800'23cc         4     0x4  tx_thread_initialize.o [1]
+  .bss               zero     0x3800'23d0         4     0x4  tx_thread_initialize.o [1]
+  .bss               zero     0x3800'23d4         4     0x4  tx_thread_initialize.o [1]
+  .bss               zero     0x3800'23d8         4     0x4  tx_thread_initialize.o [1]
+  .bss               zero     0x3800'23dc         4     0x4  tx_thread_initialize.o [1]
+  .bss               zero     0x3800'23e0         4     0x4  tx_thread_initialize.o [1]
+  .bss               zero     0x3800'23e4         4     0x4  tx_thread_initialize.o [1]
+  .bss               zero     0x3800'23e8         4     0x4  tx_thread_initialize.o [1]
+  .bss               zero     0x3800'23ec         4     0x4  tx_thread_initialize.o [1]
+  .bss               zero     0x3800'23f0         4     0x4  tx_thread_initialize.o [1]
+  .bss               zero     0x3800'23f4         4     0x4  tx_thread_initialize.o [1]
+  .bss               zero     0x3800'23f8         4     0x4  tx_thread_initialize.o [1]
+  .bss               zero     0x3800'23fc         4     0x4  tx_thread_initialize.o [1]
+  .bss               zero     0x3800'2400         4     0x4  tx_thread_initialize.o [1]
+  .bss               zero     0x3800'2404         4     0x4  tx_thread_initialize.o [1]
+  .bss               zero     0x3800'2408         4     0x4  tx_thread_initialize.o [1]
+  .bss               zero     0x3800'240c         4     0x4  tx_timer_initialize.o [1]
+  .bss               zero     0x3800'2410         4     0x4  tx_timer_initialize.o [1]
+  .bss               zero     0x3800'2414         4     0x4  tx_timer_initialize.o [1]
+  .bss               zero     0x3800'2418         4     0x4  tx_timer_initialize.o [1]
+  .bss               zero     0x3800'241c         4     0x4  tx_timer_initialize.o [1]
+  .bss               zero     0x3800'2420         4     0x4  tx_timer_initialize.o [1]
+  .bss               zero     0x3800'2424         4     0x4  tx_timer_initialize.o [1]
+  .bss               zero     0x3800'2428         4     0x4  tx_timer_initialize.o [1]
+  .bss               zero     0x3800'242c         4     0x4  tx_timer_initialize.o [1]
+  .bss               zero     0x3800'2430         4     0x4  tx_timer_initialize.o [1]
+  .bss               zero     0x3800'2434         4     0x4  tx_timer_initialize.o [1]
+  .bss               zero     0x3800'2438         4     0x4  tx_timer_initialize.o [1]
+  .bss               zero     0x3800'243c         4     0x4  tx_timer_initialize.o [1]
+  .bss               zero     0x3800'2440         4     0x4  tx_timer_initialize.o [1]
+                            - 0x3800'2444            0x242c
 
 "P2", part 3 of 3:                                   0x1000
-  CSTACK                      0x3800'01f0         8  0x1000  <Block>
-    CSTACK           uninit   0x3800'01f0            0x1000  <Block tail>
-                            - 0x3800'11f0            0x1000
+  CSTACK                      0x3800'2448         8  0x1000  <Block>
+    CSTACK           uninit   0x3800'2448            0x1000  <Block tail>
+                            - 0x3800'3448            0x1000
 
 Unused ranges:
 
          From           To      Size
          ----           --      ----
-  0x1000'2de4  0x1010'0000  0xf'd21d
-  0x3800'01ec  0x3800'01ef       0x4
-  0x3800'11f0  0x3810'0000  0xf'ee11
+  0x1000'42f4  0x1010'0000  0xf'bd0d
+  0x3800'2444  0x3800'2447       0x4
+  0x3800'3448  0x3810'0000  0xf'cbb9
 
 
 *******************************************************************************
@@ -314,14 +365,14 @@ Unused ranges:
           Address      Size
           -------      ----
 Zero (__iar_zero_init3)
-    1 destination range, total size 0x1dc:
-          0x3800'0010  0x1dc
+    1 destination range, total size 0x242c:
+          0x3800'0018  0x242c
 
 Copy (__iar_copy_init3)
-    1 source range, total size 0x10:
-          0x1000'2dbc   0x10
-    1 destination range, total size 0x10:
-          0x3800'0000   0x10
+    1 source range, total size 0x18:
+          0x1000'4278    0x18
+    1 destination range, total size 0x18:
+          0x3800'0000    0x18
 
 
 
@@ -329,228 +380,321 @@ Copy (__iar_copy_init3)
 *** MODULE SUMMARY
 ***
 
-    Module                           ro code  ro data  rw data
-    ------                           -------  -------  -------
+    Module                            ro code  ro data  rw data
+    ------                            -------  -------  -------
 command line/config:
-    ----------------------------------------------------------
+    -----------------------------------------------------------
     Total:
 
 C:\Users\xidon\code\github\qemu-simulator\boards\mps2-an505\threadx\build\iar: [1]
-    main.o                                44       28
-    printf.o                           4'408       96
-    startup_ARMCM33.o                  2'026
-    system_ARMCM33.o                      44        4        4
-    tx_initialize_high_level.o                               4
-    tx_initialize_low_level.o            196                16
-    tx_thread_initialize.o                          4      216
-    tx_thread_schedule.o                 204
-    tx_thread_stack_analyze.o            152
-    tx_thread_stack_error_handler.o       36
-    tx_thread_system_resume.o            892
-    tx_thread_time_slice.o               412
-    tx_timer_expiration_process.o         28
-    tx_timer_initialize.o                                  244
-    tx_timer_interrupt.o                 184
-    tx_timer_system_deactivate.o          54
-    uart.o                                88
-    ----------------------------------------------------------
-    Total:                             8'768      132      484
+    main.o                                192       64    4'364
+    printf.o                            4'408       96
+    startup_ARMCM33.o                   2'026
+    system_ARMCM33.o                       44        4        4
+    tx_block_release.o                    148
+    tx_byte_allocate.o                    272
+    tx_byte_pool_cleanup.o                 92
+    tx_byte_pool_create.o                 244
+    tx_byte_pool_search.o                 412
+    tx_initialize_high_level.o             12                12
+    tx_initialize_kernel_enter.o           72
+    tx_initialize_low_level.o             196                16
+    tx_thread_create.o                    460
+    tx_thread_initialize.o                 32        4      244
+    tx_thread_schedule.o                  204
+    tx_thread_shell_entry.o                72
+    tx_thread_sleep.o                     140
+    tx_thread_stack_analyze.o             152
+    tx_thread_stack_build.o                68
+    tx_thread_stack_error_handler.o        36
+    tx_thread_system_preempt_check.o      244
+    tx_thread_system_resume.o             892
+    tx_thread_system_suspend.o            800
+    tx_thread_time_slice.o                412
+    tx_thread_timeout.o                    88
+    tx_timer_expiration_process.o          28
+    tx_timer_initialize.o                 140       20    4'496
+    tx_timer_interrupt.o                  184
+    tx_timer_system_activate.o            124
+    tx_timer_system_deactivate.o           54
+    tx_timer_thread_entry.o               612
+    txe_block_release.o                    56
+    txe_byte_allocate.o                   192
+    txe_byte_pool_create.o                244
+    txe_thread_create.o                   400
+    uart.o                                 88
+    -----------------------------------------------------------
+    Total:                             13'840      188    9'136
 
 dl7M_tln.a: [2]
-    XShttio.o                              8        8        8
-    exit.o                                 4
-    low_level_init.o                       4
-    ----------------------------------------------------------
-    Total:                                16        8        8
+    XShttio.o                               8        8        8
+    exit.o                                  4
+    low_level_init.o                        4
+    rand.o                                152        8      140
+    -----------------------------------------------------------
+    Total:                                168       16      148
 
 m7M_tls.a: [3]
-    DblAddSub.o                          606
-    DblCmpEq.o                            32
-    DblCmpGe.o                            52
-    DblCmpLe.o                            52
-    DblDiv.o                             582
-    DblMul.o                             426
-    DblToS32.o                            54
-    DblToU32.o                            34
-    S32ToDbl.o                            34
-    U32ToDbl.o                            28
-    fpinit_M.o                            34
-    ----------------------------------------------------------
-    Total:                             1'934
+    DblAddSub.o                           606
+    DblCmpEq.o                             32
+    DblCmpGe.o                             52
+    DblCmpLe.o                             52
+    DblDiv.o                              582
+    DblMul.o                              426
+    DblToS32.o                             54
+    DblToU32.o                             34
+    S32ToDbl.o                             34
+    U32ToDbl.o                             28
+    fpinit_M.o                             34
+    -----------------------------------------------------------
+    Total:                              1'934
 
 rt7M_tl.a: [4]
-    I64DivMod.o                          560
-    I64DivZer.o                            2
-    cexit.o                               10
-    cmain.o                               30
-    copy_init3.o                          42
-    cstartup_M.o                          28
-    data_init.o                           42
-    zero_init3.o                          56
-    ----------------------------------------------------------
-    Total:                               770
+    ABImemset.o                           102
+    I64DivMod.o                           560
+    I64DivZer.o                             2
+    cexit.o                                10
+    cmain.o                                30
+    copy_init3.o                           42
+    cstartup_M.o                           28
+    data_init.o                            42
+    zero_init3.o                           56
+    -----------------------------------------------------------
+    Total:                                872
 
 shb_l.a: [5]
-    exit.o                                20
-    iarttio.o                             44
-    ----------------------------------------------------------
-    Total:                                64
+    exit.o                                 20
+    iarttio.o                              44
+    -----------------------------------------------------------
+    Total:                                 64
 
-    Gaps                                  18        2
-    Linker created                                 36    4'096
---------------------------------------------------------------
-    Grand Total:                      11'570      178    4'588
+    Gaps                                   20        2
+    Linker created                                  36    4'096
+---------------------------------------------------------------
+    Grand Total:                       16'898      242   13'380
 
 
 *******************************************************************************
 *** ENTRY LIST
 ***
 
-Entry                       Address   Size  Type      Object
------                       -------   ----  ----      ------
-.iar.init_table$$Base   0x1000'2d20          --   Gb  - Linker created -
-.iar.init_table$$Limit  0x1000'2d44          --   Gb  - Linker created -
-?main                   0x1000'2d45         Code  Gb  cmain.o [4]
-BusFault_Handler        0x1000'1c8b         Code  Wk  startup_ARMCM33.o [1]
-CSTACK$$Base            0x3800'01f0          --   Gb  - Linker created -
-CSTACK$$Limit           0x3800'11f0          --   Gb  - Linker created -
-DebugMon_Handler        0x1000'1c8b         Code  Wk  startup_ARMCM33.o [1]
-HardFault_Handler       0x1000'2a4f         Code  Gb  tx_initialize_low_level.o [1]
-Interrupt0_Handler      0x1000'1c8b         Code  Wk  startup_ARMCM33.o [1]
-Interrupt1_Handler      0x1000'1c8b         Code  Wk  startup_ARMCM33.o [1]
-Interrupt2_Handler      0x1000'1c8b         Code  Wk  startup_ARMCM33.o [1]
-Interrupt3_Handler      0x1000'1c8b         Code  Wk  startup_ARMCM33.o [1]
-Interrupt4_Handler      0x1000'1c8b         Code  Wk  startup_ARMCM33.o [1]
-Interrupt5_Handler      0x1000'1c8b         Code  Wk  startup_ARMCM33.o [1]
-Interrupt6_Handler      0x1000'1c8b         Code  Wk  startup_ARMCM33.o [1]
-Interrupt7_Handler      0x1000'1c8b         Code  Wk  startup_ARMCM33.o [1]
-Interrupt8_Handler      0x1000'1c8b         Code  Wk  startup_ARMCM33.o [1]
-Interrupt9_Handler      0x1000'1c8b         Code  Wk  startup_ARMCM33.o [1]
-MemManage_Handler       0x1000'1c8b         Code  Wk  startup_ARMCM33.o [1]
-NMI_Handler             0x1000'1c8b         Code  Wk  startup_ARMCM33.o [1]
-PendSV_Handler          0x1000'295d         Code  Gb  tx_thread_schedule.o [1]
-Region$$Table$$Base     0x1000'2d20          --   Gb  - Linker created -
-Region$$Table$$Limit    0x1000'2d44          --   Gb  - Linker created -
-Reset_Handler           0x1000'2cd5         Code  Wk  startup_ARMCM33.o [1]
-SVC_Handler             0x1000'1c8b         Code  Wk  startup_ARMCM33.o [1]
-SecureFault_Handler     0x1000'1c8b         Code  Wk  startup_ARMCM33.o [1]
-SysTick_Handler         0x1000'2a43         Code  Gb  tx_initialize_low_level.o [1]
-SystemCoreClock         0x3800'0000    0x4  Data  Gb  system_ARMCM33.o [1]
-SystemInit              0x1000'2b95   0x18  Code  Gb  system_ARMCM33.o [1]
-UsageFault_Handler      0x1000'2a51         Code  Gb  tx_initialize_low_level.o [1]
-__Vectors               0x1000'0000          --   Gb  startup_ARMCM33.o [1]
-__Vectors_End           0x1000'07c0         Data  Gb  startup_ARMCM33.o [1]
-__Vectors_Size {Abs}          0x7c0          --   Gb  startup_ARMCM33.o [1]
-__aeabi_cdcmpeq         0x1000'1b81         Code  Gb  DblCmpEq.o [3]
-__aeabi_cdcmple         0x1000'1ba1         Code  Gb  DblCmpLe.o [3]
-__aeabi_cdrcmple        0x1000'1bd5         Code  Gb  DblCmpGe.o [3]
-__aeabi_d2iz            0x1000'1c09         Code  Gb  DblToS32.o [3]
-__aeabi_d2uiz           0x1000'2099         Code  Gb  DblToU32.o [3]
-__aeabi_dadd            0x1000'1c8d         Code  Gb  DblAddSub.o [3]
-__aeabi_ddiv            0x1000'20d9         Code  Gb  DblDiv.o [3]
-__aeabi_dmul            0x1000'1eed         Code  Gb  DblMul.o [3]
-__aeabi_dsub            0x1000'1e09         Code  Gb  DblAddSub.o [3]
-__aeabi_i2d             0x1000'1c69         Code  Gb  S32ToDbl.o [3]
-__aeabi_ldiv0           0x1000'2321         Code  Gb  I64DivZer.o [4]
-__aeabi_ui2d            0x1000'20bd         Code  Gb  U32ToDbl.o [3]
-__aeabi_uldivmod        0x1000'1951         Code  Gb  I64DivMod.o [4]
-__cmain                 0x1000'2d45         Code  Gb  cmain.o [4]
-__exit                  0x1000'2d79   0x14  Code  Gb  exit.o [5]
-__iar_close_ttio        0x1000'2c75   0x2c  Code  Gb  iarttio.o [5]
-__iar_copy_init3        0x1000'1c3f   0x2a  Code  Gb  copy_init3.o [4]
-__iar_data_init3        0x1000'2ca9   0x18  Code  Gb  data_init.o [4]
-__iar_init_vfp          0x1000'2cfd         Code  Gb  fpinit_M.o [3]
-__iar_lookup_ttioh      0x1000'2ca1    0x8  Code  Gb  XShttio.o [2]
-__iar_program_start     0x1000'2d8d         Code  Gb  cstartup_M.o [4]
-__iar_ttio_handles      0x3800'0008    0x8  Data  Lc  XShttio.o [2]
-__iar_zero_init3        0x1000'2c11   0x38  Code  Gb  zero_init3.o [4]
-__low_level_init        0x1000'2d63    0x4  Code  Gb  low_level_init.o [2]
-__tx_BadHandler         0x1000'2a39         Code  Gb  tx_initialize_low_level.o [1]
-__tx_DBGHandler         0x1000'2a8f         Code  Gb  tx_initialize_low_level.o [1]
-__tx_IntHandler         0x1000'2a3b         Code  Gb  tx_initialize_low_level.o [1]
-__tx_NMIHandler         0x1000'2a8d         Code  Gb  tx_initialize_low_level.o [1]
-__tx_SysTickHandler     0x1000'2a43         Code  Gb  tx_initialize_low_level.o [1]
-__tx_free_memory_start  0x3800'0188         Data  Gb  tx_initialize_low_level.o [1]
-__vector_table          0x1000'0000         Data  Gb  startup_ARMCM33.o [1]
-__vector_table_0x1c     0x1000'001c         Data  Gb  startup_ARMCM33.o [1]
-_atoi                   0x1000'080f   0x28  Code  Lc  printf.o [1]
-_call_main              0x1000'2d51         Code  Gb  cmain.o [4]
-_etoa                   0x1000'0e31  0x380  Code  Lc  printf.o [1]
-_exit                   0x1000'2d6d         Code  Gb  cexit.o [4]
-_ftoa                   0x1000'0b0d  0x314  Code  Lc  printf.o [1]
-_ftoa::pow10            0x1000'2bc0   0x50  Data  Lc  printf.o [1]
-_is_digit               0x1000'07f7   0x18  Code  Lc  printf.o [1]
-_ntoa_format            0x1000'08a5  0x11c  Code  Lc  printf.o [1]
-_ntoa_long              0x1000'09c1   0x9e  Code  Lc  printf.o [1]
-_ntoa_long_long         0x1000'0a5f   0xaa  Code  Lc  printf.o [1]
-_out_char               0x1000'07c3   0x1c  Code  Lc  printf.o [1]
-_out_null               0x1000'07c1    0x2  Code  Lc  printf.o [1]
-_out_rev                0x1000'0837   0x6e  Code  Lc  printf.o [1]
-_strnlen_s              0x1000'07df   0x18  Code  Lc  printf.o [1]
+Entry                       Address    Size  Type      Object
+-----                       -------    ----  ----      ------
+.iar.init_table$$Base   0x1000'41f0           --   Gb  - Linker created -
+.iar.init_table$$Limit  0x1000'4214           --   Gb  - Linker created -
+?main                   0x1000'4215          Code  Gb  cmain.o [4]
+BusFault_Handler        0x1000'1c8b          Code  Wk  startup_ARMCM33.o [1]
+CSTACK$$Base            0x3800'2448           --   Gb  - Linker created -
+CSTACK$$Limit           0x3800'3448           --   Gb  - Linker created -
+DebugMon_Handler        0x1000'1c8b          Code  Wk  startup_ARMCM33.o [1]
+HardFault_Handler       0x1000'3a77          Code  Gb  tx_initialize_low_level.o [1]
+Interrupt0_Handler      0x1000'1c8b          Code  Wk  startup_ARMCM33.o [1]
+Interrupt1_Handler      0x1000'1c8b          Code  Wk  startup_ARMCM33.o [1]
+Interrupt2_Handler      0x1000'1c8b          Code  Wk  startup_ARMCM33.o [1]
+Interrupt3_Handler      0x1000'1c8b          Code  Wk  startup_ARMCM33.o [1]
+Interrupt4_Handler      0x1000'1c8b          Code  Wk  startup_ARMCM33.o [1]
+Interrupt5_Handler      0x1000'1c8b          Code  Wk  startup_ARMCM33.o [1]
+Interrupt6_Handler      0x1000'1c8b          Code  Wk  startup_ARMCM33.o [1]
+Interrupt7_Handler      0x1000'1c8b          Code  Wk  startup_ARMCM33.o [1]
+Interrupt8_Handler      0x1000'1c8b          Code  Wk  startup_ARMCM33.o [1]
+Interrupt9_Handler      0x1000'1c8b          Code  Wk  startup_ARMCM33.o [1]
+MemManage_Handler       0x1000'1c8b          Code  Wk  startup_ARMCM33.o [1]
+NMI_Handler             0x1000'1c8b          Code  Wk  startup_ARMCM33.o [1]
+PendSV_Handler          0x1000'3985          Code  Gb  tx_thread_schedule.o [1]
+Region$$Table$$Base     0x1000'41f0           --   Gb  - Linker created -
+Region$$Table$$Limit    0x1000'4214           --   Gb  - Linker created -
+Reset_Handler           0x1000'41a5          Code  Wk  startup_ARMCM33.o [1]
+SVC_Handler             0x1000'1c8b          Code  Wk  startup_ARMCM33.o [1]
+SecureFault_Handler     0x1000'1c8b          Code  Wk  startup_ARMCM33.o [1]
+SysTick_Handler         0x1000'3a6b          Code  Gb  tx_initialize_low_level.o [1]
+SystemCoreClock         0x3800'0000     0x4  Data  Gb  system_ARMCM33.o [1]
+SystemInit              0x1000'4119    0x18  Code  Gb  system_ARMCM33.o [1]
+UsageFault_Handler      0x1000'3a79          Code  Gb  tx_initialize_low_level.o [1]
+_Rand_idx               0x3800'2248     0x4  Data  Lc  rand.o [2]
+_Rand_rv                0x3800'21c8    0x80  Data  Lc  rand.o [2]
+_Randinit               0x3800'0008     0x1  Data  Gb  rand.o [2]
+_Randseed               0x3800'000c     0x4  Data  Gb  rand.o [2]
+__Vectors               0x1000'0000           --   Gb  startup_ARMCM33.o [1]
+__Vectors_End           0x1000'07c0          Data  Gb  startup_ARMCM33.o [1]
+__Vectors_Size {Abs}          0x7c0           --   Gb  startup_ARMCM33.o [1]
+__aeabi_cdcmpeq         0x1000'1b81          Code  Gb  DblCmpEq.o [3]
+__aeabi_cdcmple         0x1000'1ba1          Code  Gb  DblCmpLe.o [3]
+__aeabi_cdrcmple        0x1000'1bd5          Code  Gb  DblCmpGe.o [3]
+__aeabi_d2iz            0x1000'1c09          Code  Gb  DblToS32.o [3]
+__aeabi_d2uiz           0x1000'2099          Code  Gb  DblToU32.o [3]
+__aeabi_dadd            0x1000'1c8d          Code  Gb  DblAddSub.o [3]
+__aeabi_ddiv            0x1000'20d9          Code  Gb  DblDiv.o [3]
+__aeabi_dmul            0x1000'1eed          Code  Gb  DblMul.o [3]
+__aeabi_dsub            0x1000'1e09          Code  Gb  DblAddSub.o [3]
+__aeabi_i2d             0x1000'1c69          Code  Gb  S32ToDbl.o [3]
+__aeabi_ldiv0           0x1000'2321          Code  Gb  I64DivZer.o [4]
+__aeabi_memset          0x1000'2ff9          Code  Gb  ABImemset.o [4]
+__aeabi_ui2d            0x1000'20bd          Code  Gb  U32ToDbl.o [3]
+__aeabi_uldivmod        0x1000'1951          Code  Gb  I64DivMod.o [4]
+__cmain                 0x1000'4215          Code  Gb  cmain.o [4]
+__exit                  0x1000'4249    0x14  Code  Gb  exit.o [5]
+__iar_Memset            0x1000'2ff9          Code  Gb  ABImemset.o [4]
+__iar_Memset_word       0x1000'3001          Code  Gb  ABImemset.o [4]
+__iar_close_ttio        0x1000'4145    0x2c  Code  Gb  iarttio.o [5]
+__iar_copy_init3        0x1000'1c3f    0x2a  Code  Gb  copy_init3.o [4]
+__iar_data_init3        0x1000'4179    0x18  Code  Gb  data_init.o [4]
+__iar_init_vfp          0x1000'41cd          Code  Gb  fpinit_M.o [3]
+__iar_lookup_ttioh      0x1000'4171     0x8  Code  Gb  XShttio.o [2]
+__iar_program_start     0x1000'425d          Code  Gb  cstartup_M.o [4]
+__iar_ttio_handles      0x3800'0010     0x8  Data  Lc  XShttio.o [2]
+__iar_zero_init3        0x1000'40e1    0x38  Code  Gb  zero_init3.o [4]
+__low_level_init        0x1000'4233     0x4  Code  Gb  low_level_init.o [2]
+__tx_BadHandler         0x1000'3a61          Code  Gb  tx_initialize_low_level.o [1]
+__tx_DBGHandler         0x1000'3ab7          Code  Gb  tx_initialize_low_level.o [1]
+__tx_IntHandler         0x1000'3a63          Code  Gb  tx_initialize_low_level.o [1]
+__tx_NMIHandler         0x1000'3ab5          Code  Gb  tx_initialize_low_level.o [1]
+__tx_SysTickHandler     0x1000'3a6b          Code  Gb  tx_initialize_low_level.o [1]
+__tx_free_memory_start  0x3800'23a0          Data  Gb  tx_initialize_low_level.o [1]
+__vector_table          0x1000'0000          Data  Gb  startup_ARMCM33.o [1]
+__vector_table_0x1c     0x1000'001c          Data  Gb  startup_ARMCM33.o [1]
+_atoi                   0x1000'080f    0x28  Code  Lc  printf.o [1]
+_call_main              0x1000'4221          Code  Gb  cmain.o [4]
+_etoa                   0x1000'0e31   0x380  Code  Lc  printf.o [1]
+_exit                   0x1000'423d          Code  Gb  cexit.o [4]
+_ftoa                   0x1000'0b0d   0x314  Code  Lc  printf.o [1]
+_ftoa::pow10            0x1000'4048    0x50  Data  Lc  printf.o [1]
+_is_digit               0x1000'07f7    0x18  Code  Lc  printf.o [1]
+_ntoa_format            0x1000'08a5   0x11c  Code  Lc  printf.o [1]
+_ntoa_long              0x1000'09c1    0x9e  Code  Lc  printf.o [1]
+_ntoa_long_long         0x1000'0a5f    0xaa  Code  Lc  printf.o [1]
+_out_char               0x1000'07c3    0x1c  Code  Lc  printf.o [1]
+_out_null               0x1000'07c1     0x2  Code  Lc  printf.o [1]
+_out_rev                0x1000'0837    0x6e  Code  Lc  printf.o [1]
+_strnlen_s              0x1000'07df    0x18  Code  Lc  printf.o [1]
+_tx_block_release       0x1000'3e49    0x94  Code  Gb  tx_block_release.o [1]
+_tx_build_options       0x3800'23e0     0x4  Data  Gb  tx_thread_initialize.o [1]
+_tx_byte_allocate       0x1000'3661   0x110  Code  Gb  tx_byte_allocate.o [1]
+_tx_byte_pool_cleanup   0x1000'3f95    0x5c  Code  Gb  tx_byte_pool_cleanup.o [1]
+_tx_byte_pool_create    0x1000'3771    0xf4  Code  Gb  tx_byte_pool_create.o [1]
+_tx_byte_pool_created_count
+                        0x3800'23b4     0x4  Data  Gb  tx_initialize_high_level.o [1]
+_tx_byte_pool_created_ptr
+                        0x3800'23b0     0x4  Data  Gb  tx_initialize_high_level.o [1]
+_tx_byte_pool_search    0x1000'30a5   0x19c  Code  Gb  tx_byte_pool_search.o [1]
+_tx_initialize_high_level
+                        0x1000'3edd     0xc  Code  Gb  tx_initialize_high_level.o [1]
+_tx_initialize_kernel_enter
+                        0x1000'3e01    0x48  Code  Gb  tx_initialize_kernel_enter.o [1]
 _tx_initialize_low_level
-                        0x1000'29fd         Code  Gb  tx_initialize_low_level.o [1]
+                        0x1000'3a25          Code  Gb  tx_initialize_low_level.o [1]
 _tx_initialize_unused_memory
-                        0x3800'0198    0x4  Data  Gb  tx_initialize_high_level.o [1]
+                        0x3800'23b8     0x4  Data  Gb  tx_initialize_high_level.o [1]
 _tx_thread_application_stack_error_handler
-                        0x3800'01b4    0x4  Data  Gb  tx_thread_initialize.o [1]
-_tx_thread_current_ptr  0x3800'01a0    0x4  Data  Gb  tx_thread_initialize.o [1]
-_tx_thread_execute_ptr  0x3800'01a4    0x4  Data  Gb  tx_thread_initialize.o [1]
+                        0x3800'23e4     0x4  Data  Gb  tx_thread_initialize.o [1]
+_tx_thread_create       0x1000'2d95   0x1cc  Code  Gb  tx_thread_create.o [1]
+_tx_thread_created_count
+                        0x3800'23cc     0x4  Data  Gb  tx_thread_initialize.o [1]
+_tx_thread_created_ptr  0x3800'23c8     0x4  Data  Gb  tx_thread_initialize.o [1]
+_tx_thread_current_ptr  0x3800'23c0     0x4  Data  Gb  tx_thread_initialize.o [1]
+_tx_thread_execute_ptr  0x3800'23c4     0x4  Data  Gb  tx_thread_initialize.o [1]
 _tx_thread_highest_priority
-                        0x3800'01ac    0x4  Data  Gb  tx_thread_initialize.o [1]
+                        0x3800'23d4     0x4  Data  Gb  tx_thread_initialize.o [1]
+_tx_thread_initialize   0x1000'3ee9    0x20  Code  Gb  tx_thread_initialize.o [1]
+_tx_thread_mutex_release
+                        0x3800'23dc     0x4  Data  Gb  tx_thread_initialize.o [1]
 _tx_thread_performance__execute_log_index
-                        0x3800'01cc    0x4  Data  Gb  tx_thread_initialize.o [1]
+                        0x3800'2408     0x4  Data  Gb  tx_thread_initialize.o [1]
 _tx_thread_performance_execute_log
-                        0x3800'0168   0x20  Data  Gb  tx_thread_initialize.o [1]
+                        0x3800'2380    0x20  Data  Gb  tx_thread_initialize.o [1]
+_tx_thread_performance_idle_return_count
+                        0x3800'2400     0x4  Data  Gb  tx_thread_initialize.o [1]
 _tx_thread_performance_interrupt_preemption_count
-                        0x3800'01c0    0x4  Data  Gb  tx_thread_initialize.o [1]
+                        0x3800'23f4     0x4  Data  Gb  tx_thread_initialize.o [1]
 _tx_thread_performance_non_idle_return_count
-                        0x3800'01c8    0x4  Data  Gb  tx_thread_initialize.o [1]
+                        0x3800'2404     0x4  Data  Gb  tx_thread_initialize.o [1]
 _tx_thread_performance_resume_count
-                        0x3800'01b8    0x4  Data  Gb  tx_thread_initialize.o [1]
+                        0x3800'23e8     0x4  Data  Gb  tx_thread_initialize.o [1]
 _tx_thread_performance_solicited_preemption_count
-                        0x3800'01bc    0x4  Data  Gb  tx_thread_initialize.o [1]
+                        0x3800'23f0     0x4  Data  Gb  tx_thread_initialize.o [1]
+_tx_thread_performance_suspend_count
+                        0x3800'23ec     0x4  Data  Gb  tx_thread_initialize.o [1]
 _tx_thread_performance_time_slice_count
-                        0x3800'01c4    0x4  Data  Gb  tx_thread_initialize.o [1]
+                        0x3800'23f8     0x4  Data  Gb  tx_thread_initialize.o [1]
+_tx_thread_performance_timeout_count
+                        0x3800'23fc     0x4  Data  Gb  tx_thread_initialize.o [1]
 _tx_thread_preempt_disable
-                        0x3800'01b0    0x4  Data  Gb  tx_thread_initialize.o [1]
+                        0x3800'23d8     0x4  Data  Gb  tx_thread_initialize.o [1]
 _tx_thread_priority_list
-                        0x3800'00e8   0x80  Data  Gb  tx_thread_initialize.o [1]
+                        0x3800'224c    0x80  Data  Gb  tx_thread_initialize.o [1]
 _tx_thread_priority_maps
-                        0x3800'01a8    0x4  Data  Gb  tx_thread_initialize.o [1]
-_tx_thread_schedule     0x1000'2931         Code  Gb  tx_thread_schedule.o [1]
+                        0x3800'23d0     0x4  Data  Gb  tx_thread_initialize.o [1]
+_tx_thread_schedule     0x1000'3959          Code  Gb  tx_thread_schedule.o [1]
+_tx_thread_shell_entry  0x1000'4099    0x48  Code  Gb  tx_thread_shell_entry.o [1]
+_tx_thread_sleep        0x1000'3c7d    0x8c  Code  Gb  tx_thread_sleep.o [1]
 _tx_thread_stack_analyze
-                        0x1000'26fd   0x98  Code  Gb  tx_thread_stack_analyze.o [1]
+                        0x1000'26fd    0x98  Code  Gb  tx_thread_stack_analyze.o [1]
+_tx_thread_stack_build  0x1000'3061          Code  Gb  tx_thread_stack_build.o [1]
 _tx_thread_stack_error_handler
-                        0x1000'26d9   0x24  Code  Gb  tx_thread_stack_error_handler.o [1]
+                        0x1000'26d9    0x24  Code  Gb  tx_thread_stack_error_handler.o [1]
 _tx_thread_system_ni_resume
-                        0x1000'2325  0x340  Code  Gb  tx_thread_system_resume.o [1]
+                        0x1000'2325   0x340  Code  Gb  tx_thread_system_resume.o [1]
+_tx_thread_system_ni_suspend
+                        0x1000'2795   0x2e6  Code  Gb  tx_thread_system_suspend.o [1]
+_tx_thread_system_preempt_check
+                        0x1000'356d    0xf4  Code  Gb  tx_thread_system_preempt_check.o [1]
 _tx_thread_system_stack_ptr
-                        0x3800'019c    0x4  Data  Gb  tx_thread_initialize.o [1]
+                        0x3800'23bc     0x4  Data  Gb  tx_thread_initialize.o [1]
 _tx_thread_system_state
-                        0x3800'0004    0x4  Data  Gb  tx_thread_initialize.o [1]
-_tx_thread_time_slice   0x1000'2795  0x19c  Code  Gb  tx_thread_time_slice.o [1]
-_tx_timer_current_ptr   0x3800'01e0    0x4  Data  Gb  tx_timer_initialize.o [1]
+                        0x3800'0004     0x4  Data  Gb  tx_thread_initialize.o [1]
+_tx_thread_time_slice   0x1000'3241   0x19c  Code  Gb  tx_thread_time_slice.o [1]
+_tx_thread_timeout      0x1000'3ff1    0x58  Code  Gb  tx_thread_timeout.o [1]
+_tx_timer_current_ptr   0x3800'241c     0x4  Data  Gb  tx_timer_initialize.o [1]
 _tx_timer_expiration_process
-                        0x1000'2b79   0x1c  Code  Gb  tx_timer_expiration_process.o [1]
-_tx_timer_expired       0x3800'01e4    0x4  Data  Gb  tx_timer_initialize.o [1]
+                        0x1000'3ba1    0x1c  Code  Gb  tx_timer_expiration_process.o [1]
+_tx_timer_expired       0x3800'2420     0x4  Data  Gb  tx_timer_initialize.o [1]
 _tx_timer_expired_time_slice
-                        0x3800'01d4    0x4  Data  Gb  tx_timer_initialize.o [1]
-_tx_timer_interrupt     0x1000'2ac1         Code  Gb  tx_timer_interrupt.o [1]
-_tx_timer_list_end      0x3800'01dc    0x4  Data  Gb  tx_timer_initialize.o [1]
-_tx_timer_list_start    0x3800'01d8    0x4  Data  Gb  tx_timer_initialize.o [1]
-_tx_timer_system_clock  0x3800'01d0    0x4  Data  Gb  tx_timer_initialize.o [1]
+                        0x3800'2410     0x4  Data  Gb  tx_timer_initialize.o [1]
+_tx_timer_expired_timer_ptr
+                        0x3800'2424     0x4  Data  Gb  tx_timer_initialize.o [1]
+_tx_timer_initialize    0x1000'3f09    0x8c  Code  Gb  tx_timer_initialize.o [1]
+_tx_timer_interrupt     0x1000'3ae9          Code  Gb  tx_timer_interrupt.o [1]
+_tx_timer_list          0x3800'22cc    0x80  Data  Gb  tx_timer_initialize.o [1]
+_tx_timer_list_end      0x3800'2418     0x4  Data  Gb  tx_timer_initialize.o [1]
+_tx_timer_list_start    0x3800'2414     0x4  Data  Gb  tx_timer_initialize.o [1]
+_tx_timer_performance__expiration_adjust_count
+                        0x3800'243c     0x4  Data  Gb  tx_timer_initialize.o [1]
+_tx_timer_performance_expiration_count
+                        0x3800'2438     0x4  Data  Gb  tx_timer_initialize.o [1]
+_tx_timer_performance_reactivate_count
+                        0x3800'2434     0x4  Data  Gb  tx_timer_initialize.o [1]
+_tx_timer_priority      0x3800'2430     0x4  Data  Gb  tx_timer_initialize.o [1]
+_tx_timer_stack_size    0x3800'242c     0x4  Data  Gb  tx_timer_initialize.o [1]
+_tx_timer_stack_start   0x3800'2428     0x4  Data  Gb  tx_timer_initialize.o [1]
+_tx_timer_system_activate
+                        0x1000'2ab5    0x7c  Code  Gb  tx_timer_system_activate.o [1]
+_tx_timer_system_clock  0x3800'240c     0x4  Data  Gb  tx_timer_initialize.o [1]
 _tx_timer_system_deactivate
-                        0x1000'26a1   0x36  Code  Gb  tx_timer_system_deactivate.o [1]
-_tx_timer_thread        0x3800'0010   0xd8  Data  Gb  tx_timer_initialize.o [1]
-_tx_timer_time_slice    0x3800'01e8    0x4  Data  Gb  tx_timer_initialize.o [1]
-_tx_vfp_access          0x1000'29e7         Code  Gb  tx_thread_schedule.o [1]
-_vsnprintf              0x1000'11c9  0x6b0  Code  Lc  printf.o [1]
-exit                    0x1000'2d67    0x4  Code  Gb  exit.o [2]
-main                    0x1000'2c4b   0x20  Code  Gb  main.o [1]
-main_task_init          0x1000'2c49    0x2  Code  Lc  main.o [1]
-printf                  0x1000'1879   0x1e  Code  Gb  printf.o [1]
-put_char                0x1000'18f9    0xe  Code  Gb  uart.o [1]
-uart_init               0x1000'1907   0x28  Code  Gb  uart.o [1]
+                        0x1000'26a1    0x36  Code  Gb  tx_timer_system_deactivate.o [1]
+_tx_timer_thread        0x3800'20f0    0xd8  Data  Gb  tx_timer_initialize.o [1]
+_tx_timer_thread_entry  0x1000'2b31   0x264  Code  Gb  tx_timer_thread_entry.o [1]
+_tx_timer_thread_stack_area
+                        0x3800'1018  0x1000  Data  Gb  tx_timer_initialize.o [1]
+_tx_timer_time_slice    0x3800'2440     0x4  Data  Gb  tx_timer_initialize.o [1]
+_tx_vfp_access          0x1000'3a0f          Code  Gb  tx_thread_schedule.o [1]
+_txe_block_release      0x1000'3dc9    0x38  Code  Gb  txe_block_release.o [1]
+_txe_byte_allocate      0x1000'3d09    0xc0  Code  Gb  txe_byte_allocate.o [1]
+_txe_byte_pool_create   0x1000'3865    0xf4  Code  Gb  txe_byte_pool_create.o [1]
+_txe_thread_create      0x1000'33dd   0x190  Code  Gb  txe_thread_create.o [1]
+_vsnprintf              0x1000'11c9   0x6b0  Code  Lc  printf.o [1]
+exit                    0x1000'4237     0x4  Code  Gb  exit.o [2]
+main                    0x1000'3c37    0x20  Code  Gb  main.o [1]
+printf                  0x1000'1879    0x1e  Code  Gb  printf.o [1]
+put_char                0x1000'18f9     0xe  Code  Gb  uart.o [1]
+rand                    0x1000'2f61    0x86  Code  Gb  rand.o [2]
+tx_application_define   0x1000'3bd7    0x60  Code  Gb  main.o [1]
+tx_application_define::tx_memory
+                        0x3800'0018  0x1000  Data  Lc  main.o [1]
+tx_application_define::tx_pool
+                        0x3800'234c    0x34  Data  Lc  main.o [1]
+tx_application_define::tx_task
+                        0x3800'2018    0xd8  Data  Lc  main.o [1]
+tx_task_entry           0x1000'3bbd    0x1a  Code  Lc  main.o [1]
+uart_init               0x1000'1907    0x28  Code  Gb  uart.o [1]
 
 
 [1] = C:\Users\xidon\code\github\qemu-simulator\boards\mps2-an505\threadx\build\iar
@@ -559,9 +703,9 @@ uart_init               0x1000'1907   0x28  Code  Gb  uart.o [1]
 [4] = rt7M_tl.a
 [5] = shb_l.a
 
-  11'570 bytes of readonly  code memory
-     178 bytes of readonly  data memory
-   4'588 bytes of readwrite data memory
+  16'898 bytes of readonly  code memory
+     242 bytes of readonly  data memory
+  13'380 bytes of readwrite data memory
 
 Errors: none
 Warnings: 2

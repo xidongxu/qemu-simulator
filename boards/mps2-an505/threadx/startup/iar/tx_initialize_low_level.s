@@ -31,8 +31,8 @@
     EXTERN  _tx_thread_current_ptr
     EXTERN  _tx_thread_stack_error_handler
 
-SYSTEM_CLOCK        EQU     96000000
-SYSTICK_CYCLES      EQU     ((SYSTEM_CLOCK / 100) -1)
+SYSTEM_CLOCK        EQU     168000000
+SYSTICK_CYCLES      EQU     ((SYSTEM_CLOCK / 1000) -1)
 
     RSEG    FREE_MEM:DATA
     PUBLIC  __tx_free_memory_start

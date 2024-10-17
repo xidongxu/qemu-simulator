@@ -52,6 +52,7 @@ __RAM_SIZE = 0x00100000;
   -----------------------------------------------------------------------------*/
 __STACK_SIZE = 0x00001000;
 __HEAP_SIZE  = 0x00001000;
+_Min_Stack_Size = __STACK_SIZE;
 
 /*
  *-------------------- <<< end of configuration section >>> -------------------
@@ -319,6 +320,7 @@ SECTIONS
   } > RAM
 */
   __RAM_segment_used_end__ = .;
+  _end = .;
   /* Check if data + heap + stack exceeds RAM limit */
   ASSERT(__StackLimit >= __HeapLimit, "region RAM overflowed with stack")
 }

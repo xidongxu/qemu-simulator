@@ -8,9 +8,9 @@ ELF Header:
   Type:                              EXEC (Executable file)
   Machine:                           ARM
   Version:                           0x1
-  Entry point address:               0x10001fd5
+  Entry point address:               0x10002f7d
   Start of program headers:          52 (bytes into file)
-  Start of section headers:          227020 (bytes into file)
+  Start of section headers:          320876 (bytes into file)
   Flags:                             0x5000400, Version5 EABI, hard-float ABI
   Size of this header:               52 (bytes)
   Size of program headers:           32 (bytes)
@@ -22,28 +22,28 @@ ELF Header:
 Section Headers:
   [Nr] Name              Type            Addr     Off    Size   ES Flg Lk Inf Al
   [ 0]                   NULL            00000000 000000 000000 00      0   0  0
-  [ 1] .text             PROGBITS        10000000 010000 004024 00  AX  0   0  8
-  [ 2] .ARM.extab        PROGBITS        10004024 014024 000018 00   A  0   0  4
-  [ 3] .ARM.exidx        ARM_EXIDX       1000403c 01403c 0000c0 00  AL  1   0  4
-  [ 4] .copy.table       PROGBITS        100040fc 0140fc 00000c 00  WA  0   0  1
-  [ 5] .zero.table       PROGBITS        10004108 020074 000000 00   W  0   0  1
+  [ 1] .text             PROGBITS        10000000 010000 00615c 00  AX  0   0  8
+  [ 2] .ARM.extab        PROGBITS        1000615c 01615c 000018 00   A  0   0  4
+  [ 3] .ARM.exidx        ARM_EXIDX       10006174 016174 0000c0 00  AL  1   0  4
+  [ 4] .copy.table       PROGBITS        10006234 016234 00000c 00  WA  0   0  1
+  [ 5] .zero.table       PROGBITS        10006240 020074 000000 00   W  0   0  1
   [ 6] .data             PROGBITS        38000000 020000 000074 00  WA  0   0  4
-  [ 7] .bss              NOBITS          38000074 020074 0001ec 00  WA  0   0  4
-  [ 8] .heap             PROGBITS        38000260 020074 001000 00   W  0   0  1
-  [ 9] .stack            PROGBITS        380ff000 021074 001000 00   W  0   0  1
-  [10] .ARM.attributes   ARM_ATTRIBUTES  00000000 022074 000036 00      0   0  1
-  [11] .comment          PROGBITS        00000000 0220aa 000049 01  MS  0   0  1
-  [12] .debug_info       PROGBITS        00000000 0220f3 00767b 00      0   0  1
-  [13] .debug_abbrev     PROGBITS        00000000 02976e 00143a 00      0   0  1
-  [14] .debug_loc        PROGBITS        00000000 02aba8 0031f3 00      0   0  1
-  [15] .debug_aranges    PROGBITS        00000000 02dda0 000320 00      0   0  8
-  [16] .debug_ranges     PROGBITS        00000000 02e0c0 000348 00      0   0  1
-  [17] .debug_line       PROGBITS        00000000 02e408 003227 00      0   0  1
-  [18] .debug_str        PROGBITS        00000000 03162f 001f98 01  MS  0   0  1
-  [19] .debug_frame      PROGBITS        00000000 0335c8 000f6c 00      0   0  4
-  [20] .symtab           SYMTAB          00000000 034534 001d00 10     21 267  4
-  [21] .strtab           STRTAB          00000000 036234 0013b0 00      0   0  1
-  [22] .shstrtab         STRTAB          00000000 0375e4 0000e6 00      0   0  1
+  [ 7] .bss              NOBITS          38000074 020074 0023c8 00  WA  0   0  4
+  [ 8] .heap             PROGBITS        3800243c 020074 001004 00   W  0   0  1
+  [ 9] .stack            PROGBITS        380ff000 021078 001000 00   W  0   0  1
+  [10] .ARM.attributes   ARM_ATTRIBUTES  00000000 022078 000036 00      0   0  1
+  [11] .comment          PROGBITS        00000000 0220ae 000049 01  MS  0   0  1
+  [12] .debug_info       PROGBITS        00000000 0220f7 011e08 00      0   0  1
+  [13] .debug_abbrev     PROGBITS        00000000 033eff 00343a 00      0   0  1
+  [14] .debug_loc        PROGBITS        00000000 037339 0066a7 00      0   0  1
+  [15] .debug_aranges    PROGBITS        00000000 03d9e0 000660 00      0   0  8
+  [16] .debug_ranges     PROGBITS        00000000 03e040 000588 00      0   0  1
+  [17] .debug_line       PROGBITS        00000000 03e5c8 0068fc 00      0   0  1
+  [18] .debug_str        PROGBITS        00000000 044ec4 002b5e 01  MS  0   0  1
+  [19] .debug_frame      PROGBITS        00000000 047a24 001bd0 00      0   0  4
+  [20] .symtab           SYMTAB          00000000 0495f4 003100 10     21 486  4
+  [21] .strtab           STRTAB          00000000 04c6f4 001d92 00      0   0  1
+  [22] .shstrtab         STRTAB          00000000 04e486 0000e6 00      0   0  1
 Key to Flags:
   W (write), A (alloc), X (execute), M (merge), S (strings), I (info),
   L (link order), O (extra OS processing required), G (group), T (TLS),
@@ -54,10 +54,10 @@ There are no section groups in this file.
 
 Program Headers:
   Type           Offset   VirtAddr   PhysAddr   FileSiz MemSiz  Flg Align
-  EXIDX          0x01403c 0x1000403c 0x1000403c 0x000c0 0x000c0 R   0x4
-  LOAD           0x010000 0x10000000 0x10000000 0x04108 0x04108 RWE 0x10000
-  LOAD           0x020000 0x38000000 0x10004108 0x00074 0x00074 RW  0x10000
-  LOAD           0x000074 0x38000074 0x38000074 0x00000 0x001ec RW  0x10000
+  EXIDX          0x016174 0x10006174 0x10006174 0x000c0 0x000c0 R   0x4
+  LOAD           0x010000 0x10000000 0x10000000 0x06240 0x06240 RWE 0x10000
+  LOAD           0x020000 0x38000000 0x10006240 0x00074 0x00074 RW  0x10000
+  LOAD           0x000074 0x38000074 0x38000074 0x00000 0x023c8 RW  0x10000
 
  Section to Segment mapping:
   Segment Sections...
@@ -70,127 +70,127 @@ There is no dynamic section in this file.
 
 There are no relocations in this file.
 
-Unwind section '.ARM.exidx' at offset 0x1403c contains 24 entries:
+Unwind section '.ARM.exidx' at offset 0x16174 contains 24 entries:
 
-0x10001fd4 <Reset_Handler>: 0x80b0b0b0
+0x10002f7c <Reset_Handler>: 0x80b0b0b0
   Compact model index: 0
   0xb0      finish
   0xb0      finish
   0xb0      finish
 
-0x10002044 <_tx_initialize_low_level>: 0x1 [cantunwind]
+0x10002fec <_tx_initialize_low_level>: 0x1 [cantunwind]
 
-0x10003058 <get_eit_entry>: 0x8002a9b0
+0x1000504c <get_eit_entry>: 0x8002a9b0
   Compact model index: 0
   0x02      vsp = vsp + 12
   0xa9      pop {r4, r5, r14}
   0xb0      finish
 
-0x100030f4 <restore_non_core_regs>: 0x80a8b0b0
+0x100050e8 <restore_non_core_regs>: 0x80a8b0b0
   Compact model index: 0
   0xa8      pop {r4, r14}
   0xb0      finish
   0xb0      finish
 
-0x1000314c <__gnu_unwind_24bit.constprop.0>: 0x1 [cantunwind]
+0x10005140 <__gnu_unwind_24bit.constprop.0>: 0x1 [cantunwind]
 
-0x10003160 <unwind_phase2>: 0x80aab0b0
+0x10005154 <unwind_phase2>: 0x80aab0b0
   Compact model index: 0
   0xaa      pop {r4, r5, r6, r14}
   0xb0      finish
   0xb0      finish
 
-0x100031a0 <unwind_phase2_forced>: 0x80b273ae
+0x10005194 <unwind_phase2_forced>: 0x80b273ae
   Compact model index: 0
   0xb2 0x73 vsp = vsp + 976
   0xae      pop {r4, r5, r6, r7, r8, r9, r10, r14}
 
-0x1000327c <_Unwind_GetCFA>: 0x1 [cantunwind]
+0x10005270 <_Unwind_GetCFA>: 0x1 [cantunwind]
 
-0x10003280 <__gnu_Unwind_RaiseException>: 0x80383fab
+0x10005274 <__gnu_Unwind_RaiseException>: 0x80383fab
   Compact model index: 0
   0x38      vsp = vsp + 228
   0x3f      vsp = vsp + 256
   0xab      pop {r4, r5, r6, r7, r14}
 
-0x100032e8 <__gnu_Unwind_ForcedUnwind>: 0x1 [cantunwind]
+0x100052dc <__gnu_Unwind_ForcedUnwind>: 0x1 [cantunwind]
 
-0x100032fc <__gnu_Unwind_Resume>: 0x80aab0b0
+0x100052f0 <__gnu_Unwind_Resume>: 0x80aab0b0
   Compact model index: 0
   0xaa      pop {r4, r5, r6, r14}
   0xb0      finish
   0xb0      finish
 
-0x10003340 <__gnu_Unwind_Resume_or_Rethrow>: 0x1 [cantunwind]
+0x10005334 <__gnu_Unwind_Resume_or_Rethrow>: 0x1 [cantunwind]
 
-0x100033fc <__gnu_Unwind_Backtrace>: 0x80b20eab
+0x100053f0 <__gnu_Unwind_Backtrace>: 0x80b20eab
   Compact model index: 0
   0xb2 0x0e vsp = vsp + 572
   0xab      pop {r4, r5, r6, r7, r14}
 
-0x10003478 <__gnu_unwind_pr_common>: 0x8008afb0
+0x1000546c <__gnu_unwind_pr_common>: 0x8008afb0
   Compact model index: 0
   0x08      vsp = vsp + 36
   0xaf      pop {r4, r5, r6, r7, r8, r9, r10, r11, r14}
   0xb0      finish
 
-0x10003740 <__aeabi_unwind_cpp_pr0>: 0x1 [cantunwind]
+0x10005734 <__aeabi_unwind_cpp_pr0>: 0x1 [cantunwind]
 
-0x1000374c <_Unwind_VRS_Pop>: 0x80023fad
+0x10005740 <_Unwind_VRS_Pop>: 0x80023fad
   Compact model index: 0
   0x02      vsp = vsp + 12
   0x3f      vsp = vsp + 256
   0xad      pop {r4, r5, r6, r7, r8, r9, r14}
 
-0x10003a00 <restore_core_regs>: 0x1 [cantunwind]
+0x100059f4 <__restore_core_regs>: 0x1 [cantunwind]
 
-0x10003be8 <_Unwind_GetGR.constprop.0>: 0x8003a8b0
+0x10005bdc <_Unwind_GetGR.constprop.0>: 0x8003a8b0
   Compact model index: 0
   0x03      vsp = vsp + 16
   0xa8      pop {r4, r14}
   0xb0      finish
 
-0x10003c00 <unwind_UCB_from_context>: 0x1 [cantunwind]
+0x10005bf4 <unwind_UCB_from_context>: 0x1 [cantunwind]
 
-0x10003c04 <__gnu_unwind_execute>: 0x8004adb0
+0x10005bf8 <__gnu_unwind_execute>: 0x8004adb0
   Compact model index: 0
   0x04      vsp = vsp + 20
   0xad      pop {r4, r5, r6, r7, r8, r9, r14}
   0xb0      finish
 
-0x10003ed0 <__gnu_unwind_frame>: 0x80048400
+0x10005ec4 <__gnu_unwind_frame>: 0x80048400
   Compact model index: 0
   0x04      vsp = vsp + 20
   0x84 0x00 pop {r14}
 
-0x10003f00 <_Unwind_GetRegionStart>: @0x10004024
+0x10005ef4 <_Unwind_GetRegionStart>: @0x1000615c
   Compact model index: 1
   0xb1 0x08 pop {r3}
   0x84 0x00 pop {r14}
   0xb0      finish
   0xb0      finish
 
-0x10003f0c <_Unwind_GetLanguageSpecificData>: @0x10004030
+0x10005f00 <_Unwind_GetLanguageSpecificData>: @0x10006168
   Compact model index: 1
   0xb1 0x08 pop {r3}
   0x84 0x00 pop {r14}
   0xb0      finish
   0xb0      finish
 
-0x10003f20 <__aeabi_ldiv0>: 0x1 [cantunwind]
+0x10005f14 <__aeabi_ldiv0>: 0x1 [cantunwind]
 
 
-Symbol table '.symtab' contains 464 entries:
+Symbol table '.symtab' contains 784 entries:
    Num:    Value  Size Type    Bind   Vis      Ndx Name
      0: 00000000     0 NOTYPE  LOCAL  DEFAULT  UND 
      1: 10000000     0 SECTION LOCAL  DEFAULT    1 
-     2: 10004024     0 SECTION LOCAL  DEFAULT    2 
-     3: 1000403c     0 SECTION LOCAL  DEFAULT    3 
-     4: 100040fc     0 SECTION LOCAL  DEFAULT    4 
-     5: 10004108     0 SECTION LOCAL  DEFAULT    5 
+     2: 1000615c     0 SECTION LOCAL  DEFAULT    2 
+     3: 10006174     0 SECTION LOCAL  DEFAULT    3 
+     4: 10006234     0 SECTION LOCAL  DEFAULT    4 
+     5: 10006240     0 SECTION LOCAL  DEFAULT    5 
      6: 38000000     0 SECTION LOCAL  DEFAULT    6 
      7: 38000074     0 SECTION LOCAL  DEFAULT    7 
-     8: 38000260     0 SECTION LOCAL  DEFAULT    8 
+     8: 3800243c     0 SECTION LOCAL  DEFAULT    8 
      9: 380ff000     0 SECTION LOCAL  DEFAULT    9 
     10: 00000000     0 SECTION LOCAL  DEFAULT   10 
     11: 00000000     0 SECTION LOCAL  DEFAULT   11 
@@ -204,12 +204,12 @@ Symbol table '.symtab' contains 464 entries:
     19: 00000000     0 SECTION LOCAL  DEFAULT   19 
     20: 00000000     0 FILE    LOCAL  DEFAULT  ABS startup_ARMCM33.o
     21: 10000000     0 NOTYPE  LOCAL  DEFAULT    1 $d
-    22: 10001fd4     0 NOTYPE  LOCAL  DEFAULT    1 $t
-    23: 1000403c     0 NOTYPE  LOCAL  DEFAULT    3 $d
-    24: 1000202a     0 NOTYPE  LOCAL  DEFAULT    1 $d
-    25: 1000202c     0 NOTYPE  LOCAL  DEFAULT    1 $d
+    22: 10002f7c     0 NOTYPE  LOCAL  DEFAULT    1 $t
+    23: 10006174     0 NOTYPE  LOCAL  DEFAULT    3 $d
+    24: 10002fd2     0 NOTYPE  LOCAL  DEFAULT    1 $d
+    25: 10002fd4     0 NOTYPE  LOCAL  DEFAULT    1 $d
     26: 00000000     0 FILE    LOCAL  DEFAULT  ABS crtstuff.c
-    27: 10004020     0 OBJECT  LOCAL  DEFAULT    1 __EH_FRAME_BEGIN__
+    27: 10006158     0 OBJECT  LOCAL  DEFAULT    1 __EH_FRAME_BEGIN__
     28: 100007c0     0 NOTYPE  LOCAL  DEFAULT    1 $t
     29: 100007c1     0 FUNC    LOCAL  DEFAULT    1 __do_global_dtors_aux
     30: 100007d8     0 NOTYPE  LOCAL  DEFAULT    1 $d
@@ -224,428 +224,748 @@ Symbol table '.symtab' contains 464 entries:
     39: 3800006c     0 OBJECT  LOCAL  DEFAULT    6 __frame_dummy_in[...]
     40: 38000074     0 NOTYPE  LOCAL  DEFAULT    7 $d
     41: 00000000     0 FILE    LOCAL  DEFAULT  ABS main.c
-    42: 10003f3c     0 NOTYPE  LOCAL  DEFAULT    1 $d
+    42: 10005f30     0 NOTYPE  LOCAL  DEFAULT    1 $d
     43: 10000800     0 NOTYPE  LOCAL  DEFAULT    1 $t
-    44: 1000081c     0 NOTYPE  LOCAL  DEFAULT    1 $d
-    45: 00000000     0 FILE    LOCAL  DEFAULT  ABS system_ARMCM33.c
-    46: 10000824     0 NOTYPE  LOCAL  DEFAULT    1 $t
-    47: 10000840     0 NOTYPE  LOCAL  DEFAULT    1 $d
-    48: 38000000     0 NOTYPE  LOCAL  DEFAULT    6 $d
-    49: 00000000     0 FILE    LOCAL  DEFAULT  ABS printf.c
-    50: 10000850     0 NOTYPE  LOCAL  DEFAULT    1 $t
-    51: 10000851     2 FUNC    LOCAL  DEFAULT    1 _out_null
-    52: 10000852     0 NOTYPE  LOCAL  DEFAULT    1 $t
-    53: 10000853    36 FUNC    LOCAL  DEFAULT    1 _atoi
-    54: 10000876     0 NOTYPE  LOCAL  DEFAULT    1 $t
-    55: 10000877   126 FUNC    LOCAL  DEFAULT    1 _out_rev
-    56: 100008f4     0 NOTYPE  LOCAL  DEFAULT    1 $t
-    57: 100008f5   312 FUNC    LOCAL  DEFAULT    1 _ntoa_format
-    58: 10000a2c     0 NOTYPE  LOCAL  DEFAULT    1 $t
-    59: 10000a2d   148 FUNC    LOCAL  DEFAULT    1 _ntoa_long
-    60: 10000ac0     0 NOTYPE  LOCAL  DEFAULT    1 $t
-    61: 10000ac1   198 FUNC    LOCAL  DEFAULT    1 _ntoa_long_long
-    62: 10000b88     0 NOTYPE  LOCAL  DEFAULT    1 $t
-    63: 10000b89  1002 FUNC    LOCAL  DEFAULT    1 _etoa
-    64: 10000f79   918 FUNC    LOCAL  DEFAULT    1 _ftoa
-    65: 10000e30     0 NOTYPE  LOCAL  DEFAULT    1 $d
-    66: 10000e94     0 NOTYPE  LOCAL  DEFAULT    1 $t
-    67: 10003f58     0 NOTYPE  LOCAL  DEFAULT    1 $d
-    68: 10000f78     0 NOTYPE  LOCAL  DEFAULT    1 $t
-    69: 10001228     0 NOTYPE  LOCAL  DEFAULT    1 $d
-    70: 1000125c     0 NOTYPE  LOCAL  DEFAULT    1 $t
-    71: 10001310     0 NOTYPE  LOCAL  DEFAULT    1 $t
-    72: 10001311  1664 FUNC    LOCAL  DEFAULT    1 _vsnprintf
-    73: 1000135e     0 NOTYPE  LOCAL  DEFAULT    1 $d
-    74: 1000139c     0 NOTYPE  LOCAL  DEFAULT    1 $d
-    75: 1000149a     0 NOTYPE  LOCAL  DEFAULT    1 $d
-    76: 10001542     0 NOTYPE  LOCAL  DEFAULT    1 $t
-    77: 1000198c     0 NOTYPE  LOCAL  DEFAULT    1 $d
-    78: 10001990     0 NOTYPE  LOCAL  DEFAULT    1 $t
-    79: 10001991    12 FUNC    LOCAL  DEFAULT    1 _out_char
-    80: 1000199c     0 NOTYPE  LOCAL  DEFAULT    1 $t
-    81: 100019c4     0 NOTYPE  LOCAL  DEFAULT    1 $d
-    82: 10003f70     0 NOTYPE  LOCAL  DEFAULT    1 $d
-    83: 10003f70    80 OBJECT  LOCAL  DEFAULT    1 pow10.0
-    84: 1000136f     0 NOTYPE  LOCAL  DEFAULT    1 $d
-    85: 10001370     0 NOTYPE  LOCAL  DEFAULT    1 $t
-    86: 100013af     0 NOTYPE  LOCAL  DEFAULT    1 $d
-    87: 100013b0     0 NOTYPE  LOCAL  DEFAULT    1 $t
-    88: 00000000     0 FILE    LOCAL  DEFAULT  ABS uart.c
-    89: 100019c8     0 NOTYPE  LOCAL  DEFAULT    1 $t
-    90: 100019d8     0 NOTYPE  LOCAL  DEFAULT    1 $d
-    91: 100019dc     0 NOTYPE  LOCAL  DEFAULT    1 $t
-    92: 100019fc     0 NOTYPE  LOCAL  DEFAULT    1 $t
-    93: 10001a1c     0 NOTYPE  LOCAL  DEFAULT    1 $d
-    94: 00000000     0 FILE    LOCAL  DEFAULT  ABS tx_thread_stack_[...]
-    95: 10001a20     0 NOTYPE  LOCAL  DEFAULT    1 $t
-    96: 10001aa8     0 NOTYPE  LOCAL  DEFAULT    1 $d
-    97: 00000000     0 FILE    LOCAL  DEFAULT  ABS tx_thread_stack_[...]
-    98: 10001aac     0 NOTYPE  LOCAL  DEFAULT    1 $t
-    99: 10001ac4     0 NOTYPE  LOCAL  DEFAULT    1 $d
-   100: 00000000     0 FILE    LOCAL  DEFAULT  ABS tx_thread_system[...]
-   101: 10001ac8     0 NOTYPE  LOCAL  DEFAULT    1 $t
-   102: 10001d58     0 NOTYPE  LOCAL  DEFAULT    1 $d
-   103: 10001d90     0 NOTYPE  LOCAL  DEFAULT    1 $t
-   104: 00000000     0 FILE    LOCAL  DEFAULT  ABS tx_thread_time_s[...]
-   105: 10001df0     0 NOTYPE  LOCAL  DEFAULT    1 $t
-   106: 10001f4c     0 NOTYPE  LOCAL  DEFAULT    1 $d
-   107: 00000000     0 FILE    LOCAL  DEFAULT  ABS tx_timer_expirat[...]
-   108: 10001f6c     0 NOTYPE  LOCAL  DEFAULT    1 $t
-   109: 10001f80     0 NOTYPE  LOCAL  DEFAULT    1 $d
-   110: 00000000     0 FILE    LOCAL  DEFAULT  ABS tx_timer_system_[...]
-   111: 10001f84     0 NOTYPE  LOCAL  DEFAULT    1 $t
-   112: 00000000     0 FILE    LOCAL  DEFAULT  ABS syscalls.c
-   113: 10001fb2     0 NOTYPE  LOCAL  DEFAULT    1 $t
-   114: 10001fb6     0 NOTYPE  LOCAL  DEFAULT    1 $t
-   115: 10001fc6     0 NOTYPE  LOCAL  DEFAULT    1 $t
-   116: 00000000     0 FILE    LOCAL  DEFAULT  ABS tx_initialize_lo[...]
-   117: 005b8d80     0 NOTYPE  LOCAL  DEFAULT  ABS SYSTEM_CLOCK
-   118: 0000ea5f     0 NOTYPE  LOCAL  DEFAULT  ABS SYSTICK_CYCLES
-   119: 00000400     0 NOTYPE  LOCAL  DEFAULT  ABS STACK_SIZE
-   120: 00000000     0 NOTYPE  LOCAL  DEFAULT  ABS HEAP_SIZE
-   121: 10002044     0 NOTYPE  LOCAL  DEFAULT    1 $t
-   122: 100020ba     0 NOTYPE  LOCAL  DEFAULT    1 _unhandled_usage_loop
-   123: 100020f8     0 NOTYPE  LOCAL  DEFAULT    1 $d
-   124: 00000000     0 FILE    LOCAL  DEFAULT  ABS tx_thread_schedule.o
-   125: 10002120     0 NOTYPE  LOCAL  DEFAULT    1 $t
-   126: 1000214a     0 NOTYPE  LOCAL  DEFAULT    1 __tx_wait_here
-   127: 1000214c     0 NOTYPE  LOCAL  DEFAULT    1 __tx_ts_handler
-   128: 1000217e     0 NOTYPE  LOCAL  DEFAULT    1 __tx_ts_new
-   129: 1000216c     0 NOTYPE  LOCAL  DEFAULT    1 _skip_vfp_save
-   130: 100021ba     0 NOTYPE  LOCAL  DEFAULT    1 __tx_ts_wait
-   131: 10002188     0 NOTYPE  LOCAL  DEFAULT    1 __tx_ts_restore
-   132: 100021b0     0 NOTYPE  LOCAL  DEFAULT    1 _skip_vfp_restore
-   133: 100021c6     0 NOTYPE  LOCAL  DEFAULT    1 __tx_ts_ready
-   134: 100021de     0 NOTYPE  LOCAL  DEFAULT    1 $d
-   135: 100021e0     0 NOTYPE  LOCAL  DEFAULT    1 $d
-   136: 00000000     0 FILE    LOCAL  DEFAULT  ABS tx_timer_interrupt.o
-   137: 100021f0     0 NOTYPE  LOCAL  DEFAULT    1 $t
-   138: 10002210     0 NOTYPE  LOCAL  DEFAULT    1 __tx_timer_no_ti[...]
-   139: 10002222     0 NOTYPE  LOCAL  DEFAULT    1 __tx_timer_no_timer
-   140: 10002234     0 NOTYPE  LOCAL  DEFAULT    1 __tx_timer_done
-   141: 10002232     0 NOTYPE  LOCAL  DEFAULT    1 __tx_timer_skip_wrap
-   142: 10002240     0 NOTYPE  LOCAL  DEFAULT    1 __tx_something_e[...]
-   143: 10002274     0 NOTYPE  LOCAL  DEFAULT    1 __tx_timer_nothi[...]
-   144: 1000224c     0 NOTYPE  LOCAL  DEFAULT    1 __tx_timer_dont_[...]
-   145: 10002270     0 NOTYPE  LOCAL  DEFAULT    1 __tx_timer_not_t[...]
-   146: 10002270     0 NOTYPE  LOCAL  DEFAULT    1 __tx_timer_skip_[...]
-   147: 1000227a     0 NOTYPE  LOCAL  DEFAULT    1 $d
-   148: 1000227c     0 NOTYPE  LOCAL  DEFAULT    1 $d
-   149: 00000000     0 FILE    LOCAL  DEFAULT  ABS errno.c
-   150: 100022a8     0 NOTYPE  LOCAL  DEFAULT    1 $t
-   151: 100022b0     0 NOTYPE  LOCAL  DEFAULT    1 $d
-   152: 00000000     0 FILE    LOCAL  DEFAULT  ABS abort.c
-   153: 100022b4     0 NOTYPE  LOCAL  DEFAULT    1 $t
-   154: 00000000     0 FILE    LOCAL  DEFAULT  ABS memcpy-stub.c
-   155: 100022c2     0 NOTYPE  LOCAL  DEFAULT    1 $t
-   156: 00000000     0 FILE    LOCAL  DEFAULT  ABS signal.c
-   157: 100022dc     0 NOTYPE  LOCAL  DEFAULT    1 $t
-   158: 1000232c     0 NOTYPE  LOCAL  DEFAULT    1 $t
-   159: 10002338     0 NOTYPE  LOCAL  DEFAULT    1 $d
-   160: 00000000     0 FILE    LOCAL  DEFAULT  ABS signalr.c
-   161: 1000233c     0 NOTYPE  LOCAL  DEFAULT    1 $t
-   162: 1000235c     0 NOTYPE  LOCAL  DEFAULT    1 $d
-   163: 10002360     0 NOTYPE  LOCAL  DEFAULT    1 $t
-   164: 00000000     0 FILE    LOCAL  DEFAULT  ABS _arm_addsubdf3.o
-   165: 10002364     0 NOTYPE  LOCAL  DEFAULT    1 $t
-   166: 00000000     0 FILE    LOCAL  DEFAULT  ABS _arm_muldivdf3.o
-   167: 100026dc     0 NOTYPE  LOCAL  DEFAULT    1 $t
-   168: 00000000     0 FILE    LOCAL  DEFAULT  ABS _arm_cmpdf2.o
-   169: 10002b00     0 NOTYPE  LOCAL  DEFAULT    1 $t
-   170: 00000000     0 FILE    LOCAL  DEFAULT  ABS _arm_fixdfsi.o
-   171: 10002c10     0 NOTYPE  LOCAL  DEFAULT    1 $t
-   172: 00000000     0 FILE    LOCAL  DEFAULT  ABS _arm_fixunsdfsi.o
-   173: 10002c60     0 NOTYPE  LOCAL  DEFAULT    1 $t
-   174: 00000000     0 FILE    LOCAL  DEFAULT  ABS _aeabi_uldivmod.o
-   175: 10002ca0     0 NOTYPE  LOCAL  DEFAULT    1 $t
-   176: 00000000     0 FILE    LOCAL  DEFAULT  ABS libgcc2.c
-   177: 10002cd0     0 NOTYPE  LOCAL  DEFAULT    1 $t
-   178: 1000404c     0 NOTYPE  LOCAL  DEFAULT    3 $d
-   179: 00000000     0 FILE    LOCAL  DEFAULT  ABS unwind-arm.c
-   180: 10002fbc     0 NOTYPE  LOCAL  DEFAULT    1 $t
-   181: 10002fbd    18 FUNC    LOCAL  DEFAULT    1 selfrel_offset31
-   182: 1000404c     0 NOTYPE  LOCAL  DEFAULT    3 $d
-   183: 10002fd1    96 FUNC    LOCAL  DEFAULT    1 search_EIT_table
-   184: 10003031    40 FUNC    LOCAL  DEFAULT    1 __gnu_unwind_get[...]
-   185: 1000304c     0 NOTYPE  LOCAL  DEFAULT    1 $d
-   186: 10003058     0 NOTYPE  LOCAL  DEFAULT    1 $t
-   187: 10003059   156 FUNC    LOCAL  DEFAULT    1 get_eit_entry
-   188: 100030e8     0 NOTYPE  LOCAL  DEFAULT    1 $d
-   189: 100030f4     0 NOTYPE  LOCAL  DEFAULT    1 $t
-   190: 100030f5    88 FUNC    LOCAL  DEFAULT    1 restore_non_core_regs
-   191: 1000314d     4 FUNC    LOCAL  DEFAULT    1 __gnu_unwind_24b[...]
-   192: 10003151    10 FUNC    LOCAL  DEFAULT    1 _Unwind_decode_t[...]
-   193: 1000315d     2 FUNC    LOCAL  DEFAULT    1 _Unwind_DebugHook
-   194: 10003161    62 FUNC    LOCAL  DEFAULT    1 unwind_phase2
-   195: 100031a1   218 FUNC    LOCAL  DEFAULT    1 unwind_phase2_forced
-   196: 10003399    24 FUNC    LOCAL  DEFAULT    1 _Unwind_GetGR
-   197: 100033e5    24 FUNC    LOCAL  DEFAULT    1 _Unwind_SetGR
-   198: 10003479   712 FUNC    LOCAL  DEFAULT    1 __gnu_unwind_pr_[...]
-   199: 1000373c     0 NOTYPE  LOCAL  DEFAULT    1 $d
-   200: 10003740     0 NOTYPE  LOCAL  DEFAULT    1 $t
-   201: 10003762     0 NOTYPE  LOCAL  DEFAULT    1 $d
-   202: 10003767     0 NOTYPE  LOCAL  DEFAULT    1 $d
-   203: 10003768     0 NOTYPE  LOCAL  DEFAULT    1 $t
-   204: 00000000     0 FILE    LOCAL  DEFAULT  ABS libunwind.o
-   205: 10003a00     0 NOTYPE  LOCAL  DEFAULT    1 $t
-   206: 00000000     0 FILE    LOCAL  DEFAULT  ABS pr-support.c
-   207: 10003bac     0 NOTYPE  LOCAL  DEFAULT    1 $t
-   208: 10003bad    60 FUNC    LOCAL  DEFAULT    1 next_unwind_byte
-   209: 100040c4     0 NOTYPE  LOCAL  DEFAULT    3 $d
-   210: 10003be9    24 FUNC    LOCAL  DEFAULT    1 _Unwind_GetGR.co[...]
-   211: 10003c01     2 FUNC    LOCAL  DEFAULT    1 unwind_UCB_from_[...]
-   212: 10004024     0 NOTYPE  LOCAL  DEFAULT    2 $d
-   213: 00000000     0 FILE    LOCAL  DEFAULT  ABS _dvmd_tls.o
-   214: 10003f20     0 NOTYPE  LOCAL  DEFAULT    1 $t
-   215: 00000000     0 FILE    LOCAL  DEFAULT  ABS crti.o
-   216: 10003f24     0 NOTYPE  LOCAL  DEFAULT    1 $t
-   217: 10003f30     0 NOTYPE  LOCAL  DEFAULT    1 $t
-   218: 00000000     0 FILE    LOCAL  DEFAULT  ABS crtn.o
-   219: 10003f28     0 NOTYPE  LOCAL  DEFAULT    1 $t
-   220: 10003f34     0 NOTYPE  LOCAL  DEFAULT    1 $t
-   221: 00000000     0 FILE    LOCAL  DEFAULT  ABS findfp.c
-   222: 10003fc0     0 NOTYPE  LOCAL  DEFAULT    1 $d
-   223: 10003fe0     0 NOTYPE  LOCAL  DEFAULT    1 $d
-   224: 10004000     0 NOTYPE  LOCAL  DEFAULT    1 $d
-   225: 00000000     0 FILE    LOCAL  DEFAULT  ABS crtstuff.c
-   226: 10004020     0 NOTYPE  LOCAL  DEFAULT    1 $d
-   227: 10004020     0 OBJECT  LOCAL  DEFAULT    1 __FRAME_END__
-   228: 00000000     0 FILE    LOCAL  DEFAULT  ABS tx_thread_initia[...]
-   229: 38000094     0 NOTYPE  LOCAL  DEFAULT    7 $d
-   230: 38000098     0 NOTYPE  LOCAL  DEFAULT    7 $d
-   231: 3800009c     0 NOTYPE  LOCAL  DEFAULT    7 $d
-   232: 380000a0     0 NOTYPE  LOCAL  DEFAULT    7 $d
-   233: 380000a4     0 NOTYPE  LOCAL  DEFAULT    7 $d
-   234: 380000a8     0 NOTYPE  LOCAL  DEFAULT    7 $d
-   235: 380000c8     0 NOTYPE  LOCAL  DEFAULT    7 $d
-   236: 380000cc     0 NOTYPE  LOCAL  DEFAULT    7 $d
-   237: 380000d0     0 NOTYPE  LOCAL  DEFAULT    7 $d
-   238: 380000d4     0 NOTYPE  LOCAL  DEFAULT    7 $d
-   239: 380000d8     0 NOTYPE  LOCAL  DEFAULT    7 $d
-   240: 380000dc     0 NOTYPE  LOCAL  DEFAULT    7 $d
-   241: 380000e0     0 NOTYPE  LOCAL  DEFAULT    7 $d
-   242: 38000160     0 NOTYPE  LOCAL  DEFAULT    7 $d
-   243: 38000164     0 NOTYPE  LOCAL  DEFAULT    7 $d
-   244: 38000004     0 NOTYPE  LOCAL  DEFAULT    6 $d
-   245: 00000000     0 FILE    LOCAL  DEFAULT  ABS impure.c
-   246: 38000008     0 NOTYPE  LOCAL  DEFAULT    6 $d
-   247: 3800000c    96 OBJECT  LOCAL  DEFAULT    6 impure_data
-   248: 3800000c     0 NOTYPE  LOCAL  DEFAULT    6 $d
-   249: 00000000     0 FILE    LOCAL  DEFAULT  ABS tx_initialize_hi[...]
-   250: 38000090     0 NOTYPE  LOCAL  DEFAULT    7 $d
-   251: 00000000     0 FILE    LOCAL  DEFAULT  ABS tx_timer_initialize.c
-   252: 38000168     0 NOTYPE  LOCAL  DEFAULT    7 $d
-   253: 3800016c     0 NOTYPE  LOCAL  DEFAULT    7 $d
-   254: 38000170     0 NOTYPE  LOCAL  DEFAULT    7 $d
-   255: 38000174     0 NOTYPE  LOCAL  DEFAULT    7 $d
-   256: 38000178     0 NOTYPE  LOCAL  DEFAULT    7 $d
-   257: 3800017c     0 NOTYPE  LOCAL  DEFAULT    7 $d
-   258: 38000180     0 NOTYPE  LOCAL  DEFAULT    7 $d
-   259: 38000258     0 NOTYPE  LOCAL  DEFAULT    7 $d
-   260: 00000000     0 FILE    LOCAL  DEFAULT  ABS reent.c
-   261: 3800025c     0 NOTYPE  LOCAL  DEFAULT    7 $d
-   262: 00000000     0 FILE    LOCAL  DEFAULT  ABS 
-   263: 38000070     0 NOTYPE  LOCAL  DEFAULT    6 __init_array_end
-   264: 3800006c     0 NOTYPE  LOCAL  DEFAULT    6 __preinit_array_end
-   265: 3800006c     0 NOTYPE  LOCAL  DEFAULT    6 __init_array_start
-   266: 3800006c     0 NOTYPE  LOCAL  DEFAULT    6 __preinit_array_start
-   267: 10003b65    34 FUNC    GLOBAL HIDDEN     1 ___Unwind_Forced[...]
-   268: 10003281   102 FUNC    GLOBAL HIDDEN     1 __gnu_Unwind_Rai[...]
-   269: 380000e0   128 OBJECT  GLOBAL DEFAULT    7 _tx_thread_prior[...]
-   270: 10002bd5    18 FUNC    GLOBAL HIDDEN     1 __aeabi_dcmple
-   271: 10001fb3     4 FUNC    GLOBAL DEFAULT    1 _getpid
-   272: 10002b11   122 FUNC    GLOBAL HIDDEN     1 __cmpdf2
-   273: 10000000  1984 NOTYPE  GLOBAL DEFAULT    1 __Vectors
-   274: 10002029     2 FUNC    WEAK   DEFAULT    1 DebugMon_Handler
-   275: 10002b11   122 FUNC    GLOBAL HIDDEN     1 __eqdf2
-   276: 10001f85    46 FUNC    GLOBAL DEFAULT    1 _tx_timer_system[...]
-   277: 00001000     0 NOTYPE  GLOBAL DEFAULT  ABS __HEAP_SIZE
-   278: 38000000     0 NOTYPE  GLOBAL DEFAULT    6 __data_start__
-   279: 10002681    90 FUNC    GLOBAL HIDDEN     1 __floatdidf
-   280: 1000233d    36 FUNC    GLOBAL DEFAULT    1 _kill_r
-   281: 1000199d    44 FUNC    GLOBAL DEFAULT    1 printf
-   282: 100020ad     2 FUNC    GLOBAL DEFAULT    1 HardFault_Handler
-   283: 38000168     4 OBJECT  GLOBAL DEFAULT    7 _tx_timer_current_ptr
-   284: 100020a1     2 FUNC    GLOBAL DEFAULT    1 SysTick_Handler
-   285: 10001aad    28 FUNC    GLOBAL DEFAULT    1 _tx_thread_stack[...]
-   286: 38000004     4 OBJECT  GLOBAL DEFAULT    6 _tx_thread_syste[...]
-   287: 00000000     0 NOTYPE  GLOBAL DEFAULT  ABS __STACKSEAL_SIZE
-   288: 38000160     4 OBJECT  GLOBAL DEFAULT    7 _tx_thread_prior[...]
-   289: 10003a21     0 FUNC    GLOBAL HIDDEN     1 __gnu_Unwind_Save_VFP
-   290: 10003b41    34 FUNC    GLOBAL HIDDEN     1 _Unwind_Resume_o[...]
-   291: 1000214d     2 FUNC    GLOBAL DEFAULT    1 PendSV_Handler
-   292: 10002029     2 FUNC    WEAK   DEFAULT    1 NMI_Handler
-   293: 100040fc     0 NOTYPE  GLOBAL DEFAULT    3 __exidx_end
-   294: 10003741     4 FUNC    GLOBAL HIDDEN     1 __aeabi_unwind_c[...]
-   295: 10002b01   138 FUNC    GLOBAL HIDDEN     1 __gtdf2
-   296: 100022a9    12 FUNC    GLOBAL DEFAULT    1 __errno
-   297: 10004108     0 NOTYPE  GLOBAL DEFAULT    4 __etext
-   298: 10003f01    10 FUNC    GLOBAL HIDDEN     1 _Unwind_GetRegio[...]
-   299: 380000d0     4 OBJECT  GLOBAL DEFAULT    7 _tx_thread_perfo[...]
-   300: 100021d9     0 FUNC    GLOBAL DEFAULT    1 _tx_vfp_access
-   301: 10003b41    34 FUNC    GLOBAL HIDDEN     1 ___Unwind_Resume[...]
-   302: 3800025c     4 OBJECT  GLOBAL DEFAULT    7 errno
-   303: 10004024     0 NOTYPE  GLOBAL DEFAULT    1 _etext
-   304: 10003b89    34 FUNC    GLOBAL HIDDEN     1 _Unwind_Backtrace
-   305: 10002b9d    16 FUNC    GLOBAL HIDDEN     1 __aeabi_cdcmple
-   306: 10003a01    24 FUNC    GLOBAL HIDDEN     1 __restore_core_regs
-   307: 10003a41     0 FUNC    GLOBAL HIDDEN     1 __gnu_Unwind_Sav[...]
-   308: 100040fc     0 NOTYPE  GLOBAL DEFAULT    4 __copy_table_start__
-   309: 10002029     2 FUNC    WEAK   DEFAULT    1 Interrupt3_Handler
-   310: 00100000     0 NOTYPE  GLOBAL DEFAULT  ABS __ROM_SIZE
-   311: 1000327d     4 FUNC    GLOBAL HIDDEN     1 _Unwind_GetCFA
-   312: 100022c3    26 FUNC    GLOBAL DEFAULT    1 memcpy
-   313: 10002b8d    32 FUNC    GLOBAL HIDDEN     1 __aeabi_cdrcmple
-   314: 100033b1    52 FUNC    GLOBAL HIDDEN     1 _Unwind_VRS_Set
-   315: 10002609    34 FUNC    GLOBAL HIDDEN     1 __floatsidf
-   316: 10002b09   130 FUNC    GLOBAL HIDDEN     1 __ltdf2
-   317: 10002ca1     0 FUNC    GLOBAL HIDDEN     1 __aeabi_uldivmod
-   318: 100019dd    30 FUNC    GLOBAL DEFAULT    1 puts
-   319: 10002029     2 FUNC    WEAK   DEFAULT    1 Interrupt8_Handler
-   320: 38000000     4 OBJECT  GLOBAL DEFAULT    6 SystemCoreClock
-   321: 100022dd    80 FUNC    GLOBAL DEFAULT    1 _raise_r
-   322: 10002029     2 FUNC    WEAK   DEFAULT    1 Interrupt5_Handler
-   323: 380000a8    32 OBJECT  GLOBAL DEFAULT    7 _tx_thread_perfo[...]
-   324: 100020b1     2 FUNC    GLOBAL DEFAULT    1 UsageFault_Handler
-   325: 10002c61    64 FUNC    GLOBAL HIDDEN     1 __fixunsdfsi
-   326: 10002361     4 FUNC    GLOBAL DEFAULT    1 _getpid_r
-   327: 38001260     0 NOTYPE  GLOBAL DEFAULT    8 __HeapLimit
-   328: 38000074     0 NOTYPE  GLOBAL DEFAULT    7 __bss_start__
-   329: 3800016c     4 OBJECT  GLOBAL DEFAULT    7 _tx_timer_expired
-   330: 100033fd   124 FUNC    GLOBAL HIDDEN     1 __gnu_Unwind_Bac[...]
-   331: 100025e9    30 FUNC    GLOBAL HIDDEN     1 __aeabi_ui2d
-   332: 38000090     4 OBJECT  GLOBAL DEFAULT    7 _tx_initialize_u[...]
-   333: 10001f6d    24 FUNC    GLOBAL DEFAULT    1 _tx_timer_expira[...]
-   334: 10002cd1   748 FUNC    GLOBAL HIDDEN     1 __udivmoddi4
-   335: 10002365     0 FUNC    GLOBAL HIDDEN     1 __aeabi_drsub
-   336: 10004108     0 NOTYPE  GLOBAL DEFAULT    5 __zero_table_end__
-   337: 10003a31     0 FUNC    GLOBAL HIDDEN     1 __gnu_Unwind_Sav[...]
-   338: 10002bc1    18 FUNC    GLOBAL HIDDEN     1 __aeabi_dcmplt
-   339: 1000374d   692 FUNC    GLOBAL HIDDEN     1 _Unwind_VRS_Pop
-   340: 10003749     4 FUNC    WEAK   HIDDEN     1 __aeabi_unwind_c[...]
-   341: 10003b89    34 FUNC    GLOBAL HIDDEN     1 ___Unwind_Backtrace
-   342: 1000262d    66 FUNC    GLOBAL HIDDEN     1 __extendsfdf2
-   343: 10002931   464 FUNC    GLOBAL HIDDEN     1 __aeabi_ddiv
-   344: 10002371   630 FUNC    GLOBAL HIDDEN     1 __adddf3
-   345: 1000403c     0 NOTYPE  GLOBAL DEFAULT    2 __exidx_start
-   346: 38000258     4 OBJECT  GLOBAL DEFAULT    7 _tx_timer_time_slice
-   347: 100026dd   596 FUNC    GLOBAL HIDDEN     1 __aeabi_dmul
-   348: 10003af9    34 FUNC    GLOBAL HIDDEN     1 ___Unwind_RaiseE[...]
-   349: 100022b5    14 FUNC    GLOBAL DEFAULT    1 abort
-   350: 10003b1d    34 FUNC    GLOBAL HIDDEN     1 ___Unwind_Resume
-   351: 100025e9    30 FUNC    GLOBAL HIDDEN     1 __floatunsidf
-   352: 10003f25     0 FUNC    GLOBAL DEFAULT    1 _init
-   353: 10003a49     0 FUNC    GLOBAL HIDDEN     1 __gnu_Unwind_Res[...]
-   354: 10001fd5    82 FUNC    GLOBAL DEFAULT    1 Reset_Handler
-   355: 10002029     2 FUNC    WEAK   DEFAULT    1 Interrupt7_Handler
-   356: 10002029     2 FUNC    WEAK   DEFAULT    1 Interrupt2_Handler
-   357: 10002c11    78 FUNC    GLOBAL HIDDEN     1 __fixdfsi
-   358: 38000164     4 OBJECT  GLOBAL DEFAULT    7 _tx_thread_syste[...]
-   359: 10002029     2 FUNC    WEAK   DEFAULT    1 Interrupt0_Handler
-   360: 10002371   630 FUNC    GLOBAL HIDDEN     1 __aeabi_dadd
-   361: 10002b09   130 FUNC    GLOBAL HIDDEN     1 __ledf2
-   362: 10002671   106 FUNC    GLOBAL HIDDEN     1 __aeabi_ul2d
-   363: 10003a19     0 FUNC    GLOBAL HIDDEN     1 __gnu_Unwind_Res[...]
-   364: 10003fc0    32 OBJECT  GLOBAL DEFAULT    1 __sf_fake_stderr
-   365: 000007c0     0 NOTYPE  GLOBAL DEFAULT  ABS __Vectors_Size
-   366: 10003b1d    34 FUNC    GLOBAL HIDDEN     1 _Unwind_Resume
-   367: 10002029     2 FUNC    WEAK   DEFAULT    1 Interrupt4_Handler
-   368: 10003359    12 FUNC    GLOBAL HIDDEN     1 _Unwind_DeleteEx[...]
-   369: 38000074     0 NOTYPE  GLOBAL DEFAULT    6 __data_end__
-   370: 10003355     2 FUNC    GLOBAL HIDDEN     1 _Unwind_Complete
-   371: 38000174     4 OBJECT  GLOBAL DEFAULT    7 _tx_timer_list_end
-   372: 38000180   216 OBJECT  GLOBAL DEFAULT    7 _tx_timer_thread
-   373: 10002bfd    18 FUNC    GLOBAL HIDDEN     1 __aeabi_dcmpgt
-   374: 100019fd    36 FUNC    GLOBAL DEFAULT    1 uart_init
-   375: 10002029     2 FUNC    WEAK   DEFAULT    1 SecureFault_Handler
-   376: 38000260     0 NOTYPE  GLOBAL DEFAULT    7 __bss_end__
-   377: 00001000     0 NOTYPE  GLOBAL DEFAULT  ABS __STACK_SIZE
-   378: 38000000     0 NOTYPE  GLOBAL DEFAULT  ABS __RAM_BASE
-   379: 10002be9    18 FUNC    GLOBAL HIDDEN     1 __aeabi_dcmpge
-   380: 380000c8     4 OBJECT  GLOBAL DEFAULT    7 _tx_thread_perfo[...]
-   381: 1000236d   634 FUNC    GLOBAL HIDDEN     1 __aeabi_dsub
-   382: 10002029     2 FUNC    WEAK   DEFAULT    1 Interrupt9_Handler
-   383: 10002671   106 FUNC    GLOBAL HIDDEN     1 __floatundidf
-   384: 10003c05   714 FUNC    GLOBAL HIDDEN     1 __gnu_unwind_execute
-   385: 10003a29     0 FUNC    GLOBAL HIDDEN     1 __gnu_Unwind_Res[...]
-   386: 10001a21   140 FUNC    GLOBAL DEFAULT    1 _tx_thread_stack[...]
-   387: 380000dc     4 OBJECT  GLOBAL DEFAULT    7 _tx_thread_preem[...]
-   388: 10002099     0 FUNC    GLOBAL DEFAULT    1 __tx_IntHandler
-   389: 100032fd    68 FUNC    GLOBAL HIDDEN     1 __gnu_Unwind_Resume
-   390: 38000178     4 OBJECT  GLOBAL DEFAULT    7 _tx_timer_list_start
-   391: 10002029     2 FUNC    WEAK   DEFAULT    1 Interrupt6_Handler
-   392: 10002609    34 FUNC    GLOBAL HIDDEN     1 __aeabi_i2d
-   393: 38000098     4 OBJECT  GLOBAL DEFAULT    7 _tx_thread_curre[...]
-   394: 10003a39     0 FUNC    GLOBAL HIDDEN     1 __gnu_Unwind_Res[...]
-   395: 10003af9    34 FUNC    GLOBAL HIDDEN     1 _Unwind_RaiseExc[...]
-   396: 10003f21     2 FUNC    WEAK   HIDDEN     1 __aeabi_ldiv0
-   397: 10002931   464 FUNC    GLOBAL HIDDEN     1 __divdf3
-   398: 100026dd   596 FUNC    GLOBAL HIDDEN     1 __muldf3
-   399: 38100000     0 NOTYPE  GLOBAL DEFAULT    7 __RAM_segment_us[...]
-   400: 10003fe0    32 OBJECT  GLOBAL DEFAULT    1 __sf_fake_stdin
-   401: 10002029     2 FUNC    WEAK   DEFAULT    1 MemManage_Handler
-   402: 10000801    36 FUNC    GLOBAL DEFAULT    1 main
-   403: 100020f5     0 FUNC    GLOBAL DEFAULT    1 __tx_DBGHandler
-   404: 10002029     2 FUNC    WEAK   DEFAULT    1 SVC_Handler
-   405: 10002681    90 FUNC    GLOBAL HIDDEN     1 __aeabi_l2d
-   406: 38000260     0 NOTYPE  GLOBAL DEFAULT    8 __end__
-   407: 10002095     0 FUNC    GLOBAL DEFAULT    1 __tx_BadHandler
-   408: 100032e9    18 FUNC    GLOBAL HIDDEN     1 __gnu_Unwind_For[...]
-   409: 10004108     0 NOTYPE  GLOBAL DEFAULT    5 __zero_table_start__
-   410: 10001ac9   808 FUNC    GLOBAL DEFAULT    1 _tx_thread_syste[...]
-   411: 380000cc     4 OBJECT  GLOBAL DEFAULT    7 _tx_thread_perfo[...]
-   412: 10000825    44 FUNC    GLOBAL DEFAULT    1 SystemInit
-   413: 10003341    18 FUNC    GLOBAL HIDDEN     1 __gnu_Unwind_Res[...]
-   414: 10002b11   122 FUNC    GLOBAL HIDDEN     1 __nedf2
-   415: 10003f31     0 FUNC    GLOBAL DEFAULT    1 _fini
-   416: 10003a01    24 FUNC    GLOBAL HIDDEN     1 restore_core_regs
-   417: 380ff000     0 NOTYPE  GLOBAL DEFAULT    9 _sstack
-   418: 10003ae5     0 FUNC    GLOBAL HIDDEN     1 __gnu_Unwind_Sav[...]
-   419: 10001df1   380 FUNC    GLOBAL DEFAULT    1 _tx_thread_time_slice
-   420: 38100000     0 NOTYPE  GLOBAL DEFAULT    9 __StackTop
-   421: 38000008     4 OBJECT  GLOBAL DEFAULT    6 _impure_ptr
-   422: 3800009c     4 OBJECT  GLOBAL DEFAULT    7 _tx_thread_execu[...]
-   423: 10003f0d    18 FUNC    GLOBAL HIDDEN     1 _Unwind_GetLangu[...]
-   424: 10002c61    64 FUNC    GLOBAL HIDDEN     1 __aeabi_d2uiz
-   425: 10003365    52 FUNC    GLOBAL HIDDEN     1 _Unwind_VRS_Get
-   426: 38100000     0 NOTYPE  GLOBAL DEFAULT    9 _estack
-   427: 100007c0     0 NOTYPE  GLOBAL DEFAULT    1 __Vectors_End
-   428: 38100000     0 NOTYPE  GLOBAL DEFAULT    9 __stack
-   429: 10003ad1     0 FUNC    GLOBAL HIDDEN     1 __gnu_Unwind_Res[...]
-   430: 10002bad    18 FUNC    GLOBAL HIDDEN     1 __aeabi_dcmpeq
-   431: 10002029     2 FUNC    WEAK   DEFAULT    1 Interrupt1_Handler
-   432: 10003ed1    48 FUNC    GLOBAL HIDDEN     1 __gnu_unwind_frame
-   433: 100021f1     0 FUNC    GLOBAL DEFAULT    1 _tx_timer_interrupt
-   434: 10003b65    34 FUNC    GLOBAL HIDDEN     1 _Unwind_ForcedUnwind
-   435: 38000094     4 OBJECT  GLOBAL DEFAULT    7 _tx_thread_appli[...]
-   436: 380000a0     4 OBJECT  GLOBAL DEFAULT    7 _tx_thread_highe[...]
-   437: 380000d4     4 OBJECT  GLOBAL DEFAULT    7 _tx_thread_perfo[...]
-   438: 100020f1     0 FUNC    GLOBAL DEFAULT    1 __tx_NMIHandler
-   439: 380ff000     0 NOTYPE  GLOBAL DEFAULT    9 __StackLimit
-   440: 38000170     4 OBJECT  GLOBAL DEFAULT    7 _tx_timer_expire[...]
-   441: 10002c11    78 FUNC    GLOBAL HIDDEN     1 __aeabi_d2iz
-   442: 10003a8d     0 FUNC    GLOBAL HIDDEN     1 __gnu_Unwind_Sav[...]
-   443: 10001fb7    16 FUNC    GLOBAL DEFAULT    1 _kill
-   444: 10004000    32 OBJECT  GLOBAL DEFAULT    1 __sf_fake_stdout
-   445: 3800017c     4 OBJECT  GLOBAL DEFAULT    7 _tx_timer_system[...]
-   446: 10000000     0 NOTYPE  GLOBAL DEFAULT  ABS __ROM_BASE
-   447: 10003f21     2 FUNC    WEAK   HIDDEN     1 __aeabi_idiv0
-   448: 10001fc7    12 FUNC    GLOBAL DEFAULT    1 _exit
-   449: 10004108     0 NOTYPE  GLOBAL DEFAULT    4 __copy_table_end__
-   450: 10002121     0 FUNC    GLOBAL DEFAULT    1 _tx_thread_schedule
-   451: 10002029     2 FUNC    WEAK   DEFAULT    1 BusFault_Handler
-   452: 10000000     0 NOTYPE  GLOBAL DEFAULT    1 _stext
-   453: 10003745     4 FUNC    WEAK   HIDDEN     1 __aeabi_unwind_c[...]
-   454: 10002b9d    16 FUNC    GLOBAL HIDDEN     1 __aeabi_cdcmpeq
-   455: 10002b01   138 FUNC    GLOBAL HIDDEN     1 __gedf2
-   456: 00100000     0 NOTYPE  GLOBAL DEFAULT  ABS __RAM_SIZE
-   457: 1000262d    66 FUNC    GLOBAL HIDDEN     1 __aeabi_f2d
-   458: 1000236d   634 FUNC    GLOBAL HIDDEN     1 __subdf3
-   459: 10002045     0 FUNC    GLOBAL DEFAULT    1 _tx_initialize_l[...]
-   460: 380000d8     4 OBJECT  GLOBAL DEFAULT    7 _tx_thread_perfo[...]
-   461: 100019c9    20 FUNC    GLOBAL DEFAULT    1 put_char
-   462: 380000a4     4 OBJECT  GLOBAL DEFAULT    7 _tx_thread_perfo[...]
-   463: 1000232d    16 FUNC    GLOBAL DEFAULT    1 raise
+    44: 10000801    28 FUNC    LOCAL  DEFAULT    1 tx_task_entry
+    45: 10000818     0 NOTYPE  LOCAL  DEFAULT    1 $d
+    46: 10005f44     0 NOTYPE  LOCAL  DEFAULT    1 $d
+    47: 1000081c     0 NOTYPE  LOCAL  DEFAULT    1 $t
+    48: 10000878     0 NOTYPE  LOCAL  DEFAULT    1 $d
+    49: 38000090  4096 OBJECT  LOCAL  DEFAULT    7 tx_memory.1
+    50: 10005f54     0 NOTYPE  LOCAL  DEFAULT    1 $d
+    51: 10000890     0 NOTYPE  LOCAL  DEFAULT    1 $t
+    52: 100008b0     0 NOTYPE  LOCAL  DEFAULT    1 $d
+    53: 38000090     0 NOTYPE  LOCAL  DEFAULT    7 $d
+    54: 38001090     0 NOTYPE  LOCAL  DEFAULT    7 $d
+    55: 38001090    52 OBJECT  LOCAL  DEFAULT    7 tx_pool.2
+    56: 380010c4     0 NOTYPE  LOCAL  DEFAULT    7 $d
+    57: 380010c4   216 OBJECT  LOCAL  DEFAULT    7 tx_task.0
+    58: 00000000     0 FILE    LOCAL  DEFAULT  ABS system_ARMCM33.c
+    59: 100008b8     0 NOTYPE  LOCAL  DEFAULT    1 $t
+    60: 100008d4     0 NOTYPE  LOCAL  DEFAULT    1 $d
+    61: 38000000     0 NOTYPE  LOCAL  DEFAULT    6 $d
+    62: 00000000     0 FILE    LOCAL  DEFAULT  ABS printf.c
+    63: 100008e4     0 NOTYPE  LOCAL  DEFAULT    1 $t
+    64: 100008e5     2 FUNC    LOCAL  DEFAULT    1 _out_null
+    65: 100008e6     0 NOTYPE  LOCAL  DEFAULT    1 $t
+    66: 100008e7    36 FUNC    LOCAL  DEFAULT    1 _atoi
+    67: 1000090a     0 NOTYPE  LOCAL  DEFAULT    1 $t
+    68: 1000090b   126 FUNC    LOCAL  DEFAULT    1 _out_rev
+    69: 10000988     0 NOTYPE  LOCAL  DEFAULT    1 $t
+    70: 10000989   312 FUNC    LOCAL  DEFAULT    1 _ntoa_format
+    71: 10000ac0     0 NOTYPE  LOCAL  DEFAULT    1 $t
+    72: 10000ac1   148 FUNC    LOCAL  DEFAULT    1 _ntoa_long
+    73: 10000b54     0 NOTYPE  LOCAL  DEFAULT    1 $t
+    74: 10000b55   198 FUNC    LOCAL  DEFAULT    1 _ntoa_long_long
+    75: 10000c20     0 NOTYPE  LOCAL  DEFAULT    1 $t
+    76: 10000c21  1002 FUNC    LOCAL  DEFAULT    1 _etoa
+    77: 10001011   918 FUNC    LOCAL  DEFAULT    1 _ftoa
+    78: 10000ec8     0 NOTYPE  LOCAL  DEFAULT    1 $d
+    79: 10000f2c     0 NOTYPE  LOCAL  DEFAULT    1 $t
+    80: 10005f70     0 NOTYPE  LOCAL  DEFAULT    1 $d
+    81: 10001010     0 NOTYPE  LOCAL  DEFAULT    1 $t
+    82: 100012c0     0 NOTYPE  LOCAL  DEFAULT    1 $d
+    83: 100012f4     0 NOTYPE  LOCAL  DEFAULT    1 $t
+    84: 100013a8     0 NOTYPE  LOCAL  DEFAULT    1 $t
+    85: 100013a9  1664 FUNC    LOCAL  DEFAULT    1 _vsnprintf
+    86: 100013f6     0 NOTYPE  LOCAL  DEFAULT    1 $d
+    87: 10001434     0 NOTYPE  LOCAL  DEFAULT    1 $d
+    88: 10001532     0 NOTYPE  LOCAL  DEFAULT    1 $d
+    89: 100015da     0 NOTYPE  LOCAL  DEFAULT    1 $t
+    90: 10001a24     0 NOTYPE  LOCAL  DEFAULT    1 $d
+    91: 10001a28     0 NOTYPE  LOCAL  DEFAULT    1 $t
+    92: 10001a29    12 FUNC    LOCAL  DEFAULT    1 _out_char
+    93: 10001a34     0 NOTYPE  LOCAL  DEFAULT    1 $t
+    94: 10001a5c     0 NOTYPE  LOCAL  DEFAULT    1 $d
+    95: 10005f88     0 NOTYPE  LOCAL  DEFAULT    1 $d
+    96: 10005f88    80 OBJECT  LOCAL  DEFAULT    1 pow10.0
+    97: 10001407     0 NOTYPE  LOCAL  DEFAULT    1 $d
+    98: 10001408     0 NOTYPE  LOCAL  DEFAULT    1 $t
+    99: 10001447     0 NOTYPE  LOCAL  DEFAULT    1 $d
+   100: 10001448     0 NOTYPE  LOCAL  DEFAULT    1 $t
+   101: 00000000     0 FILE    LOCAL  DEFAULT  ABS uart.c
+   102: 10001a60     0 NOTYPE  LOCAL  DEFAULT    1 $t
+   103: 10001a70     0 NOTYPE  LOCAL  DEFAULT    1 $d
+   104: 10001a74     0 NOTYPE  LOCAL  DEFAULT    1 $t
+   105: 10001a94     0 NOTYPE  LOCAL  DEFAULT    1 $t
+   106: 10001ab4     0 NOTYPE  LOCAL  DEFAULT    1 $d
+   107: 00000000     0 FILE    LOCAL  DEFAULT  ABS tx_block_release.c
+   108: 10001ab8     0 NOTYPE  LOCAL  DEFAULT    1 $t
+   109: 00000000     0 FILE    LOCAL  DEFAULT  ABS tx_byte_allocate.c
+   110: 10001b10     0 NOTYPE  LOCAL  DEFAULT    1 $t
+   111: 10001bb0     0 NOTYPE  LOCAL  DEFAULT    1 $d
+   112: 00000000     0 FILE    LOCAL  DEFAULT  ABS tx_byte_pool_cle[...]
+   113: 10001bbc     0 NOTYPE  LOCAL  DEFAULT    1 $t
+   114: 00000000     0 FILE    LOCAL  DEFAULT  ABS tx_byte_pool_create.c
+   115: 10001bf4     0 NOTYPE  LOCAL  DEFAULT    1 $t
+   116: 10001c6c     0 NOTYPE  LOCAL  DEFAULT    1 $d
+   117: 00000000     0 FILE    LOCAL  DEFAULT  ABS tx_byte_pool_search.c
+   118: 10001c7c     0 NOTYPE  LOCAL  DEFAULT    1 $t
+   119: 10001d5c     0 NOTYPE  LOCAL  DEFAULT    1 $d
+   120: 00000000     0 FILE    LOCAL  DEFAULT  ABS tx_initialize_hi[...]
+   121: 10001d64     0 NOTYPE  LOCAL  DEFAULT    1 $t
+   122: 3800119c     0 NOTYPE  LOCAL  DEFAULT    7 $d
+   123: 380011a0     0 NOTYPE  LOCAL  DEFAULT    7 $d
+   124: 380011a4     0 NOTYPE  LOCAL  DEFAULT    7 $d
+   125: 00000000     0 FILE    LOCAL  DEFAULT  ABS tx_initialize_ke[...]
+   126: 10001d70     0 NOTYPE  LOCAL  DEFAULT    1 $t
+   127: 10001db0     0 NOTYPE  LOCAL  DEFAULT    1 $d
+   128: 00000000     0 FILE    LOCAL  DEFAULT  ABS tx_thread_create.c
+   129: 10001dbc     0 NOTYPE  LOCAL  DEFAULT    1 $t
+   130: 10001ee8     0 NOTYPE  LOCAL  DEFAULT    1 $d
+   131: 00000000     0 FILE    LOCAL  DEFAULT  ABS tx_thread_initia[...]
+   132: 10001f04     0 NOTYPE  LOCAL  DEFAULT    1 $t
+   133: 10001f18     0 NOTYPE  LOCAL  DEFAULT    1 $d
+   134: 380011a8     0 NOTYPE  LOCAL  DEFAULT    7 $d
+   135: 380011ac     0 NOTYPE  LOCAL  DEFAULT    7 $d
+   136: 380011b0     0 NOTYPE  LOCAL  DEFAULT    7 $d
+   137: 380011b4     0 NOTYPE  LOCAL  DEFAULT    7 $d
+   138: 380011b8     0 NOTYPE  LOCAL  DEFAULT    7 $d
+   139: 380011bc     0 NOTYPE  LOCAL  DEFAULT    7 $d
+   140: 380011c0     0 NOTYPE  LOCAL  DEFAULT    7 $d
+   141: 380011c4     0 NOTYPE  LOCAL  DEFAULT    7 $d
+   142: 380011c8     0 NOTYPE  LOCAL  DEFAULT    7 $d
+   143: 380011cc     0 NOTYPE  LOCAL  DEFAULT    7 $d
+   144: 380011ec     0 NOTYPE  LOCAL  DEFAULT    7 $d
+   145: 380011f0     0 NOTYPE  LOCAL  DEFAULT    7 $d
+   146: 380011f4     0 NOTYPE  LOCAL  DEFAULT    7 $d
+   147: 380011f8     0 NOTYPE  LOCAL  DEFAULT    7 $d
+   148: 380011fc     0 NOTYPE  LOCAL  DEFAULT    7 $d
+   149: 38001200     0 NOTYPE  LOCAL  DEFAULT    7 $d
+   150: 38001204     0 NOTYPE  LOCAL  DEFAULT    7 $d
+   151: 38001208     0 NOTYPE  LOCAL  DEFAULT    7 $d
+   152: 3800120c     0 NOTYPE  LOCAL  DEFAULT    7 $d
+   153: 38001210     0 NOTYPE  LOCAL  DEFAULT    7 $d
+   154: 38001290     0 NOTYPE  LOCAL  DEFAULT    7 $d
+   155: 38001294     0 NOTYPE  LOCAL  DEFAULT    7 $d
+   156: 38000004     0 NOTYPE  LOCAL  DEFAULT    6 $d
+   157: 00000000     0 FILE    LOCAL  DEFAULT  ABS tx_thread_shell_[...]
+   158: 10001f24     0 NOTYPE  LOCAL  DEFAULT    1 $t
+   159: 10001f60     0 NOTYPE  LOCAL  DEFAULT    1 $d
+   160: 00000000     0 FILE    LOCAL  DEFAULT  ABS tx_thread_sleep.c
+   161: 10001f68     0 NOTYPE  LOCAL  DEFAULT    1 $t
+   162: 10001fcc     0 NOTYPE  LOCAL  DEFAULT    1 $d
+   163: 00000000     0 FILE    LOCAL  DEFAULT  ABS tx_thread_stack_[...]
+   164: 10001fdc     0 NOTYPE  LOCAL  DEFAULT    1 $t
+   165: 10002064     0 NOTYPE  LOCAL  DEFAULT    1 $d
+   166: 00000000     0 FILE    LOCAL  DEFAULT  ABS tx_thread_stack_[...]
+   167: 10002068     0 NOTYPE  LOCAL  DEFAULT    1 $t
+   168: 10002080     0 NOTYPE  LOCAL  DEFAULT    1 $d
+   169: 00000000     0 FILE    LOCAL  DEFAULT  ABS tx_thread_system[...]
+   170: 10002084     0 NOTYPE  LOCAL  DEFAULT    1 $t
+   171: 10002144     0 NOTYPE  LOCAL  DEFAULT    1 $d
+   172: 00000000     0 FILE    LOCAL  DEFAULT  ABS tx_thread_system[...]
+   173: 1000215c     0 NOTYPE  LOCAL  DEFAULT    1 $t
+   174: 100023ec     0 NOTYPE  LOCAL  DEFAULT    1 $d
+   175: 10002424     0 NOTYPE  LOCAL  DEFAULT    1 $t
+   176: 00000000     0 FILE    LOCAL  DEFAULT  ABS tx_thread_system[...]
+   177: 10002484     0 NOTYPE  LOCAL  DEFAULT    1 $t
+   178: 10002710     0 NOTYPE  LOCAL  DEFAULT    1 $d
+   179: 00000000     0 FILE    LOCAL  DEFAULT  ABS tx_thread_time_s[...]
+   180: 10002744     0 NOTYPE  LOCAL  DEFAULT    1 $t
+   181: 100028a0     0 NOTYPE  LOCAL  DEFAULT    1 $d
+   182: 00000000     0 FILE    LOCAL  DEFAULT  ABS tx_thread_timeout.c
+   183: 100028c0     0 NOTYPE  LOCAL  DEFAULT    1 $t
+   184: 100028f8     0 NOTYPE  LOCAL  DEFAULT    1 $d
+   185: 00000000     0 FILE    LOCAL  DEFAULT  ABS tx_timer_expirat[...]
+   186: 100028fc     0 NOTYPE  LOCAL  DEFAULT    1 $t
+   187: 10002910     0 NOTYPE  LOCAL  DEFAULT    1 $d
+   188: 00000000     0 FILE    LOCAL  DEFAULT  ABS tx_timer_initialize.c
+   189: 10005fd8     0 NOTYPE  LOCAL  DEFAULT    1 $d
+   190: 10002914     0 NOTYPE  LOCAL  DEFAULT    1 $t
+   191: 10002974     0 NOTYPE  LOCAL  DEFAULT    1 $d
+   192: 38001298     0 NOTYPE  LOCAL  DEFAULT    7 $d
+   193: 3800129c     0 NOTYPE  LOCAL  DEFAULT    7 $d
+   194: 380012a0     0 NOTYPE  LOCAL  DEFAULT    7 $d
+   195: 380012a4     0 NOTYPE  LOCAL  DEFAULT    7 $d
+   196: 380012a8     0 NOTYPE  LOCAL  DEFAULT    7 $d
+   197: 38001328     0 NOTYPE  LOCAL  DEFAULT    7 $d
+   198: 3800132c     0 NOTYPE  LOCAL  DEFAULT    7 $d
+   199: 38001330     0 NOTYPE  LOCAL  DEFAULT    7 $d
+   200: 38001334     0 NOTYPE  LOCAL  DEFAULT    7 $d
+   201: 38001338     0 NOTYPE  LOCAL  DEFAULT    7 $d
+   202: 3800133c     0 NOTYPE  LOCAL  DEFAULT    7 $d
+   203: 38001340     0 NOTYPE  LOCAL  DEFAULT    7 $d
+   204: 38001344     0 NOTYPE  LOCAL  DEFAULT    7 $d
+   205: 38001348     0 NOTYPE  LOCAL  DEFAULT    7 $d
+   206: 3800134c     0 NOTYPE  LOCAL  DEFAULT    7 $d
+   207: 38001424     0 NOTYPE  LOCAL  DEFAULT    7 $d
+   208: 38002424     0 NOTYPE  LOCAL  DEFAULT    7 $d
+   209: 00000000     0 FILE    LOCAL  DEFAULT  ABS tx_timer_system_[...]
+   210: 100029a4     0 NOTYPE  LOCAL  DEFAULT    1 $t
+   211: 100029f0     0 NOTYPE  LOCAL  DEFAULT    1 $d
+   212: 00000000     0 FILE    LOCAL  DEFAULT  ABS tx_timer_system_[...]
+   213: 100029fc     0 NOTYPE  LOCAL  DEFAULT    1 $t
+   214: 00000000     0 FILE    LOCAL  DEFAULT  ABS tx_timer_thread_[...]
+   215: 10002a2c     0 NOTYPE  LOCAL  DEFAULT    1 $t
+   216: 10002bbc     0 NOTYPE  LOCAL  DEFAULT    1 $d
+   217: 00000000     0 FILE    LOCAL  DEFAULT  ABS txe_block_release.c
+   218: 10002be8     0 NOTYPE  LOCAL  DEFAULT    1 $t
+   219: 10002c0c     0 NOTYPE  LOCAL  DEFAULT    1 $d
+   220: 00000000     0 FILE    LOCAL  DEFAULT  ABS txe_byte_allocate.c
+   221: 10002c10     0 NOTYPE  LOCAL  DEFAULT    1 $t
+   222: 10002c94     0 NOTYPE  LOCAL  DEFAULT    1 $d
+   223: 00000000     0 FILE    LOCAL  DEFAULT  ABS txe_byte_pool_cr[...]
+   224: 10002ca4     0 NOTYPE  LOCAL  DEFAULT    1 $t
+   225: 10002d60     0 NOTYPE  LOCAL  DEFAULT    1 $d
+   226: 00000000     0 FILE    LOCAL  DEFAULT  ABS txe_thread_create.c
+   227: 10002d78     0 NOTYPE  LOCAL  DEFAULT    1 $t
+   228: 10002ea8     0 NOTYPE  LOCAL  DEFAULT    1 $d
+   229: 00000000     0 FILE    LOCAL  DEFAULT  ABS sysmem.c
+   230: 10002ec0     0 NOTYPE  LOCAL  DEFAULT    1 $t
+   231: 10002ef8     0 NOTYPE  LOCAL  DEFAULT    1 $d
+   232: 38002428     0 NOTYPE  LOCAL  DEFAULT    7 $d
+   233: 38002428     4 OBJECT  LOCAL  DEFAULT    7 __sbrk_heap_end
+   234: 00000000     0 FILE    LOCAL  DEFAULT  ABS syscalls.c
+   235: 10002f08     0 NOTYPE  LOCAL  DEFAULT    1 $t
+   236: 10002f0c     0 NOTYPE  LOCAL  DEFAULT    1 $t
+   237: 10002f1c     0 NOTYPE  LOCAL  DEFAULT    1 $t
+   238: 10002f28     0 NOTYPE  LOCAL  DEFAULT    1 $t
+   239: 10002f48     0 NOTYPE  LOCAL  DEFAULT    1 $t
+   240: 10002f64     0 NOTYPE  LOCAL  DEFAULT    1 $t
+   241: 10002f6a     0 NOTYPE  LOCAL  DEFAULT    1 $t
+   242: 10002f74     0 NOTYPE  LOCAL  DEFAULT    1 $t
+   243: 10002f78     0 NOTYPE  LOCAL  DEFAULT    1 $t
+   244: 00000000     0 FILE    LOCAL  DEFAULT  ABS tx_initialize_lo[...]
+   245: 0a037a00     0 NOTYPE  LOCAL  DEFAULT  ABS SYSTEM_CLOCK
+   246: 0002903f     0 NOTYPE  LOCAL  DEFAULT  ABS SYSTICK_CYCLES
+   247: 00000400     0 NOTYPE  LOCAL  DEFAULT  ABS STACK_SIZE
+   248: 00000000     0 NOTYPE  LOCAL  DEFAULT  ABS HEAP_SIZE
+   249: 10002fec     0 NOTYPE  LOCAL  DEFAULT    1 $t
+   250: 10003062     0 NOTYPE  LOCAL  DEFAULT    1 _unhandled_usage_loop
+   251: 100030a0     0 NOTYPE  LOCAL  DEFAULT    1 $d
+   252: 00000000     0 FILE    LOCAL  DEFAULT  ABS tx_thread_schedule.o
+   253: 100030cc     0 NOTYPE  LOCAL  DEFAULT    1 $t
+   254: 100030f6     0 NOTYPE  LOCAL  DEFAULT    1 __tx_wait_here
+   255: 100030f8     0 NOTYPE  LOCAL  DEFAULT    1 __tx_ts_handler
+   256: 1000312a     0 NOTYPE  LOCAL  DEFAULT    1 __tx_ts_new
+   257: 10003118     0 NOTYPE  LOCAL  DEFAULT    1 _skip_vfp_save
+   258: 10003166     0 NOTYPE  LOCAL  DEFAULT    1 __tx_ts_wait
+   259: 10003134     0 NOTYPE  LOCAL  DEFAULT    1 __tx_ts_restore
+   260: 1000315c     0 NOTYPE  LOCAL  DEFAULT    1 _skip_vfp_restore
+   261: 10003172     0 NOTYPE  LOCAL  DEFAULT    1 __tx_ts_ready
+   262: 1000318a     0 NOTYPE  LOCAL  DEFAULT    1 $d
+   263: 1000318c     0 NOTYPE  LOCAL  DEFAULT    1 $d
+   264: 00000000     0 FILE    LOCAL  DEFAULT  ABS tx_thread_stack_[...]
+   265: 1000319c     0 NOTYPE  LOCAL  DEFAULT    1 $t
+   266: 00000000     0 FILE    LOCAL  DEFAULT  ABS tx_timer_interrupt.o
+   267: 100031dc     0 NOTYPE  LOCAL  DEFAULT    1 $t
+   268: 100031fc     0 NOTYPE  LOCAL  DEFAULT    1 __tx_timer_no_ti[...]
+   269: 1000320e     0 NOTYPE  LOCAL  DEFAULT    1 __tx_timer_no_timer
+   270: 10003220     0 NOTYPE  LOCAL  DEFAULT    1 __tx_timer_done
+   271: 1000321e     0 NOTYPE  LOCAL  DEFAULT    1 __tx_timer_skip_wrap
+   272: 1000322c     0 NOTYPE  LOCAL  DEFAULT    1 __tx_something_e[...]
+   273: 10003260     0 NOTYPE  LOCAL  DEFAULT    1 __tx_timer_nothi[...]
+   274: 10003238     0 NOTYPE  LOCAL  DEFAULT    1 __tx_timer_dont_[...]
+   275: 1000325c     0 NOTYPE  LOCAL  DEFAULT    1 __tx_timer_not_t[...]
+   276: 1000325c     0 NOTYPE  LOCAL  DEFAULT    1 __tx_timer_skip_[...]
+   277: 10003266     0 NOTYPE  LOCAL  DEFAULT    1 $d
+   278: 10003268     0 NOTYPE  LOCAL  DEFAULT    1 $d
+   279: 00000000     0 FILE    LOCAL  DEFAULT  ABS errno.c
+   280: 10003294     0 NOTYPE  LOCAL  DEFAULT    1 $t
+   281: 1000329c     0 NOTYPE  LOCAL  DEFAULT    1 $d
+   282: 00000000     0 FILE    LOCAL  DEFAULT  ABS memset.c
+   283: 100032a0     0 NOTYPE  LOCAL  DEFAULT    1 $t
+   284: 00000000     0 FILE    LOCAL  DEFAULT  ABS rand.c
+   285: 100032b0     0 NOTYPE  LOCAL  DEFAULT    1 $t
+   286: 1000330c     0 NOTYPE  LOCAL  DEFAULT    1 $d
+   287: 00000000     0 FILE    LOCAL  DEFAULT  ABS assert.c
+   288: 1000332c     0 NOTYPE  LOCAL  DEFAULT    1 $t
+   289: 10003358     0 NOTYPE  LOCAL  DEFAULT    1 $d
+   290: 00000000     0 FILE    LOCAL  DEFAULT  ABS findfp.c
+   291: 10003368     0 NOTYPE  LOCAL  DEFAULT    1 $t
+   292: 10003369    72 FUNC    LOCAL  DEFAULT    1 std
+   293: 100033a0     0 NOTYPE  LOCAL  DEFAULT    1 $d
+   294: 100033b0     0 NOTYPE  LOCAL  DEFAULT    1 $t
+   295: 100033b8     0 NOTYPE  LOCAL  DEFAULT    1 $d
+   296: 100033bc     0 NOTYPE  LOCAL  DEFAULT    1 $t
+   297: 100033e8     0 NOTYPE  LOCAL  DEFAULT    1 $t
+   298: 100033f0     0 NOTYPE  LOCAL  DEFAULT    1 $d
+   299: 100033f4     0 NOTYPE  LOCAL  DEFAULT    1 $t
+   300: 100033fc     0 NOTYPE  LOCAL  DEFAULT    1 $d
+   301: 10003400     0 NOTYPE  LOCAL  DEFAULT    1 $t
+   302: 10003408     0 NOTYPE  LOCAL  DEFAULT    1 $d
+   303: 1000340c     0 NOTYPE  LOCAL  DEFAULT    1 $t
+   304: 10003414     0 NOTYPE  LOCAL  DEFAULT    1 $d
+   305: 10003418     0 NOTYPE  LOCAL  DEFAULT    1 $t
+   306: 10003480     0 NOTYPE  LOCAL  DEFAULT    1 $d
+   307: 10003488     0 NOTYPE  LOCAL  DEFAULT    1 $t
+   308: 1000350c     0 NOTYPE  LOCAL  DEFAULT    1 $d
+   309: 100060c4     0 NOTYPE  LOCAL  DEFAULT    1 $d
+   310: 100060e4     0 NOTYPE  LOCAL  DEFAULT    1 $d
+   311: 10006104     0 NOTYPE  LOCAL  DEFAULT    1 $d
+   312: 00000000     0 FILE    LOCAL  DEFAULT  ABS fprintf.c
+   313: 10003514     0 NOTYPE  LOCAL  DEFAULT    1 $t
+   314: 10003534     0 NOTYPE  LOCAL  DEFAULT    1 $d
+   315: 00000000     0 FILE    LOCAL  DEFAULT  ABS fwalk.c
+   316: 10003538     0 NOTYPE  LOCAL  DEFAULT    1 $t
+   317: 00000000     0 FILE    LOCAL  DEFAULT  ABS lock.c
+   318: 10003576     0 NOTYPE  LOCAL  DEFAULT    1 $t
+   319: 10003578     0 NOTYPE  LOCAL  DEFAULT    1 $t
+   320: 1000357a     0 NOTYPE  LOCAL  DEFAULT    1 $t
+   321: 3800242c     0 NOTYPE  LOCAL  DEFAULT    7 $d
+   322: 3800242d     0 NOTYPE  LOCAL  DEFAULT    7 $d
+   323: 3800242e     0 NOTYPE  LOCAL  DEFAULT    7 $d
+   324: 00000000     0 FILE    LOCAL  DEFAULT  ABS malloc.c
+   325: 1000357c     0 NOTYPE  LOCAL  DEFAULT    1 $t
+   326: 10003588     0 NOTYPE  LOCAL  DEFAULT    1 $d
+   327: 00000000     0 FILE    LOCAL  DEFAULT  ABS nano-mallocr.c
+   328: 1000358c     0 NOTYPE  LOCAL  DEFAULT    1 $t
+   329: 10003620     0 NOTYPE  LOCAL  DEFAULT    1 $d
+   330: 00000000     0 FILE    LOCAL  DEFAULT  ABS nano-mallocr.c
+   331: 10003624     0 NOTYPE  LOCAL  DEFAULT    1 $t
+   332: 10003625    64 FUNC    LOCAL  DEFAULT    1 sbrk_aligned
+   333: 10003660     0 NOTYPE  LOCAL  DEFAULT    1 $d
+   334: 10003664     0 NOTYPE  LOCAL  DEFAULT    1 $t
+   335: 10003748     0 NOTYPE  LOCAL  DEFAULT    1 $d
+   336: 38002430     0 NOTYPE  LOCAL  DEFAULT    7 $d
+   337: 38002434     0 NOTYPE  LOCAL  DEFAULT    7 $d
+   338: 00000000     0 FILE    LOCAL  DEFAULT  ABS nano-vfprintf.c
+   339: 1000374c     0 NOTYPE  LOCAL  DEFAULT    1 $t
+   340: 1000374d    46 FUNC    LOCAL  DEFAULT    1 __sfputc_r
+   341: 1000377a     0 NOTYPE  LOCAL  DEFAULT    1 $t
+   342: 100037a0     0 NOTYPE  LOCAL  DEFAULT    1 $t
+   343: 100039e0     0 NOTYPE  LOCAL  DEFAULT    1 $d
+   344: 00000000     0 FILE    LOCAL  DEFAULT  ABS nano-vfprintf_i.c
+   345: 10003a00     0 NOTYPE  LOCAL  DEFAULT    1 $t
+   346: 10003ae0     0 NOTYPE  LOCAL  DEFAULT    1 $t
+   347: 10003b20     0 NOTYPE  LOCAL  DEFAULT    1 $d
+   348: 10003b78     0 NOTYPE  LOCAL  DEFAULT    1 $t
+   349: 10003d24     0 NOTYPE  LOCAL  DEFAULT    1 $d
+   350: 00000000     0 FILE    LOCAL  DEFAULT  ABS sbrkr.c
+   351: 10003d2c     0 NOTYPE  LOCAL  DEFAULT    1 $t
+   352: 10003d48     0 NOTYPE  LOCAL  DEFAULT    1 $d
+   353: 00000000     0 FILE    LOCAL  DEFAULT  ABS stdio.c
+   354: 10003d4c     0 NOTYPE  LOCAL  DEFAULT    1 $t
+   355: 10003d6e     0 NOTYPE  LOCAL  DEFAULT    1 $t
+   356: 10003da6     0 NOTYPE  LOCAL  DEFAULT    1 $t
+   357: 10003dca     0 NOTYPE  LOCAL  DEFAULT    1 $t
+   358: 00000000     0 FILE    LOCAL  DEFAULT  ABS wbuf.c
+   359: 10003dd4     0 NOTYPE  LOCAL  DEFAULT    1 $t
+   360: 10003e6c     0 NOTYPE  LOCAL  DEFAULT    1 $d
+   361: 00000000     0 FILE    LOCAL  DEFAULT  ABS writer.c
+   362: 10003e78     0 NOTYPE  LOCAL  DEFAULT    1 $t
+   363: 10003e98     0 NOTYPE  LOCAL  DEFAULT    1 $d
+   364: 00000000     0 FILE    LOCAL  DEFAULT  ABS wsetup.c
+   365: 10003e9c     0 NOTYPE  LOCAL  DEFAULT    1 $t
+   366: 10003f68     0 NOTYPE  LOCAL  DEFAULT    1 $d
+   367: 00000000     0 FILE    LOCAL  DEFAULT  ABS abort.c
+   368: 10003f78     0 NOTYPE  LOCAL  DEFAULT    1 $t
+   369: 00000000     0 FILE    LOCAL  DEFAULT  ABS closer.c
+   370: 10003f88     0 NOTYPE  LOCAL  DEFAULT    1 $t
+   371: 10003fa4     0 NOTYPE  LOCAL  DEFAULT    1 $d
+   372: 00000000     0 FILE    LOCAL  DEFAULT  ABS fflush.c
+   373: 10003fa8     0 NOTYPE  LOCAL  DEFAULT    1 $t
+   374: 100040ac     0 NOTYPE  LOCAL  DEFAULT    1 $d
+   375: 100040b0     0 NOTYPE  LOCAL  DEFAULT    1 $t
+   376: 1000411c     0 NOTYPE  LOCAL  DEFAULT    1 $d
+   377: 00000000     0 FILE    LOCAL  DEFAULT  ABS lseekr.c
+   378: 10004128     0 NOTYPE  LOCAL  DEFAULT    1 $t
+   379: 10004148     0 NOTYPE  LOCAL  DEFAULT    1 $d
+   380: 00000000     0 FILE    LOCAL  DEFAULT  ABS makebuf.c
+   381: 1000414c     0 NOTYPE  LOCAL  DEFAULT    1 $t
+   382: 10004198     0 NOTYPE  LOCAL  DEFAULT    1 $t
+   383: 10004214     0 NOTYPE  LOCAL  DEFAULT    1 $d
+   384: 00000000     0 FILE    LOCAL  DEFAULT  ABS memchr-stub.c
+   385: 10004218     0 NOTYPE  LOCAL  DEFAULT    1 $t
+   386: 00000000     0 FILE    LOCAL  DEFAULT  ABS memcpy-stub.c
+   387: 10004234     0 NOTYPE  LOCAL  DEFAULT    1 $t
+   388: 00000000     0 FILE    LOCAL  DEFAULT  ABS mlock.c
+   389: 10004250     0 NOTYPE  LOCAL  DEFAULT    1 $t
+   390: 10004258     0 NOTYPE  LOCAL  DEFAULT    1 $d
+   391: 1000425c     0 NOTYPE  LOCAL  DEFAULT    1 $t
+   392: 10004264     0 NOTYPE  LOCAL  DEFAULT    1 $d
+   393: 00000000     0 FILE    LOCAL  DEFAULT  ABS readr.c
+   394: 10004268     0 NOTYPE  LOCAL  DEFAULT    1 $t
+   395: 10004288     0 NOTYPE  LOCAL  DEFAULT    1 $d
+   396: 00000000     0 FILE    LOCAL  DEFAULT  ABS signal.c
+   397: 1000428c     0 NOTYPE  LOCAL  DEFAULT    1 $t
+   398: 100042dc     0 NOTYPE  LOCAL  DEFAULT    1 $t
+   399: 100042e8     0 NOTYPE  LOCAL  DEFAULT    1 $d
+   400: 00000000     0 FILE    LOCAL  DEFAULT  ABS signalr.c
+   401: 100042ec     0 NOTYPE  LOCAL  DEFAULT    1 $t
+   402: 1000430c     0 NOTYPE  LOCAL  DEFAULT    1 $d
+   403: 10004310     0 NOTYPE  LOCAL  DEFAULT    1 $t
+   404: 00000000     0 FILE    LOCAL  DEFAULT  ABS fstatr.c
+   405: 10004314     0 NOTYPE  LOCAL  DEFAULT    1 $t
+   406: 10004334     0 NOTYPE  LOCAL  DEFAULT    1 $d
+   407: 00000000     0 FILE    LOCAL  DEFAULT  ABS isattyr.c
+   408: 10004338     0 NOTYPE  LOCAL  DEFAULT    1 $t
+   409: 10004354     0 NOTYPE  LOCAL  DEFAULT    1 $d
+   410: 00000000     0 FILE    LOCAL  DEFAULT  ABS _arm_addsubdf3.o
+   411: 10004358     0 NOTYPE  LOCAL  DEFAULT    1 $t
+   412: 00000000     0 FILE    LOCAL  DEFAULT  ABS _arm_muldivdf3.o
+   413: 100046d0     0 NOTYPE  LOCAL  DEFAULT    1 $t
+   414: 00000000     0 FILE    LOCAL  DEFAULT  ABS _arm_cmpdf2.o
+   415: 10004af4     0 NOTYPE  LOCAL  DEFAULT    1 $t
+   416: 00000000     0 FILE    LOCAL  DEFAULT  ABS _arm_fixdfsi.o
+   417: 10004c04     0 NOTYPE  LOCAL  DEFAULT    1 $t
+   418: 00000000     0 FILE    LOCAL  DEFAULT  ABS _arm_fixunsdfsi.o
+   419: 10004c54     0 NOTYPE  LOCAL  DEFAULT    1 $t
+   420: 00000000     0 FILE    LOCAL  DEFAULT  ABS _aeabi_uldivmod.o
+   421: 10004c94     0 NOTYPE  LOCAL  DEFAULT    1 $t
+   422: 00000000     0 FILE    LOCAL  DEFAULT  ABS libgcc2.c
+   423: 10004cc4     0 NOTYPE  LOCAL  DEFAULT    1 $t
+   424: 10006184     0 NOTYPE  LOCAL  DEFAULT    3 $d
+   425: 00000000     0 FILE    LOCAL  DEFAULT  ABS unwind-arm.c
+   426: 10004fb0     0 NOTYPE  LOCAL  DEFAULT    1 $t
+   427: 10004fb1    18 FUNC    LOCAL  DEFAULT    1 selfrel_offset31
+   428: 10006184     0 NOTYPE  LOCAL  DEFAULT    3 $d
+   429: 10004fc5    96 FUNC    LOCAL  DEFAULT    1 search_EIT_table
+   430: 10005025    40 FUNC    LOCAL  DEFAULT    1 __gnu_unwind_get[...]
+   431: 10005040     0 NOTYPE  LOCAL  DEFAULT    1 $d
+   432: 1000504c     0 NOTYPE  LOCAL  DEFAULT    1 $t
+   433: 1000504d   156 FUNC    LOCAL  DEFAULT    1 get_eit_entry
+   434: 100050dc     0 NOTYPE  LOCAL  DEFAULT    1 $d
+   435: 100050e8     0 NOTYPE  LOCAL  DEFAULT    1 $t
+   436: 100050e9    88 FUNC    LOCAL  DEFAULT    1 restore_non_core_regs
+   437: 10005141     4 FUNC    LOCAL  DEFAULT    1 __gnu_unwind_24b[...]
+   438: 10005145    10 FUNC    LOCAL  DEFAULT    1 _Unwind_decode_t[...]
+   439: 10005151     2 FUNC    LOCAL  DEFAULT    1 _Unwind_DebugHook
+   440: 10005155    62 FUNC    LOCAL  DEFAULT    1 unwind_phase2
+   441: 10005195   218 FUNC    LOCAL  DEFAULT    1 unwind_phase2_forced
+   442: 1000538d    24 FUNC    LOCAL  DEFAULT    1 _Unwind_GetGR
+   443: 100053d9    24 FUNC    LOCAL  DEFAULT    1 _Unwind_SetGR
+   444: 1000546d   712 FUNC    LOCAL  DEFAULT    1 __gnu_unwind_pr_[...]
+   445: 10005730     0 NOTYPE  LOCAL  DEFAULT    1 $d
+   446: 10005734     0 NOTYPE  LOCAL  DEFAULT    1 $t
+   447: 10005756     0 NOTYPE  LOCAL  DEFAULT    1 $d
+   448: 1000575b     0 NOTYPE  LOCAL  DEFAULT    1 $d
+   449: 1000575c     0 NOTYPE  LOCAL  DEFAULT    1 $t
+   450: 00000000     0 FILE    LOCAL  DEFAULT  ABS libunwind.o
+   451: 100059f4     0 NOTYPE  LOCAL  DEFAULT    1 $t
+   452: 00000000     0 FILE    LOCAL  DEFAULT  ABS pr-support.c
+   453: 10005ba0     0 NOTYPE  LOCAL  DEFAULT    1 $t
+   454: 10005ba1    60 FUNC    LOCAL  DEFAULT    1 next_unwind_byte
+   455: 100061fc     0 NOTYPE  LOCAL  DEFAULT    3 $d
+   456: 10005bdd    24 FUNC    LOCAL  DEFAULT    1 _Unwind_GetGR.co[...]
+   457: 10005bf5     2 FUNC    LOCAL  DEFAULT    1 unwind_UCB_from_[...]
+   458: 1000615c     0 NOTYPE  LOCAL  DEFAULT    2 $d
+   459: 00000000     0 FILE    LOCAL  DEFAULT  ABS _dvmd_tls.o
+   460: 10005f14     0 NOTYPE  LOCAL  DEFAULT    1 $t
+   461: 00000000     0 FILE    LOCAL  DEFAULT  ABS crti.o
+   462: 10005f18     0 NOTYPE  LOCAL  DEFAULT    1 $t
+   463: 10005f24     0 NOTYPE  LOCAL  DEFAULT    1 $t
+   464: 00000000     0 FILE    LOCAL  DEFAULT  ABS crtn.o
+   465: 10005f1c     0 NOTYPE  LOCAL  DEFAULT    1 $t
+   466: 10005f28     0 NOTYPE  LOCAL  DEFAULT    1 $t
+   467: 00000000     0 FILE    LOCAL  DEFAULT  ABS impure.c
+   468: 38000008     0 NOTYPE  LOCAL  DEFAULT    6 $d
+   469: 3800000c    96 OBJECT  LOCAL  DEFAULT    6 impure_data
+   470: 3800000c     0 NOTYPE  LOCAL  DEFAULT    6 $d
+   471: 10005fec     0 NOTYPE  LOCAL  DEFAULT    1 $d
+   472: 00000000     0 FILE    LOCAL  DEFAULT  ABS crtstuff.c
+   473: 10006158     0 NOTYPE  LOCAL  DEFAULT    1 $d
+   474: 10006158     0 OBJECT  LOCAL  DEFAULT    1 __FRAME_END__
+   475: 00000000     0 FILE    LOCAL  DEFAULT  ABS reent.c
+   476: 38002438     0 NOTYPE  LOCAL  DEFAULT    7 $d
+   477: 00000000     0 FILE    LOCAL  DEFAULT  ABS 
+   478: 38000070     0 NOTYPE  LOCAL  DEFAULT    6 __init_array_end
+   479: 3800006c     0 NOTYPE  LOCAL  DEFAULT    6 __preinit_array_end
+   480: 3800006c     0 NOTYPE  LOCAL  DEFAULT    6 __init_array_start
+   481: 3800006c     0 NOTYPE  LOCAL  DEFAULT    6 __preinit_array_start
+   482: 10005ff0     0 NOTYPE  LOCAL  DEFAULT    1 $d
+   483: 10006085     0 NOTYPE  LOCAL  DEFAULT    1 $d
+   484: 10006124     0 NOTYPE  LOCAL  DEFAULT    1 $d
+   485: 10006135     0 NOTYPE  LOCAL  DEFAULT    1 $d
+   486: 10001bf5   136 FUNC    GLOBAL DEFAULT    1 _tx_byte_pool_create
+   487: 10005b59    34 FUNC    GLOBAL HIDDEN     1 ___Unwind_Forced[...]
+   488: 10005275   102 FUNC    GLOBAL HIDDEN     1 __gnu_Unwind_Rai[...]
+   489: 38001210   128 OBJECT  GLOBAL DEFAULT    7 _tx_thread_prior[...]
+   490: 10004339    32 FUNC    GLOBAL DEFAULT    1 _isatty_r
+   491: 10004bc9    18 FUNC    GLOBAL HIDDEN     1 __aeabi_dcmple
+   492: 10002915   144 FUNC    GLOBAL DEFAULT    1 _tx_timer_initialize
+   493: 10002f09     4 FUNC    GLOBAL DEFAULT    1 _getpid
+   494: 10004b05   122 FUNC    GLOBAL HIDDEN     1 __cmpdf2
+   495: 10000000  1984 NOTYPE  GLOBAL DEFAULT    1 __Vectors
+   496: 10004129    36 FUNC    GLOBAL DEFAULT    1 _lseek_r
+   497: 10002fd1     2 FUNC    WEAK   DEFAULT    1 DebugMon_Handler
+   498: 10004b05   122 FUNC    GLOBAL HIDDEN     1 __eqdf2
+   499: 100029fd    46 FUNC    GLOBAL DEFAULT    1 _tx_timer_system[...]
+   500: 00001000     0 NOTYPE  GLOBAL DEFAULT  ABS __HEAP_SIZE
+   501: 38000000     0 NOTYPE  GLOBAL DEFAULT    6 __data_start__
+   502: 10004675    90 FUNC    GLOBAL HIDDEN     1 __floatdidf
+   503: 100042ed    36 FUNC    GLOBAL DEFAULT    1 _kill_r
+   504: 10001a35    44 FUNC    GLOBAL DEFAULT    1 printf
+   505: 10003da7    36 FUNC    GLOBAL DEFAULT    1 __sseek
+   506: 10003419   112 FUNC    GLOBAL DEFAULT    1 __sinit
+   507: 10003dd5   164 FUNC    GLOBAL DEFAULT    1 __swbuf_r
+   508: 10003055     2 FUNC    GLOBAL DEFAULT    1 HardFault_Handler
+   509: 38001298     4 OBJECT  GLOBAL DEFAULT    7 _tx_timer_current_ptr
+   510: 100033bd    44 FUNC    GLOBAL DEFAULT    1 __sfmoreglue
+   511: 1000425d    12 FUNC    GLOBAL DEFAULT    1 __malloc_unlock
+   512: 00001000     0 NOTYPE  GLOBAL DEFAULT  ABS _Min_Stack_Size
+   513: 380012a8   128 OBJECT  GLOBAL DEFAULT    7 _tx_timer_list
+   514: 10003049     2 FUNC    GLOBAL DEFAULT    1 SysTick_Handler
+   515: 380011c4     4 OBJECT  GLOBAL DEFAULT    7 _tx_thread_mutex[...]
+   516: 10002069    28 FUNC    GLOBAL DEFAULT    1 _tx_thread_stack[...]
+   517: 38000004     4 OBJECT  GLOBAL DEFAULT    6 _tx_thread_syste[...]
+   518: 00000000     0 NOTYPE  GLOBAL DEFAULT  ABS __STACKSEAL_SIZE
+   519: 38001290     4 OBJECT  GLOBAL DEFAULT    7 _tx_thread_prior[...]
+   520: 10005a15     0 FUNC    GLOBAL HIDDEN     1 __gnu_Unwind_Save_VFP
+   521: 10005b35    34 FUNC    GLOBAL HIDDEN     1 _Unwind_Resume_o[...]
+   522: 100030f9     2 FUNC    GLOBAL DEFAULT    1 PendSV_Handler
+   523: 10002fd1     2 FUNC    WEAK   DEFAULT    1 NMI_Handler
+   524: 10006234     0 NOTYPE  GLOBAL DEFAULT    3 __exidx_end
+   525: 10001bbd    56 FUNC    GLOBAL DEFAULT    1 _tx_byte_pool_cleanup
+   526: 10005735     4 FUNC    GLOBAL HIDDEN     1 __aeabi_unwind_c[...]
+   527: 10004af5   138 FUNC    GLOBAL HIDDEN     1 __gtdf2
+   528: 10003295    12 FUNC    GLOBAL DEFAULT    1 __errno
+   529: 10006240     0 NOTYPE  GLOBAL DEFAULT    4 __etext
+   530: 10005ef5    10 FUNC    GLOBAL HIDDEN     1 _Unwind_GetRegio[...]
+   531: 380011f8     4 OBJECT  GLOBAL DEFAULT    7 _tx_thread_perfo[...]
+   532: 10003185     0 FUNC    GLOBAL DEFAULT    1 _tx_vfp_access
+   533: 10005b35    34 FUNC    GLOBAL HIDDEN     1 ___Unwind_Resume[...]
+   534: 10004315    36 FUNC    GLOBAL DEFAULT    1 _fstat_r
+   535: 38002438     4 OBJECT  GLOBAL DEFAULT    7 errno
+   536: 1000615c     0 NOTYPE  GLOBAL DEFAULT    1 _etext
+   537: 10005b7d    34 FUNC    GLOBAL HIDDEN     1 _Unwind_Backtrace
+   538: 10004b91    16 FUNC    GLOBAL HIDDEN     1 __aeabi_cdcmple
+   539: 10001d71    76 FUNC    GLOBAL DEFAULT    1 _tx_initialize_k[...]
+   540: 100059f5    24 FUNC    GLOBAL HIDDEN     1 __restore_core_regs
+   541: 10005a35     0 FUNC    GLOBAL HIDDEN     1 __gnu_Unwind_Sav[...]
+   542: 10006234     0 NOTYPE  GLOBAL DEFAULT    4 __copy_table_start__
+   543: 10002fd1     2 FUNC    WEAK   DEFAULT    1 Interrupt3_Handler
+   544: 10002085   216 FUNC    GLOBAL DEFAULT    1 _tx_thread_syste[...]
+   545: 00100000     0 NOTYPE  GLOBAL DEFAULT  ABS __ROM_SIZE
+   546: 10005271     4 FUNC    GLOBAL HIDDEN     1 _Unwind_GetCFA
+   547: 10004235    26 FUNC    GLOBAL DEFAULT    1 memcpy
+   548: 10004b81    32 FUNC    GLOBAL HIDDEN     1 __aeabi_cdrcmple
+   549: 100053a5    52 FUNC    GLOBAL HIDDEN     1 _Unwind_VRS_Set
+   550: 100033b1    12 FUNC    GLOBAL DEFAULT    1 _cleanup_r
+   551: 100045fd    34 FUNC    GLOBAL HIDDEN     1 __floatsidf
+   552: 10001dbd   328 FUNC    GLOBAL DEFAULT    1 _tx_thread_create
+   553: 100028c1    60 FUNC    GLOBAL DEFAULT    1 _tx_thread_timeout
+   554: 10004afd   130 FUNC    GLOBAL HIDDEN     1 __ltdf2
+   555: 10004c95     0 FUNC    GLOBAL HIDDEN     1 __aeabi_uldivmod
+   556: 10001a75    30 FUNC    GLOBAL DEFAULT    1 puts
+   557: 380011a0     4 OBJECT  GLOBAL DEFAULT    7 _tx_byte_pool_cr[...]
+   558: 10002fd1     2 FUNC    WEAK   DEFAULT    1 Interrupt8_Handler
+   559: 38000000     4 OBJECT  GLOBAL DEFAULT    6 SystemCoreClock
+   560: 380011b4     4 OBJECT  GLOBAL DEFAULT    7 _tx_thread_creat[...]
+   561: 1000357d    16 FUNC    GLOBAL DEFAULT    1 malloc
+   562: 1000428d    80 FUNC    GLOBAL DEFAULT    1 _raise_r
+   563: 10002f6b    10 FUNC    GLOBAL DEFAULT    1 _fstat
+   564: 10002fd1     2 FUNC    WEAK   DEFAULT    1 Interrupt5_Handler
+   565: 380011cc    32 OBJECT  GLOBAL DEFAULT    7 _tx_thread_perfo[...]
+   566: 1000332d    60 FUNC    GLOBAL DEFAULT    1 __assert_func
+   567: 10003059     2 FUNC    GLOBAL DEFAULT    1 UsageFault_Handler
+   568: 10004c55    64 FUNC    GLOBAL HIDDEN     1 __fixunsdfsi
+   569: 10004311     4 FUNC    GLOBAL DEFAULT    1 _getpid_r
+   570: 10001f69   116 FUNC    GLOBAL DEFAULT    1 _tx_thread_sleep
+   571: 38003440     0 NOTYPE  GLOBAL DEFAULT    8 __HeapLimit
+   572: 38000074     0 NOTYPE  GLOBAL DEFAULT    7 __bss_start__
+   573: 3800129c     4 OBJECT  GLOBAL DEFAULT    7 _tx_timer_expired
+   574: 100053f1   124 FUNC    GLOBAL HIDDEN     1 __gnu_Unwind_Bac[...]
+   575: 100045dd    30 FUNC    GLOBAL HIDDEN     1 __aeabi_ui2d
+   576: 380011a4     4 OBJECT  GLOBAL DEFAULT    7 _tx_initialize_u[...]
+   577: 100028fd    24 FUNC    GLOBAL DEFAULT    1 _tx_timer_expira[...]
+   578: 10004cc5   748 FUNC    GLOBAL HIDDEN     1 __udivmoddi4
+   579: 10004359     0 FUNC    GLOBAL HIDDEN     1 __aeabi_drsub
+   580: 10003d2d    32 FUNC    GLOBAL DEFAULT    1 _sbrk_r
+   581: 10002ca5   212 FUNC    GLOBAL DEFAULT    1 _txe_byte_pool_create
+   582: 10006240     0 NOTYPE  GLOBAL DEFAULT    5 __zero_table_end__
+   583: 10005a25     0 FUNC    GLOBAL HIDDEN     1 __gnu_Unwind_Sav[...]
+   584: 380011a8     4 OBJECT  GLOBAL DEFAULT    7 _tx_build_options
+   585: 10004269    36 FUNC    GLOBAL DEFAULT    1 _read_r
+   586: 10004bb5    18 FUNC    GLOBAL HIDDEN     1 __aeabi_dcmplt
+   587: 10005741   692 FUNC    GLOBAL HIDDEN     1 _Unwind_VRS_Pop
+   588: 1000573d     4 FUNC    WEAK   HIDDEN     1 __aeabi_unwind_c[...]
+   589: 10001ab9    86 FUNC    GLOBAL DEFAULT    1 _tx_block_release
+   590: 10005b7d    34 FUNC    GLOBAL HIDDEN     1 ___Unwind_Backtrace
+   591: 10004621    66 FUNC    GLOBAL HIDDEN     1 __extendsfdf2
+   592: 10004925   464 FUNC    GLOBAL HIDDEN     1 __aeabi_ddiv
+   593: 10004365   630 FUNC    GLOBAL HIDDEN     1 __adddf3
+   594: 10006174     0 NOTYPE  GLOBAL DEFAULT    2 __exidx_start
+   595: 10001d65    12 FUNC    GLOBAL DEFAULT    1 _tx_initialize_h[...]
+   596: 38002424     4 OBJECT  GLOBAL DEFAULT    7 _tx_timer_time_slice
+   597: 100046d1   596 FUNC    GLOBAL HIDDEN     1 __aeabi_dmul
+   598: 10002f75     4 FUNC    GLOBAL DEFAULT    1 _isatty
+   599: 3800242e     1 OBJECT  GLOBAL DEFAULT    7 __lock___sinit_r[...]
+   600: 10005fec     4 OBJECT  GLOBAL DEFAULT    1 _global_impure_ptr
+   601: 380011b0     4 OBJECT  GLOBAL DEFAULT    7 _tx_thread_creat[...]
+   602: 10005aed    34 FUNC    GLOBAL HIDDEN     1 ___Unwind_RaiseE[...]
+   603: 10003f79    14 FUNC    GLOBAL DEFAULT    1 abort
+   604: 10005b11    34 FUNC    GLOBAL HIDDEN     1 ___Unwind_Resume
+   605: 100045dd    30 FUNC    GLOBAL HIDDEN     1 __floatunsidf
+   606: 10002ec1    72 FUNC    GLOBAL DEFAULT    1 _sbrk
+   607: 3800133c     4 OBJECT  GLOBAL DEFAULT    7 _tx_timer_priority
+   608: 10005f19     0 FUNC    GLOBAL DEFAULT    1 _init
+   609: 38001330     4 OBJECT  GLOBAL DEFAULT    7 _tx_timer_perfor[...]
+   610: 10005a3d     0 FUNC    GLOBAL HIDDEN     1 __gnu_Unwind_Res[...]
+   611: 10002f7d    82 FUNC    GLOBAL DEFAULT    1 Reset_Handler
+   612: 10002fd1     2 FUNC    WEAK   DEFAULT    1 Interrupt7_Handler
+   613: 10002fd1     2 FUNC    WEAK   DEFAULT    1 Interrupt2_Handler
+   614: 10002485   704 FUNC    GLOBAL DEFAULT    1 _tx_thread_syste[...]
+   615: 10004c05    78 FUNC    GLOBAL HIDDEN     1 __fixdfsi
+   616: 3800242c     1 OBJECT  GLOBAL DEFAULT    7 __lock___malloc_[...]
+   617: 38001294     4 OBJECT  GLOBAL DEFAULT    7 _tx_thread_syste[...]
+   618: 1000319d     0 FUNC    GLOBAL DEFAULT    1 _tx_thread_stack[...]
+   619: 10002fd1     2 FUNC    WEAK   DEFAULT    1 Interrupt0_Handler
+   620: 10003515    36 FUNC    GLOBAL DEFAULT    1 fprintf
+   621: 10004365   630 FUNC    GLOBAL HIDDEN     1 __aeabi_dadd
+   622: 10004afd   130 FUNC    GLOBAL HIDDEN     1 __ledf2
+   623: 10004665   106 FUNC    GLOBAL HIDDEN     1 __aeabi_ul2d
+   624: 10005a0d     0 FUNC    GLOBAL HIDDEN     1 __gnu_Unwind_Res[...]
+   625: 100060c4    32 OBJECT  GLOBAL DEFAULT    1 __sf_fake_stderr
+   626: 1000357b     2 FUNC    GLOBAL DEFAULT    1 __retarget_lock_[...]
+   627: 000007c0     0 NOTYPE  GLOBAL DEFAULT  ABS __Vectors_Size
+   628: 10005b11    34 FUNC    GLOBAL HIDDEN     1 _Unwind_Resume
+   629: 10002fd1     2 FUNC    WEAK   DEFAULT    1 Interrupt4_Handler
+   630: 1000534d    12 FUNC    GLOBAL HIDDEN     1 _Unwind_DeleteEx[...]
+   631: 38000074     0 NOTYPE  GLOBAL DEFAULT    6 __data_end__
+   632: 10005349     2 FUNC    GLOBAL HIDDEN     1 _Unwind_Complete
+   633: 38001328     4 OBJECT  GLOBAL DEFAULT    7 _tx_timer_list_end
+   634: 3800134c   216 OBJECT  GLOBAL DEFAULT    7 _tx_timer_thread
+   635: 10001b11   172 FUNC    GLOBAL DEFAULT    1 _tx_byte_allocate
+   636: 10004bf1    18 FUNC    GLOBAL HIDDEN     1 __aeabi_dcmpgt
+   637: 1000377b    36 FUNC    GLOBAL DEFAULT    1 __sfputs_r
+   638: 10001a95    36 FUNC    GLOBAL DEFAULT    1 uart_init
+   639: 10002fd1     2 FUNC    WEAK   DEFAULT    1 SecureFault_Handler
+   640: 100033e9    12 FUNC    GLOBAL DEFAULT    1 __sfp_lock_acquire
+   641: 10004219    28 FUNC    GLOBAL DEFAULT    1 memchr
+   642: 3800243c     0 NOTYPE  GLOBAL DEFAULT    7 __bss_end__
+   643: 00001000     0 NOTYPE  GLOBAL DEFAULT  ABS __STACK_SIZE
+   644: 38000000     0 NOTYPE  GLOBAL DEFAULT  ABS __RAM_BASE
+   645: 1000358d   152 FUNC    GLOBAL DEFAULT    1 _free_r
+   646: 100029a5    88 FUNC    GLOBAL DEFAULT    1 _tx_timer_system[...]
+   647: 10004bdd    18 FUNC    GLOBAL HIDDEN     1 __aeabi_dcmpge
+   648: 380011f0     4 OBJECT  GLOBAL DEFAULT    7 _tx_thread_perfo[...]
+   649: 10004361   634 FUNC    GLOBAL HIDDEN     1 __aeabi_dsub
+   650: 10002fd1     2 FUNC    WEAK   DEFAULT    1 Interrupt9_Handler
+   651: 10004665   106 FUNC    GLOBAL HIDDEN     1 __floatundidf
+   652: 100032b1   124 FUNC    GLOBAL DEFAULT    1 rand
+   653: 10002f79     4 FUNC    GLOBAL DEFAULT    1 _lseek
+   654: 10005bf9   714 FUNC    GLOBAL HIDDEN     1 __gnu_unwind_execute
+   655: 380012a4     4 OBJECT  GLOBAL DEFAULT    7 _tx_timer_expire[...]
+   656: 10005a1d     0 FUNC    GLOBAL HIDDEN     1 __gnu_Unwind_Res[...]
+   657: 380011ec     4 OBJECT  GLOBAL DEFAULT    7 _tx_thread_perfo[...]
+   658: 10001c7d   232 FUNC    GLOBAL DEFAULT    1 _tx_byte_pool_search
+   659: 10001fdd   140 FUNC    GLOBAL DEFAULT    1 _tx_thread_stack[...]
+   660: 3800120c     4 OBJECT  GLOBAL DEFAULT    7 _tx_thread_preem[...]
+   661: 10003041     0 FUNC    GLOBAL DEFAULT    1 __tx_IntHandler
+   662: 100052f1    68 FUNC    GLOBAL HIDDEN     1 __gnu_Unwind_Resume
+   663: 3800132c     4 OBJECT  GLOBAL DEFAULT    7 _tx_timer_list_start
+   664: 10002fd1     2 FUNC    WEAK   DEFAULT    1 Interrupt6_Handler
+   665: 10003f89    32 FUNC    GLOBAL DEFAULT    1 _close_r
+   666: 100045fd    34 FUNC    GLOBAL HIDDEN     1 __aeabi_i2d
+   667: 380011b8     4 OBJECT  GLOBAL DEFAULT    7 _tx_thread_curre[...]
+   668: 10005a2d     0 FUNC    GLOBAL HIDDEN     1 __gnu_Unwind_Res[...]
+   669: 10003e9d   220 FUNC    GLOBAL DEFAULT    1 __swsetup_r
+   670: 10005aed    34 FUNC    GLOBAL HIDDEN     1 _Unwind_RaiseExc[...]
+   671: 10005f15     2 FUNC    WEAK   HIDDEN     1 __aeabi_ldiv0
+   672: 10004925   464 FUNC    GLOBAL HIDDEN     1 __divdf3
+   673: 10003489   140 FUNC    GLOBAL DEFAULT    1 __sfp
+   674: 38001340     4 OBJECT  GLOBAL DEFAULT    7 _tx_timer_stack_size
+   675: 1000340d    12 FUNC    GLOBAL DEFAULT    1 __sinit_lock_release
+   676: 100046d1   596 FUNC    GLOBAL HIDDEN     1 __muldf3
+   677: 38100000     0 NOTYPE  GLOBAL DEFAULT    7 __RAM_segment_us[...]
+   678: 10003d4d    34 FUNC    GLOBAL DEFAULT    1 __sread
+   679: 10002a2d   444 FUNC    GLOBAL DEFAULT    1 _tx_timer_thread[...]
+   680: 10004251    12 FUNC    GLOBAL DEFAULT    1 __malloc_lock
+   681: 100040b1   120 FUNC    GLOBAL DEFAULT    1 _fflush_r
+   682: 100060e4    32 OBJECT  GLOBAL DEFAULT    1 __sf_fake_stdin
+   683: 38001424  4096 OBJECT  GLOBAL DEFAULT    7 _tx_timer_thread[...]
+   684: 10003579     2 FUNC    GLOBAL DEFAULT    1 __retarget_lock_[...]
+   685: 100032a1    16 FUNC    GLOBAL DEFAULT    1 memset
+   686: 10002fd1     2 FUNC    WEAK   DEFAULT    1 MemManage_Handler
+   687: 10000891    40 FUNC    GLOBAL DEFAULT    1 main
+   688: 10003577     2 FUNC    GLOBAL DEFAULT    1 __retarget_lock_[...]
+   689: 1000309d     0 FUNC    GLOBAL DEFAULT    1 __tx_DBGHandler
+   690: 10002be9    40 FUNC    GLOBAL DEFAULT    1 _txe_block_release
+   691: 10002fd1     2 FUNC    WEAK   DEFAULT    1 SVC_Handler
+   692: 10003dcb     8 FUNC    GLOBAL DEFAULT    1 __sclose
+   693: 10003665   232 FUNC    GLOBAL DEFAULT    1 _malloc_r
+   694: 10004675    90 FUNC    GLOBAL HIDDEN     1 __aeabi_l2d
+   695: 38001344     4 OBJECT  GLOBAL DEFAULT    7 _tx_timer_stack_start
+   696: 10001f05    32 FUNC    GLOBAL DEFAULT    1 _tx_thread_initialize
+   697: 38002440     0 NOTYPE  GLOBAL DEFAULT    8 __end__
+   698: 1000303d     0 FUNC    GLOBAL DEFAULT    1 __tx_BadHandler
+   699: 100052dd    18 FUNC    GLOBAL HIDDEN     1 __gnu_Unwind_For[...]
+   700: 10006240     0 NOTYPE  GLOBAL DEFAULT    5 __zero_table_start__
+   701: 1000215d   808 FUNC    GLOBAL DEFAULT    1 _tx_thread_syste[...]
+   702: 380011f4     4 OBJECT  GLOBAL DEFAULT    7 _tx_thread_perfo[...]
+   703: 100008b9    44 FUNC    GLOBAL DEFAULT    1 SystemInit
+   704: 10005335    18 FUNC    GLOBAL HIDDEN     1 __gnu_Unwind_Res[...]
+   705: 10004b05   122 FUNC    GLOBAL HIDDEN     1 __nedf2
+   706: 10005f25     0 FUNC    GLOBAL DEFAULT    1 _fini
+   707: 100059f5    24 FUNC    GLOBAL HIDDEN     1 restore_core_regs
+   708: 380ff000     0 NOTYPE  GLOBAL DEFAULT    9 _sstack
+   709: 10005ad9     0 FUNC    GLOBAL HIDDEN     1 __gnu_Unwind_Sav[...]
+   710: 10003e79    36 FUNC    GLOBAL DEFAULT    1 _write_r
+   711: 10002745   380 FUNC    GLOBAL DEFAULT    1 _tx_thread_time_slice
+   712: 38100000     0 NOTYPE  GLOBAL DEFAULT    9 __StackTop
+   713: 10003a01   224 FUNC    GLOBAL DEFAULT    1 _printf_common
+   714: 38000008     4 OBJECT  GLOBAL DEFAULT    6 _impure_ptr
+   715: 10002c11   148 FUNC    GLOBAL DEFAULT    1 _txe_byte_allocate
+   716: 10003fa9   264 FUNC    GLOBAL DEFAULT    1 __sflush_r
+   717: 10002d79   328 FUNC    GLOBAL DEFAULT    1 _txe_thread_create
+   718: 380011bc     4 OBJECT  GLOBAL DEFAULT    7 _tx_thread_execu[...]
+   719: 10005f01    18 FUNC    GLOBAL HIDDEN     1 _Unwind_GetLangu[...]
+   720: 10001f25    68 FUNC    GLOBAL DEFAULT    1 _tx_thread_shell[...]
+   721: 10004c55    64 FUNC    GLOBAL HIDDEN     1 __aeabi_d2uiz
+   722: 10005359    52 FUNC    GLOBAL HIDDEN     1 _Unwind_VRS_Get
+   723: 1000414d    74 FUNC    GLOBAL DEFAULT    1 __swhatbuf_r
+   724: 38100000     0 NOTYPE  GLOBAL DEFAULT    9 _estack
+   725: 100007c0     0 NOTYPE  GLOBAL DEFAULT    1 __Vectors_End
+   726: 38100000     0 NOTYPE  GLOBAL DEFAULT    9 __stack
+   727: 10005ac5     0 FUNC    GLOBAL HIDDEN     1 __gnu_Unwind_Res[...]
+   728: 10004ba1    18 FUNC    GLOBAL HIDDEN     1 __aeabi_dcmpeq
+   729: 10002fd1     2 FUNC    WEAK   DEFAULT    1 Interrupt1_Handler
+   730: 10002f49    28 FUNC    WEAK   DEFAULT    1 _write
+   731: 10005ec5    48 FUNC    GLOBAL HIDDEN     1 __gnu_unwind_frame
+   732: 100031dd     0 FUNC    GLOBAL DEFAULT    1 _tx_timer_interrupt
+   733: 10005b59    34 FUNC    GLOBAL HIDDEN     1 _Unwind_ForcedUnwind
+   734: 38001338     4 OBJECT  GLOBAL DEFAULT    7 _tx_timer_perfor[...]
+   735: 38100000     0 NOTYPE  GLOBAL DEFAULT    7 _end
+   736: 380011ac     4 OBJECT  GLOBAL DEFAULT    7 _tx_thread_appli[...]
+   737: 380011c0     4 OBJECT  GLOBAL DEFAULT    7 _tx_thread_highe[...]
+   738: 380011fc     4 OBJECT  GLOBAL DEFAULT    7 _tx_thread_perfo[...]
+   739: 10003099     0 FUNC    GLOBAL DEFAULT    1 __tx_NMIHandler
+   740: 380ff000     0 NOTYPE  GLOBAL DEFAULT    9 __StackLimit
+   741: 380012a0     4 OBJECT  GLOBAL DEFAULT    7 _tx_timer_expire[...]
+   742: 10003d6f    56 FUNC    GLOBAL DEFAULT    1 __swrite
+   743: 10003515    36 FUNC    GLOBAL DEFAULT    1 fiprintf
+   744: 100037a1   608 FUNC    GLOBAL DEFAULT    1 _vfiprintf_r
+   745: 38001334     4 OBJECT  GLOBAL DEFAULT    7 _tx_timer_perfor[...]
+   746: 10003539    62 FUNC    GLOBAL DEFAULT    1 _fwalk_reent
+   747: 10004c05    78 FUNC    GLOBAL HIDDEN     1 __aeabi_d2iz
+   748: 10005a81     0 FUNC    GLOBAL HIDDEN     1 __gnu_Unwind_Sav[...]
+   749: 10002f0d    16 FUNC    GLOBAL DEFAULT    1 _kill
+   750: 100033f5    12 FUNC    GLOBAL DEFAULT    1 __sfp_lock_release
+   751: 10006104    32 OBJECT  GLOBAL DEFAULT    1 __sf_fake_stdout
+   752: 38001348     4 OBJECT  GLOBAL DEFAULT    7 _tx_timer_system[...]
+   753: 10000000     0 NOTYPE  GLOBAL DEFAULT  ABS __ROM_BASE
+   754: 10002f29    32 FUNC    WEAK   DEFAULT    1 _read
+   755: 10005f15     2 FUNC    WEAK   HIDDEN     1 __aeabi_idiv0
+   756: 10002f1d    12 FUNC    GLOBAL DEFAULT    1 _exit
+   757: 10006240     0 NOTYPE  GLOBAL DEFAULT    4 __copy_table_end__
+   758: 100030cd     0 FUNC    GLOBAL DEFAULT    1 _tx_thread_schedule
+   759: 10002fd1     2 FUNC    WEAK   DEFAULT    1 BusFault_Handler
+   760: 10004199   128 FUNC    GLOBAL DEFAULT    1 __smakebuf_r
+   761: 10000000     0 NOTYPE  GLOBAL DEFAULT    1 _stext
+   762: 10003ae1   588 FUNC    GLOBAL DEFAULT    1 _printf_i
+   763: 10005739     4 FUNC    WEAK   HIDDEN     1 __aeabi_unwind_c[...]
+   764: 10004b91    16 FUNC    GLOBAL HIDDEN     1 __aeabi_cdcmpeq
+   765: 10004af5   138 FUNC    GLOBAL HIDDEN     1 __gedf2
+   766: 38001208     4 OBJECT  GLOBAL DEFAULT    7 _tx_thread_perfo[...]
+   767: 38002434     4 OBJECT  GLOBAL DEFAULT    7 __malloc_sbrk_start
+   768: 00100000     0 NOTYPE  GLOBAL DEFAULT  ABS __RAM_SIZE
+   769: 38001200     4 OBJECT  GLOBAL DEFAULT    7 _tx_thread_perfo[...]
+   770: 10004621    66 FUNC    GLOBAL HIDDEN     1 __aeabi_f2d
+   771: 38002430     4 OBJECT  GLOBAL DEFAULT    7 __malloc_free_list
+   772: 10004361   634 FUNC    GLOBAL HIDDEN     1 __subdf3
+   773: 100037a1   608 FUNC    GLOBAL DEFAULT    1 _vfprintf_r
+   774: 10002fed     0 FUNC    GLOBAL DEFAULT    1 _tx_initialize_l[...]
+   775: 38001204     4 OBJECT  GLOBAL DEFAULT    7 _tx_thread_perfo[...]
+   776: 10001a61    20 FUNC    GLOBAL DEFAULT    1 put_char
+   777: 3800242d     1 OBJECT  GLOBAL DEFAULT    7 __lock___sfp_rec[...]
+   778: 380011c8     4 OBJECT  GLOBAL DEFAULT    7 _tx_thread_perfo[...]
+   779: 100042dd    16 FUNC    GLOBAL DEFAULT    1 raise
+   780: 10002f65     6 FUNC    GLOBAL DEFAULT    1 _close
+   781: 10003401    12 FUNC    GLOBAL DEFAULT    1 __sinit_lock_acquire
+   782: 1000081d   116 FUNC    GLOBAL DEFAULT    1 tx_application_define
+   783: 3800119c     4 OBJECT  GLOBAL DEFAULT    7 _tx_byte_pool_cr[...]
 
 No version information found in this file.
 Attribute Section: aeabi

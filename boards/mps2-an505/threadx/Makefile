@@ -125,7 +125,7 @@ $(wildcard ../../../librtos/threadx/ports/cortex_m33/iar/src/*.s)
 endif
 ifeq ($(tool), mdk)
 ASM_SOURCES = \
-./startup/mdk/startup_ARMCM33.s 
+
 endif
 
 
@@ -143,6 +143,7 @@ endif
 ifeq ($(tool), mdk)
 ASMM_EXCLUDE = ../../../librtos/threadx/ports/cortex_m33/ac6/src/tx_initialize_low_level.S
 ASMM_SOURCES = \
+./startup/mdk/startup_ARMCM33.S \
 ./startup/mdk/tx_initialize_low_level.S \
 $(wildcard ../../../librtos/threadx/ports/cortex_m33/ac6/src/*.S)
 ASMM_SOURCES := $(filter-out $(ASMM_EXCLUDE), $(ASMM_SOURCES))
@@ -193,7 +194,7 @@ PREFIX =
 LIBFIX = 
 endif
 CC = $(PREFIX)armclang
-AS = $(PREFIX)armasm
+AS = $(PREFIX)armclang
 LK = $(PREFIX)armlink
 FF = $(PREFIX)fromelf
 OB = $(PREFIX)fromelf
@@ -435,9 +436,9 @@ ifeq ($(tool), mdk)
 $(BUILD_DIR)/%.o: %.c Makefile | $(BUILD_DIR) 
 	$(CC) -c $(CFLAGS) $< -o $@
 $(BUILD_DIR)/%.o: %.s Makefile | $(BUILD_DIR)
-	$(AS) $(ASFLAGS) $< -o $@
+	$(AS) -c $(CFLAGS) $< -o $@
 $(BUILD_DIR)/%.o: %.S Makefile | $(BUILD_DIR)
-	$(AS) $(ASFLAGS) $< -o $@
+	$(AS) -c $(CFLAGS) $< -o $@
 $(BUILD_DIR)/$(TARGET).axf: $(OBJECTS) Makefile
 	$(LK) $(OBJECTS) $(LDFLAGS) -o $@
 	$(OB) --text -a -c -d $@ -o $(BUILD_DIR)/objdump.txt
