@@ -156,15 +156,17 @@
    define is negated, thereby forcing the stack fill which is necessary for the stack checking
    logic.  */
 
-/*
+#ifndef TX_ENABLE_STACK_CHECKING
 #define TX_ENABLE_STACK_CHECKING
-*/
+#endif
 
 /* Determine if random number is used for stack filling. By default, ThreadX uses a fixed
    pattern for stack filling. When the following is defined, ThreadX uses a random number
    for stack filling. This is effective only when TX_ENABLE_STACK_CHECKING is defined.  */ 
 
+/*
 #define TX_ENABLE_RANDOM_NUMBER_STACK_FILLING
+*/
 
 /* Determine if preemption-threshold should be disabled. By default, preemption-threshold is
    enabled. If the application does not use preemption-threshold, it may be disabled to reduce
