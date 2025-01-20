@@ -23,7 +23,7 @@
 #include "tx_user.h"
 #endif
 
-SYSTEM_CLOCK        =     168000000
+SYSTEM_CLOCK        =     1000000
 SYSTICK_CYCLES      =     ((SYSTEM_CLOCK / 1000) -1)
 
 /* Setup the stack and heap areas.  */
